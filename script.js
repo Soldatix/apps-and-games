@@ -1,403 +1,154 @@
-/* =====================================================
-   APPS & GAMES
-   Application catalog and functions
-===================================================== */
-
-
-/* =====================================================
-   APPLICATION CATALOG
-===================================================== */
-
 const apps = [
-
     {
         category: "utility",
-
+        badge: "UTILITY",
         name: "Digital Clock",
-
-        description:
-            "A multifunctional online digital clock with alarms, stopwatch, timer and world clock.",
-
-        icon: "🕐",
-
-        button:
-            "OPEN APP →",
-
-        url:
-            "https://soldatix.github.io/Digital-Clock/"
+        description: "A multifunctional online digital clock with large display, clean design and useful everyday functionality.",
+        image: "assets/images/digital-clock.png",
+        button: "OPEN APP →",
+        url: "https://soldatix.github.io/Digital-Clock/",
+        tags: ["Clock", "Utility", "Online"],
+        status: "LIVE"
     },
-
-
     {
         category: "game",
-
+        badge: "GAME",
         name: "Tetris",
-
-        description:
-            "Classic Tetris browser game. Play instantly without installing anything.",
-
-        icon: "🧱",
-
-        button:
-            "PLAY GAME →",
-
-        url:
-            "https://tetris.elvis-soldatic.workers.dev/"
+        description: "Modern Tetris browser game with stylish neon interface, smooth gameplay and instant play in your browser.",
+        image: "assets/images/tetris.png",
+        button: "PLAY GAME →",
+        url: "https://tetris.elvis-soldatic.workers.dev/",
+        tags: ["Arcade", "Puzzle", "Browser"],
+        status: "LIVE"
     }
-
 ];
 
 
-/* =====================================================
-   RENDER APPLICATIONS
-===================================================== */
-
 function renderApps() {
-
-
-    const utilitiesGrid =
-        document.getElementById(
-            "utilitiesGrid"
-        );
-
-
-    const gamesGrid =
-        document.getElementById(
-            "gamesGrid"
-        );
-
+    const utilitiesGrid = document.getElementById("utilitiesGrid");
+    const gamesGrid = document.getElementById("gamesGrid");
 
     utilitiesGrid.innerHTML = "";
-
     gamesGrid.innerHTML = "";
 
-
     apps.forEach(app => {
+        const card = document.createElement("article");
+        card.className = "app-card";
 
-
-        const card =
-            document.createElement(
-                "article"
-            );
-
-
-        card.className =
-            "app-card";
-
+        const tagsHTML = app.tags
+            .map(tag => `<span class="meta-pill">${tag}</span>`)
+            .join("");
 
         card.innerHTML = `
-
-            <div class="app-icon">
-                ${app.icon}
+            <div class="app-image-wrap">
+                <img src="${app.image}" alt="${app.name}" class="app-image">
+                <span class="app-badge ${app.category}">${app.badge}</span>
             </div>
 
-            <h3>
-                ${app.name}
-            </h3>
+            <div class="app-content">
+                <div class="app-title-row">
+                    <h3>${app.name}</h3>
+                    <span class="app-status">${app.status}</span>
+                </div>
 
-            <p>
-                ${app.description}
-            </p>
+                <p class="app-description">${app.description}</p>
 
-            <a
-                class="app-button"
-                href="${app.url}"
-                target="_blank"
-                rel="noopener noreferrer">
+                <div class="app-meta">
+                    ${tagsHTML}
+                </div>
 
-                ${app.button}
-
-            </a>
-
+                <a class="app-button"
+                   href="${app.url}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ${app.button}
+                </a>
+            </div>
         `;
 
-
-        if (
-            app.category ===
-            "utility"
-        ) {
-
-            utilitiesGrid.appendChild(
-                card
-            );
-
+        if (app.category === "utility") {
+            utilitiesGrid.appendChild(card);
         }
 
-
-        if (
-            app.category ===
-            "game"
-        ) {
-
-            gamesGrid.appendChild(
-                card
-            );
-
+        if (app.category === "game") {
+            gamesGrid.appendChild(card);
         }
-
     });
-
 }
 
 
-/* =====================================================
-   DARK / LIGHT MODE
-===================================================== */
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("theme");
 
-const themeToggle =
-    document.getElementById(
-        "themeToggle"
-    );
-
-
-const savedTheme =
-    localStorage.getItem(
-        "theme"
-    );
-
-
-if (
-    savedTheme ===
-    "dark"
-) {
-
-    document.documentElement
-        .setAttribute(
-            "data-theme",
-            "dark"
-        );
-
-
-    themeToggle.textContent =
-        "☀️";
-
+if (savedTheme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+    themeToggle.textContent = "🌙";
+} else {
+    themeToggle.textContent = "☀️";
 }
 
+themeToggle.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
 
-/* =====================================================
-   THEME BUTTON
-===================================================== */
-
-themeToggle.addEventListener(
-    "click",
-    () => {
-
-
-        const dark =
-            document.documentElement
-                .getAttribute(
-                    "data-theme"
-                ) ===
-            "dark";
-
-
-        if (dark) {
-
-
-            document.documentElement
-                .removeAttribute(
-                    "data-theme"
-                );
-
-
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
-
-
-            themeToggle.textContent =
-                "🌙";
-
-
-        } else {
-
-
-            document.documentElement
-                .setAttribute(
-                    "data-theme",
-                    "dark"
-                );
-
-
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
-
-
-            themeToggle.textContent =
-                "☀️";
-
-        }
-
+    if (isLight) {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️";
+    } else {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙";
     }
-);
+});
 
 
-/* =====================================================
-   COPY CRYPTO ADDRESSES
-===================================================== */
+document.querySelectorAll(".copy-button").forEach(button => {
+    button.addEventListener("click", async () => {
+        const value = button.dataset.copy;
 
-document
-    .querySelectorAll(
-        ".copy-button"
-    )
-    .forEach(button => {
-
-
-        button.addEventListener(
-            "click",
-            async () => {
-
-
-                const address =
-                    button.dataset.copy;
-
-
-                try {
-
-
-                    await navigator
-                        .clipboard
-                        .writeText(
-                            address
-                        );
-
-
-                    showCopied(
-                        button
-                    );
-
-
-                } catch (error) {
-
-
-                    copyFallback(
-                        address,
-                        button
-                    );
-
-                }
-
-            }
-        );
-
+        try {
+            await navigator.clipboard.writeText(value);
+            showCopied(button);
+        } catch (error) {
+            fallbackCopy(value, button);
+        }
     });
+});
 
-
-/* =====================================================
-   SHOW COPIED
-===================================================== */
 
 function showCopied(button) {
+    const oldText = button.textContent;
+    button.textContent = "Copied!";
+    button.classList.add("copied");
 
-
-    const originalText =
-        button.textContent;
-
-
-    button.textContent =
-        "Copied!";
-
-
-    button.classList.add(
-        "copied"
-    );
-
-
-    setTimeout(
-        () => {
-
-            button.textContent =
-                originalText;
-
-            button.classList.remove(
-                "copied"
-            );
-
-        },
-        1800
-    );
-
+    setTimeout(() => {
+        button.textContent = oldText;
+        button.classList.remove("copied");
+    }, 1700);
 }
 
 
-/* =====================================================
-   CLIPBOARD FALLBACK
-===================================================== */
+function fallbackCopy(text, button) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
 
-function copyFallback(
-    text,
-    button
-) {
-
-
-    const textArea =
-        document.createElement(
-            "textarea"
-        );
-
-
-    textArea.value =
-        text;
-
-
-    textArea.style.position =
-        "fixed";
-
-
-    textArea.style.opacity =
-        "0";
-
-
-    document.body.appendChild(
-        textArea
-    );
-
-
-    textArea.focus();
-
-    textArea.select();
-
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
 
     try {
-
-        document.execCommand(
-            "copy"
-        );
-
-        showCopied(
-            button
-        );
-
+        document.execCommand("copy");
+        showCopied(button);
     } catch (error) {
-
-        button.textContent =
-            "Copy failed";
-
+        button.textContent = "Copy failed";
     }
 
-
-    document.body.removeChild(
-        textArea
-    );
-
+    document.body.removeChild(textarea);
 }
 
 
-/* =====================================================
-   FOOTER YEAR
-===================================================== */
-
-document.getElementById(
-    "currentYear"
-).textContent =
-    new Date().getFullYear();
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
+document.getElementById("currentYear").textContent = new Date().getFullYear();
 
 renderApps();
