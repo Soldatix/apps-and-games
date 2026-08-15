@@ -54,6 +54,7 @@ html {
 
 body {
     margin: 0;
+
     font-family:
         Inter,
         system-ui,
@@ -160,6 +161,7 @@ a {
 
 .main-nav a {
     padding: 8px 12px;
+
     border-radius: 12px;
 
     color: var(--text-secondary);
@@ -185,6 +187,7 @@ a {
     color: var(--text);
 
     cursor: pointer;
+
     font-size: 1.1rem;
 
     transition: 0.2s ease;
@@ -192,6 +195,7 @@ a {
 
 .theme-toggle:hover {
     transform: translateY(-1px);
+
     background: var(--surface-2);
 }
 
@@ -206,7 +210,9 @@ a {
 
 .hero-content {
     max-width: 900px;
+
     margin: auto;
+
     text-align: center;
 }
 
@@ -226,7 +232,9 @@ a {
     color: var(--primary);
 
     font-size: 0.82rem;
+
     font-weight: 800;
+
     letter-spacing: 0.08em;
 
     margin-bottom: 20px;
@@ -266,6 +274,7 @@ a {
 
 .hero-buttons {
     display: flex;
+
     justify-content: center;
 
     gap: 14px;
@@ -432,8 +441,7 @@ a {
         rgba(34, 199, 255, 0.45);
 
     box-shadow:
-        0 20px 45px
-        rgba(0, 0, 0, 0.28);
+        0 20px 45px rgba(0, 0, 0, 0.28);
 }
 
 
@@ -443,6 +451,8 @@ a {
 
 .app-image-wrap {
     position: relative;
+
+    width: 100%;
 
     aspect-ratio: 16 / 9;
 
@@ -455,9 +465,11 @@ a {
     width: 100%;
     height: 100%;
 
+    display: block;
+
     object-fit: cover;
 
-    display: block;
+    object-position: center;
 
     transition:
         transform 0.35s ease;
@@ -478,6 +490,7 @@ a {
     border-radius: 999px;
 
     font-size: 0.72rem;
+
     font-weight: 800;
 
     letter-spacing: 0.08em;
@@ -490,8 +503,7 @@ a {
         rgba(0, 0, 0, 0.35);
 
     border:
-        1px solid
-        rgba(255, 255, 255, 0.18);
+        1px solid rgba(255, 255, 255, 0.18);
 }
 
 .app-badge.utility {
@@ -811,8 +823,7 @@ a {
 
     padding: 13px 15px;
 
-    background:
-        var(--surface-2);
+    background: var(--surface-2);
 
     border:
         1px solid var(--border);
@@ -852,8 +863,7 @@ a {
     border:
         1px solid var(--border);
 
-    background:
-        var(--surface-3);
+    background: var(--surface-3);
 
     color: var(--text);
 
@@ -900,8 +910,7 @@ a {
 }
 
 .footer-content {
-    max-width:
-        var(--max-width);
+    max-width: var(--max-width);
 
     margin: auto;
 
@@ -915,8 +924,7 @@ a {
 
     align-items: center;
 
-    color:
-        var(--text-secondary);
+    color: var(--text-secondary);
 
     font-size: 0.94rem;
 }
