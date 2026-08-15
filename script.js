@@ -1,29 +1,63 @@
+/* =====================================================
+   APPS & GAMES
+===================================================== */
+
+
 const apps = [
+
     {
         category: "utility",
+
         badge: "UTILITY",
+
         name: "Digital Clock",
+
         description:
             "A multifunctional online digital clock with large display, clean design and useful everyday functionality.",
-        image: "assets/images/digital-clock.png",
-        button: "OPEN APP →",
-        url: "https://soldatix.github.io/Digital-Clock/",
-        tags: ["Clock", "Utility", "Online"],
-        status: "LIVE"
+
+        image:
+            "assets/images/digital-clock.png",
+
+        button:
+            "OPEN APP →",
+
+        url:
+            "https://soldatix.github.io/Digital-Clock/",
+
+        tags:
+            ["Clock", "Utility", "Online"],
+
+        status:
+            "LIVE"
     },
+
 
     {
         category: "game",
+
         badge: "GAME",
+
         name: "Tetris",
+
         description:
             "Modern Tetris browser game with stylish neon interface, smooth gameplay and instant play in your browser.",
-        image: "assets/images/tetris.png",
-        button: "PLAY GAME →",
-        url: "https://tetris.elvis-soldatic.workers.dev/",
-        tags: ["Arcade", "Puzzle", "Browser"],
-        status: "LIVE"
+
+        image:
+            "assets/images/tetris.png",
+
+        button:
+            "PLAY GAME →",
+
+        url:
+            "https://tetris.elvis-soldatic.workers.dev/",
+
+        tags:
+            ["Arcade", "Puzzle", "Browser"],
+
+        status:
+            "LIVE"
     }
+
 ];
 
 
@@ -31,32 +65,47 @@ const apps = [
    RENDER APPS
 ===================================================== */
 
+
 function renderApps() {
 
     const utilitiesGrid =
-        document.getElementById("utilitiesGrid");
+        document.getElementById(
+            "utilitiesGrid"
+        );
 
     const gamesGrid =
-        document.getElementById("gamesGrid");
+        document.getElementById(
+            "gamesGrid"
+        );
+
 
     utilitiesGrid.innerHTML = "";
+
     gamesGrid.innerHTML = "";
+
 
     apps.forEach(app => {
 
         const card =
-            document.createElement("article");
+            document.createElement(
+                "article"
+            );
 
-        card.className = "app-card";
+        card.className =
+            "app-card";
+
 
         const tagsHTML =
             app.tags
-                .map(tag =>
-                    `<span class="meta-pill">${tag}</span>`
+                .map(
+                    tag =>
+                        `<span class="meta-pill">${tag}</span>`
                 )
                 .join("");
 
+
         card.innerHTML = `
+
             <div class="app-image-wrap">
 
                 <img
@@ -71,7 +120,9 @@ function renderApps() {
 
             </div>
 
+
             <div class="app-content">
+
 
                 <div class="app-title-row">
 
@@ -85,32 +136,54 @@ function renderApps() {
 
                 </div>
 
+
                 <p class="app-description">
                     ${app.description}
                 </p>
+
 
                 <div class="app-meta">
                     ${tagsHTML}
                 </div>
 
+
                 <a
                     class="app-button"
                     href="${app.url}"
                     target="_blank"
-                    rel="noopener noreferrer"
-                >
+                    rel="noopener noreferrer">
+
                     ${app.button}
+
                 </a>
 
+
             </div>
+
         `;
 
-        if (app.category === "utility") {
-            utilitiesGrid.appendChild(card);
+
+        if (
+            app.category ===
+            "utility"
+        ) {
+
+            utilitiesGrid.appendChild(
+                card
+            );
+
         }
 
-        if (app.category === "game") {
-            gamesGrid.appendChild(card);
+
+        if (
+            app.category ===
+            "game"
+        ) {
+
+            gamesGrid.appendChild(
+                card
+            );
+
         }
 
     });
@@ -119,19 +192,22 @@ function renderApps() {
 
 
 /* =====================================================
-   DARK / LIGHT MODE
+   THEME
 ===================================================== */
 
+
 const themeToggle =
-    document.getElementById("themeToggle");
+    document.getElementById(
+        "themeToggle"
+    );
 
-const savedTheme =
-    localStorage.getItem("theme");
 
+function applyTheme(theme) {
 
-function setTheme(theme) {
-
-    if (theme === "light") {
+    if (
+        theme ===
+        "light"
+    ) {
 
         document.documentElement
             .setAttribute(
@@ -139,7 +215,8 @@ function setTheme(theme) {
                 "light"
             );
 
-        themeToggle.textContent = "🌙";
+        themeToggle.textContent =
+            "🌙";
 
     } else {
 
@@ -148,20 +225,34 @@ function setTheme(theme) {
                 "data-theme"
             );
 
-        themeToggle.textContent = "☀️";
+        themeToggle.textContent =
+            "☀️";
 
     }
 
 }
 
 
-if (savedTheme === "light") {
+const savedTheme =
+    localStorage.getItem(
+        "theme"
+    );
 
-    setTheme("light");
+
+if (
+    savedTheme ===
+    "light"
+) {
+
+    applyTheme(
+        "light"
+    );
 
 } else {
 
-    setTheme("dark");
+    applyTheme(
+        "dark"
+    );
 
 }
 
@@ -170,14 +261,21 @@ themeToggle.addEventListener(
     "click",
     () => {
 
-        const isLight =
+        const currentTheme =
             document.documentElement
-                .getAttribute("data-theme")
-            === "light";
+                .getAttribute(
+                    "data-theme"
+                );
 
-        if (isLight) {
 
-            setTheme("dark");
+        if (
+            currentTheme ===
+            "light"
+        ) {
+
+            applyTheme(
+                "dark"
+            );
 
             localStorage.setItem(
                 "theme",
@@ -186,7 +284,9 @@ themeToggle.addEventListener(
 
         } else {
 
-            setTheme("light");
+            applyTheme(
+                "light"
+            );
 
             localStorage.setItem(
                 "theme",
@@ -200,32 +300,40 @@ themeToggle.addEventListener(
 
 
 /* =====================================================
-   COPY CRYPTO ADDRESSES
+   COPY BUTTONS
 ===================================================== */
 
+
 document
-    .querySelectorAll(".copy-button")
+    .querySelectorAll(
+        ".copy-button"
+    )
     .forEach(button => {
 
         button.addEventListener(
             "click",
             async () => {
 
-                const address =
+                const value =
                     button.dataset.copy;
+
 
                 try {
 
                     await navigator
                         .clipboard
-                        .writeText(address);
+                        .writeText(
+                            value
+                        );
 
-                    showCopied(button);
+                    showCopied(
+                        button
+                    );
 
-                } catch (error) {
+                } catch {
 
                     fallbackCopy(
-                        address,
+                        value,
                         button
                     );
 
@@ -239,9 +347,6 @@ document
 
 function showCopied(button) {
 
-    const oldText =
-        button.textContent;
-
     button.textContent =
         "Copied!";
 
@@ -249,18 +354,19 @@ function showCopied(button) {
         "copied"
     );
 
+
     setTimeout(
         () => {
 
             button.textContent =
-                oldText;
+                "Copy";
 
             button.classList.remove(
                 "copied"
             );
 
         },
-        1700
+        1600
     );
 
 }
@@ -289,9 +395,8 @@ function fallbackCopy(
         textarea
     );
 
-    textarea.focus();
-
     textarea.select();
+
 
     try {
 
@@ -299,14 +404,17 @@ function fallbackCopy(
             "copy"
         );
 
-        showCopied(button);
+        showCopied(
+            button
+        );
 
-    } catch (error) {
+    } catch {
 
         button.textContent =
-            "Copy failed";
+            "Failed";
 
     }
+
 
     document.body.removeChild(
         textarea
@@ -316,24 +424,28 @@ function fallbackCopy(
 
 
 /* =====================================================
-   FOOTER YEAR
+   FOOTER
 ===================================================== */
+
 
 const currentYear =
     document.getElementById(
         "currentYear"
     );
 
+
 if (currentYear) {
 
     currentYear.textContent =
-        new Date().getFullYear();
+        new Date()
+            .getFullYear();
 
 }
 
 
 /* =====================================================
-   INITIALIZE
+   START
 ===================================================== */
+
 
 renderApps();
