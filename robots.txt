@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://apps-and-games.soldatix.workers.dev/sitemap.xml
+Sitemap: https://appsandgames.org/sitemap.xml
