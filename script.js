@@ -2,12 +2,10 @@
    APPS & GAMES
 ===================================================== */
 
-
 const apps = [
 
     {
         category: "utility",
-
         badge: "UTILITY",
 
         name: "Digital Clock",
@@ -28,13 +26,15 @@ const apps = [
             ["Clock", "Utility", "Online"],
 
         status:
-            "LIVE"
+            "LIVE",
+
+        analyticsEvent:
+            "open_app"
     },
 
 
     {
         category: "game",
-
         badge: "GAME",
 
         name: "Tetris",
@@ -55,16 +55,43 @@ const apps = [
             ["Arcade", "Puzzle", "Browser"],
 
         status:
-            "LIVE"
+            "LIVE",
+
+        analyticsEvent:
+            "play_game"
     }
 
 ];
 
 
 /* =====================================================
-   RENDER APPS
+   GOOGLE ANALYTICS EVENT HELPER
 ===================================================== */
 
+function trackEvent(
+    eventName,
+    parameters = {}
+) {
+
+    if (
+        typeof window.gtag ===
+        "function"
+    ) {
+
+        window.gtag(
+            "event",
+            eventName,
+            parameters
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER APPS
+===================================================== */
 
 function renderApps() {
 
@@ -79,9 +106,19 @@ function renderApps() {
         );
 
 
-    utilitiesGrid.innerHTML = "";
+    if (
+        !utilitiesGrid ||
+        !gamesGrid
+    ) {
+        return;
+    }
 
-    gamesGrid.innerHTML = "";
+
+    utilitiesGrid.innerHTML =
+        "";
+
+    gamesGrid.innerHTML =
+        "";
 
 
     apps.forEach(app => {
@@ -112,6 +149,7 @@ function renderApps() {
                     src="${app.image}"
                     alt="${app.name}"
                     class="app-image"
+                    loading="lazy"
                 >
 
                 <span class="app-badge ${app.category}">
@@ -122,7 +160,6 @@ function renderApps() {
 
 
             <div class="app-content">
-
 
                 <div class="app-title-row">
 
@@ -151,12 +188,12 @@ function renderApps() {
                     class="app-button"
                     href="${app.url}"
                     target="_blank"
-                    rel="noopener noreferrer">
-
+                    rel="noopener noreferrer"
+                    data-app-name="${app.name}"
+                    data-ga-event="${app.analyticsEvent}"
+                >
                     ${app.button}
-
                 </a>
-
 
             </div>
 
@@ -188,13 +225,102 @@ function renderApps() {
 
     });
 
+
+    setupAppTracking();
+
 }
+
+
+/* =====================================================
+   APP / GAME ANALYTICS
+===================================================== */
+
+function setupAppTracking() {
+
+    document
+        .querySelectorAll(
+            ".app-button[data-ga-event]"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const eventName =
+                        button.dataset.gaEvent;
+
+                    const appName =
+                        button.dataset.appName;
+
+
+                    if (
+                        eventName ===
+                        "play_game"
+                    ) {
+
+                        trackEvent(
+                            "play_game",
+                            {
+                                game_name:
+                                    appName
+                            }
+                        );
+
+                    } else {
+
+                        trackEvent(
+                            "open_app",
+                            {
+                                app_name:
+                                    appName
+                            }
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =====================================================
+   DONATION ANALYTICS
+===================================================== */
+
+document
+    .querySelectorAll(
+        "[data-ga-event='donation_paypal'], [data-ga-event='donation_stripe']"
+    )
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                trackEvent(
+                    link.dataset.gaEvent,
+                    {
+                        support_method:
+                            link.dataset.gaEvent ===
+                            "donation_paypal"
+                                ? "PayPal"
+                                : "Stripe"
+                    }
+                );
+
+            }
+        );
+
+    });
 
 
 /* =====================================================
    THEME
 ===================================================== */
-
 
 const themeToggle =
     document.getElementById(
@@ -215,8 +341,12 @@ function applyTheme(theme) {
                 "light"
             );
 
-        themeToggle.textContent =
-            "🌙";
+        if (themeToggle) {
+
+            themeToggle.textContent =
+                "🌙";
+
+        }
 
     } else {
 
@@ -225,8 +355,12 @@ function applyTheme(theme) {
                 "data-theme"
             );
 
-        themeToggle.textContent =
-            "☀️";
+        if (themeToggle) {
+
+            themeToggle.textContent =
+                "☀️";
+
+        }
 
     }
 
@@ -257,52 +391,66 @@ if (
 }
 
 
-themeToggle.addEventListener(
-    "click",
-    () => {
+if (themeToggle) {
 
-        const currentTheme =
-            document.documentElement
-                .getAttribute(
-                    "data-theme"
-                );
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            const currentTheme =
+                document.documentElement
+                    .getAttribute(
+                        "data-theme"
+                    );
 
 
-        if (
-            currentTheme ===
-            "light"
-        ) {
+            let newTheme;
+
+
+            if (
+                currentTheme ===
+                "light"
+            ) {
+
+                newTheme =
+                    "dark";
+
+            } else {
+
+                newTheme =
+                    "light";
+
+            }
+
 
             applyTheme(
-                "dark"
+                newTheme
             );
+
 
             localStorage.setItem(
                 "theme",
-                "dark"
+                newTheme
             );
 
-        } else {
 
-            applyTheme(
-                "light"
-            );
-
-            localStorage.setItem(
-                "theme",
-                "light"
+            trackEvent(
+                "theme_change",
+                {
+                    theme:
+                        newTheme
+                }
             );
 
         }
+    );
 
-    }
-);
+}
 
 
 /* =====================================================
-   COPY BUTTONS
+   COPY CRYPTO
 ===================================================== */
-
 
 document
     .querySelectorAll(
@@ -317,6 +465,10 @@ document
                 const value =
                     button.dataset.copy;
 
+                const currency =
+                    button.dataset.currency ||
+                    "unknown";
+
 
                 try {
 
@@ -326,15 +478,26 @@ document
                             value
                         );
 
+
                     showCopied(
                         button
+                    );
+
+
+                    trackEvent(
+                        "crypto_copy",
+                        {
+                            crypto_currency:
+                                currency
+                        }
                     );
 
                 } catch {
 
                     fallbackCopy(
                         value,
-                        button
+                        button,
+                        currency
                     );
 
                 }
@@ -372,15 +535,21 @@ function showCopied(button) {
 }
 
 
+/* =====================================================
+   FALLBACK COPY
+===================================================== */
+
 function fallbackCopy(
     text,
-    button
+    button,
+    currency
 ) {
 
     const textarea =
         document.createElement(
             "textarea"
         );
+
 
     textarea.value =
         text;
@@ -391,9 +560,13 @@ function fallbackCopy(
     textarea.style.opacity =
         "0";
 
+
     document.body.appendChild(
         textarea
     );
+
+
+    textarea.focus();
 
     textarea.select();
 
@@ -404,8 +577,18 @@ function fallbackCopy(
             "copy"
         );
 
+
         showCopied(
             button
+        );
+
+
+        trackEvent(
+            "crypto_copy",
+            {
+                crypto_currency:
+                    currency
+            }
         );
 
     } catch {
@@ -424,9 +607,8 @@ function fallbackCopy(
 
 
 /* =====================================================
-   FOOTER
+   FOOTER YEAR
 ===================================================== */
-
 
 const currentYear =
     document.getElementById(
@@ -444,8 +626,7 @@ if (currentYear) {
 
 
 /* =====================================================
-   START
+   INITIALIZE
 ===================================================== */
-
 
 renderApps();
