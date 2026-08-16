@@ -15,9 +15,14 @@
     <meta name="keywords"
           content="apps and games, online utilities, free online tools, browser games, digital clock, tetris">
 
-    <meta name="author" content="Soldatix">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#071128">
+    <meta name="author"
+          content="Soldatix">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="theme-color"
+          content="#071128">
 
     <meta property="og:title"
           content="Apps & Games — Free Online Utilities and Games">
@@ -28,27 +33,65 @@
     <meta property="og:type"
           content="website">
 
+
+    <!-- =====================================================
+         FAVICON / APP ICONS
+    ====================================================== -->
+
+    <link rel="icon"
+          href="assets/icons/favicon.ico">
+
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="assets/icons/favicon-32x32.png">
+
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="assets/icons/favicon-16x16.png">
+
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="assets/icons/apple-touch-icon.png">
+
+    <link rel="manifest"
+          href="site.webmanifest">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
     <link rel="stylesheet"
           href="style.css">
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="site-header">
+
     <div class="header-content">
 
+
         <a href="#top"
-           class="logo">
+           class="logo"
+           aria-label="Apps & Games Home">
 
-            <span class="logo-icon">
-                ⚡
-            </span>
-
-            <span class="logo-text">
-                Apps & Games
-            </span>
+            <img
+                src="assets/logo/apps-and-games-logo.png"
+                alt="Apps & Games"
+                class="site-logo-image">
 
         </a>
+
 
         <nav class="main-nav">
 
@@ -66,6 +109,7 @@
 
         </nav>
 
+
         <button
             id="themeToggle"
             class="theme-toggle"
@@ -75,312 +119,569 @@
 
         </button>
 
+
     </div>
+
 </header>
 
 
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main id="top">
 
-    <section class="hero">
 
-        <div class="hero-content">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-            <div class="hero-badge">
-                APPS • UTILITIES • GAMES
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <div class="hero-badge">
+            APPS • UTILITIES • GAMES
+        </div>
+
+
+        <h1>
+            Apps & Games
+        </h1>
+
+
+        <p class="hero-subtitle">
+            Free Online Utilities and Games
+        </p>
+
+
+        <p class="hero-text">
+            Discover useful browser apps and fun games in one place.
+            Fast, simple and free to use.
+        </p>
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="#utilities"
+                class="primary-button">
+
+                Explore Utilities
+
+            </a>
+
+
+            <a
+                href="#games"
+                class="secondary-button">
+
+                Play Games
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     UTILITIES
+===================================================== -->
+
+<section
+    id="utilities"
+    class="app-section">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+            🛠 UTILITIES
+        </span>
+
+
+        <h2>
+            Useful Online Tools
+        </h2>
+
+
+        <p>
+            Simple tools designed to help you in everyday tasks.
+        </p>
+
+
+    </div>
+
+
+    <div
+        id="utilitiesGrid"
+        class="apps-grid">
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     GAMES
+===================================================== -->
+
+<section
+    id="games"
+    class="app-section">
+
+
+    <div class="section-heading">
+
+
+        <span class="section-label">
+            🎮 GAMES
+        </span>
+
+
+        <h2>
+            Play Instantly
+        </h2>
+
+
+        <p>
+            Open a game and start playing directly in your browser.
+        </p>
+
+
+    </div>
+
+
+    <div
+        id="gamesGrid"
+        class="apps-grid">
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     INFO / SUPPORT
+===================================================== -->
+
+<section
+    id="info"
+    class="info-section">
+
+
+    <div class="info-card">
+
+
+        <span class="section-label">
+            ℹ INFO & SUPPORT
+        </span>
+
+
+        <h2>
+            Support the Project
+        </h2>
+
+
+        <p>
+            The application is free to use, but donations are welcome.
+        </p>
+
+
+        <p>
+            A part of the received donations will be forwarded to
+            various charitable organizations, the largest part will be
+            donated to institutions caring for children without
+            adequate parental care.
+        </p>
+
+
+        <h3>
+            You can make donations to:
+        </h3>
+
+
+
+        <!-- =================================================
+             DONATION OPTIONS
+        ================================================== -->
+
+        <div class="donation-options">
+
+
+            <!-- PAYPAL -->
+
+            <div class="donation-card">
+
+
+                <div class="donation-icon paypal-icon">
+                    P
+                </div>
+
+
+                <div class="donation-content">
+
+
+                    <h4>
+                        PayPal account
+                    </h4>
+
+
+                    <p>
+                        Support the project securely through PayPal.
+                    </p>
+
+
+                    <a
+                        href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="donation-button">
+
+                        Open PayPal ↗
+
+                    </a>
+
+
+                </div>
+
+
             </div>
 
-            <h1>
-                Apps & Games
-            </h1>
 
-            <p class="hero-subtitle">
-                Free Online Utilities and Games
-            </p>
 
-            <p class="hero-text">
-                Discover useful browser apps and fun games in one place.
-                Fast, simple and free to use.
-            </p>
+            <!-- STRIPE -->
 
-            <div class="hero-buttons">
+            <div class="donation-card">
 
-                <a href="#utilities"
-                   class="primary-button">
-                    Explore Utilities
-                </a>
 
-                <a href="#games"
-                   class="secondary-button">
-                    Play Games
-                </a>
+                <div class="donation-icon stripe-icon">
+                    $
+                </div>
+
+
+                <div class="donation-content">
+
+
+                    <h4>
+                        Card Payment (Stripe)
+                    </h4>
+
+
+                    <p>
+                        Donate securely using your credit or debit card.
+                    </p>
+
+
+                    <a
+                        href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="donation-button">
+
+                        Open Stripe ↗
+
+                    </a>
+
+
+                </div>
+
 
             </div>
 
-        </div>
-
-    </section>
-
-
-    <section id="utilities"
-             class="app-section">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                🛠 UTILITIES
-            </span>
-
-            <h2>
-                Useful Online Tools
-            </h2>
-
-            <p>
-                Simple tools designed to help you in everyday tasks.
-            </p>
 
         </div>
 
-        <div id="utilitiesGrid"
-             class="apps-grid">
-        </div>
-
-    </section>
 
 
-    <section id="games"
-             class="app-section">
+        <!-- =================================================
+             CRYPTO
+        ================================================== -->
 
-        <div class="section-heading">
+        <div class="crypto-section">
 
-            <span class="section-label">
-                🎮 GAMES
-            </span>
-
-            <h2>
-                Play Instantly
-            </h2>
-
-            <p>
-                Open a game and start playing directly in your browser.
-            </p>
-
-        </div>
-
-        <div id="gamesGrid"
-             class="apps-grid">
-        </div>
-
-    </section>
-
-
-    <section id="info"
-             class="info-section">
-
-        <div class="info-card">
-
-            <span class="section-label">
-                ℹ INFO & SUPPORT
-            </span>
-
-            <h2>
-                Support the Project
-            </h2>
-
-            <p>
-                The application is free to use, but donations are welcome.
-            </p>
-
-            <p>
-                A part of the received donations will be forwarded to various charitable organizations,
-                the largest part will be donated to institutions caring for children without adequate parental care.
-            </p>
 
             <h3>
-                You can make donations to:
+                Crypto Wallet
             </h3>
 
 
-            <div class="donation-options">
+            <p>
+                You can also support the project using cryptocurrency.
+            </p>
 
-                <div class="donation-card">
 
-                    <div class="donation-icon paypal-icon">
-                        P
+            <div class="crypto-list">
+
+
+
+                <!-- BTC -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>BTC</strong>
                     </div>
 
-                    <div class="donation-content">
+                    <code>
+                        bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc
+                    </code>
 
-                        <h4>
-                            PayPal account
-                        </h4>
+                    <button
+                        class="copy-button"
+                        data-copy="bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc">
 
-                        <p>
-                            Support the project securely through PayPal.
-                        </p>
+                        Copy
 
-                        <a
-                            href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="donation-button">
-
-                            Open PayPal ↗
-
-                        </a>
-
-                    </div>
+                    </button>
 
                 </div>
 
 
-                <div class="donation-card">
 
-                    <div class="donation-icon stripe-icon">
-                        $
+                <!-- ETH -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>ETH</strong>
                     </div>
 
-                    <div class="donation-content">
+                    <code>
+                        0xA99A52085c6725854daa46bb302041569c8bA4E3
+                    </code>
 
-                        <h4>
-                            Card Payment (Stripe)
-                        </h4>
+                    <button
+                        class="copy-button"
+                        data-copy="0xA99A52085c6725854daa46bb302041569c8bA4E3">
 
-                        <p>
-                            Donate securely using your credit or debit card.
-                        </p>
+                        Copy
 
-                        <a
-                            href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="donation-button">
-
-                            Open Stripe ↗
-
-                        </a>
-
-                    </div>
+                    </button>
 
                 </div>
+
+
+
+                <!-- XRP -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>XRP</strong>
+                    </div>
+
+                    <code>
+                        rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr
+                    </code>
+
+                    <button
+                        class="copy-button"
+                        data-copy="rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- SOL -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>SOL</strong>
+                    </div>
+
+                    <code>
+                        8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR
+                    </code>
+
+                    <button
+                        class="copy-button"
+                        data-copy="8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- DOGE -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>DOGE</strong>
+                    </div>
+
+                    <code>
+                        DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb
+                    </code>
+
+                    <button
+                        class="copy-button"
+                        data-copy="DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- XLM -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>XLM</strong>
+                    </div>
+
+                    <code>
+                        GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3
+                    </code>
+
+                    <button
+                        class="copy-button"
+                        data-copy="GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- LTC -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>LTC</strong>
+                    </div>
+
+                    <code>
+                        LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi
+                    </code>
+
+                    <button
+                        class="copy-button"
+                        data-copy="LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- RVN -->
+
+                <div class="crypto-row">
+
+                    <div class="crypto-name">
+                        <strong>RVN</strong>
+                    </div>
+
+                    <code>
+                        RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ
+                    </code>
+
+                    <button
+                        class="copy-button"
+                        data-copy="RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ">
+
+                        Copy
+
+                    </button>
+
+                </div>
+
 
             </div>
 
-
-            <div class="crypto-section">
-
-                <h3>
-                    Crypto Wallet
-                </h3>
-
-                <p>
-                    You can also support the project using cryptocurrency.
-                </p>
-
-                <div class="crypto-list">
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>BTC</strong></div>
-                        <code>bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc</code>
-                        <button class="copy-button"
-                                data-copy="bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc">
-                            Copy
-                        </button>
-                    </div>
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>ETH</strong></div>
-                        <code>0xA99A52085c6725854daa46bb302041569c8bA4E3</code>
-                        <button class="copy-button"
-                                data-copy="0xA99A52085c6725854daa46bb302041569c8bA4E3">
-                            Copy
-                        </button>
-                    </div>
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>XRP</strong></div>
-                        <code>rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr</code>
-                        <button class="copy-button"
-                                data-copy="rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr">
-                            Copy
-                        </button>
-                    </div>
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>SOL</strong></div>
-                        <code>8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR</code>
-                        <button class="copy-button"
-                                data-copy="8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR">
-                            Copy
-                        </button>
-                    </div>
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>DOGE</strong></div>
-                        <code>DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb</code>
-                        <button class="copy-button"
-                                data-copy="DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb">
-                            Copy
-                        </button>
-                    </div>
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>XLM</strong></div>
-                        <code>GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3</code>
-                        <button class="copy-button"
-                                data-copy="GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3">
-                            Copy
-                        </button>
-                    </div>
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>LTC</strong></div>
-                        <code>LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi</code>
-                        <button class="copy-button"
-                                data-copy="LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi">
-                            Copy
-                        </button>
-                    </div>
-
-                    <div class="crypto-row">
-                        <div class="crypto-name"><strong>RVN</strong></div>
-                        <code>RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ</code>
-                        <button class="copy-button"
-                                data-copy="RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ">
-                            Copy
-                        </button>
-                    </div>
-
-                </div>
-
-            </div>
 
         </div>
 
-    </section>
+
+    </div>
+
+
+</section>
+
 
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer class="site-footer">
+
 
     <div class="footer-content">
 
+
         <div>
-            © <span id="currentYear"></span> Apps & Games
+
+            ©
+            <span id="currentYear"></span>
+            Apps & Games
+
         </div>
+
 
         <div class="footer-links">
-            <a href="#utilities">Utilities</a>
-            <a href="#games">Games</a>
-            <a href="#info">Support</a>
+
+            <a href="#utilities">
+                Utilities
+            </a>
+
+            <a href="#games">
+                Games
+            </a>
+
+            <a href="#info">
+                Support
+            </a>
+
         </div>
 
+
     </div>
+
 
 </footer>
 
 
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
