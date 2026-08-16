@@ -49,7 +49,7 @@ const apps = [
             "PLAY GAME →",
 
         url:
-            "https://tetris.elvis-soldatic.workers.dev/",
+            "https://tetris.soldatix.workers.dev/",
 
         tags:
             ["Arcade", "Puzzle", "Browser"],
