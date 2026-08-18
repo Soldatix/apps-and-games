@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +14,12 @@
 
     <meta
         name="description"
-        content="Discover free online utilities and browser games including Digital Clock and Tetris."
+        content="Discover free online utilities and browser games including Digital Clock, Tetris and UFO Invaders: Neon Defense."
     >
 
     <meta
         name="keywords"
-        content="apps and games, online utilities, free online tools, browser games, digital clock, tetris"
+        content="apps and games, online utilities, free online tools, browser games, digital clock, tetris, UFO Invaders, Neon Defense, arcade shooter"
     >
 
     <meta
@@ -58,7 +59,7 @@
 
     <meta
         property="og:description"
-        content="Discover free online utilities and browser games including Digital Clock and Tetris."
+        content="Discover free online utilities and browser games including Digital Clock, Tetris and UFO Invaders: Neon Defense."
     >
 
     <meta
@@ -98,7 +99,7 @@
 
     <meta
         name="twitter:description"
-        content="Discover free online utilities and browser games including Digital Clock and Tetris."
+        content="Discover free online utilities and browser games including Digital Clock, Tetris and UFO Invaders: Neon Defense."
     >
 
     <meta
@@ -193,18 +194,71 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Apps & Games",
-        "url": "https://appsandgames.org/",
-        "description": "Free online utilities and browser games.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Apps & Games",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://appsandgames.org/assets/icons/android-chrome-512x512.png"
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://appsandgames.org/#website",
+                "name": "Apps & Games",
+                "url": "https://appsandgames.org/",
+                "description": "Free online utilities and browser games by Soldatix.",
+                "publisher": {
+                    "@id": "https://appsandgames.org/#organization"
+                }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://appsandgames.org/#organization",
+                "name": "Apps & Games",
+                "url": "https://appsandgames.org/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://appsandgames.org/assets/icons/android-chrome-512x512.png"
+                }
+            },
+            {
+                "@type": "ItemList",
+                "name": "Apps & Games collection",
+                "numberOfItems": 3,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@type": "SoftwareApplication",
+                            "name": "Digital Clock",
+                            "url": "https://soldatix.github.io/Digital-Clock/",
+                            "applicationCategory": "UtilitiesApplication",
+                            "operatingSystem": "Any",
+                            "isAccessibleForFree": true
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@type": "VideoGame",
+                            "name": "Tetris",
+                            "url": "https://tetris.soldatix.workers.dev/",
+                            "gamePlatform": "Web browser",
+                            "isAccessibleForFree": true
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "item": {
+                            "@type": "VideoGame",
+                            "name": "UFO Invaders: Neon Defense",
+                            "url": "https://ufo-invaders.appsandgames.org/",
+                            "image": "https://appsandgames.org/assets/images/ufo-invaders.png",
+                            "description": "A free modern neon arcade defense game by Soldatix.",
+                            "gamePlatform": "Web browser",
+                            "isAccessibleForFree": true
+                        }
+                    }
+                ]
             }
-        }
+        ]
     }
     </script>
 
