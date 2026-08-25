@@ -32,7 +32,33 @@ const apps = [
             "open_app"
     },
 
+{
+    category: "utility",
+    badge: "UTILITY",
 
+    name: "Date Lotto Generator",
+
+    description:
+        "Generate repeatable lotto number combinations from any selected date with customizable lotto formats and number ranges.",
+
+    image:
+        "assets/images/lotto-date-generator.png",
+
+    button:
+        "OPEN APP →",
+
+    url:
+        "https://lotto-date-generator.soldatix.workers.dev/",
+
+    tags:
+        ["Lotto", "Numbers", "Generator"],
+
+    status:
+        "LIVE",
+
+    analyticsEvent:
+        "open_app"
+},
     {
         category: "game",
         badge: "GAME",
