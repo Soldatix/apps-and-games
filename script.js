@@ -48,7 +48,7 @@ const apps = [
         "OPEN APP →",
 
     url:
-        "https://lotto-date-generator.soldatix.workers.dev/",
+        "https://lotto.appsandgames.org/",
 
     tags:
         ["Lotto", "Numbers", "Generator"],
