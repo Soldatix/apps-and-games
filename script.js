@@ -114,6 +114,34 @@ const apps = [
 
         analyticsEvent:
             "play_game"
+    },
+
+    {
+        category: "game",
+        badge: "GAME",
+
+        name: "Phoenix Arcade",
+
+        description:
+            "Defend the last star gate in a modern neon arcade shooter with diving Phoenix enemies, collectible power-ups and instant browser play.",
+
+        image:
+            "assets/images/phoenix-arcade-cover.png",
+
+        button:
+            "PLAY GAME →",
+
+        url:
+            "https://phoenix-arcade.appsandgames.org/",
+
+        tags:
+            ["Arcade", "Shooter", "Power-ups"],
+
+        status:
+            "LIVE",
+
+        analyticsEvent:
+            "play_game"
     }
 
 ];
