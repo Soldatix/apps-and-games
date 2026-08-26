@@ -11,6 +11,7 @@ const apps = [
         image: "assets/images/digital-clock.png",
         button: "OPEN APP →",
         url: "https://soldatix.github.io/Digital-Clock/",
+        detailsUrl: "digital-clock.html",
         tags: ["Clock", "App", "Online"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -23,6 +24,7 @@ const apps = [
         image: "assets/images/lotto-date-generator.png",
         button: "OPEN APP →",
         url: "https://lotto.appsandgames.org/",
+        detailsUrl: "date-lotto-generator.html",
         tags: ["Lotto", "Numbers", "Generator"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -35,6 +37,7 @@ const apps = [
         image: "assets/images/tetris.png",
         button: "PLAY GAME →",
         url: "https://tetris.soldatix.workers.dev/",
+        detailsUrl: "tetris.html",
         tags: ["Arcade", "Puzzle", "Browser"],
         status: "LIVE",
         analyticsEvent: "play_game"
@@ -47,6 +50,7 @@ const apps = [
         image: "assets/images/ufo-invaders.png",
         button: "PLAY GAME →",
         url: "https://ufo-invaders.appsandgames.org/",
+        detailsUrl: "ufo-invaders.html",
         tags: ["Arcade", "Shooter", "Browser"],
         status: "LIVE",
         analyticsEvent: "play_game"
@@ -59,6 +63,7 @@ const apps = [
         image: "assets/images/phoenix-arcade-cover.png",
         button: "PLAY GAME →",
         url: "https://phoenix-arcade.appsandgames.org/",
+        detailsUrl: "phoenix-arcade.html",
         tags: ["Arcade", "Shooter", "Power-ups"],
         status: "LIVE",
         analyticsEvent: "play_game"
@@ -108,6 +113,12 @@ function renderApps() {
                 </div>
                 <p class="app-description">${app.description}</p>
                 <div class="app-meta">${tagsHTML}</div>
+                <a
+                    class="secondary-button"
+                    style="width:100%; margin-bottom:10px;"
+                    href="${app.detailsUrl}"
+                    aria-label="Learn more about ${app.name}"
+                >LEARN MORE →</a>
                 <a
                     class="app-button"
                     href="${app.url}"
