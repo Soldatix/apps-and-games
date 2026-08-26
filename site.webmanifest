@@ -1,7 +1,7 @@
 {
   "name": "Apps & Games",
   "short_name": "Apps & Games",
-  "description": "Free online utilities and browser games.",
+  "description": "Free online apps and browser games.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#071128",

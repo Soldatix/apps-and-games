@@ -1,775 +1,390 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Apps & Games — Free Online Apps and Games</title>
+    <meta name="description" content="Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Tetris, UFO Invaders and Phoenix Arcade.">
+    <meta name="keywords" content="apps and games, free online apps, browser apps, browser games, digital clock, lotto generator, tetris, UFO Invaders, Phoenix Arcade, arcade games">
+    <meta name="author" content="Soldatix">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#071128">
 
-    <title>Apps & Games — Free Online Utilities and Games</title>
+    <link rel="canonical" href="https://appsandgames.org/">
 
-    <meta
-        name="description"
-        content="Discover free online utilities and browser games including Digital Clock, Tetris and UFO Invaders: Neon Defense."
-    >
+    <meta property="og:title" content="Apps & Games — Free Online Apps and Games">
+    <meta property="og:description" content="Discover practical browser apps and fun games you can use instantly, directly in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appsandgames.org/">
+    <meta property="og:site_name" content="Apps & Games">
+    <meta property="og:image" content="https://appsandgames.org/assets/logo/apps-and-games-logo.png">
 
-    <meta
-        name="keywords"
-        content="apps and games, online utilities, free online tools, browser games, digital clock, tetris, UFO Invaders, Neon Defense, arcade shooter"
-    >
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apps & Games — Free Online Apps and Games">
+    <meta name="twitter:description" content="Free browser apps and games you can open and use instantly.">
+    <meta name="twitter:image" content="https://appsandgames.org/assets/logo/apps-and-games-logo.png">
 
-    <meta
-        name="author"
-        content="Soldatix"
-    >
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
 
-    <meta
-        name="robots"
-        content="index, follow"
-    >
-
-    <meta
-        name="theme-color"
-        content="#071128"
-    >
-
-
-    <!-- =====================================================
-         CANONICAL
-    ====================================================== -->
-
-    <link
-        rel="canonical"
-        href="https://appsandgames.org/"
-    >
-
-
-    <!-- =====================================================
-         OPEN GRAPH
-    ====================================================== -->
-
-    <meta
-        property="og:title"
-        content="Apps & Games — Free Online Utilities and Games"
-    >
-
-    <meta
-        property="og:description"
-        content="Discover free online utilities and browser games including Digital Clock, Tetris and UFO Invaders: Neon Defense."
-    >
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:url"
-        content="https://appsandgames.org/"
-    >
-
-    <meta
-        property="og:site_name"
-        content="Apps & Games"
-    >
-
-    <meta
-        property="og:image"
-        content="https://appsandgames.org/assets/logo/apps-and-games-logo.png"
-    >
-
-
-    <!-- =====================================================
-         X / TWITTER
-    ====================================================== -->
-
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
-
-    <meta
-        name="twitter:title"
-        content="Apps & Games — Free Online Utilities and Games"
-    >
-
-    <meta
-        name="twitter:description"
-        content="Discover free online utilities and browser games including Digital Clock, Tetris and UFO Invaders: Neon Defense."
-    >
-
-    <meta
-        name="twitter:image"
-        content="https://appsandgames.org/assets/logo/apps-and-games-logo.png"
-    >
-
-
-    <!-- =====================================================
-         FAVICON / APP ICONS
-    ====================================================== -->
-
-    <link
-        rel="icon"
-        href="assets/icons/favicon.ico"
-    >
-
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="assets/icons/favicon-32x32.png"
-    >
-
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="assets/icons/favicon-16x16.png"
-    >
-
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="assets/icons/apple-touch-icon.png"
-    >
-
-    <link
-        rel="manifest"
-        href="site.webmanifest"
-    >
-
-
-    <!-- =====================================================
-         GOOGLE ANALYTICS 4
-         Measurement ID: G-8QJLPBJPJ8
-    ====================================================== -->
-
-    <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-8QJLPBJPJ8">
-    </script>
-
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QJLPBJPJ8"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments); }
         gtag("js", new Date());
-
-        gtag(
-            "config",
-            "G-8QJLPBJPJ8"
-        );
+        gtag("config", "G-8QJLPBJPJ8");
     </script>
 
-<!-- =====================================================
-     GOOGLE ADSENSE
-===================================================== -->
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6296601518048221" crossorigin="anonymous"></script>
 
-<script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6296601518048221"
-    crossorigin="anonymous">
-</script>
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-
-    <!-- =====================================================
-         STRUCTURED DATA
-    ====================================================== -->
+    <link rel="stylesheet" href="style.css">
 
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@graph": [
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://appsandgames.org/#website",
+          "name": "Apps & Games",
+          "url": "https://appsandgames.org/",
+          "description": "Free online apps and browser games by Soldatix.",
+          "publisher": { "@id": "https://appsandgames.org/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://appsandgames.org/#organization",
+          "name": "Apps & Games",
+          "url": "https://appsandgames.org/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://appsandgames.org/assets/icons/android-chrome-512x512.png"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "name": "Apps & Games collection",
+          "numberOfItems": 5,
+          "itemListElement": [
             {
-                "@type": "WebSite",
-                "@id": "https://appsandgames.org/#website",
-                "name": "Apps & Games",
-                "url": "https://appsandgames.org/",
-                "description": "Free online utilities and browser games by Soldatix.",
-                "publisher": {
-                    "@id": "https://appsandgames.org/#organization"
-                }
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Digital Clock",
+                "url": "https://soldatix.github.io/Digital-Clock/",
+                "applicationCategory": "WebApplication",
+                "operatingSystem": "Any",
+                "isAccessibleForFree": true
+              }
             },
             {
-                "@type": "Organization",
-                "@id": "https://appsandgames.org/#organization",
-                "name": "Apps & Games",
-                "url": "https://appsandgames.org/",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://appsandgames.org/assets/icons/android-chrome-512x512.png"
-                }
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Date Lotto Generator",
+                "url": "https://lotto.appsandgames.org/",
+                "applicationCategory": "WebApplication",
+                "operatingSystem": "Any",
+                "isAccessibleForFree": true
+              }
             },
             {
-                "@type": "ItemList",
-                "name": "Apps & Games collection",
-                "numberOfItems": 3,
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "item": {
-                            "@type": "SoftwareApplication",
-                            "name": "Digital Clock",
-                            "url": "https://soldatix.github.io/Digital-Clock/",
-                            "applicationCategory": "UtilitiesApplication",
-                            "operatingSystem": "Any",
-                            "isAccessibleForFree": true
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "item": {
-                            "@type": "VideoGame",
-                            "name": "Tetris",
-                            "url": "https://tetris.soldatix.workers.dev/",
-                            "gamePlatform": "Web browser",
-                            "isAccessibleForFree": true
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "item": {
-                            "@type": "VideoGame",
-                            "name": "UFO Invaders: Neon Defense",
-                            "url": "https://ufo-invaders.appsandgames.org/",
-                            "image": "https://appsandgames.org/assets/images/ufo-invaders.png",
-                            "description": "A free modern neon arcade defense game by Soldatix.",
-                            "gamePlatform": "Web browser",
-                            "isAccessibleForFree": true
-                        }
-                    }
-                ]
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "VideoGame",
+                "name": "Tetris",
+                "url": "https://tetris.soldatix.workers.dev/",
+                "gamePlatform": "Web browser",
+                "isAccessibleForFree": true
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "VideoGame",
+                "name": "UFO Invaders: Neon Defense",
+                "url": "https://ufo-invaders.appsandgames.org/",
+                "image": "https://appsandgames.org/assets/images/ufo-invaders.png",
+                "description": "A modern neon arcade defense game with waves, bunkers and power-ups.",
+                "gamePlatform": "Web browser",
+                "isAccessibleForFree": true
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "VideoGame",
+                "name": "Phoenix Arcade",
+                "url": "https://phoenix-arcade.appsandgames.org/",
+                "image": "https://appsandgames.org/assets/images/phoenix-arcade-cover.png",
+                "description": "A modern arcade shooter with Phoenix enemies, power-ups and instant browser play.",
+                "gamePlatform": "Web browser",
+                "isAccessibleForFree": true
+              }
             }
-        ]
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Are the apps and games free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The apps and games on Apps & Games are free to use. Optional donations help support development and the project."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to create an account?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. You can open the available apps and games without creating an Apps & Games account."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to install software?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The projects are designed to run directly in a compatible modern web browser."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Date Lotto Generator predict winning numbers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Date Lotto Generator creates number combinations from the selected date and settings. It cannot predict lottery results or guarantee a win."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use Apps & Games on a phone or tablet?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most projects are designed to work in modern desktop and mobile browsers, although the exact experience can vary by device and browser."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
-
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="site-header">
-
     <div class="header-content">
-
-        <a
-            href="#top"
-            class="logo"
-            aria-label="Apps & Games Home"
-        >
-
-            <img
-                src="assets/logo/apps-and-games-logo.png"
-                alt="Apps & Games"
-                class="site-logo-image"
-            >
-
+        <a href="#top" class="logo" aria-label="Apps & Games Home">
+            <img src="assets/logo/apps-and-games-logo.png" alt="Apps & Games" class="site-logo-image">
         </a>
 
-
-        <nav class="main-nav">
-
-            <a href="#utilities">
-                🛠 <span>Utilities</span>
-            </a>
-
-            <a href="#games">
-                🎮 <span>Games</span>
-            </a>
-
-            <a href="#info">
-                ℹ <span>Info</span>
-            </a>
-
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#apps">📱 <span>Apps</span></a>
+            <a href="#games">🎮 <span>Games</span></a>
+            <a href="#info">ℹ <span>Info</span></a>
         </nav>
 
-
-        <button
-            id="themeToggle"
-            class="theme-toggle"
-            aria-label="Toggle theme"
-        >
-            ☀️
-        </button>
-
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
     </div>
-
 </header>
 
-
 <main id="top">
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-badge">
-            APPS • UTILITIES • GAMES
-        </div>
-
-        <h1>
-            Apps & Games
-        </h1>
-
-        <p class="hero-subtitle">
-            Free Online Utilities and Games
-        </p>
-
-        <p class="hero-text">
-            Discover useful browser apps and fun games in one place.
-            Fast, simple and free to use.
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#utilities"
-                class="primary-button"
-            >
-                Explore Utilities
-            </a>
-
-            <a
-                href="#games"
-                class="secondary-button"
-            >
-                Play Games
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     UTILITIES
-===================================================== -->
-
-<section
-    id="utilities"
-    class="app-section"
->
-
-    <div class="section-heading">
-
-        <span class="section-label">
-            🛠 UTILITIES
-        </span>
-
-        <h2>
-            Useful Online Tools
-        </h2>
-
-        <p>
-            Simple tools designed to help you in everyday tasks.
-        </p>
-
-    </div>
-
-
-    <div
-        id="utilitiesGrid"
-        class="apps-grid"
-    >
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     GAMES
-===================================================== -->
-
-<section
-    id="games"
-    class="app-section"
->
-
-    <div class="section-heading">
-
-        <span class="section-label">
-            🎮 GAMES
-        </span>
-
-        <h2>
-            Play Instantly
-        </h2>
-
-        <p>
-            Open a game and start playing directly in your browser.
-        </p>
-
-    </div>
-
-
-    <div
-        id="gamesGrid"
-        class="apps-grid"
-    >
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     INFO / SUPPORT
-===================================================== -->
-
-<section
-    id="info"
-    class="info-section"
->
-
-    <div class="info-card">
-
-        <span class="section-label">
-            ℹ INFO & SUPPORT
-        </span>
-
-        <h2>
-            Support the Project
-        </h2>
-
-        <p>
-            The application is free to use, but donations are welcome.
-        </p>
-
-        <p>
-            A part of the received donations will be forwarded to
-            various charitable organizations, the largest part will be
-            donated to institutions caring for children without
-            adequate parental care.
-        </p>
-
-
-        <h3>
-            You can make donations to:
-        </h3>
-
-
-        <div class="donation-options">
-
-
-            <div class="donation-card">
-
-                <div class="donation-icon paypal-icon">
-                    P
-                </div>
-
-                <div class="donation-content">
-
-                    <h4>
-                        PayPal account
-                    </h4>
-
-                    <p>
-                        Support the project securely through PayPal.
-                    </p>
-
-                    <a
-                        href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="donation-button"
-                        data-ga-event="donation_paypal"
-                    >
-                        Open PayPal ↗
-                    </a>
-
-                </div>
-
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">APPS • GAMES</div>
+            <h1>Apps & Games</h1>
+            <p class="hero-subtitle">Free Online Apps and Games</p>
+            <p class="hero-text">
+                Discover practical browser apps and fun games in one place. Open them instantly without installing extra software or creating an account. The collection is designed for quick, simple access on desktop, tablet and mobile browsers.
+            </p>
+            <div class="hero-buttons">
+                <a href="#apps" class="primary-button">Explore Apps</a>
+                <a href="#games" class="secondary-button">Play Games</a>
             </div>
-
-
-            <div class="donation-card">
-
-                <div class="donation-icon stripe-icon">
-                    $
-                </div>
-
-                <div class="donation-content">
-
-                    <h4>
-                        Card Payment (Stripe)
-                    </h4>
-
-                    <p>
-                        Donate securely using your credit or debit card.
-                    </p>
-
-                    <a
-                        href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="donation-button"
-                        data-ga-event="donation_stripe"
-                    >
-                        Open Stripe ↗
-                    </a>
-
-                </div>
-
-            </div>
-
         </div>
+    </section>
 
-
-        <div class="crypto-section">
-
-            <h3>
-                Crypto Wallet
-            </h3>
-
+    <section id="apps" class="app-section">
+        <div class="section-heading">
+            <span class="section-label">📱 APPS</span>
+            <h2>Useful Online Apps</h2>
             <p>
-                You can also support the project using cryptocurrency.
+                Open practical browser apps for everyday use. Current projects include a multifunctional Digital Clock and Date Lotto Generator, with more apps planned as the collection grows.
+            </p>
+        </div>
+        <div id="utilitiesGrid" class="apps-grid"></div>
+    </section>
+
+    <section id="games" class="app-section">
+        <div class="section-heading">
+            <span class="section-label">🎮 GAMES</span>
+            <h2>Browser Games You Can Play Instantly</h2>
+            <p>
+                Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense and Phoenix Arcade.
+            </p>
+        </div>
+        <div id="gamesGrid" class="apps-grid"></div>
+    </section>
+
+    <section id="about" class="info-section">
+        <div class="info-card">
+            <span class="section-label">ABOUT APPS & GAMES</span>
+            <h2>Free Browser Projects in One Place</h2>
+            <p>
+                Apps & Games is an independent collection of browser-based apps and games published under the Soldatix name. The goal is simple: provide useful small apps and entertaining games that are easy to open, understand and use.
+            </p>
+            <p>
+                Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock and Date Lotto Generator with browser games such as Tetris, UFO Invaders: Neon Defense and Phoenix Arcade.
+            </p>
+            <p>
+                Each project is developed as a standalone experience with a focus on clear controls, responsive layouts and straightforward navigation. New apps, games and improvements can be added over time while existing projects continue to receive fixes and usability updates.
             </p>
 
+            <h3>What you can expect</h3>
+            <ul>
+                <li>Free access to the available browser apps and games.</li>
+                <li>No Apps & Games account required to start using the projects.</li>
+                <li>Fast access from modern desktop, tablet and mobile browsers.</li>
+                <li>Clear descriptions so you know what each project does before opening it.</li>
+                <li>Ongoing improvements, compatibility fixes and new projects over time.</li>
+            </ul>
+        </div>
+    </section>
 
-            <div class="crypto-list">
+    <section id="faq" class="info-section">
+        <div class="info-card">
+            <span class="section-label">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
 
+            <h3>Are the apps and games free to use?</h3>
+            <p>Yes. The apps and games listed on Apps & Games are free to use. Donations are optional and help support development and the project.</p>
 
-                <div class="crypto-row">
+            <h3>Do I need to create an account?</h3>
+            <p>No. You can open the available apps and games without creating an Apps & Games account.</p>
 
-                    <div class="crypto-name">
-                        <strong>BTC</strong>
+            <h3>Do I need to install anything?</h3>
+            <p>No. The projects are designed to run directly in a compatible modern web browser. Some projects may also offer browser installation features such as a home-screen shortcut or PWA support.</p>
+
+            <h3>Does Date Lotto Generator predict winning lottery numbers?</h3>
+            <p>No. Date Lotto Generator creates repeatable number combinations from the selected date and your chosen settings. Lottery drawings are random, so the app cannot predict results or guarantee a win.</p>
+
+            <h3>Can I use the site on a phone or tablet?</h3>
+            <p>Most projects are designed for modern desktop and mobile browsers. The exact layout and performance can vary depending on screen size, browser version and device capabilities.</p>
+
+            <h3>Does Apps & Games use analytics or advertising?</h3>
+            <p>The website uses Google Analytics to understand site usage and may use Google AdSense for advertising. More information is available in the <a href="privacy-policy.html"><u>Privacy Policy</u></a>.</p>
+        </div>
+    </section>
+
+    <section id="info" class="info-section">
+        <div class="info-card">
+            <span class="section-label">ℹ INFO & SUPPORT</span>
+            <h2>Support the Project</h2>
+            <p>The apps and games are free to use, but voluntary donations are welcome.</p>
+            <p>
+                A part of the received donations will be forwarded to various charitable organizations. The largest part will be donated to institutions caring for children without adequate parental care.
+            </p>
+
+            <h3>You can make donations to:</h3>
+            <div class="donation-options">
+                <div class="donation-card">
+                    <div class="donation-icon paypal-icon">P</div>
+                    <div class="donation-content">
+                        <h4>PayPal account</h4>
+                        <p>Support the project securely through PayPal.</p>
+                        <a href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_paypal">Open PayPal ↗</a>
                     </div>
-
-                    <code>
-                        bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc"
-                        data-currency="BTC"
-                    >
-                        Copy
-                    </button>
-
                 </div>
 
-
-                <div class="crypto-row">
-
-                    <div class="crypto-name">
-                        <strong>ETH</strong>
+                <div class="donation-card">
+                    <div class="donation-icon stripe-icon">$</div>
+                    <div class="donation-content">
+                        <h4>Card Payment (Stripe)</h4>
+                        <p>Donate securely using your credit or debit card.</p>
+                        <a href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_stripe">Open Stripe ↗</a>
                     </div>
-
-                    <code>
-                        0xA99A52085c6725854daa46bb302041569c8bA4E3
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="0xA99A52085c6725854daa46bb302041569c8bA4E3"
-                        data-currency="ETH"
-                    >
-                        Copy
-                    </button>
-
                 </div>
-
-
-                <div class="crypto-row">
-
-                    <div class="crypto-name">
-                        <strong>XRP</strong>
-                    </div>
-
-                    <code>
-                        rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr"
-                        data-currency="XRP"
-                    >
-                        Copy
-                    </button>
-
-                </div>
-
-
-                <div class="crypto-row">
-
-                    <div class="crypto-name">
-                        <strong>SOL</strong>
-                    </div>
-
-                    <code>
-                        8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR"
-                        data-currency="SOL"
-                    >
-                        Copy
-                    </button>
-
-                </div>
-
-
-                <div class="crypto-row">
-
-                    <div class="crypto-name">
-                        <strong>DOGE</strong>
-                    </div>
-
-                    <code>
-                        DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb"
-                        data-currency="DOGE"
-                    >
-                        Copy
-                    </button>
-
-                </div>
-
-
-                <div class="crypto-row">
-
-                    <div class="crypto-name">
-                        <strong>XLM</strong>
-                    </div>
-
-                    <code>
-                        GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3"
-                        data-currency="XLM"
-                    >
-                        Copy
-                    </button>
-
-                </div>
-
-
-                <div class="crypto-row">
-
-                    <div class="crypto-name">
-                        <strong>LTC</strong>
-                    </div>
-
-                    <code>
-                        LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi"
-                        data-currency="LTC"
-                    >
-                        Copy
-                    </button>
-
-                </div>
-
-
-                <div class="crypto-row">
-
-                    <div class="crypto-name">
-                        <strong>RVN</strong>
-                    </div>
-
-                    <code>
-                        RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ
-                    </code>
-
-                    <button
-                        class="copy-button"
-                        data-copy="RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ"
-                        data-currency="RVN"
-                    >
-                        Copy
-                    </button>
-
-                </div>
-
             </div>
 
+            <div class="crypto-section">
+                <h3>Crypto Wallet</h3>
+                <p>You can also support the project using cryptocurrency.</p>
+
+                <div class="crypto-list">
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>BTC</strong></div>
+                        <code>bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc</code>
+                        <button class="copy-button" data-copy="bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc" data-currency="BTC">Copy</button>
+                    </div>
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>ETH</strong></div>
+                        <code>0xA99A52085c6725854daa46bb302041569c8bA4E3</code>
+                        <button class="copy-button" data-copy="0xA99A52085c6725854daa46bb302041569c8bA4E3" data-currency="ETH">Copy</button>
+                    </div>
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>XRP</strong></div>
+                        <code>rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr</code>
+                        <button class="copy-button" data-copy="rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr" data-currency="XRP">Copy</button>
+                    </div>
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>SOL</strong></div>
+                        <code>8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR</code>
+                        <button class="copy-button" data-copy="8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR" data-currency="SOL">Copy</button>
+                    </div>
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>DOGE</strong></div>
+                        <code>DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb</code>
+                        <button class="copy-button" data-copy="DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb" data-currency="DOGE">Copy</button>
+                    </div>
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>XLM</strong></div>
+                        <code>GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3</code>
+                        <button class="copy-button" data-copy="GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3" data-currency="XLM">Copy</button>
+                    </div>
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>LTC</strong></div>
+                        <code>LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi</code>
+                        <button class="copy-button" data-copy="LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi" data-currency="LTC">Copy</button>
+                    </div>
+                    <div class="crypto-row">
+                        <div class="crypto-name"><strong>RVN</strong></div>
+                        <code>RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ</code>
+                        <button class="copy-button" data-copy="RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ" data-currency="RVN">Copy</button>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-</section>
-
-
+    </section>
 </main>
 
-
 <footer class="site-footer">
-
     <div class="footer-content">
-
-        <div>
-            © <span id="currentYear"></span> Apps & Games
-        </div>
-
+        <div>© <span id="currentYear"></span> Apps & Games</div>
         <div class="footer-links">
-
-            <a href="#utilities">
-                Utilities
-            </a>
-
-            <a href="#games">
-                Games
-            </a>
-
-            <a href="#info">
-                Support
-            </a>
-
+            <a href="#apps">Apps</a>
+            <a href="#games">Games</a>
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+            <a href="#info">Support</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
         </div>
-
     </div>
-
 </footer>
 
-
 <script src="script.js"></script>
-
 </body>
-
 </html>
