@@ -2,6 +2,58 @@
    APPS & GAMES
 ===================================================== */
 
+const translations = window.APP_I18N || {};
+const cardTranslations = window.APP_CARD_I18N || {};
+const supportedLanguages = ["en", "hr", "de", "it", "es"];
+const languageSelect = document.getElementById("languageSelect");
+
+function getInitialLanguage() {
+    const savedLanguage = localStorage.getItem("appsGamesLanguage");
+    if (supportedLanguages.includes(savedLanguage)) return savedLanguage;
+
+    const browserLanguage = (navigator.language || "en").slice(0, 2).toLowerCase();
+    return supportedLanguages.includes(browserLanguage) ? browserLanguage : "en";
+}
+
+let currentLanguage = getInitialLanguage();
+
+function t(key) {
+    return translations[currentLanguage]?.[key] ?? translations.en?.[key] ?? key;
+}
+
+function applyLanguage(language, shouldTrack = false) {
+    currentLanguage = supportedLanguages.includes(language) ? language : "en";
+    document.documentElement.lang = currentLanguage;
+
+    if (languageSelect) languageSelect.value = currentLanguage;
+
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (translations[currentLanguage]?.[key]) {
+            element.textContent = t(key);
+        }
+    });
+
+    document.querySelectorAll("[data-i18n-aria-label]").forEach(element => {
+        element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
+    });
+
+    document.title = t("pageTitle");
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) descriptionMeta.setAttribute("content", t("pageDescription"));
+
+    localStorage.setItem("appsGamesLanguage", currentLanguage);
+    renderApps();
+
+    if (shouldTrack) trackEvent("language_change", { language: currentLanguage });
+}
+
+if (languageSelect) {
+    languageSelect.addEventListener("change", event => {
+        applyLanguage(event.target.value, true);
+    });
+}
+
 const apps = [
     {
         category: "utility",
@@ -106,32 +158,39 @@ function renderApps() {
     appsGrid.innerHTML = "";
     gamesGrid.innerHTML = "";
 
-    apps.forEach(app => {
+    apps.forEach((app, index) => {
+        const localizedCard = cardTranslations[currentLanguage]?.[index]
+            || cardTranslations.en?.[index]
+            || [app.description, app.tags];
+        const localizedDescription = localizedCard[0];
+        const localizedTags = localizedCard[1];
+        const isGame = app.category === "game";
+
         const card = document.createElement("article");
         card.className = "app-card";
 
-        const tagsHTML = app.tags
+        const tagsHTML = localizedTags
             .map(tag => `<span class="meta-pill">${tag}</span>`)
             .join("");
 
         card.innerHTML = `
             <div class="app-image-wrap">
                 <img src="${app.image}" alt="${app.name}" class="app-image" loading="lazy">
-                <span class="app-badge ${app.category}">${app.badge}</span>
+                <span class="app-badge ${app.category}">${t(isGame ? "gameBadge" : "appBadge")}</span>
             </div>
             <div class="app-content">
                 <div class="app-title-row">
                     <h3>${app.name}</h3>
-                    <span class="app-status">${app.status}</span>
+                    <span class="app-status">${t("live")}</span>
                 </div>
-                <p class="app-description">${app.description}</p>
+                <p class="app-description">${localizedDescription}</p>
                 <div class="app-meta">${tagsHTML}</div>
                 <a
                     class="secondary-button"
                     style="width:100%; margin-bottom:10px;"
                     href="${app.detailsUrl}"
-                    aria-label="Learn more about ${app.name}"
-                >LEARN MORE →</a>
+                    aria-label="${t("learnMore")} ${app.name}"
+                >${t("learnMore")}</a>
                 <a
                     class="app-button"
                     href="${app.url}"
@@ -139,7 +198,7 @@ function renderApps() {
                     rel="noopener noreferrer"
                     data-app-name="${app.name}"
                     data-ga-event="${app.analyticsEvent}"
-                >${app.button}</a>
+                >${t(isGame ? "playGame" : "openApp")}</a>
             </div>
         `;
 
@@ -236,11 +295,11 @@ document.querySelectorAll(".copy-button").forEach(button => {
 });
 
 function showCopied(button) {
-    button.textContent = "Copied!";
+    button.textContent = t("copied");
     button.classList.add("copied");
 
     setTimeout(() => {
-        button.textContent = "Copy";
+        button.textContent = t("copy");
         button.classList.remove("copied");
     }, 1600);
 }
@@ -259,7 +318,7 @@ function fallbackCopy(text, button, currency) {
         showCopied(button);
         trackEvent("crypto_copy", { crypto_currency: currency });
     } catch {
-        button.textContent = "Failed";
+        button.textContent = t("copyFailed");
     }
 
     document.body.removeChild(textarea);
@@ -272,4 +331,4 @@ function fallbackCopy(text, button, currency) {
 const currentYear = document.getElementById("currentYear");
 if (currentYear) currentYear.textContent = new Date().getFullYear();
 
-renderApps();
+applyLanguage(currentLanguage);

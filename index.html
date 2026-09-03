@@ -202,17 +202,27 @@
 <body>
 <header class="site-header">
     <div class="header-content">
-        <a href="#top" class="logo" aria-label="Apps & Games Home">
+        <a href="#top" class="logo" aria-label="Apps & Games Home" data-i18n-aria-label="homeLabel">
             <img src="assets/logo/apps-and-games-logo.png" alt="Apps & Games" class="site-logo-image">
         </a>
 
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="#apps">📱 <span>Apps</span></a>
-            <a href="#games">🎮 <span>Games</span></a>
-            <a href="#info">ℹ <span>Info</span></a>
+        <nav class="main-nav" aria-label="Main navigation" data-i18n-aria-label="navLabel">
+            <a href="#apps">📱 <span data-i18n="navApps">Apps</span></a>
+            <a href="#games">🎮 <span data-i18n="navGames">Games</span></a>
+            <a href="#info">ℹ <span data-i18n="navInfo">Info</span></a>
         </nav>
 
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+        <div class="header-actions">
+            <label class="sr-only" for="languageSelect" data-i18n="languageLabel">Language</label>
+            <select id="languageSelect" class="language-select" aria-label="Select language" data-i18n-aria-label="selectLanguage">
+                <option value="en">EN</option>
+                <option value="hr">HR</option>
+                <option value="de">DE</option>
+                <option value="it">IT</option>
+                <option value="es">ES</option>
+            </select>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" data-i18n-aria-label="themeLabel">☀️</button>
+        </div>
     </div>
 </header>
 
@@ -221,22 +231,22 @@
         <div class="hero-content">
             <div class="hero-badge">APPS • GAMES</div>
             <h1>Apps & Games</h1>
-            <p class="hero-subtitle">Free Online Apps and Games</p>
-            <p class="hero-text">
+            <p class="hero-subtitle" data-i18n="heroSubtitle">Free Online Apps and Games</p>
+            <p class="hero-text" data-i18n="heroText">
                 Discover practical browser apps and fun games in one place. Open them instantly without installing extra software or creating an account. The collection is designed for quick, simple access on desktop, tablet and mobile browsers.
             </p>
             <div class="hero-buttons">
-                <a href="#apps" class="primary-button">Explore Apps</a>
-                <a href="#games" class="secondary-button">Play Games</a>
+                <a href="#apps" class="primary-button" data-i18n="exploreApps">Explore Apps</a>
+                <a href="#games" class="secondary-button" data-i18n="playGames">Play Games</a>
             </div>
         </div>
     </section>
 
     <section id="apps" class="app-section">
         <div class="section-heading">
-            <span class="section-label">📱 APPS</span>
-            <h2>Useful Online Apps</h2>
-            <p>
+            <span class="section-label" data-i18n="appsLabel">📱 APPS</span>
+            <h2 data-i18n="appsHeading">Useful Online Apps</h2>
+            <p data-i18n="appsText">
                 Open practical browser apps for everyday use. Current projects include a multifunctional Digital Clock, Date Lotto Generator and Emoji Copy & Paste, with more apps planned as the collection grows.
             </p>
         </div>
@@ -245,9 +255,9 @@
 
     <section id="games" class="app-section">
         <div class="section-heading">
-            <span class="section-label">🎮 GAMES</span>
-            <h2>Browser Games You Can Play Instantly</h2>
-            <p>
+            <span class="section-label" data-i18n="gamesLabel">🎮 GAMES</span>
+            <h2 data-i18n="gamesHeading">Browser Games You Can Play Instantly</h2>
+            <p data-i18n="gamesText">
                 Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense and Phoenix Arcade.
             </p>
         </div>
@@ -256,25 +266,25 @@
 
     <section id="about" class="info-section">
         <div class="info-card">
-            <span class="section-label">ABOUT APPS & GAMES</span>
-            <h2>Free Browser Projects in One Place</h2>
-            <p>
+            <span class="section-label" data-i18n="aboutLabel">ABOUT APPS & GAMES</span>
+            <h2 data-i18n="aboutHeading">Free Browser Projects in One Place</h2>
+            <p data-i18n="aboutText1">
                 Apps & Games is an independent collection of browser-based apps and games published under the Soldatix name. The goal is simple: provide useful small apps and entertaining games that are easy to open, understand and use.
             </p>
-            <p>
+            <p data-i18n="aboutText2">
                 Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator and Emoji Copy & Paste with browser games such as Tetris, UFO Invaders: Neon Defense and Phoenix Arcade.
             </p>
-            <p>
+            <p data-i18n="aboutText3">
                 Each project is developed as a standalone experience with a focus on clear controls, responsive layouts and straightforward navigation. New apps, games and improvements can be added over time while existing projects continue to receive fixes and usability updates.
             </p>
 
-            <h3>What you can expect</h3>
+            <h3 data-i18n="expectHeading">What you can expect</h3>
             <ul>
-                <li>Free access to the available browser apps and games.</li>
-                <li>No Apps & Games account required to start using the projects.</li>
-                <li>Fast access from modern desktop, tablet and mobile browsers.</li>
-                <li>Clear descriptions so you know what each project does before opening it.</li>
-                <li>Ongoing improvements, compatibility fixes and new projects over time.</li>
+                <li data-i18n="expect1">Free access to the available browser apps and games.</li>
+                <li data-i18n="expect2">No Apps & Games account required to start using the projects.</li>
+                <li data-i18n="expect3">Fast access from modern desktop, tablet and mobile browsers.</li>
+                <li data-i18n="expect4">Clear descriptions so you know what each project does before opening it.</li>
+                <li data-i18n="expect5">Ongoing improvements, compatibility fixes and new projects over time.</li>
             </ul>
         </div>
     </section>
@@ -282,102 +292,102 @@
     <section id="faq" class="info-section">
         <div class="info-card">
             <span class="section-label">FAQ</span>
-            <h2>Frequently Asked Questions</h2>
+            <h2 data-i18n="faqHeading">Frequently Asked Questions</h2>
 
-            <h3>Are the apps and games free to use?</h3>
-            <p>Yes. The apps and games listed on Apps & Games are free to use. Donations are optional and help support development and the project.</p>
+            <h3 data-i18n="faqQ1">Are the apps and games free to use?</h3>
+            <p data-i18n="faqA1">Yes. The apps and games listed on Apps & Games are free to use. Donations are optional and help support development and the project.</p>
 
-            <h3>Do I need to create an account?</h3>
-            <p>No. You can open the available apps and games without creating an Apps & Games account.</p>
+            <h3 data-i18n="faqQ2">Do I need to create an account?</h3>
+            <p data-i18n="faqA2">No. You can open the available apps and games without creating an Apps & Games account.</p>
 
-            <h3>Do I need to install anything?</h3>
-            <p>No. The projects are designed to run directly in a compatible modern web browser. Some projects may also offer browser installation features such as a home-screen shortcut or PWA support.</p>
+            <h3 data-i18n="faqQ3">Do I need to install anything?</h3>
+            <p data-i18n="faqA3">No. The projects are designed to run directly in a compatible modern web browser. Some projects may also offer browser installation features such as a home-screen shortcut or PWA support.</p>
 
-            <h3>Does Date Lotto Generator predict winning lottery numbers?</h3>
-            <p>No. Date Lotto Generator creates repeatable number combinations from the selected date and your chosen settings. Lottery drawings are random, so the app cannot predict results or guarantee a win.</p>
+            <h3 data-i18n="faqQ4">Does Date Lotto Generator predict winning lottery numbers?</h3>
+            <p data-i18n="faqA4">No. Date Lotto Generator creates repeatable number combinations from the selected date and your chosen settings. Lottery drawings are random, so the app cannot predict results or guarantee a win.</p>
 
-            <h3>Can I use the site on a phone or tablet?</h3>
-            <p>Most projects are designed for modern desktop and mobile browsers. The exact layout and performance can vary depending on screen size, browser version and device capabilities.</p>
+            <h3 data-i18n="faqQ5">Can I use the site on a phone or tablet?</h3>
+            <p data-i18n="faqA5">Most projects are designed for modern desktop and mobile browsers. The exact layout and performance can vary depending on screen size, browser version and device capabilities.</p>
 
-            <h3>Does Apps & Games use analytics or advertising?</h3>
-            <p>The website uses Google Analytics to understand site usage and may use Google AdSense for advertising. More information is available in the <a href="privacy-policy.html"><u>Privacy Policy</u></a>.</p>
+            <h3 data-i18n="faqQ6">Does Apps & Games use analytics or advertising?</h3>
+            <p><span data-i18n="faqA6">The website uses Google Analytics to understand site usage and may use Google AdSense for advertising. More information is available in the</span> <a href="privacy-policy.html"><u data-i18n="privacyPolicy">Privacy Policy</u></a>.</p>
         </div>
     </section>
 
     <section id="info" class="info-section">
         <div class="info-card">
-            <span class="section-label">ℹ INFO & SUPPORT</span>
-            <h2>Support the Project</h2>
-            <p>The apps and games are free to use, but voluntary donations are welcome.</p>
-            <p>
+            <span class="section-label" data-i18n="supportLabel">ℹ INFO & SUPPORT</span>
+            <h2 data-i18n="supportHeading">Support the Project</h2>
+            <p data-i18n="supportText1">The apps and games are free to use, but voluntary donations are welcome.</p>
+            <p data-i18n="supportText2">
                 A part of the received donations will be forwarded to various charitable organizations. The largest part will be donated to institutions caring for children without adequate parental care.
             </p>
 
-            <h3>You can make donations to:</h3>
+            <h3 data-i18n="donateHeading">You can make donations to:</h3>
             <div class="donation-options">
                 <div class="donation-card">
                     <div class="donation-icon paypal-icon">P</div>
                     <div class="donation-content">
-                        <h4>PayPal account</h4>
-                        <p>Support the project securely through PayPal.</p>
-                        <a href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_paypal">Open PayPal ↗</a>
+                        <h4 data-i18n="paypalHeading">PayPal account</h4>
+                        <p data-i18n="paypalText">Support the project securely through PayPal.</p>
+                        <a href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_paypal" data-i18n="openPayPal">Open PayPal ↗</a>
                     </div>
                 </div>
 
                 <div class="donation-card">
                     <div class="donation-icon stripe-icon">$</div>
                     <div class="donation-content">
-                        <h4>Card Payment (Stripe)</h4>
-                        <p>Donate securely using your credit or debit card.</p>
-                        <a href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_stripe">Open Stripe ↗</a>
+                        <h4 data-i18n="stripeHeading">Card Payment (Stripe)</h4>
+                        <p data-i18n="stripeText">Donate securely using your credit or debit card.</p>
+                        <a href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_stripe" data-i18n="openStripe">Open Stripe ↗</a>
                     </div>
                 </div>
             </div>
 
             <div class="crypto-section">
-                <h3>Crypto Wallet</h3>
-                <p>You can also support the project using cryptocurrency.</p>
+                <h3 data-i18n="cryptoHeading">Crypto Wallet</h3>
+                <p data-i18n="cryptoText">You can also support the project using cryptocurrency.</p>
 
                 <div class="crypto-list">
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>BTC</strong></div>
                         <code>bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc</code>
-                        <button class="copy-button" data-copy="bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc" data-currency="BTC">Copy</button>
+                        <button class="copy-button" data-copy="bc1qwlrxrh64peukga0fp59m9yg7gpf0yj8q7fxnsc" data-currency="BTC" data-i18n="copy">Copy</button>
                     </div>
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>ETH</strong></div>
                         <code>0xA99A52085c6725854daa46bb302041569c8bA4E3</code>
-                        <button class="copy-button" data-copy="0xA99A52085c6725854daa46bb302041569c8bA4E3" data-currency="ETH">Copy</button>
+                        <button class="copy-button" data-copy="0xA99A52085c6725854daa46bb302041569c8bA4E3" data-currency="ETH" data-i18n="copy">Copy</button>
                     </div>
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>XRP</strong></div>
                         <code>rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr</code>
-                        <button class="copy-button" data-copy="rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr" data-currency="XRP">Copy</button>
+                        <button class="copy-button" data-copy="rP43SsrkhPkxTsFohMAm32sAQg7vqwmDpr" data-currency="XRP" data-i18n="copy">Copy</button>
                     </div>
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>SOL</strong></div>
                         <code>8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR</code>
-                        <button class="copy-button" data-copy="8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR" data-currency="SOL">Copy</button>
+                        <button class="copy-button" data-copy="8xkdVTEaDGuWu4aE3HpEx8r9Aux98JZbdsMiDQvJWBWR" data-currency="SOL" data-i18n="copy">Copy</button>
                     </div>
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>DOGE</strong></div>
                         <code>DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb</code>
-                        <button class="copy-button" data-copy="DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb" data-currency="DOGE">Copy</button>
+                        <button class="copy-button" data-copy="DGAT32ku8WmFaTDxCgVuRuVpUFmfdmD5Jb" data-currency="DOGE" data-i18n="copy">Copy</button>
                     </div>
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>XLM</strong></div>
                         <code>GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3</code>
-                        <button class="copy-button" data-copy="GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3" data-currency="XLM">Copy</button>
+                        <button class="copy-button" data-copy="GCYH4OD4I2GNRKFFOYROE3N3S2HCT5RXIML3TZV5DP3TLTLXPXQXIJZ3" data-currency="XLM" data-i18n="copy">Copy</button>
                     </div>
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>LTC</strong></div>
                         <code>LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi</code>
-                        <button class="copy-button" data-copy="LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi" data-currency="LTC">Copy</button>
+                        <button class="copy-button" data-copy="LWtaFniqdYpv2xJtqo9WqDwCsQ2cW6PYWi" data-currency="LTC" data-i18n="copy">Copy</button>
                     </div>
                     <div class="crypto-row">
                         <div class="crypto-name"><strong>RVN</strong></div>
                         <code>RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ</code>
-                        <button class="copy-button" data-copy="RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ" data-currency="RVN">Copy</button>
+                        <button class="copy-button" data-copy="RAtXzKZyB3awfq2u2cK8YppC9kJamU5tPQ" data-currency="RVN" data-i18n="copy">Copy</button>
                     </div>
                 </div>
             </div>
@@ -389,16 +399,17 @@
     <div class="footer-content">
         <div>© <span id="currentYear"></span> Apps & Games</div>
         <div class="footer-links">
-            <a href="#apps">Apps</a>
-            <a href="#games">Games</a>
-            <a href="#about">About</a>
+            <a href="#apps" data-i18n="navApps">Apps</a>
+            <a href="#games" data-i18n="navGames">Games</a>
+            <a href="#about" data-i18n="footerAbout">About</a>
             <a href="#faq">FAQ</a>
-            <a href="#info">Support</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="#info" data-i18n="footerSupport">Support</a>
+            <a href="privacy-policy.html" data-i18n="privacyPolicy">Privacy Policy</a>
         </div>
     </div>
 </footer>
 
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
