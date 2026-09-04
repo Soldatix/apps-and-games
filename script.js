@@ -62,7 +62,7 @@ const apps = [
         description: "A multifunctional online digital clock with a large display, clean design and useful everyday functionality.",
         image: "assets/images/digital-clock.png",
         button: "OPEN APP →",
-        url: "https://soldatix.github.io/Digital-Clock/",
+        url: "https://digitalclock.appsandgames.org/",
         detailsUrl: "digital-clock",
         tags: ["Clock", "App", "Online"],
         status: "LIVE",
