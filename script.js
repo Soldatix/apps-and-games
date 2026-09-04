@@ -63,7 +63,7 @@ const apps = [
         image: "assets/images/digital-clock.png",
         button: "OPEN APP →",
         url: "https://soldatix.github.io/Digital-Clock/",
-        detailsUrl: "digital-clock.html",
+        detailsUrl: "digital-clock",
         tags: ["Clock", "App", "Online"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -76,7 +76,7 @@ const apps = [
         image: "assets/images/lotto-date-generator.png",
         button: "OPEN APP →",
         url: "https://lotto.appsandgames.org/",
-        detailsUrl: "date-lotto-generator.html",
+        detailsUrl: "date-lotto-generator",
         tags: ["Lotto", "Numbers", "Generator"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -89,7 +89,7 @@ const apps = [
         image: "assets/images/emoji-copy-paste.svg",
         button: "OPEN APP →",
         url: "https://emoji.appsandgames.org/",
-        detailsUrl: "emoji-copy-paste.html",
+        detailsUrl: "emoji-copy-paste",
         tags: ["Emoji", "Copy & Paste", "Symbols"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -102,7 +102,7 @@ const apps = [
         image: "assets/images/tetris.png",
         button: "PLAY GAME →",
         url: "https://tetris.appsandgames.org/",
-        detailsUrl: "tetris.html",
+        detailsUrl: "tetris",
         tags: ["Arcade", "Puzzle", "Browser"],
         status: "LIVE",
         analyticsEvent: "play_game"
@@ -115,7 +115,7 @@ const apps = [
         image: "assets/images/ufo-invaders.png",
         button: "PLAY GAME →",
         url: "https://ufo-invaders.appsandgames.org/",
-        detailsUrl: "ufo-invaders.html",
+        detailsUrl: "ufo-invaders",
         tags: ["Arcade", "Shooter", "Browser"],
         status: "LIVE",
         analyticsEvent: "play_game"
@@ -128,7 +128,7 @@ const apps = [
         image: "assets/images/phoenix-arcade-cover.png",
         button: "PLAY GAME →",
         url: "https://phoenix-arcade.appsandgames.org/",
-        detailsUrl: "phoenix-arcade.html",
+        detailsUrl: "phoenix-arcade",
         tags: ["Arcade", "Shooter", "Power-ups"],
         status: "LIVE",
         analyticsEvent: "play_game"
