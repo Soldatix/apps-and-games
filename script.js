@@ -88,7 +88,7 @@ const apps = [
         description: "Find emoji meanings by category, copy emojis instantly and paste country flags into Word as real images.",
         image: "assets/images/emoji-copy-paste.svg",
         button: "OPEN APP →",
-        url: "https://emoji-copy-paste.elvis-soldatic.chatgpt.site/",
+        url: "https://emoji.appsandgames.org/",
         detailsUrl: "emoji-copy-paste.html",
         tags: ["Emoji", "Copy & Paste", "Symbols"],
         status: "LIVE",
