@@ -101,7 +101,7 @@ const apps = [
         description: "Modern Tetris browser game with a stylish neon interface, smooth gameplay and instant play in your browser.",
         image: "assets/images/tetris.png",
         button: "PLAY GAME →",
-        url: "https://tetris.soldatix.workers.dev/",
+        url: "https://tetris.appsandgames.org/",
         detailsUrl: "tetris.html",
         tags: ["Arcade", "Puzzle", "Browser"],
         status: "LIVE",
