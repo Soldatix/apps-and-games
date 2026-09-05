@@ -95,6 +95,19 @@ const apps = [
         analyticsEvent: "open_app"
     },
     {
+        category: "utility",
+        badge: "APP",
+        name: "Unit Converter",
+        description: "Convert everyday, technical and digital measurement units quickly across 17 categories and 115 units.",
+        image: "assets/images/unit-converter.svg",
+        button: "OPEN APP →",
+        url: "https://unitconverter.appsandgames.org/",
+        detailsUrl: "unit-converter",
+        tags: ["Converter", "Measurements", "Tools"],
+        status: "LIVE",
+        analyticsEvent: "open_app"
+    },
+    {
         category: "game",
         badge: "GAME",
         name: "Tetris",
