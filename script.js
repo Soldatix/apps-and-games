@@ -145,6 +145,19 @@ const apps = [
         tags: ["Arcade", "Shooter", "Power-ups"],
         status: "LIVE",
         analyticsEvent: "play_game"
+    },
+    {
+        category: "game",
+        badge: "GAME",
+        name: "Neon Pac-Man",
+        description: "Guide Neon Pac-Man through a glowing maze, collect every dot, use power pellets and chase a place on the local leaderboard.",
+        image: "assets/images/neon-pacman-cover.svg",
+        button: "PLAY GAME →",
+        url: "https://neon-pacman.elvis-soldatic.chatgpt.site",
+        detailsUrl: "neon-pacman",
+        tags: ["Arcade", "Maze", "Retro"],
+        status: "LIVE",
+        analyticsEvent: "play_game"
     }
 ];
 
