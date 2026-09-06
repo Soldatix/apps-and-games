@@ -66,6 +66,55 @@ supportedLanguages.forEach(language => {
     cardTranslations[language][8] = snakeText.card;
 });
 
+const crosswordPortalI18n = {
+    en: {
+        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        appsText: "Open practical browser apps for everyday use. Current projects include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword, with more apps planned as the collection grows.",
+        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        card: ["Create your own crosswords or solve 500 ready-made puzzles across five languages and ten categories, then print or share them online.", ["Crossword", "Puzzle", "Creator"]]
+    },
+    hr: {
+        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        appsText: "Otvorite praktične aplikacije za svakodnevnu upotrebu. Trenutačna kolekcija uključuje Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword, a nove aplikacije dodavat ćemo i dalje.",
+        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        card: ["Izradite vlastite križaljke ili rješavajte 500 gotovih križaljki na pet jezika i u deset kategorija, zatim ih ispišite ili podijelite online.", ["Križaljke", "Slagalica", "Kreator"]]
+    },
+    de: {
+        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        appsText: "Öffne praktische Browser-Apps für den Alltag. Zur aktuellen Sammlung gehören Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword; weitere Apps sind geplant.",
+        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        card: ["Erstelle eigene Kreuzworträtsel oder löse 500 fertige Rätsel in fünf Sprachen und zehn Kategorien und drucke oder teile sie online.", ["Kreuzworträtsel", "Puzzle", "Editor"]]
+    },
+    it: {
+        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        appsText: "Apri app pratiche direttamente nel browser. La raccolta attuale include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword, con altre app in arrivo.",
+        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        card: ["Crea i tuoi cruciverba o risolvi 500 puzzle pronti in cinque lingue e dieci categorie, poi stampali o condividili online.", ["Cruciverba", "Puzzle", "Creatore"]]
+    },
+    es: {
+        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        appsText: "Abre aplicaciones prácticas directamente en el navegador. La colección actual incluye Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword, y seguirá creciendo.",
+        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        card: ["Crea tus propios crucigramas o resuelve 500 crucigramas preparados en cinco idiomas y diez categorías, y después imprímelos o compártelos online.", ["Crucigrama", "Puzzle", "Creador"]]
+    }
+};
+
+supportedLanguages.forEach(language => {
+    const crosswordText = crosswordPortalI18n[language];
+    if (!crosswordText) return;
+
+    if (translations[language]) {
+        Object.assign(translations[language], {
+            pageDescription: crosswordText.pageDescription,
+            appsText: crosswordText.appsText,
+            aboutText2: crosswordText.aboutText2
+        });
+    }
+
+    if (!Array.isArray(cardTranslations[language])) cardTranslations[language] = [];
+    cardTranslations[language][9] = crosswordText.card;
+});
+
 function t(key) {
     return translations[currentLanguage]?.[key] ?? translations.en?.[key] ?? key;
 }
@@ -220,6 +269,19 @@ const apps = [
         tags: ["Arcade", "Snake", "Bonuses"],
         status: "LIVE",
         analyticsEvent: "play_game"
+    },
+    {
+        category: "utility",
+        badge: "APP",
+        name: "Crossword",
+        description: "Create, solve, print and share custom crosswords, or play from a multilingual library of 500 ready-made puzzles.",
+        image: "assets/images/crossword-cover.svg",
+        button: "OPEN APP →",
+        url: "https://crossword.appsandgames.org/",
+        detailsUrl: "crossword",
+        tags: ["Crossword", "Puzzle", "Creator"],
+        status: "LIVE",
+        analyticsEvent: "open_app"
     }
 ];
 
@@ -268,6 +330,49 @@ function patchModernSnakeSeo() {
 }
 
 patchModernSnakeSeo();
+
+function patchCrosswordSeo() {
+    const keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (keywordsMeta && !keywordsMeta.content.toLowerCase().includes("crossword")) {
+        keywordsMeta.content += ", Crossword, crossword maker, crossword generator, križaljke";
+    }
+
+    const structuredData = document.querySelector('script[type="application/ld+json"]');
+    if (!structuredData) return;
+
+    try {
+        const data = JSON.parse(structuredData.textContent);
+        const graph = Array.isArray(data?.["@graph"]) ? data["@graph"] : [];
+        const itemList = graph.find(item => item?.["@type"] === "ItemList");
+        if (!itemList || !Array.isArray(itemList.itemListElement)) return;
+
+        const hasCrossword = itemList.itemListElement.some(entry => entry?.item?.name === "Crossword");
+        if (!hasCrossword) {
+            itemList.itemListElement.push({
+                "@type": "ListItem",
+                position: itemList.itemListElement.length + 1,
+                item: {
+                    "@type": "SoftwareApplication",
+                    name: "Crossword",
+                    url: "https://crossword.appsandgames.org/",
+                    image: "https://appsandgames.org/assets/images/crossword-cover.svg",
+                    description: "Create, solve, print and share custom crosswords, with 500 ready-made puzzles in five languages and ten categories.",
+                    applicationCategory: "EducationalApplication",
+                    operatingSystem: "Any",
+                    isAccessibleForFree: true,
+                    inLanguage: ["en", "hr", "de", "it", "es"]
+                }
+            });
+        }
+
+        itemList.numberOfItems = itemList.itemListElement.length;
+        structuredData.textContent = JSON.stringify(data);
+    } catch {
+        // Leave existing structured data unchanged if it cannot be parsed.
+    }
+}
+
+patchCrosswordSeo();
 
 /* =====================================================
    GOOGLE ANALYTICS EVENT HELPER
