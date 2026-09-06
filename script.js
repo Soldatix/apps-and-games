@@ -17,6 +17,55 @@ function getInitialLanguage() {
 
 let currentLanguage = getInitialLanguage();
 
+const modernSnakeI18n = {
+    en: {
+        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        gamesText: "Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste and Unit Converter with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        card: ["Play a modern Snake game with three lives, timed bonus food, keyboard and mouse controls, saved progress and a local leaderboard.", ["Arcade", "Snake", "Bonuses"]]
+    },
+    hr: {
+        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        gamesText: "Odaberite slagalice ili arkadne igre i odmah ih pokrenite u pregledniku. Trenutačna kolekcija uključuje Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste i Unit Converter s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        card: ["Igrajte moderni Snake s tri života, vremenski ograničenom bonus hranom, upravljanjem tipkovnicom i mišem, spremanjem i lokalnom rang-listom.", ["Arkadna", "Snake", "Bonusi"]]
+    },
+    de: {
+        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        gamesText: "Wähle Puzzle- oder Arcade-Spiele und spiele direkt im Browser. Die aktuelle Sammlung umfasst Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste und Unit Converter mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        card: ["Spiele Modern Snake mit drei Leben, zeitlich begrenztem Bonusfutter, Tastatur- und Maussteuerung, Speicherfunktion und lokaler Bestenliste.", ["Arcade", "Snake", "Bonusse"]]
+    },
+    it: {
+        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        gamesText: "Scegli tra rompicapi e giochi arcade e gioca direttamente nel browser. La raccolta attuale include Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste e Unit Converter a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        card: ["Gioca a Modern Snake con tre vite, cibo bonus a tempo, comandi da tastiera e mouse, salvataggio e classifica locale.", ["Arcade", "Snake", "Bonus"]]
+    },
+    es: {
+        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        gamesText: "Elige entre puzles y juegos arcade y empieza a jugar directamente en el navegador. La colección actual incluye Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste y Unit Converter con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        card: ["Juega a Modern Snake con tres vidas, comida bonus temporal, controles de teclado y ratón, guardado y clasificación local.", ["Arcade", "Snake", "Bonus"]]
+    }
+};
+
+supportedLanguages.forEach(language => {
+    const snakeText = modernSnakeI18n[language];
+    if (!snakeText) return;
+
+    if (translations[language]) {
+        Object.assign(translations[language], {
+            pageDescription: snakeText.pageDescription,
+            gamesText: snakeText.gamesText,
+            aboutText2: snakeText.aboutText2
+        });
+    }
+
+    if (!Array.isArray(cardTranslations[language])) cardTranslations[language] = [];
+    cardTranslations[language][8] = snakeText.card;
+});
+
 function t(key) {
     return translations[currentLanguage]?.[key] ?? translations.en?.[key] ?? key;
 }
@@ -158,8 +207,62 @@ const apps = [
         tags: ["Arcade", "Maze", "Retro"],
         status: "LIVE",
         analyticsEvent: "play_game"
+    },
+    {
+        category: "game",
+        badge: "GAME",
+        name: "Modern Snake",
+        description: "Play a modern Snake game with three lives, timed bonus food, keyboard and mouse controls, saved progress and a local leaderboard.",
+        image: "assets/images/modern-snake-cover.svg",
+        button: "PLAY GAME →",
+        url: "https://snake.appsandgames.org/",
+        detailsUrl: "modern-snake",
+        tags: ["Arcade", "Snake", "Bonuses"],
+        status: "LIVE",
+        analyticsEvent: "play_game"
     }
 ];
+
+function patchModernSnakeSeo() {
+    const keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (keywordsMeta && !keywordsMeta.content.toLowerCase().includes("modern snake")) {
+        keywordsMeta.content += ", Modern Snake, snake game";
+    }
+
+    const structuredData = document.querySelector('script[type="application/ld+json"]');
+    if (!structuredData) return;
+
+    try {
+        const data = JSON.parse(structuredData.textContent);
+        const graph = Array.isArray(data?.["@graph"]) ? data["@graph"] : [];
+        const itemList = graph.find(item => item?.["@type"] === "ItemList");
+        if (!itemList || !Array.isArray(itemList.itemListElement)) return;
+
+        const hasSnake = itemList.itemListElement.some(entry => entry?.item?.name === "Modern Snake");
+        if (!hasSnake) {
+            itemList.itemListElement.push({
+                "@type": "ListItem",
+                position: itemList.itemListElement.length + 1,
+                item: {
+                    "@type": "VideoGame",
+                    name: "Modern Snake",
+                    url: "https://snake.appsandgames.org/",
+                    image: "https://appsandgames.org/assets/images/modern-snake-cover.svg",
+                    description: "A modern Snake browser game with three lives, timed bonus food, keyboard and mouse controls, saved progress and a local leaderboard.",
+                    gamePlatform: "Web browser",
+                    isAccessibleForFree: true
+                }
+            });
+        }
+
+        itemList.numberOfItems = itemList.itemListElement.length;
+        structuredData.textContent = JSON.stringify(data);
+    } catch {
+        // Leave existing structured data unchanged if it cannot be parsed.
+    }
+}
+
+patchModernSnakeSeo();
 
 /* =====================================================
    GOOGLE ANALYTICS EVENT HELPER
