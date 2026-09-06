@@ -202,7 +202,7 @@ const apps = [
         description: "Guide Neon Pac-Man through a glowing maze, collect every dot, use power pellets and chase a place on the local leaderboard.",
         image: "assets/images/neon-pacman-cover.svg",
         button: "PLAY GAME →",
-        url: "https://neon-pacman.elvis-soldatic.chatgpt.site",
+        url: "https://neonpacman.appsandgames.org/",
         detailsUrl: "neon-pacman",
         tags: ["Arcade", "Maze", "Retro"],
         status: "LIVE",
@@ -237,6 +237,11 @@ function patchModernSnakeSeo() {
         const graph = Array.isArray(data?.["@graph"]) ? data["@graph"] : [];
         const itemList = graph.find(item => item?.["@type"] === "ItemList");
         if (!itemList || !Array.isArray(itemList.itemListElement)) return;
+
+        const neonPacManEntry = itemList.itemListElement.find(entry => entry?.item?.name === "Neon Pac-Man");
+        if (neonPacManEntry?.item) {
+            neonPacManEntry.item.url = "https://neonpacman.appsandgames.org/";
+        }
 
         const hasSnake = itemList.itemListElement.some(entry => entry?.item?.name === "Modern Snake");
         if (!hasSnake) {
