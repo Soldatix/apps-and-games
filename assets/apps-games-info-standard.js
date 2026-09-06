@@ -201,13 +201,17 @@
     const root = findInfoRoot(anchor);
     if (!root) return;
 
-    const lang = getLanguage();
+    const lang = getLanguage(root);
     const existing = root.querySelector(`.${VERSION}`);
     if (existing && existing.dataset.agLang === lang) return;
     if (existing) existing.remove();
 
     hideOldPayments(root);
-    const host = anchor.closest('[id*="content" i],[class*="content" i],.info-text,.modal-body') || anchor.parentElement?.parentElement || root;
+    let host = anchor.closest('[id*="content" i],[class*="content" i],.info-text,.modal-body');
+    if (!host || !root.contains(host)) {
+      host = root.querySelector?.('[id*="content" i],[class*="content" i],.info-text,.modal-body,.modal-card') || root;
+    }
+    if (/payment-options|payment-grid|donation-options|donation-methods/.test(String(host.className || ''))) host = root;
     host.insertAdjacentHTML('beforeend', markup(lang));
   }
 
@@ -226,7 +230,7 @@
     const button = event.target.closest('.ag-copy');
     if (!button) return;
     const value = button.dataset.copy || '';
-    const lang = getLanguage(), t = i18n[lang] || i18n.en;
+    const lang = getLanguage(button.closest('.ag-support-standard') || document), t = i18n[lang] || i18n.en;
     try { await navigator.clipboard.writeText(value); }
     catch {
       const ta = document.createElement('textarea'); ta.value = value; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
