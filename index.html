@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Apps & Games — Free Online Apps and Games</title>
-    <meta name="description" content="Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade and Neon Pac-Man.">
-    <meta name="keywords" content="apps and games, free online apps, browser apps, browser games, unit converter, measurement converter, digital clock, lotto generator, emoji copy paste, tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, maze game, arcade games">
+    <meta name="description" content="Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.">
+    <meta name="keywords" content="apps and games, free online apps, browser apps, browser games, unit converter, measurement converter, digital clock, lotto generator, emoji copy paste, tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake, arcade games">
     <meta name="author" content="Soldatix">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#071128">
@@ -44,6 +44,123 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6296601518048221" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Donation presentation is intentionally kept here so only index.html
+         has to be replaced in the main Apps & Games repository. -->
+    <style>
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .payment-options .payment-card {
+            display: block;
+            min-width: 0;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--surface),
+                    var(--surface-2)
+                );
+            box-shadow: var(--shadow);
+        }
+
+        .payment-options .donation-content {
+            width: 100%;
+        }
+
+        .payment-brand-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .payment-symbol {
+            display: inline-grid;
+            place-items: center;
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            color: var(--primary);
+            background: var(--surface-3);
+        }
+
+        .payment-symbol svg {
+            width: 23px;
+            height: 23px;
+        }
+
+        .payment-brand-row h4 {
+            margin: 0;
+            font-size: 1.15rem;
+        }
+
+        .payment-options .payment-card p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        .payment-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0 18px;
+        }
+
+        .payment-badge {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 5px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--text-secondary);
+            background: var(--surface-3);
+            font-size: 0.78rem;
+            font-weight: 750;
+            line-height: 1.2;
+        }
+
+        .payment-options .donation-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 48px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .payment-note {
+            margin: 14px 2px 0;
+            color: var(--text-secondary);
+            font-size: 0.84rem;
+        }
+
+        @media (max-width: 860px) {
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .payment-options .payment-card {
+                padding: 18px;
+            }
+
+            .payment-badge {
+                font-size: 0.74rem;
+            }
+        }
+    </style>
 
     <script type="application/ld+json">
     {
@@ -155,7 +272,7 @@
                 "name": "Unit Converter",
                 "url": "https://unitconverter.appsandgames.org/",
                 "image": "https://appsandgames.org/assets/images/unit-converter.svg",
-                "description": "Convert everyday, technical and digital measurement units across 17 categories and 115 units.",
+                "description": "Convert everyday, technical, digital and shopping-related measurements and sizes.",
                 "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
                 "isAccessibleForFree": true
@@ -285,7 +402,7 @@
             <span class="section-label" data-i18n="gamesLabel">🎮 GAMES</span>
             <h2 data-i18n="gamesHeading">Browser Games You Can Play Instantly</h2>
             <p data-i18n="gamesText">
-                Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade and Neon Pac-Man.
+                Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.
             </p>
         </div>
         <div id="gamesGrid" class="apps-grid"></div>
@@ -299,7 +416,7 @@
                 Apps & Games is an independent collection of browser-based apps and games published under the Soldatix name. The goal is simple: provide useful small apps and entertaining games that are easy to open, understand and use.
             </p>
             <p data-i18n="aboutText2">
-                Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste and Unit Converter with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade and Neon Pac-Man.
+                Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste and Unit Converter with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.
             </p>
             <p data-i18n="aboutText3">
                 Each project is developed as a standalone experience with a focus on clear controls, responsive layouts and straightforward navigation. New apps, games and improvements can be added over time while existing projects continue to receive fixes and usability updates.
@@ -351,25 +468,76 @@
             </p>
 
             <h3 data-i18n="donateHeading">You can make donations to:</h3>
-            <div class="donation-options">
-                <div class="donation-card">
-                    <div class="donation-icon paypal-icon">P</div>
-                    <div class="donation-content">
-                        <h4 data-i18n="paypalHeading">PayPal account</h4>
-                        <p data-i18n="paypalText">Support the project securely through PayPal.</p>
-                        <a href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_paypal" data-i18n="openPayPal">Open PayPal ↗</a>
-                    </div>
-                </div>
 
-                <div class="donation-card">
-                    <div class="donation-icon stripe-icon">$</div>
+            <div class="payment-options donation-options">
+                <article class="donation-card payment-card">
                     <div class="donation-content">
-                        <h4 data-i18n="stripeHeading">Card Payment (Stripe)</h4>
-                        <p data-i18n="stripeText">Donate securely using your credit or debit card.</p>
-                        <a href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00" target="_blank" rel="noopener noreferrer" class="donation-button" data-ga-event="donation_stripe" data-i18n="openStripe">Open Stripe ↗</a>
+                        <div class="payment-brand-row">
+                            <span class="payment-symbol" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M4 7.5h16v10H4z"/>
+                                    <path d="M7 7.5V5.8A1.8 1.8 0 0 1 8.8 4h6.4A1.8 1.8 0 0 1 17 5.8v1.7"/>
+                                    <path d="M15.5 12.5h2"/>
+                                </svg>
+                            </span>
+                            <h4 data-i18n="paypalHeading">PayPal</h4>
+                        </div>
+
+                        <p data-i18n="paypalText">Pay securely with PayPal or other payment options offered by PayPal Checkout.</p>
+
+                        <div class="payment-badges" aria-label="PayPal payment methods">
+                            <span class="payment-badge">PayPal</span>
+                            <span class="payment-badge" data-i18n="paymentCards">Debit / Credit Card</span>
+                            <span class="payment-badge">Apple Pay</span>
+                        </div>
+
+                        <a
+                            href="https://www.paypal.com/ncp/payment/RU2CWCNVQ7XD6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="donation-button"
+                            data-ga-event="donation_paypal"
+                            data-i18n="openPayPal"
+                        >Donate with PayPal ↗</a>
                     </div>
-                </div>
+                </article>
+
+                <article class="donation-card payment-card">
+                    <div class="donation-content">
+                        <div class="payment-brand-row">
+                            <span class="payment-symbol" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                    <path d="M3 9h18"/>
+                                    <path d="M7 15h4"/>
+                                </svg>
+                            </span>
+                            <h4 data-i18n="stripeHeading">Stripe</h4>
+                        </div>
+
+                        <p data-i18n="stripeText">Pay securely by card or with payment methods available through Stripe Checkout.</p>
+
+                        <div class="payment-badges" aria-label="Stripe payment methods">
+                            <span class="payment-badge" data-i18n="paymentCards">Debit / Credit Card</span>
+                            <span class="payment-badge">Link</span>
+                            <span class="payment-badge" data-i18n="digitalWallets">Digital wallets</span>
+                        </div>
+
+                        <a
+                            href="https://buy.stripe.com/7sYeVd7Blfe89cm0k02kw00"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="donation-button"
+                            data-ga-event="donation_stripe"
+                            data-i18n="openStripe"
+                        >Donate with Stripe ↗</a>
+                    </div>
+                </article>
             </div>
+
+            <p class="payment-note" data-i18n="paymentAvailability">
+                Available payment methods can vary by country, device and payment provider.
+            </p>
 
             <div class="crypto-section">
                 <h3 data-i18n="cryptoHeading">Crypto Wallet</h3>
@@ -437,6 +605,76 @@
 </footer>
 
 <script src="i18n.js"></script>
+
+<!-- Extends the existing shared translations without requiring an i18n.js update. -->
+<script>
+(function () {
+    const paymentI18n = {
+        en: {
+            paypalHeading: "PayPal",
+            paypalText: "Pay securely with PayPal or other payment options offered by PayPal Checkout.",
+            stripeHeading: "Stripe",
+            stripeText: "Pay securely by card or with payment methods available through Stripe Checkout.",
+            paymentCards: "Debit / Credit Card",
+            digitalWallets: "Digital wallets",
+            paymentAvailability: "Available payment methods can vary by country, device and payment provider.",
+            openPayPal: "Donate with PayPal ↗",
+            openStripe: "Donate with Stripe ↗"
+        },
+        hr: {
+            paypalHeading: "PayPal",
+            paypalText: "Platite sigurno putem PayPala ili drugim načinima plaćanja koje nudi PayPal Checkout.",
+            stripeHeading: "Stripe",
+            stripeText: "Platite sigurno karticom ili načinima plaćanja dostupnima putem Stripe Checkouta.",
+            paymentCards: "Debitna / kreditna kartica",
+            digitalWallets: "Digitalni novčanici",
+            paymentAvailability: "Dostupni načini plaćanja mogu se razlikovati ovisno o državi, uređaju i pružatelju plaćanja.",
+            openPayPal: "Doniraj putem PayPala ↗",
+            openStripe: "Doniraj putem Stripea ↗"
+        },
+        de: {
+            paypalHeading: "PayPal",
+            paypalText: "Sicher mit PayPal oder weiteren von PayPal Checkout angebotenen Zahlungsmethoden bezahlen.",
+            stripeHeading: "Stripe",
+            stripeText: "Sicher per Karte oder mit den über Stripe Checkout verfügbaren Zahlungsmethoden bezahlen.",
+            paymentCards: "Debit- / Kreditkarte",
+            digitalWallets: "Digitale Wallets",
+            paymentAvailability: "Verfügbare Zahlungsmethoden können je nach Land, Gerät und Zahlungsanbieter variieren.",
+            openPayPal: "Mit PayPal spenden ↗",
+            openStripe: "Mit Stripe spenden ↗"
+        },
+        it: {
+            paypalHeading: "PayPal",
+            paypalText: "Paga in modo sicuro con PayPal o con gli altri metodi disponibili tramite PayPal Checkout.",
+            stripeHeading: "Stripe",
+            stripeText: "Paga in modo sicuro con carta o con i metodi disponibili tramite Stripe Checkout.",
+            paymentCards: "Carta di debito / credito",
+            digitalWallets: "Portafogli digitali",
+            paymentAvailability: "I metodi di pagamento disponibili possono variare in base al Paese, al dispositivo e al fornitore di pagamento.",
+            openPayPal: "Dona con PayPal ↗",
+            openStripe: "Dona con Stripe ↗"
+        },
+        es: {
+            paypalHeading: "PayPal",
+            paypalText: "Paga de forma segura con PayPal u otros métodos disponibles mediante PayPal Checkout.",
+            stripeHeading: "Stripe",
+            stripeText: "Paga de forma segura con tarjeta o con los métodos disponibles mediante Stripe Checkout.",
+            paymentCards: "Tarjeta de débito / crédito",
+            digitalWallets: "Carteras digitales",
+            paymentAvailability: "Los métodos de pago disponibles pueden variar según el país, el dispositivo y el proveedor de pago.",
+            openPayPal: "Donar con PayPal ↗",
+            openStripe: "Donar con Stripe ↗"
+        }
+    };
+
+    Object.entries(paymentI18n).forEach(([language, values]) => {
+        if (window.APP_I18N && window.APP_I18N[language]) {
+            Object.assign(window.APP_I18N[language], values);
+        }
+    });
+})();
+</script>
+
 <script src="script.js"></script>
 </body>
 </html>
