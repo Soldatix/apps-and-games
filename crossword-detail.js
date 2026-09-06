@@ -1,15 +1,19 @@
 (() => {
   const supported = ["en", "hr", "de", "it", "es"];
-  const saved = localStorage.getItem("appsGamesLanguage");
+  const storageKey = "appsGamesLanguage";
+  const qLang = new URLSearchParams(location.search).get("lang");
+  const saved = localStorage.getItem(storageKey);
   const browser = (navigator.language || "en").slice(0, 2).toLowerCase();
-  const language = supported.includes(saved) ? saved : (supported.includes(browser) ? browser : "en");
+  let language = supported.includes(qLang)
+    ? qLang
+    : (supported.includes(saved) ? saved : (supported.includes(browser) ? browser : "en"));
 
   const common = {
-    en: { navApps:"Apps", navGames:"Games", navInfo:"Info", home:"Home", privacy:"Privacy Policy", about:"ABOUT THE APP", primary:"Open Crossword →", back:"Back to Apps" },
-    hr: { navApps:"Aplikacije", navGames:"Igre", navInfo:"Info", home:"Početna", privacy:"Pravila privatnosti", about:"O APLIKACIJI", primary:"Otvori Crossword →", back:"Natrag na aplikacije" },
-    de: { navApps:"Apps", navGames:"Spiele", navInfo:"Info", home:"Startseite", privacy:"Datenschutzerklärung", about:"ÜBER DIE APP", primary:"Crossword öffnen →", back:"Zurück zu den Apps" },
-    it: { navApps:"App", navGames:"Giochi", navInfo:"Info", home:"Home", privacy:"Informativa sulla privacy", about:"INFORMAZIONI SULL'APP", primary:"Apri Crossword →", back:"Torna alle app" },
-    es: { navApps:"Apps", navGames:"Juegos", navInfo:"Info", home:"Inicio", privacy:"Política de privacidad", about:"ACERCA DE LA APP", primary:"Abrir Crossword →", back:"Volver a las apps" }
+    en: { navApps:"Apps", navGames:"Games", navInfo:"Info", home:"Home", privacy:"Privacy Policy", about:"ABOUT THE APP", primary:"Open Crossword →", back:"Back to Apps", selectLanguage:"Select language", theme:"Toggle theme" },
+    hr: { navApps:"Aplikacije", navGames:"Igre", navInfo:"Info", home:"Početna", privacy:"Pravila privatnosti", about:"O APLIKACIJI", primary:"Otvori Crossword →", back:"Natrag na aplikacije", selectLanguage:"Odaberi jezik", theme:"Promijeni temu" },
+    de: { navApps:"Apps", navGames:"Spiele", navInfo:"Info", home:"Startseite", privacy:"Datenschutzerklärung", about:"ÜBER DIE APP", primary:"Crossword öffnen →", back:"Zurück zu den Apps", selectLanguage:"Sprache auswählen", theme:"Design wechseln" },
+    it: { navApps:"App", navGames:"Giochi", navInfo:"Info", home:"Home", privacy:"Informativa sulla privacy", about:"INFORMAZIONI SULL'APP", primary:"Apri Crossword →", back:"Torna alle app", selectLanguage:"Seleziona lingua", theme:"Cambia tema" },
+    es: { navApps:"Apps", navGames:"Juegos", navInfo:"Info", home:"Inicio", privacy:"Política de privacidad", about:"ACERCA DE LA APP", primary:"Abrir Crossword →", back:"Volver a las apps", selectLanguage:"Seleccionar idioma", theme:"Cambiar tema" }
   };
 
   const copy = {
@@ -55,30 +59,71 @@
     }
   };
 
-  const c = common[language];
-  const p = copy[language];
-  document.documentElement.lang = language;
-  document.title = p.title;
-  document.querySelector('meta[name="description"]')?.setAttribute("content", p.description);
-  document.getElementById("navApps").textContent = c.navApps;
-  document.getElementById("navGames").textContent = c.navGames;
-  document.getElementById("navInfo").textContent = c.navInfo;
-  document.getElementById("detailBadge").textContent = p.badge;
-  document.getElementById("detailSubtitle").textContent = p.subtitle;
-  document.getElementById("detailText").textContent = p.text;
-  document.getElementById("primaryButton").textContent = c.primary;
-  document.getElementById("backButton").textContent = c.back;
-  document.getElementById("aboutLabel").textContent = c.about;
-  document.getElementById("detailInfo").innerHTML = p.info;
-  document.getElementById("footerHome").textContent = c.home;
-  document.getElementById("footerApps").textContent = c.navApps;
-  document.getElementById("footerGames").textContent = c.navGames;
-  document.getElementById("footerPrivacy").textContent = c.privacy;
+  const header = document.querySelector(".header-content");
+  const themeToggle = document.getElementById("themeToggle");
+  if (header && themeToggle && !document.getElementById("languageSelect")) {
+    const actions = document.createElement("div");
+    actions.className = "header-actions";
+    const label = document.createElement("label");
+    label.className = "sr-only";
+    label.htmlFor = "languageSelect";
+    const select = document.createElement("select");
+    select.id = "languageSelect";
+    select.className = "language-select";
+    select.innerHTML = '<option value="en">EN</option><option value="hr">HR</option><option value="de">DE</option><option value="it">IT</option><option value="es">ES</option>';
+    themeToggle.replaceWith(actions);
+    actions.append(label, select, themeToggle);
+  }
+
+  const select = document.getElementById("languageSelect");
+  const label = document.querySelector('label[for="languageSelect"]');
+
+  function applyLanguage(lang, updateUrl = false) {
+    language = supported.includes(lang) ? lang : "en";
+    localStorage.setItem(storageKey, language);
+    document.documentElement.lang = language;
+
+    const c = common[language];
+    const p = copy[language];
+    if (select) {
+      select.value = language;
+      select.setAttribute("aria-label", c.selectLanguage);
+    }
+    if (label) label.textContent = c.selectLanguage;
+    if (themeToggle) themeToggle.setAttribute("aria-label", c.theme);
+
+    document.title = p.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", p.description);
+    document.getElementById("navApps").textContent = c.navApps;
+    document.getElementById("navGames").textContent = c.navGames;
+    document.getElementById("navInfo").textContent = c.navInfo;
+    document.getElementById("detailBadge").textContent = p.badge;
+    document.getElementById("detailSubtitle").textContent = p.subtitle;
+    document.getElementById("detailText").textContent = p.text;
+    document.getElementById("primaryButton").textContent = c.primary;
+    document.getElementById("backButton").textContent = c.back;
+    document.getElementById("aboutLabel").textContent = c.about;
+    document.getElementById("detailInfo").innerHTML = p.info;
+    document.getElementById("footerHome").textContent = c.home;
+    document.getElementById("footerApps").textContent = c.navApps;
+    document.getElementById("footerGames").textContent = c.navGames;
+    document.getElementById("footerPrivacy").textContent = c.privacy;
+
+    if (updateUrl) {
+      const url = new URL(location.href);
+      if (language === "en") url.searchParams.delete("lang");
+      else url.searchParams.set("lang", language);
+      history.replaceState({}, "", url);
+    }
+  }
+
+  if (select) {
+    select.addEventListener("change", event => applyLanguage(event.target.value, true));
+  }
 
   const year = document.getElementById("currentYear");
   if (year) year.textContent = new Date().getFullYear();
 
-  const themeToggle = document.getElementById("themeToggle");
   function applyTheme(theme) {
     if (theme === "light") {
       document.documentElement.setAttribute("data-theme", "light");
@@ -88,6 +133,7 @@
       if (themeToggle) themeToggle.textContent = "☀️";
     }
   }
+
   const savedTheme = localStorage.getItem("theme");
   applyTheme(savedTheme === "light" ? "light" : "dark");
   themeToggle?.addEventListener("click", () => {
@@ -96,4 +142,6 @@
     applyTheme(next);
     localStorage.setItem("theme", next);
   });
+
+  applyLanguage(language, false);
 })();
