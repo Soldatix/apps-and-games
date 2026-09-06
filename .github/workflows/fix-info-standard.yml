@@ -20,17 +20,8 @@ jobs:
           from pathlib import Path
           p = Path('assets/apps-games-info-standard.js')
           s = p.read_text(encoding='utf-8')
-          old = '''  function getLanguage() {
-            const raw = String(
-              document.querySelector('#languageSelect, #language, #langSelect, select[id*="lang" i], select[name*="lang" i]')?.value ||
-              document.documentElement.lang || navigator.language || 'en'
-            ).toLowerCase();
-            if (raw.startsWith('hr') || raw.includes('hrvat')) return 'hr';
-            if (raw.startsWith('de') || raw.includes('deutsch')) return 'de';
-            if (raw.startsWith('it') || raw.includes('ital')) return 'it';
-            if (raw.startsWith('es') || raw.includes('espa')) return 'es';
-            return 'en';
-          }'''.replace('          ', '  ')
+          start = s.index('  function getLanguage() {')
+          end = s.index('\n\n  function isVisible', start)
           new = '''  function getLanguage(context = document) {
             const contextText = String(context?.textContent || '').toLowerCase();
             if (/dobrovoljne donacije|donirati možete|kripto novčanik|podržite projekt/.test(contextText)) return 'hr';
@@ -48,11 +39,7 @@ jobs:
             if (raw.startsWith('es') || raw.includes('espa')) return 'es';
             return 'en';
           }'''.replace('          ', '  ')
-          if old in s:
-              s = s.replace(old, new, 1)
-          s = s.replace('    const lang = getLanguage();\n', '    const lang = getLanguage(root);\n', 1)
-          s = s.replace("    const host = anchor.closest('[id*=\"content\" i],[class*=\"content\" i],.info-text,.modal-body') || anchor.parentElement?.parentElement || root;\n    host.insertAdjacentHTML('beforeend', markup(lang));", "    let host = anchor.closest('[id*=\"content\" i],[class*=\"content\" i],.info-text,.modal-body');\n    if (!host || !root.contains(host)) {\n      host = root.querySelector?.('[id*=\"content\" i],[class*=\"content\" i],.info-text,.modal-body,.modal-card') || root;\n    }\n    if (/payment-options|payment-grid|donation-options|donation-methods/.test(String(host.className || ''))) host = root;\n    host.insertAdjacentHTML('beforeend', markup(lang));", 1)
-          s = s.replace("    const lang = getLanguage(), t = i18n[lang] || i18n.en;", "    const lang = getLanguage(button.closest('.ag-support-standard') || document), t = i18n[lang] || i18n.en;", 1)
+          s = s[:start] + new + s[end:]
           p.write_text(s, encoding='utf-8')
           PY
           node --check assets/apps-games-info-standard.js
@@ -62,5 +49,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/apps-games-info-standard.js
-          git commit -m "Refine shared Info language and placement"
+          git commit -m "Improve shared Info language detection"
           git push
