@@ -69,17 +69,23 @@
     }
   };
 
-  function getLanguage() {
-    const raw = String(
-      document.querySelector('#languageSelect, #language, #langSelect, select[id*="lang" i], select[name*="lang" i]')?.value ||
-      document.documentElement.lang || navigator.language || 'en'
-    ).toLowerCase();
-    if (raw.startsWith('hr') || raw.includes('hrvat')) return 'hr';
-    if (raw.startsWith('de') || raw.includes('deutsch')) return 'de';
-    if (raw.startsWith('it') || raw.includes('ital')) return 'it';
-    if (raw.startsWith('es') || raw.includes('espa')) return 'es';
-    return 'en';
-  }
+  function getLanguage(context = document) {
+  const contextText = String(context?.textContent || '').toLowerCase();
+  if (/dobrovoljne donacije|donirati možete|kripto novčanik|podržite projekt/.test(contextText)) return 'hr';
+  if (/freiwillige spenden|spenden sind möglich|krypto-wallet|projekt unterstützen/.test(contextText)) return 'de';
+  if (/donazioni volontarie|puoi effettuare una donazione|portafogli crypto|sostieni il progetto/.test(contextText)) return 'it';
+  if (/donaciones voluntarias|puedes realizar una donación|carteras de cripto|apoya el proyecto/.test(contextText)) return 'es';
+
+  const raw = String(
+    document.querySelector('#languageSelect, #language, #langSelect, select[id*="lang" i], select[name*="lang" i]')?.value ||
+    document.documentElement.lang || navigator.language || 'en'
+  ).toLowerCase();
+  if (raw.startsWith('hr') || raw.includes('hrvat')) return 'hr';
+  if (raw.startsWith('de') || raw.includes('deutsch')) return 'de';
+  if (raw.startsWith('it') || raw.includes('ital')) return 'it';
+  if (raw.startsWith('es') || raw.includes('espa')) return 'es';
+  return 'en';
+}
 
   function isVisible(el) {
     if (!el || !el.isConnected) return false;
