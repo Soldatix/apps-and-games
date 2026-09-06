@@ -305,8 +305,10 @@ function patchModernSnakeSeo() {
             neonPacManEntry.item.url = "https://neonpacman.appsandgames.org/";
         }
 
-        const hasSnake = itemList.itemListElement.some(entry => entry?.item?.name === "Modern Snake");
-        if (!hasSnake) {
+        const snakeEntry = itemList.itemListElement.find(entry => entry?.item?.name === "Modern Snake");
+        if (snakeEntry?.item) {
+            snakeEntry.item.url = "https://snake.appsandgames.org/";
+        } else {
             itemList.itemListElement.push({
                 "@type": "ListItem",
                 position: itemList.itemListElement.length + 1,
