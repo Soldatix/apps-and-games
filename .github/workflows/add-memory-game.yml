@@ -1,0 +1,440 @@
+name: Add Memory Game to portal
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/add-memory-game.yml
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Integrate Memory Game
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          import re
+
+          TODAY = "2026-09-08"
+
+          def replace_once(text, old, new, label):
+              if old not in text:
+                  raise SystemExit(f"Missing expected anchor: {label}")
+              return text.replace(old, new, 1)
+
+          # ------------------------------------------------------------
+          # script.js: card, five-language portal copy and SEO patch
+          # ------------------------------------------------------------
+          script_path = Path("script.js")
+          script = script_path.read_text(encoding="utf-8")
+
+          script = script.replace(
+              'cardTranslations[language][9] = crosswordText.card;',
+              'cardTranslations[language][10] = crosswordText.card;'
+          )
+
+          if "const memoryGamePortalI18n =" not in script:
+              memory_i18n = r'''
+const memoryGamePortalI18n = {
+    en: {
+        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        gamesText: "Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        card: ["Train your memory with themed matching pairs across Brain, Daily, Kids, Animals, Food and Travel, with four difficulty levels and saved progress.", ["Memory", "Puzzle", "Brain"]]
+    },
+    hr: {
+        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        gamesText: "Odaberite slagalice ili arkadne igre i odmah ih pokrenite u pregledniku. Trenutačna kolekcija uključuje Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        card: ["Vježbajte pamćenje spajanjem tematskih parova u sekcijama Mozak, Svakodnevno, Djeca, Životinje, Hrana i Putovanja, uz četiri razine težine i spremanje napretka.", ["Memorija", "Slagalica", "Mozak"]]
+    },
+    de: {
+        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        gamesText: "Wähle Puzzle- oder Arcade-Spiele und spiele direkt im Browser. Die aktuelle Sammlung umfasst Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        card: ["Trainiere dein Gedächtnis mit thematischen Kartenpaaren aus Gehirn, Alltag, Kinder, Tiere, Essen und Reisen, vier Schwierigkeitsstufen und gespeichertem Fortschritt.", ["Gedächtnis", "Puzzle", "Gehirn"]]
+    },
+    it: {
+        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        gamesText: "Scegli tra rompicapi e giochi arcade e gioca direttamente nel browser. La raccolta attuale include Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        card: ["Allena la memoria abbinando coppie a tema nelle sezioni Cervello, Quotidiano, Bambini, Animali, Cibo e Viaggi, con quattro livelli di difficoltà e salvataggio dei progressi.", ["Memoria", "Puzzle", "Cervello"]]
+    },
+    es: {
+        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        gamesText: "Elige entre puzles y juegos arcade y empieza a jugar directamente en el navegador. La colección actual incluye Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        card: ["Entrena la memoria emparejando cartas temáticas de Cerebro, Diario, Niños, Animales, Comida y Viajes, con cuatro niveles de dificultad y progreso guardado.", ["Memoria", "Puzle", "Cerebro"]]
+    }
+};
+
+supportedLanguages.forEach(language => {
+    const memoryText = memoryGamePortalI18n[language];
+    if (!memoryText) return;
+
+    if (translations[language]) {
+        Object.assign(translations[language], {
+            pageDescription: memoryText.pageDescription,
+            gamesText: memoryText.gamesText,
+            aboutText2: memoryText.aboutText2
+        });
+    }
+
+    if (!Array.isArray(cardTranslations[language])) cardTranslations[language] = [];
+    cardTranslations[language][9] = memoryText.card;
+});
+
+'''
+              script = replace_once(script, "function t(key) {", memory_i18n + "function t(key) {", "function t")
+
+          if 'name: "Memory Game"' not in script:
+              memory_app = r'''    {
+        category: "game",
+        badge: "GAME",
+        name: "Memory Game",
+        description: "Train your memory with themed matching pairs, four difficulty levels, saved progress and a multilingual interface.",
+        image: "assets/images/memory-game-cover.svg",
+        button: "PLAY GAME →",
+        url: "https://memory.appsandgames.org/",
+        detailsUrl: "memory-game",
+        tags: ["Memory", "Puzzle", "Brain"],
+        status: "LIVE",
+        analyticsEvent: "play_game"
+    },
+'''
+              crossword_anchor = '''    {
+        category: "utility",
+        badge: "APP",
+        name: "Crossword",'''
+              script = replace_once(script, crossword_anchor, memory_app + crossword_anchor, "Crossword app anchor")
+
+          if "function patchMemoryGameSeo()" not in script:
+              memory_seo = r'''
+function patchMemoryGameSeo() {
+    const keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (keywordsMeta && !keywordsMeta.content.toLowerCase().includes("memory game")) {
+        keywordsMeta.content += ", Memory Game, matching pairs, memory puzzle, brain game";
+    }
+
+    const structuredData = document.querySelector('script[type="application/ld+json"]');
+    if (!structuredData) return;
+
+    try {
+        const data = JSON.parse(structuredData.textContent);
+        const graph = Array.isArray(data?.["@graph"]) ? data["@graph"] : [];
+        const itemList = graph.find(item => item?.["@type"] === "ItemList");
+        if (!itemList || !Array.isArray(itemList.itemListElement)) return;
+
+        const hasMemoryGame = itemList.itemListElement.some(entry => entry?.item?.name === "Memory Game");
+        if (!hasMemoryGame) {
+            itemList.itemListElement.push({
+                "@type": "ListItem",
+                position: itemList.itemListElement.length + 1,
+                item: {
+                    "@type": "VideoGame",
+                    name: "Memory Game",
+                    url: "https://memory.appsandgames.org/",
+                    image: "https://appsandgames.org/assets/images/memory-game-cover.svg",
+                    description: "A free multilingual browser memory game with themed matching pairs, four difficulty levels and saved progress.",
+                    gamePlatform: "Web browser",
+                    isAccessibleForFree: true,
+                    inLanguage: ["en", "hr", "de", "it", "es"]
+                }
+            });
+        }
+
+        itemList.numberOfItems = itemList.itemListElement.length;
+        structuredData.textContent = JSON.stringify(data);
+    } catch {
+        // Leave existing structured data unchanged if it cannot be parsed.
+    }
+}
+
+patchMemoryGameSeo();
+'''
+              script = replace_once(script, "patchCrosswordSeo();", "patchCrosswordSeo();\n" + memory_seo, "patchCrosswordSeo")
+
+          script_path.write_text(script, encoding="utf-8")
+
+          # ------------------------------------------------------------
+          # index.html: static collection SEO and English fallback copy
+          # ------------------------------------------------------------
+          index_path = Path("index.html")
+          index = index_path.read_text(encoding="utf-8")
+
+          index = index.replace(
+              "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+              "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game."
+          )
+          index = index.replace(
+              "arcade games\">",
+              "arcade games, memory game, matching pairs, brain game\">"
+          )
+          index = index.replace(
+              "The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+              "The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game."
+          )
+          index = index.replace(
+              "with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+              "with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game."
+          )
+
+          m = re.search(r'(<script type="application/ld\+json">\s*)(\{.*?\})(\s*</script>)', index, re.S)
+          if not m:
+              raise SystemExit("Could not find JSON-LD in index.html")
+          data = json.loads(m.group(2))
+          graph = data.get("@graph", [])
+          item_list = next((x for x in graph if x.get("@type") == "ItemList"), None)
+          if not item_list:
+              raise SystemExit("Could not find ItemList in index JSON-LD")
+          items = item_list.setdefault("itemListElement", [])
+          if not any(x.get("item", {}).get("name") == "Memory Game" for x in items):
+              items.append({
+                  "@type": "ListItem",
+                  "position": len(items) + 1,
+                  "item": {
+                      "@type": "VideoGame",
+                      "name": "Memory Game",
+                      "url": "https://memory.appsandgames.org/",
+                      "image": "https://appsandgames.org/assets/images/memory-game-cover.svg",
+                      "description": "A free multilingual browser memory game with themed matching pairs, four difficulty levels and saved progress.",
+                      "gamePlatform": "Web browser",
+                      "isAccessibleForFree": True,
+                      "inLanguage": ["en", "hr", "de", "it", "es"]
+                  }
+              })
+          for position, entry in enumerate(items, 1):
+              entry["position"] = position
+          item_list["numberOfItems"] = len(items)
+          json_text = json.dumps(data, ensure_ascii=False, indent=2)
+          index = index[:m.start()] + m.group(1) + json_text + m.group(3) + index[m.end():]
+          index_path.write_text(index, encoding="utf-8")
+
+          # ------------------------------------------------------------
+          # Memory Game cover image (SVG)
+          # ------------------------------------------------------------
+          cover = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+            <title id="title">Memory Game</title>
+            <desc id="desc">Memory Game cover with matching card pairs.</desc>
+            <defs>
+              <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#071528"/>
+                <stop offset="1" stop-color="#20234f"/>
+              </linearGradient>
+              <linearGradient id="card" x1="0" x2="1">
+                <stop offset="0" stop-color="#17375d"/>
+                <stop offset="1" stop-color="#293169"/>
+              </linearGradient>
+              <linearGradient id="accent" x1="0" x2="1">
+                <stop offset="0" stop-color="#39c6f4"/>
+                <stop offset="1" stop-color="#7968ff"/>
+              </linearGradient>
+            </defs>
+            <rect width="1200" height="675" rx="42" fill="url(#bg)"/>
+            <circle cx="175" cy="135" r="170" fill="#39c6f4" opacity=".09"/>
+            <circle cx="1030" cy="120" r="210" fill="#7968ff" opacity=".10"/>
+            <g transform="translate(92 114)">
+              <rect x="0" y="0" width="238" height="190" rx="28" fill="url(#card)" stroke="#6bdcff" stroke-opacity=".45"/>
+              <rect x="260" y="0" width="238" height="190" rx="28" fill="url(#card)" stroke="#ffffff" stroke-opacity=".15"/>
+              <rect x="0" y="214" width="238" height="190" rx="28" fill="url(#card)" stroke="#ffffff" stroke-opacity=".15"/>
+              <rect x="260" y="214" width="238" height="190" rx="28" fill="url(#card)" stroke="#967fff" stroke-opacity=".55"/>
+              <text x="119" y="118" text-anchor="middle" font-size="78">🧠</text>
+              <text x="379" y="118" text-anchor="middle" font-size="78">✦</text>
+              <text x="119" y="332" text-anchor="middle" font-size="78">✦</text>
+              <text x="379" y="332" text-anchor="middle" font-size="78">🧠</text>
+            </g>
+            <g transform="translate(650 190)">
+              <text x="0" y="0" fill="#9feaff" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="70">MEMORY</text>
+              <text x="0" y="76" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="70">GAME</text>
+              <rect x="0" y="112" width="350" height="8" rx="4" fill="url(#accent)"/>
+              <text x="0" y="174" fill="#bac6e4" font-family="Arial, Helvetica, sans-serif" font-size="28">Match pairs • Train memory</text>
+              <text x="0" y="218" fill="#bac6e4" font-family="Arial, Helvetica, sans-serif" font-size="28">6 themes • 4 difficulty levels</text>
+              <text x="0" y="276" fill="#78dcff" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="25">Apps &amp; Games</text>
+            </g>
+          </svg>'''
+          cover_path = Path("assets/images/memory-game-cover.svg")
+          cover_path.parent.mkdir(parents=True, exist_ok=True)
+          cover_path.write_text(cover, encoding="utf-8")
+
+          # ------------------------------------------------------------
+          # Detail page + five-language detail script
+          # ------------------------------------------------------------
+          detail_html = '''<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memory Game — Free Matching Pairs Game | Apps & Games</title>
+<meta name="description" content="Play Memory Game, a free multilingual browser matching-pairs game with six themes, four difficulty levels, saved progress, fullscreen and best scores.">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://appsandgames.org/memory-game">
+<meta property="og:title" content="Memory Game — Free Matching Pairs Game | Apps & Games"><meta property="og:description" content="Train your memory with themed matching pairs, four difficulty levels and saved progress."><meta property="og:type" content="website"><meta property="og:url" content="https://appsandgames.org/memory-game"><meta property="og:site_name" content="Apps & Games"><meta property="og:image" content="https://appsandgames.org/assets/social/apps-and-games-social.jpg"><meta property="og:image:alt" content="Memory Game browser game preview">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Memory Game — Free Matching Pairs Game | Apps & Games"><meta name="twitter:description" content="A free multilingual memory game with six themes, four difficulty levels and saved progress."><meta name="twitter:image" content="https://appsandgames.org/assets/social/apps-and-games-social.jpg">
+<link rel="icon" href="assets/icons/favicon.ico"><link rel="stylesheet" href="style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8QJLPBJPJ8"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-8QJLPBJPJ8");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-6296601518048221" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Memory Game","gamePlatform":"Web browser","url":"https://memory.appsandgames.org/","image":"https://appsandgames.org/assets/images/memory-game-cover.svg","isAccessibleForFree":true,"inLanguage":["en","hr","de","it","es"],"description":"A free multilingual browser memory game with themed matching pairs, four difficulty levels, saved progress and best scores."}</script>
+</head><body>
+<header class="site-header"><div class="header-content"><a href="/" class="logo" aria-label="Apps & Games Home"><img src="assets/logo/apps-and-games-logo.png" alt="Apps & Games" class="site-logo-image"></a><nav class="main-nav" aria-label="Main navigation"><a href="/#apps">📱 <span data-nav="apps">Apps</span></a><a href="/#games">🎮 <span data-nav="games">Games</span></a><a href="/#info">ℹ <span data-nav="info">Info</span></a></nav><div class="header-actions"><select id="languageSelect" class="language-select" aria-label="Select language"><option value="en">EN</option><option value="hr">HR</option><option value="de">DE</option><option value="it">IT</option><option value="es">ES</option></select><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button></div></div></header>
+<main><section class="hero"><div class="hero-content"><div class="hero-badge" data-role="badge">GAME • MEMORY • PUZZLE</div><h1>Memory Game</h1><p class="hero-subtitle" data-role="subtitle">Match pairs, train your memory and improve your best time</p><p class="hero-text" data-role="text">Memory Game is a free browser matching-pairs game with six themed sections, four difficulty levels, multilingual controls and saved progress. Choose a theme, reveal two cards at a time and find every matching pair using as few moves and as little time as possible.</p><div class="hero-buttons"><a class="primary-button" href="https://memory.appsandgames.org/" target="_blank" rel="noopener noreferrer" data-role="primary">Play Memory Game →</a><a class="secondary-button" href="/#games" data-role="back">Back to Games</a></div></div></section>
+<section class="info-section"><div class="info-card"><span class="section-label" data-role="about">ABOUT THE GAME</span><div id="detailInfo"><h2>A memory challenge with several themes</h2><p>Choose from Brain, Daily, Kids, Animals, Food and Travel. Each section uses a different set of symbols, while the core challenge stays the same: remember where the cards are and uncover matching pairs.</p><h3>Difficulty levels</h3><ul><li>Easy — 6 pairs.</li><li>Medium — 8 pairs.</li><li>Hard — 12 pairs.</li><li>Expert — 15 pairs.</li></ul><h3>Game features</h3><ul><li>English, Croatian, German, Italian and Spanish interface languages.</li><li>Move counter, timer and best score for each category and difficulty.</li><li>Save & Exit and Resume Saved Game.</li><li>Exit Without Save and Play Again / Restart.</li><li>Fullscreen support in compatible browsers.</li><li>Responsive layout for desktop, tablet and mobile browsers.</li><li>Keyboard-accessible dialogs and accessible card labels.</li></ul><h3>How to play</h3><p>Turn over two cards. If they match, they stay revealed; if not, they turn back over. Continue until every pair has been found. Try to finish with fewer moves and a faster time.</p><h3>Play instantly</h3><p>No Apps & Games account or separate installation is required. Use the Play button above to open Memory Game in a compatible modern browser.</p><p>For analytics, advertising and privacy information, see the <a href="privacy-policy"><u>Privacy Policy</u></a>.</p></div></div></section></main>
+<footer class="site-footer"><div class="footer-content"><div>© <span id="currentYear"></span> Apps & Games</div><div class="footer-links"><a href="/" data-footer="home">Home</a><a href="/#apps" data-footer="apps">Apps</a><a href="/#games" data-footer="games">Games</a><a href="privacy-policy" data-footer="privacy">Privacy Policy</a></div></div></footer><script src="memory-game-detail.js"></script></body></html>'''
+          Path("memory-game.html").write_text(detail_html, encoding="utf-8")
+
+          detail_js = r'''(() => {
+    const SUPPORTED = ["en", "hr", "de", "it", "es"];
+    const STORAGE_KEY = "appsGamesLanguage";
+    const copy = {
+        en: {
+            title: "Memory Game — Free Matching Pairs Game | Apps & Games",
+            description: "Play Memory Game, a free multilingual browser matching-pairs game with six themes, four difficulty levels, saved progress, fullscreen and best scores.",
+            badge: "GAME • MEMORY • PUZZLE",
+            subtitle: "Match pairs, train your memory and improve your best time",
+            text: "Memory Game is a free browser matching-pairs game with six themed sections, four difficulty levels, multilingual controls and saved progress. Choose a theme, reveal two cards at a time and find every matching pair using as few moves and as little time as possible.",
+            primary: "Play Memory Game →", back: "Back to Games", about: "ABOUT THE GAME",
+            navApps: "Apps", navGames: "Games", navInfo: "Info", home: "Home", privacy: "Privacy Policy",
+            info: `<h2>A memory challenge with several themes</h2><p>Choose from Brain, Daily, Kids, Animals, Food and Travel. Each section uses a different set of symbols, while the core challenge stays the same: remember where the cards are and uncover matching pairs.</p><h3>Difficulty levels</h3><ul><li>Easy — 6 pairs.</li><li>Medium — 8 pairs.</li><li>Hard — 12 pairs.</li><li>Expert — 15 pairs.</li></ul><h3>Game features</h3><ul><li>English, Croatian, German, Italian and Spanish interface languages.</li><li>Move counter, timer and best score for each category and difficulty.</li><li>Save & Exit and Resume Saved Game.</li><li>Exit Without Save and Play Again / Restart.</li><li>Fullscreen support in compatible browsers.</li><li>Responsive layout for desktop, tablet and mobile browsers.</li><li>Keyboard-accessible dialogs and accessible card labels.</li></ul><h3>How to play</h3><p>Turn over two cards. If they match, they stay revealed; if not, they turn back over. Continue until every pair has been found. Try to finish with fewer moves and a faster time.</p><h3>Play instantly</h3><p>No Apps & Games account or separate installation is required. Use the Play button above to open Memory Game in a compatible modern browser.</p><p>For analytics, advertising and privacy information, see the <a href="privacy-policy"><u>Privacy Policy</u></a>.</p>`
+        },
+        hr: {
+            title: "Memory Game — besplatna igra pamćenja | Apps & Games",
+            description: "Igrajte Memory Game, besplatnu višejezičnu igru spajanja parova sa šest tema, četiri razine težine, spremanjem napretka i najboljim rezultatima.",
+            badge: "IGRA • PAMĆENJE • SLAGALICA",
+            subtitle: "Spajajte parove, vježbajte pamćenje i poboljšajte najbolje vrijeme",
+            text: "Memory Game je besplatna igra za preglednik sa šest tematskih sekcija, četiri razine težine, višejezičnim sučeljem i spremanjem napretka. Odaberite temu, otvarajte po dvije karte i pronađite sve jednake parove uz što manje poteza i što bolje vrijeme.",
+            primary: "Igraj Memory Game →", back: "Natrag na igre", about: "O IGRI",
+            navApps: "Aplikacije", navGames: "Igre", navInfo: "Info", home: "Početna", privacy: "Pravila privatnosti",
+            info: `<h2>Izazov pamćenja s više tema</h2><p>Birajte između sekcija Mozak, Svakodnevno, Djeca, Životinje, Hrana i Putovanja. Svaka sekcija koristi drukčije simbole, ali je cilj isti: zapamtiti položaj karata i pronaći jednake parove.</p><h3>Razine težine</h3><ul><li>Lako — 6 parova.</li><li>Srednje — 8 parova.</li><li>Teško — 12 parova.</li><li>Ekspert — 15 parova.</li></ul><h3>Mogućnosti igre</h3><ul><li>Sučelje na engleskom, hrvatskom, njemačkom, talijanskom i španjolskom.</li><li>Brojač poteza, vrijeme i najbolji rezultat za svaku kategoriju i težinu.</li><li>Spremi i izađi te nastavak spremljene igre.</li><li>Izlaz bez spremanja i ponovno igranje / restart.</li><li>Puni zaslon u kompatibilnim preglednicima.</li><li>Prilagodljiv prikaz za računalo, tablet i mobitel.</li><li>Dijalozi prilagođeni tipkovnici i pristupačne oznake karata.</li></ul><h3>Kako igrati</h3><p>Otvorite dvije karte. Ako su jednake, ostaju otvorene; ako nisu, ponovno se zatvaraju. Nastavite dok ne pronađete sve parove. Pokušajte završiti sa što manje poteza i u što kraćem vremenu.</p><h3>Igrajte odmah</h3><p>Nije potreban Apps & Games račun niti zasebna instalacija. Gumbom iznad otvorite Memory Game u kompatibilnom modernom pregledniku.</p><p>Za analitiku, oglase i privatnost pogledajte <a href="privacy-policy"><u>Pravila privatnosti</u></a>.</p>`
+        },
+        de: {
+            title: "Memory Game — kostenloses Gedächtnisspiel | Apps & Games",
+            description: "Spiele Memory Game, ein kostenloses mehrsprachiges Paare-Spiel mit sechs Themen, vier Schwierigkeitsstufen, gespeichertem Fortschritt und Bestzeiten.",
+            badge: "SPIEL • GEDÄCHTNIS • PUZZLE",
+            subtitle: "Finde Paare, trainiere dein Gedächtnis und verbessere deine Bestzeit",
+            text: "Memory Game ist ein kostenloses Browser-Spiel mit sechs Themenbereichen, vier Schwierigkeitsstufen, mehrsprachiger Oberfläche und gespeichertem Fortschritt. Wähle ein Thema, decke jeweils zwei Karten auf und finde alle passenden Paare mit möglichst wenigen Zügen und in kurzer Zeit.",
+            primary: "Memory Game spielen →", back: "Zurück zu den Spielen", about: "ÜBER DAS SPIEL",
+            navApps: "Apps", navGames: "Spiele", navInfo: "Info", home: "Startseite", privacy: "Datenschutzerklärung",
+            info: `<h2>Gedächtnistraining mit mehreren Themen</h2><p>Wähle Gehirn, Alltag, Kinder, Tiere, Essen oder Reisen. Jeder Bereich verwendet andere Symbole, die Aufgabe bleibt gleich: Merke dir die Positionen und finde die passenden Paare.</p><h3>Schwierigkeitsstufen</h3><ul><li>Leicht — 6 Paare.</li><li>Mittel — 8 Paare.</li><li>Schwer — 12 Paare.</li><li>Experte — 15 Paare.</li></ul><h3>Funktionen</h3><ul><li>Oberfläche auf Englisch, Kroatisch, Deutsch, Italienisch und Spanisch.</li><li>Zugzähler, Timer und Bestwert pro Kategorie und Schwierigkeit.</li><li>Speichern & Beenden und Fortsetzen eines gespeicherten Spiels.</li><li>Beenden ohne Speichern und erneut spielen / neu starten.</li><li>Vollbild in kompatiblen Browsern.</li><li>Responsive Darstellung für Desktop, Tablet und Smartphone.</li><li>Tastaturfreundliche Dialoge und zugängliche Kartenbezeichnungen.</li></ul><h3>So wird gespielt</h3><p>Decke zwei Karten auf. Sind sie gleich, bleiben sie offen; andernfalls werden sie wieder verdeckt. Fahre fort, bis alle Paare gefunden sind. Versuche, mit weniger Zügen und in kürzerer Zeit fertig zu werden.</p><h3>Sofort spielen</h3><p>Ein Apps-&-Games-Konto oder eine separate Installation ist nicht nötig. Öffne Memory Game mit der Schaltfläche oben in einem kompatiblen modernen Browser.</p><p>Informationen zu Analyse, Werbung und Datenschutz findest du in der <a href="privacy-policy"><u>Datenschutzerklärung</u></a>.</p>`
+        },
+        it: {
+            title: "Memory Game — gioco di memoria gratuito | Apps & Games",
+            description: "Gioca a Memory Game, un gioco gratuito multilingue di coppie con sei temi, quattro livelli di difficoltà, progressi salvati e migliori risultati.",
+            badge: "GIOCO • MEMORIA • PUZZLE",
+            subtitle: "Abbina le coppie, allena la memoria e migliora il tuo tempo migliore",
+            text: "Memory Game è un gioco gratuito per browser con sei sezioni tematiche, quattro livelli di difficoltà, interfaccia multilingue e salvataggio dei progressi. Scegli un tema, scopri due carte alla volta e trova tutte le coppie usando il minor numero possibile di mosse e tempo.",
+            primary: "Gioca a Memory Game →", back: "Torna ai giochi", about: "INFORMAZIONI SUL GIOCO",
+            navApps: "App", navGames: "Giochi", navInfo: "Info", home: "Home", privacy: "Informativa sulla privacy",
+            info: `<h2>Una sfida di memoria con diversi temi</h2><p>Scegli tra Cervello, Quotidiano, Bambini, Animali, Cibo e Viaggi. Ogni sezione usa simboli diversi, ma la sfida è la stessa: ricorda la posizione delle carte e trova le coppie corrispondenti.</p><h3>Livelli di difficoltà</h3><ul><li>Facile — 6 coppie.</li><li>Medio — 8 coppie.</li><li>Difficile — 12 coppie.</li><li>Esperto — 15 coppie.</li></ul><h3>Funzioni del gioco</h3><ul><li>Interfaccia in inglese, croato, tedesco, italiano e spagnolo.</li><li>Contatore mosse, timer e miglior risultato per categoria e difficoltà.</li><li>Salva ed esci e riprendi la partita salvata.</li><li>Esci senza salvare e gioca di nuovo / riavvia.</li><li>Schermo intero nei browser compatibili.</li><li>Layout responsive per desktop, tablet e mobile.</li><li>Finestre di dialogo accessibili da tastiera e etichette accessibili per le carte.</li></ul><h3>Come giocare</h3><p>Scopri due carte. Se corrispondono, restano visibili; altrimenti tornano coperte. Continua finché non trovi tutte le coppie. Prova a finire con meno mosse e in meno tempo.</p><h3>Gioca subito</h3><p>Non servono un account Apps & Games o un'installazione separata. Usa il pulsante qui sopra per aprire Memory Game in un browser moderno compatibile.</p><p>Per analisi, pubblicità e privacy consulta l'<a href="privacy-policy"><u>Informativa sulla privacy</u></a>.</p>`
+        },
+        es: {
+            title: "Memory Game — juego de memoria gratuito | Apps & Games",
+            description: "Juega a Memory Game, un juego gratuito multilingüe de parejas con seis temas, cuatro niveles de dificultad, progreso guardado y mejores resultados.",
+            badge: "JUEGO • MEMORIA • PUZLE",
+            subtitle: "Empareja cartas, entrena la memoria y mejora tu mejor tiempo",
+            text: "Memory Game es un juego gratuito para navegador con seis secciones temáticas, cuatro niveles de dificultad, interfaz multilingüe y progreso guardado. Elige un tema, descubre dos cartas cada vez y encuentra todas las parejas con el menor número posible de movimientos y tiempo.",
+            primary: "Jugar a Memory Game →", back: "Volver a los juegos", about: "ACERCA DEL JUEGO",
+            navApps: "Apps", navGames: "Juegos", navInfo: "Info", home: "Inicio", privacy: "Política de privacidad",
+            info: `<h2>Un reto de memoria con varios temas</h2><p>Elige entre Cerebro, Diario, Niños, Animales, Comida y Viajes. Cada sección utiliza símbolos diferentes, pero el reto es el mismo: recuerda dónde están las cartas y encuentra las parejas correspondientes.</p><h3>Niveles de dificultad</h3><ul><li>Fácil — 6 parejas.</li><li>Medio — 8 parejas.</li><li>Difícil — 12 parejas.</li><li>Experto — 15 parejas.</li></ul><h3>Funciones del juego</h3><ul><li>Interfaz en inglés, croata, alemán, italiano y español.</li><li>Contador de movimientos, temporizador y mejor resultado por categoría y dificultad.</li><li>Guardar y salir y reanudar una partida guardada.</li><li>Salir sin guardar y jugar de nuevo / reiniciar.</li><li>Pantalla completa en navegadores compatibles.</li><li>Diseño adaptable para ordenador, tableta y móvil.</li><li>Diálogos accesibles por teclado y etiquetas accesibles para las cartas.</li></ul><h3>Cómo jugar</h3><p>Descubre dos cartas. Si coinciden, permanecen abiertas; si no, vuelven a cerrarse. Continúa hasta encontrar todas las parejas. Intenta terminar con menos movimientos y en menos tiempo.</p><h3>Juega al instante</h3><p>No necesitas una cuenta de Apps & Games ni una instalación independiente. Usa el botón superior para abrir Memory Game en un navegador moderno compatible.</p><p>Para analítica, publicidad y privacidad consulta la <a href="privacy-policy"><u>Política de privacidad</u></a>.</p>`
+        }
+    };
+
+    function initialLanguage() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (SUPPORTED.includes(saved)) return saved;
+        const browser = (navigator.language || "en").slice(0, 2).toLowerCase();
+        return SUPPORTED.includes(browser) ? browser : "en";
+    }
+
+    const select = document.getElementById("languageSelect");
+    const themeToggle = document.getElementById("themeToggle");
+
+    function applyLanguage(lang) {
+        const c = copy[SUPPORTED.includes(lang) ? lang : "en"];
+        document.documentElement.lang = SUPPORTED.includes(lang) ? lang : "en";
+        if (select) select.value = document.documentElement.lang;
+        localStorage.setItem(STORAGE_KEY, document.documentElement.lang);
+        document.title = c.title;
+        const meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.content = c.description;
+        document.querySelector('[data-role="badge"]').textContent = c.badge;
+        document.querySelector('[data-role="subtitle"]').textContent = c.subtitle;
+        document.querySelector('[data-role="text"]').textContent = c.text;
+        document.querySelector('[data-role="primary"]').textContent = c.primary;
+        document.querySelector('[data-role="back"]').textContent = c.back;
+        document.querySelector('[data-role="about"]').textContent = c.about;
+        document.getElementById("detailInfo").innerHTML = c.info;
+        document.querySelector('[data-nav="apps"]').textContent = c.navApps;
+        document.querySelector('[data-nav="games"]').textContent = c.navGames;
+        document.querySelector('[data-nav="info"]').textContent = c.navInfo;
+        document.querySelector('[data-footer="home"]').textContent = c.home;
+        document.querySelector('[data-footer="apps"]').textContent = c.navApps;
+        document.querySelector('[data-footer="games"]').textContent = c.navGames;
+        document.querySelector('[data-footer="privacy"]').textContent = c.privacy;
+    }
+
+    if (select) select.addEventListener("change", e => applyLanguage(e.target.value));
+
+    function applyTheme(theme) {
+        if (theme === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+            if (themeToggle) themeToggle.textContent = "🌙";
+        } else {
+            document.documentElement.removeAttribute("data-theme");
+            if (themeToggle) themeToggle.textContent = "☀️";
+        }
+    }
+
+    applyTheme(localStorage.getItem("theme") === "light" ? "light" : "dark");
+    if (themeToggle) themeToggle.addEventListener("click", () => {
+        const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        localStorage.setItem("theme", next);
+        applyTheme(next);
+    });
+
+    const year = document.getElementById("currentYear");
+    if (year) year.textContent = new Date().getFullYear();
+    applyLanguage(initialLanguage());
+})();'''
+          Path("memory-game-detail.js").write_text(detail_js, encoding="utf-8")
+
+          # ------------------------------------------------------------
+          # sitemap.xml
+          # ------------------------------------------------------------
+          sitemap_path = Path("sitemap.xml")
+          sitemap = sitemap_path.read_text(encoding="utf-8")
+          sitemap = sitemap.replace("<lastmod>2026-09-06</lastmod>", f"<lastmod>{TODAY}</lastmod>", 1)
+          if "https://appsandgames.org/memory-game" not in sitemap:
+              block = f'''    <url>\n        <loc>https://appsandgames.org/memory-game</loc>\n        <lastmod>{TODAY}</lastmod>\n        <changefreq>monthly</changefreq>\n        <priority>0.8</priority>\n    </url>\n\n'''
+              anchor = "    <url>\n        <loc>https://appsandgames.org/privacy-policy</loc>"
+              sitemap = replace_once(sitemap, anchor, block + anchor, "privacy sitemap entry")
+          sitemap_path.write_text(sitemap, encoding="utf-8")
+
+          # Basic checks
+          assert 'name: "Memory Game"' in script
+          assert 'https://memory.appsandgames.org/' in script
+          assert 'https://appsandgames.org/memory-game' in sitemap
+          assert Path("memory-game.html").exists()
+          assert Path("memory-game-detail.js").exists()
+          assert cover_path.exists()
+          PY
+
+      - name: JavaScript syntax checks
+        run: |
+          node --check script.js
+          node --check memory-game-detail.js
+
+      - name: Commit portal integration
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html script.js sitemap.xml memory-game.html memory-game-detail.js assets/images/memory-game-cover.svg
+          git rm .github/workflows/add-memory-game.yml
+          git commit -m "Add Memory Game to Apps & Games portal"
+          git push
