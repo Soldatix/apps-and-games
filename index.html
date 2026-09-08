@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Apps & Games — Free Online Apps and Games</title>
-    <meta name="description" content="Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.">
-    <meta name="keywords" content="apps and games, free online apps, browser apps, browser games, unit converter, measurement converter, digital clock, lotto generator, emoji copy paste, crossword, crossword maker, crossword generator, križaljke, tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake, arcade games">
+    <meta name="description" content="Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.">
+    <meta name="keywords" content="apps and games, free online apps, browser apps, browser games, unit converter, measurement converter, digital clock, lotto generator, emoji copy paste, crossword, crossword maker, crossword generator, križaljke, tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake, arcade games, memory game, matching pairs, brain game">
     <meta name="author" content="Soldatix">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#071128">
@@ -166,212 +166,252 @@
 
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@graph": [
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://appsandgames.org/#website",
+      "name": "Apps & Games",
+      "url": "https://appsandgames.org/",
+      "description": "Free online apps and browser games by Soldatix.",
+      "inLanguage": [
+        "en",
+        "hr",
+        "de",
+        "it",
+        "es"
+      ],
+      "publisher": {
+        "@id": "https://appsandgames.org/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://appsandgames.org/#organization",
+      "name": "Apps & Games",
+      "url": "https://appsandgames.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://appsandgames.org/assets/icons/android-chrome-512x512.png"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Apps & Games collection",
+      "numberOfItems": 11,
+      "itemListElement": [
         {
-          "@type": "WebSite",
-          "@id": "https://appsandgames.org/#website",
-          "name": "Apps & Games",
-          "url": "https://appsandgames.org/",
-          "description": "Free online apps and browser games by Soldatix.",
-          "inLanguage": ["en", "hr", "de", "it", "es"],
-          "publisher": { "@id": "https://appsandgames.org/#organization" }
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://appsandgames.org/#organization",
-          "name": "Apps & Games",
-          "url": "https://appsandgames.org/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://appsandgames.org/assets/icons/android-chrome-512x512.png"
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Digital Clock",
+            "url": "https://digitalclock.appsandgames.org/",
+            "applicationCategory": "WebApplication",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ItemList",
-          "name": "Apps & Games collection",
-          "numberOfItems": 10,
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Digital Clock",
-                "url": "https://digitalclock.appsandgames.org/",
-                "applicationCategory": "WebApplication",
-                "operatingSystem": "Any",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Date Lotto Generator",
-                "url": "https://lotto.appsandgames.org/",
-                "applicationCategory": "WebApplication",
-                "operatingSystem": "Any",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "item": {
-                "@type": "VideoGame",
-                "name": "Tetris",
-                "url": "https://tetris.appsandgames.org/",
-                "gamePlatform": "Web browser",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "item": {
-                "@type": "VideoGame",
-                "name": "UFO Invaders: Neon Defense",
-                "url": "https://ufo-invaders.appsandgames.org/",
-                "image": "https://appsandgames.org/assets/social/ufo-invaders.jpg",
-                "description": "A modern neon arcade defense game with waves, bunkers and power-ups.",
-                "gamePlatform": "Web browser",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "item": {
-                "@type": "VideoGame",
-                "name": "Phoenix Arcade",
-                "url": "https://phoenix-arcade.appsandgames.org/",
-                "image": "https://appsandgames.org/assets/social/phoenix-arcade.jpg",
-                "description": "A modern arcade shooter with Phoenix enemies, power-ups and instant browser play.",
-                "gamePlatform": "Web browser",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "item": {
-                "@type": "WebApplication",
-                "name": "Emoji Copy & Paste",
-                "url": "https://emoji.appsandgames.org/",
-                "image": "https://appsandgames.org/assets/social/emoji-copy-paste.jpg",
-                "description": "Find emoji meanings, copy emojis instantly and paste country flags into Word as real images.",
-                "applicationCategory": "UtilitiesApplication",
-                "operatingSystem": "Any",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Unit Converter",
-                "url": "https://unitconverter.appsandgames.org/",
-                "image": "https://appsandgames.org/assets/social/unit-converter.jpg",
-                "description": "Convert everyday, technical, digital and shopping-related measurements and sizes.",
-                "applicationCategory": "UtilitiesApplication",
-                "operatingSystem": "Any",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 8,
-              "item": {
-                "@type": "VideoGame",
-                "name": "Neon Pac-Man",
-                "url": "https://neonpacman.appsandgames.org/",
-                "image": "https://appsandgames.org/assets/social/neon-pacman.jpg",
-                "description": "A modern neon maze-chase game with power pellets, ghosts, saved progress and a local leaderboard.",
-                "gamePlatform": "Web browser",
-                "isAccessibleForFree": true
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 9,
-              "item": {
-                "@type": "VideoGame",
-                "name": "Modern Snake",
-                "url": "https://modernsnake.appsandgames.org/",
-                "image": "https://appsandgames.org/assets/social/modern-snake.jpg",
-                "description": "A modern Snake game with three lives, bonus food, keyboard and mouse controls, saved progress and a local leaderboard.",
-                "gamePlatform": "Web browser",
-                "isAccessibleForFree": true,
-                "inLanguage": ["en", "hr", "de", "it", "es"]
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 10,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": "Crossword",
-                "url": "https://crossword.appsandgames.org/",
-                "image": "https://appsandgames.org/assets/social/crossword.jpg",
-                "description": "Create, solve, print and share custom crosswords, with 500 ready-made puzzles in five languages and ten categories.",
-                "applicationCategory": "EducationalApplication",
-                "operatingSystem": "Any",
-                "isAccessibleForFree": true,
-                "inLanguage": ["en", "hr", "de", "it", "es"]
-              }
-            }
-          ]
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Date Lotto Generator",
+            "url": "https://lotto.appsandgames.org/",
+            "applicationCategory": "WebApplication",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true
+          }
         },
         {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Are the apps and games free to use?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. The apps and games on Apps & Games are free to use. Optional donations help support development and the project."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do I need to create an account?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. You can open the available apps and games without creating an Apps & Games account."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do I need to install software?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. The projects are designed to run directly in a compatible modern web browser."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does Date Lotto Generator predict winning numbers?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. Date Lotto Generator creates number combinations from the selected date and settings. It cannot predict lottery results or guarantee a win."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can I use Apps & Games on a phone or tablet?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Most projects are designed to work in modern desktop and mobile browsers, although the exact experience can vary by device and browser."
-              }
-            }
-          ]
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "VideoGame",
+            "name": "Tetris",
+            "url": "https://tetris.appsandgames.org/",
+            "gamePlatform": "Web browser",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "VideoGame",
+            "name": "UFO Invaders: Neon Defense",
+            "url": "https://ufo-invaders.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/social/ufo-invaders.jpg",
+            "description": "A modern neon arcade defense game with waves, bunkers and power-ups.",
+            "gamePlatform": "Web browser",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "VideoGame",
+            "name": "Phoenix Arcade",
+            "url": "https://phoenix-arcade.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/social/phoenix-arcade.jpg",
+            "description": "A modern arcade shooter with Phoenix enemies, power-ups and instant browser play.",
+            "gamePlatform": "Web browser",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "WebApplication",
+            "name": "Emoji Copy & Paste",
+            "url": "https://emoji.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/social/emoji-copy-paste.jpg",
+            "description": "Find emoji meanings, copy emojis instantly and paste country flags into Word as real images.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Unit Converter",
+            "url": "https://unitconverter.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/social/unit-converter.jpg",
+            "description": "Convert everyday, technical, digital and shopping-related measurements and sizes.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "VideoGame",
+            "name": "Neon Pac-Man",
+            "url": "https://neonpacman.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/social/neon-pacman.jpg",
+            "description": "A modern neon maze-chase game with power pellets, ghosts, saved progress and a local leaderboard.",
+            "gamePlatform": "Web browser",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "VideoGame",
+            "name": "Modern Snake",
+            "url": "https://modernsnake.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/social/modern-snake.jpg",
+            "description": "A modern Snake game with three lives, bonus food, keyboard and mouse controls, saved progress and a local leaderboard.",
+            "gamePlatform": "Web browser",
+            "isAccessibleForFree": true,
+            "inLanguage": [
+              "en",
+              "hr",
+              "de",
+              "it",
+              "es"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Crossword",
+            "url": "https://crossword.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/social/crossword.jpg",
+            "description": "Create, solve, print and share custom crosswords, with 500 ready-made puzzles in five languages and ten categories.",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Any",
+            "isAccessibleForFree": true,
+            "inLanguage": [
+              "en",
+              "hr",
+              "de",
+              "it",
+              "es"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "VideoGame",
+            "name": "Memory Game",
+            "url": "https://memory.appsandgames.org/",
+            "image": "https://appsandgames.org/assets/images/memory-game-cover.svg",
+            "description": "A free multilingual browser memory game with themed matching pairs, four difficulty levels and saved progress.",
+            "gamePlatform": "Web browser",
+            "isAccessibleForFree": true,
+            "inLanguage": [
+              "en",
+              "hr",
+              "de",
+              "it",
+              "es"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are the apps and games free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The apps and games on Apps & Games are free to use. Optional donations help support development and the project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to create an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You can open the available apps and games without creating an Apps & Games account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to install software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The projects are designed to run directly in a compatible modern web browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Date Lotto Generator predict winning numbers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Date Lotto Generator creates number combinations from the selected date and settings. It cannot predict lottery results or guarantee a win."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Apps & Games on a phone or tablet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most projects are designed to work in modern desktop and mobile browsers, although the exact experience can vary by device and browser."
+          }
         }
       ]
     }
+  ]
+}
     </script>
 </head>
 
@@ -434,7 +474,7 @@
             <span class="section-label" data-i18n="gamesLabel">🎮 GAMES</span>
             <h2 data-i18n="gamesHeading">Browser Games You Can Play Instantly</h2>
             <p data-i18n="gamesText">
-                Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.
+                Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.
             </p>
         </div>
         <div id="gamesGrid" class="apps-grid"></div>
@@ -448,7 +488,7 @@
                 Apps & Games is an independent collection of browser-based apps and games published under the Soldatix name. The goal is simple: provide useful small apps and entertaining games that are easy to open, understand and use.
             </p>
             <p data-i18n="aboutText2">
-                Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.
+                Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.
             </p>
             <p data-i18n="aboutText3">
                 Each project is developed as a standalone experience with a focus on clear controls, responsive layouts and straightforward navigation. New apps, games and improvements can be added over time while existing projects continue to receive fixes and usability updates.
