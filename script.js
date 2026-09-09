@@ -115,7 +115,6 @@ supportedLanguages.forEach(language => {
     cardTranslations[language][10] = crosswordText.card;
 });
 
-
 const memoryGamePortalI18n = {
     en: {
         pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
@@ -163,6 +162,55 @@ supportedLanguages.forEach(language => {
 
     if (!Array.isArray(cardTranslations[language])) cardTranslations[language] = [];
     cardTranslations[language][9] = memoryText.card;
+});
+
+const habitTrackerPortalI18n = {
+    en: {
+        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        appsText: "Open practical browser apps for everyday use. Current projects include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword and Habit Tracker / Daily Planner, with more apps planned as the collection grows.",
+        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword and Habit Tracker / Daily Planner with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        card: ["Build recurring habits, plan daily tasks, track streaks and seven-day progress, and keep your data locally in the browser.", ["Habits", "Planner", "Productivity"]]
+    },
+    hr: {
+        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        appsText: "Otvorite praktične aplikacije za svakodnevnu upotrebu. Trenutačna kolekcija uključuje Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword i Habit Tracker / Daily Planner, a nove aplikacije dodavat ćemo i dalje.",
+        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword i Habit Tracker / Daily Planner s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        card: ["Gradite ponavljajuće navike, planirajte dnevne zadatke, pratite nizove i napredak zadnjih sedam dana te podatke čuvajte lokalno u pregledniku.", ["Navike", "Planer", "Produktivnost"]]
+    },
+    de: {
+        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        appsText: "Öffne praktische Browser-Apps für den Alltag. Zur aktuellen Sammlung gehören Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword und Habit Tracker / Daily Planner; weitere Apps sind geplant.",
+        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword und Habit Tracker / Daily Planner mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        card: ["Baue wiederkehrende Gewohnheiten auf, plane tägliche Aufgaben, verfolge Serien und den Sieben-Tage-Fortschritt und speichere Daten lokal im Browser.", ["Gewohnheiten", "Planer", "Produktivität"]]
+    },
+    it: {
+        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        appsText: "Apri app pratiche direttamente nel browser. La raccolta attuale include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword e Habit Tracker / Daily Planner, con altre app in arrivo.",
+        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword e Habit Tracker / Daily Planner a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        card: ["Crea abitudini ricorrenti, pianifica attività quotidiane, segui serie e progressi di sette giorni e conserva i dati localmente nel browser.", ["Abitudini", "Planner", "Produttività"]]
+    },
+    es: {
+        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        appsText: "Abre aplicaciones prácticas directamente en el navegador. La colección actual incluye Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword y Habit Tracker / Daily Planner, y seguirá creciendo.",
+        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword y Habit Tracker / Daily Planner con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        card: ["Crea hábitos recurrentes, planifica tareas diarias, sigue rachas y progreso de siete días y conserva los datos localmente en el navegador.", ["Hábitos", "Planificador", "Productividad"]]
+    }
+};
+
+supportedLanguages.forEach(language => {
+    const habitText = habitTrackerPortalI18n[language];
+    if (!habitText) return;
+
+    if (translations[language]) {
+        Object.assign(translations[language], {
+            pageDescription: habitText.pageDescription,
+            appsText: habitText.appsText,
+            aboutText2: habitText.aboutText2
+        });
+    }
+
+    if (!Array.isArray(cardTranslations[language])) cardTranslations[language] = [];
+    cardTranslations[language][11] = habitText.card;
 });
 
 function t(key) {
@@ -345,6 +393,19 @@ const apps = [
         tags: ["Crossword", "Puzzle", "Creator"],
         status: "LIVE",
         analyticsEvent: "open_app"
+    },
+    {
+        category: "utility",
+        badge: "APP",
+        name: "Habit Tracker / Daily Planner",
+        description: "Build recurring habits, plan daily tasks, track streaks and seven-day progress, and keep your data locally in the browser.",
+        image: "https://habit-tracker.appsandgames.org/icons/icon-512.png",
+        button: "OPEN APP →",
+        url: "https://habit-tracker.appsandgames.org/",
+        detailsUrl: "habit-tracker",
+        tags: ["Habits", "Planner", "Productivity"],
+        status: "LIVE",
+        analyticsEvent: "open_app"
     }
 ];
 
@@ -479,6 +540,48 @@ function patchMemoryGameSeo() {
 
 patchMemoryGameSeo();
 
+function patchHabitTrackerSeo() {
+    const keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (keywordsMeta && !keywordsMeta.content.toLowerCase().includes("habit tracker")) {
+        keywordsMeta.content += ", Habit Tracker, Daily Planner, habit planner, task planner, productivity app";
+    }
+
+    const structuredData = document.querySelector('script[type="application/ld+json"]');
+    if (!structuredData) return;
+
+    try {
+        const data = JSON.parse(structuredData.textContent);
+        const graph = Array.isArray(data?.["@graph"]) ? data["@graph"] : [];
+        const itemList = graph.find(item => item?.["@type"] === "ItemList");
+        if (!itemList || !Array.isArray(itemList.itemListElement)) return;
+
+        const hasHabitTracker = itemList.itemListElement.some(entry => entry?.item?.name === "Habit Tracker / Daily Planner");
+        if (!hasHabitTracker) {
+            itemList.itemListElement.push({
+                "@type": "ListItem",
+                position: itemList.itemListElement.length + 1,
+                item: {
+                    "@type": "WebApplication",
+                    name: "Habit Tracker / Daily Planner",
+                    url: "https://habit-tracker.appsandgames.org/",
+                    image: "https://habit-tracker.appsandgames.org/icons/icon-512.png",
+                    description: "A free multilingual habit tracker and daily planner with recurring habits, dated tasks, streaks, seven-day progress and local browser storage.",
+                    applicationCategory: "ProductivityApplication",
+                    operatingSystem: "Any",
+                    isAccessibleForFree: true,
+                    inLanguage: ["en", "hr", "de", "it", "es"]
+                }
+            });
+        }
+
+        itemList.numberOfItems = itemList.itemListElement.length;
+        structuredData.textContent = JSON.stringify(data);
+    } catch {
+        // Leave existing structured data unchanged if it cannot be parsed.
+    }
+}
+
+patchHabitTrackerSeo();
 
 /* =====================================================
    GOOGLE ANALYTICS EVENT HELPER
