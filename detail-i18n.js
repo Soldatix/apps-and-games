@@ -515,6 +515,25 @@
             if (infoCard) infoCard.innerHTML = `<span class="section-label">${common[language][page.kind === "game" ? "aboutGame" : "aboutApp"]}</span>${d.info}`;
         }
 
+        if (slug === "digital-clock") {
+            const android = {
+                en: ["Download for Android", "Installation instructions", "Android 7.0+ · Version 1.0 · Free APK. Night mode, full screen, alarms and timer. Manual update checks are available in Info."],
+                hr: ["Preuzmi za Android", "Upute za instalaciju", "Android 7.0+ · Verzija 1.0 · Besplatan APK. Noćni način, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."],
+                de: ["Für Android herunterladen", "Installationsanleitung", "Android 7.0+ · Version 1.0 · Kostenlose APK. Nachtmodus, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."],
+                it: ["Scarica per Android", "Istruzioni di installazione", "Android 7.0+ · Versione 1.0 · APK gratuito. Modalità notturna, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."],
+                es: ["Descargar para Android", "Instrucciones de instalación", "Android 7.0+ · Versión 1.0 · APK gratuito. Modo nocturno, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."]
+            }[language];
+            const download = document.getElementById("android-download");
+            const help = document.getElementById("android-help");
+            const description = document.getElementById("android-description");
+            if (download) download.textContent = android[0];
+            if (help) {
+                help.textContent = android[1];
+                help.href = "/downloads/digital-clock/Installation.html#" + language;
+            }
+            if (description) description.textContent = android[2];
+        }
+
         if (ogTitle) ogTitle.content = document.title;
         if (ogDescription) ogDescription.content = descriptionMeta?.content || "";
         if (twitterTitle) twitterTitle.content = document.title;
