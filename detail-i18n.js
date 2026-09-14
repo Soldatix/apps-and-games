@@ -517,11 +517,11 @@
 
         if (slug === "digital-clock") {
             const android = {
-                en: ["Download for Android", "Installation instructions", "Android 7.0+ · Version 1.0 · Free APK. Night mode, full screen, alarms and timer. Manual update checks are available in Info."],
-                hr: ["Preuzmi za Android", "Upute za instalaciju", "Android 7.0+ · Verzija 1.0 · Besplatan APK. Noćni način, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."],
-                de: ["Für Android herunterladen", "Installationsanleitung", "Android 7.0+ · Version 1.0 · Kostenlose APK. Nachtmodus, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."],
-                it: ["Scarica per Android", "Istruzioni di installazione", "Android 7.0+ · Versione 1.0 · APK gratuito. Modalità notturna, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."],
-                es: ["Descargar para Android", "Instrucciones de instalación", "Android 7.0+ · Versión 1.0 · APK gratuito. Modo nocturno, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."]
+                en: ["Download for Android", "Installation instructions", "Android 7.0+ Â· Version 1.1 Â· Free APK. Night mode with OLED protection, full screen, alarms and timer. Manual update checks are available in Info."],
+                hr: ["Preuzmi za Android", "Upute za instalaciju", "Android 7.0+ Â· Verzija 1.1 Â· Besplatan APK. NoÄ‡ni naÄin s OLED zaÅ¡titom, cijeli zaslon, alarmi i mjeraÄ vremena. RuÄna provjera nadogradnji dostupna je u Info."],
+                de: ["FÃ¼r Android herunterladen", "Installationsanleitung", "Android 7.0+ Â· Version 1.1 Â· Kostenlose APK. Nachtmodus mit OLED-Schutz, Vollbild, Wecker und Timer. Manuelle Update-PrÃ¼fung unter Info."],
+                it: ["Scarica per Android", "Istruzioni di installazione", "Android 7.0+ Â· Versione 1.1 Â· APK gratuito. ModalitÃ  notte con protezione OLED, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."],
+                es: ["Descargar para Android", "Instrucciones de instalaciÃ³n", "Android 7.0+ Â· VersiÃ³n 1.1 Â· APK gratuito. Modo nocturno con protecciÃ³n OLED, pantalla completa, alarmas y temporizador. BÃºsqueda manual de actualizaciones en Info."]
             }[language];
             const download = document.getElementById("android-download");
             const help = document.getElementById("android-help");
