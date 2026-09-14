@@ -899,6 +899,103 @@ a {
 }
 
 
+
+/* =====================================================
+   PLATFORM DOWNLOADS
+===================================================== */
+
+.platform-download-grid {
+    width: min(100%, 980px);
+    margin: 24px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.platform-download-card {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface-2);
+    text-align: left;
+}
+
+.platform-download-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.platform-download-icon {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-3);
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.platform-download-heading strong {
+    display: block;
+    font-size: 1.08rem;
+}
+
+.platform-download-version {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.platform-download-card .hero-buttons {
+    margin-top: 0;
+    gap: 10px;
+}
+
+.platform-download-card .primary-button,
+.platform-download-card .secondary-button {
+    padding: 11px 14px;
+    font-size: 0.9rem;
+}
+
+.platform-download-card .hero-text {
+    max-width: none;
+    margin: 14px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.download-checksum-link {
+    margin: 14px 0 0;
+    font-size: 0.82rem;
+}
+
+.download-checksum-link a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.download-checksum-link a:hover {
+    color: var(--text);
+}
+
+@media (max-width: 760px) {
+    .platform-download-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* =====================================================
    INFO
 ===================================================== */
