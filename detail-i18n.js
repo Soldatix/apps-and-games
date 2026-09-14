@@ -516,22 +516,69 @@
         }
 
         if (slug === "digital-clock") {
-            const android = {
-                en: ["Download for Android", "Installation instructions", "Android 7.0+ Â· Version 1.1 Â· Free APK. Night mode with OLED protection, full screen, alarms and timer. Manual update checks are available in Info."],
-                hr: ["Preuzmi za Android", "Upute za instalaciju", "Android 7.0+ Â· Verzija 1.1 Â· Besplatan APK. NoÄ‡ni naÄin s OLED zaÅ¡titom, cijeli zaslon, alarmi i mjeraÄ vremena. RuÄna provjera nadogradnji dostupna je u Info."],
-                de: ["FÃ¼r Android herunterladen", "Installationsanleitung", "Android 7.0+ Â· Version 1.1 Â· Kostenlose APK. Nachtmodus mit OLED-Schutz, Vollbild, Wecker und Timer. Manuelle Update-PrÃ¼fung unter Info."],
-                it: ["Scarica per Android", "Istruzioni di installazione", "Android 7.0+ Â· Versione 1.1 Â· APK gratuito. ModalitÃ  notte con protezione OLED, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."],
-                es: ["Descargar para Android", "Instrucciones de instalaciÃ³n", "Android 7.0+ Â· VersiÃ³n 1.1 Â· APK gratuito. Modo nocturno con protecciÃ³n OLED, pantalla completa, alarmas y temporizador. BÃºsqueda manual de actualizaciones en Info."]
+            const downloads = {
+                en: {
+                    windowsDownload: "Download for Windows",
+                    windowsHelp: "Installation instructions",
+                    windowsDescription: "Windows 10/11 x64 · Version 2.0.0 · Free installer. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional Digital Clock Screen Saver.",
+                    androidDownload: "Download for Android",
+                    androidHelp: "Installation instructions",
+                    androidDescription: "Android 7.0+ · Version 1.1 · Free APK. Night mode with OLED protection, full screen, alarms and timer. Manual update checks are available in Info."
+                },
+                hr: {
+                    windowsDownload: "Preuzmi za Windows",
+                    windowsHelp: "Upute za instalaciju",
+                    windowsDescription: "Windows 10/11 x64 · Verzija 2.0.0 · Besplatan instalacijski program. Uključuje noćni način uz krevet, cijeli zaslon, alarme, mjerač vremena, svjetski sat, štopericu i opcionalni Digital Clock čuvar zaslona.",
+                    androidDownload: "Preuzmi za Android",
+                    androidHelp: "Upute za instalaciju",
+                    androidDescription: "Android 7.0+ · Verzija 1.1 · Besplatan APK. Noćni način s OLED zaštitom, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."
+                },
+                de: {
+                    windowsDownload: "Für Windows herunterladen",
+                    windowsHelp: "Installationsanleitung",
+                    windowsDescription: "Windows 10/11 x64 · Version 2.0.0 · Kostenloser Installer. Mit Nachttischmodus, Vollbild, Wecker, Timer, Weltzeituhr, Stoppuhr und optionalem Digital Clock-Bildschirmschoner.",
+                    androidDownload: "Für Android herunterladen",
+                    androidHelp: "Installationsanleitung",
+                    androidDescription: "Android 7.0+ · Version 1.1 · Kostenlose APK. Nachtmodus mit OLED-Schutz, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."
+                },
+                it: {
+                    windowsDownload: "Scarica per Windows",
+                    windowsHelp: "Istruzioni di installazione",
+                    windowsDescription: "Windows 10/11 x64 · Versione 2.0.0 · Installer gratuito. Include modalità comodino, schermo intero, sveglie, timer, orologio mondiale, cronometro e screensaver Digital Clock opzionale.",
+                    androidDownload: "Scarica per Android",
+                    androidHelp: "Istruzioni di installazione",
+                    androidDescription: "Android 7.0+ · Versione 1.1 · APK gratuito. Modalità notte con protezione OLED, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."
+                },
+                es: {
+                    windowsDownload: "Descargar para Windows",
+                    windowsHelp: "Instrucciones de instalación",
+                    windowsDescription: "Windows 10/11 x64 · Versión 2.0.0 · Instalador gratuito. Incluye modo de mesita, pantalla completa, alarmas, temporizador, reloj mundial, cronómetro y protector de pantalla Digital Clock opcional.",
+                    androidDownload: "Descargar para Android",
+                    androidHelp: "Instrucciones de instalación",
+                    androidDescription: "Android 7.0+ · Versión 1.1 · APK gratuito. Modo nocturno con protección OLED, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."
+                }
             }[language];
-            const download = document.getElementById("android-download");
-            const help = document.getElementById("android-help");
-            const description = document.getElementById("android-description");
-            if (download) download.textContent = android[0];
-            if (help) {
-                help.textContent = android[1];
-                help.href = "/downloads/digital-clock/Installation.html#" + language;
+
+            const windowsDownload = document.getElementById("windows-download");
+            const windowsHelp = document.getElementById("windows-help");
+            const windowsDescription = document.getElementById("windows-description");
+            const androidDownload = document.getElementById("android-download");
+            const androidHelp = document.getElementById("android-help");
+            const androidDescription = document.getElementById("android-description");
+
+            if (windowsDownload) windowsDownload.textContent = downloads.windowsDownload;
+            if (windowsHelp) {
+                windowsHelp.textContent = downloads.windowsHelp;
+                windowsHelp.href = "/downloads/digital-clock/Installation.html#" + language + "-windows";
             }
-            if (description) description.textContent = android[2];
+            if (windowsDescription) windowsDescription.textContent = downloads.windowsDescription;
+
+            if (androidDownload) androidDownload.textContent = downloads.androidDownload;
+            if (androidHelp) {
+                androidHelp.textContent = downloads.androidHelp;
+                androidHelp.href = "/downloads/digital-clock/Installation.html#" + language + "-android";
+            }
+            if (androidDescription) androidDescription.textContent = downloads.androidDescription;
         }
 
         if (ogTitle) ogTitle.content = document.title;
