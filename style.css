@@ -820,6 +820,26 @@ a {
 }
 
 
+.app-platforms {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    margin: -4px 0 14px;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+
+.app-platforms span {
+    font-weight: 650;
+}
+
+.app-platforms strong {
+    color: var(--text);
+    font-weight: 800;
+}
+
+
 .app-meta {
     display: flex;
 
