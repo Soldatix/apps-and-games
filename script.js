@@ -19,33 +19,33 @@ let currentLanguage = getInitialLanguage();
 
 const modernSnakeI18n = {
     en: {
-        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        pageDescription: "Discover free apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
         gamesText: "Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
-        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste and Unit Converter with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        aboutText2: "Many projects run directly in a web browser, while selected apps are also available as downloadable Windows and Android versions. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste and Unit Converter with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
         card: ["Play a modern Snake game with three lives, timed bonus food, keyboard and mouse controls, saved progress and a local leaderboard.", ["Arcade", "Snake", "Bonuses"]]
     },
     hr: {
-        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        pageDescription: "Otkrijte besplatne aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
         gamesText: "Odaberite slagalice ili arkadne igre i odmah ih pokrenite u pregledniku. Trenutačna kolekcija uključuje Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
-        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste i Unit Converter s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        aboutText2: "Mnogi projekti rade izravno u web-pregledniku, dok su odabrane aplikacije dostupne i kao Windows i Android verzije za preuzimanje. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste i Unit Converter s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
         card: ["Igrajte moderni Snake s tri života, vremenski ograničenom bonus hranom, upravljanjem tipkovnicom i mišem, spremanjem i lokalnom rang-listom.", ["Arkadna", "Snake", "Bonusi"]]
     },
     de: {
-        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        pageDescription: "Entdecke kostenlose Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
         gamesText: "Wähle Puzzle- oder Arcade-Spiele und spiele direkt im Browser. Die aktuelle Sammlung umfasst Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
-        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste und Unit Converter mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        aboutText2: "Viele Projekte laufen direkt im Webbrowser, während ausgewählte Apps zusätzlich als Windows- und Android-Versionen zum Download verfügbar sind. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste und Unit Converter mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
         card: ["Spiele Modern Snake mit drei Leben, zeitlich begrenztem Bonusfutter, Tastatur- und Maussteuerung, Speicherfunktion und lokaler Bestenliste.", ["Arcade", "Snake", "Bonusse"]]
     },
     it: {
-        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        pageDescription: "Scopri app gratuite e giochi per browser come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
         gamesText: "Scegli tra rompicapi e giochi arcade e gioca direttamente nel browser. La raccolta attuale include Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
-        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste e Unit Converter a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        aboutText2: "Molti progetti funzionano direttamente nel browser, mentre alcune app sono disponibili anche come versioni Windows e Android da scaricare. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste e Unit Converter a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
         card: ["Gioca a Modern Snake con tre vite, cibo bonus a tempo, comandi da tastiera e mouse, salvataggio e classifica locale.", ["Arcade", "Snake", "Bonus"]]
     },
     es: {
-        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        pageDescription: "Descubre aplicaciones gratuitas y juegos de navegador como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
         gamesText: "Elige entre puzles y juegos arcade y empieza a jugar directamente en el navegador. La colección actual incluye Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
-        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste y Unit Converter con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        aboutText2: "Muchos proyectos funcionan directamente en el navegador, mientras que algunas apps también están disponibles como versiones descargables para Windows y Android. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste y Unit Converter con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
         card: ["Juega a Modern Snake con tres vidas, comida bonus temporal, controles de teclado y ratón, guardado y clasificación local.", ["Arcade", "Snake", "Bonus"]]
     }
 };
@@ -68,33 +68,33 @@ supportedLanguages.forEach(language => {
 
 const crosswordPortalI18n = {
     en: {
-        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
-        appsText: "Open practical browser apps for everyday use. Current projects include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword, with more apps planned as the collection grows.",
-        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        pageDescription: "Discover free apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
+        appsText: "Explore practical apps for everyday use. Current projects include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword, with more apps planned as the collection grows.",
+        aboutText2: "Many projects run directly in a web browser, while selected apps are also available as downloadable Windows and Android versions. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man and Modern Snake.",
         card: ["Create your own crosswords or solve 500 ready-made puzzles across five languages and ten categories, then print or share them online.", ["Crossword", "Puzzle", "Creator"]]
     },
     hr: {
-        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        pageDescription: "Otkrijte besplatne aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
         appsText: "Otvorite praktične aplikacije za svakodnevnu upotrebu. Trenutačna kolekcija uključuje Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword, a nove aplikacije dodavat ćemo i dalje.",
-        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
+        aboutText2: "Mnogi projekti rade izravno u web-pregledniku, dok su odabrane aplikacije dostupne i kao Windows i Android verzije za preuzimanje. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man i Modern Snake.",
         card: ["Izradite vlastite križaljke ili rješavajte 500 gotovih križaljki na pet jezika i u deset kategorija, zatim ih ispišite ili podijelite online.", ["Križaljke", "Slagalica", "Kreator"]]
     },
     de: {
-        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
-        appsText: "Öffne praktische Browser-Apps für den Alltag. Zur aktuellen Sammlung gehören Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword; weitere Apps sind geplant.",
-        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        pageDescription: "Entdecke kostenlose Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
+        appsText: "Entdecke praktische Apps für den Alltag. Zur aktuellen Sammlung gehören Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword; weitere Apps sind geplant.",
+        aboutText2: "Viele Projekte laufen direkt im Webbrowser, während ausgewählte Apps zusätzlich als Windows- und Android-Versionen zum Download verfügbar sind. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man und Modern Snake.",
         card: ["Erstelle eigene Kreuzworträtsel oder löse 500 fertige Rätsel in fünf Sprachen und zehn Kategorien und drucke oder teile sie online.", ["Kreuzworträtsel", "Puzzle", "Editor"]]
     },
     it: {
-        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
-        appsText: "Apri app pratiche direttamente nel browser. La raccolta attuale include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword, con altre app in arrivo.",
-        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        pageDescription: "Scopri app gratuite e giochi per browser come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
+        appsText: "Scopri app pratiche per l'uso quotidiano. La raccolta attuale include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword, con altre app in arrivo.",
+        aboutText2: "Molti progetti funzionano direttamente nel browser, mentre alcune app sono disponibili anche come versioni Windows e Android da scaricare. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man e Modern Snake.",
         card: ["Crea i tuoi cruciverba o risolvi 500 puzzle pronti in cinque lingue e dieci categorie, poi stampali o condividili online.", ["Cruciverba", "Puzzle", "Creatore"]]
     },
     es: {
-        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
-        appsText: "Abre aplicaciones prácticas directamente en el navegador. La colección actual incluye Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword, y seguirá creciendo.",
-        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        pageDescription: "Descubre aplicaciones gratuitas y juegos de navegador como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
+        appsText: "Explora aplicaciones prácticas para el uso diario. La colección actual incluye Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword, y seguirá creciendo.",
+        aboutText2: "Muchos proyectos funcionan directamente en el navegador, mientras que algunas apps también están disponibles como versiones descargables para Windows y Android. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man y Modern Snake.",
         card: ["Crea tus propios crucigramas o resuelve 500 crucigramas preparados en cinco idiomas y diez categorías, y después imprímelos o compártelos online.", ["Crucigrama", "Puzzle", "Creador"]]
     }
 };
@@ -117,33 +117,33 @@ supportedLanguages.forEach(language => {
 
 const memoryGamePortalI18n = {
     en: {
-        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        pageDescription: "Discover free apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
         gamesText: "Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
-        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        aboutText2: "Many projects run directly in a web browser, while selected apps are also available as downloadable Windows and Android versions. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter and Crossword with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
         card: ["Train your memory with themed matching pairs across Brain, Daily, Kids, Animals, Food and Travel, with four difficulty levels and saved progress.", ["Memory", "Puzzle", "Brain"]]
     },
     hr: {
-        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        pageDescription: "Otkrijte besplatne aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
         gamesText: "Odaberite slagalice ili arkadne igre i odmah ih pokrenite u pregledniku. Trenutačna kolekcija uključuje Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
-        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        aboutText2: "Mnogi projekti rade izravno u web-pregledniku, dok su odabrane aplikacije dostupne i kao Windows i Android verzije za preuzimanje. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter i Crossword s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
         card: ["Vježbajte pamćenje spajanjem tematskih parova u sekcijama Mozak, Svakodnevno, Djeca, Životinje, Hrana i Putovanja, uz četiri razine težine i spremanje napretka.", ["Memorija", "Slagalica", "Mozak"]]
     },
     de: {
-        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        pageDescription: "Entdecke kostenlose Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
         gamesText: "Wähle Puzzle- oder Arcade-Spiele und spiele direkt im Browser. Die aktuelle Sammlung umfasst Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
-        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        aboutText2: "Viele Projekte laufen direkt im Webbrowser, während ausgewählte Apps zusätzlich als Windows- und Android-Versionen zum Download verfügbar sind. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter und Crossword mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
         card: ["Trainiere dein Gedächtnis mit thematischen Kartenpaaren aus Gehirn, Alltag, Kinder, Tiere, Essen und Reisen, vier Schwierigkeitsstufen und gespeichertem Fortschritt.", ["Gedächtnis", "Puzzle", "Gehirn"]]
     },
     it: {
-        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        pageDescription: "Scopri app gratuite e giochi per browser come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
         gamesText: "Scegli tra rompicapi e giochi arcade e gioca direttamente nel browser. La raccolta attuale include Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
-        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        aboutText2: "Molti progetti funzionano direttamente nel browser, mentre alcune app sono disponibili anche come versioni Windows e Android da scaricare. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter e Crossword a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
         card: ["Allena la memoria abbinando coppie a tema nelle sezioni Cervello, Quotidiano, Bambini, Animali, Cibo e Viaggi, con quattro livelli di difficoltà e salvataggio dei progressi.", ["Memoria", "Puzzle", "Cervello"]]
     },
     es: {
-        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        pageDescription: "Descubre aplicaciones gratuitas y juegos de navegador como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
         gamesText: "Elige entre puzles y juegos arcade y empieza a jugar directamente en el navegador. La colección actual incluye Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
-        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        aboutText2: "Muchos proyectos funcionan directamente en el navegador, mientras que algunas apps también están disponibles como versiones descargables para Windows y Android. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter y Crossword con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
         card: ["Entrena la memoria emparejando cartas temáticas de Cerebro, Diario, Niños, Animales, Comida y Viajes, con cuatro niveles de dificultad y progreso guardado.", ["Memoria", "Puzle", "Cerebro"]]
     }
 };
@@ -166,33 +166,33 @@ supportedLanguages.forEach(language => {
 
 const habitTrackerPortalI18n = {
     en: {
-        pageDescription: "Discover free online apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
-        appsText: "Open practical browser apps for everyday use. Current projects include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword and Habit Tracker / Daily Planner, with more apps planned as the collection grows.",
-        aboutText2: "Instead of requiring a separate installation, the projects are designed to run online in a web browser whenever possible. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword and Habit Tracker / Daily Planner with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        pageDescription: "Discover free apps and browser games including Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
+        appsText: "Explore practical apps for everyday use. Current projects include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword and Habit Tracker / Daily Planner, with more apps planned as the collection grows.",
+        aboutText2: "Many projects run directly in a web browser, while selected apps are also available as downloadable Windows and Android versions. The collection combines practical apps such as Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword and Habit Tracker / Daily Planner with browser games such as Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.",
         card: ["Build recurring habits, plan daily tasks, track streaks and seven-day progress, and keep your data locally in the browser.", ["Habits", "Planner", "Productivity"]]
     },
     hr: {
-        pageDescription: "Otkrijte besplatne online aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        pageDescription: "Otkrijte besplatne aplikacije i igre za preglednik, uključujući Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
         appsText: "Otvorite praktične aplikacije za svakodnevnu upotrebu. Trenutačna kolekcija uključuje Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword i Habit Tracker / Daily Planner, a nove aplikacije dodavat ćemo i dalje.",
-        aboutText2: "Umjesto zasebne instalacije, projekti su napravljeni tako da se, kad god je moguće, pokreću online u web-pregledniku. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword i Habit Tracker / Daily Planner s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
+        aboutText2: "Mnogi projekti rade izravno u web-pregledniku, dok su odabrane aplikacije dostupne i kao Windows i Android verzije za preuzimanje. Kolekcija spaja praktične aplikacije kao što su Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword i Habit Tracker / Daily Planner s igrama Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake i Memory Game.",
         card: ["Gradite ponavljajuće navike, planirajte dnevne zadatke, pratite nizove i napredak zadnjih sedam dana te podatke čuvajte lokalno u pregledniku.", ["Navike", "Planer", "Produktivnost"]]
     },
     de: {
-        pageDescription: "Entdecke kostenlose Online-Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
-        appsText: "Öffne praktische Browser-Apps für den Alltag. Zur aktuellen Sammlung gehören Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword und Habit Tracker / Daily Planner; weitere Apps sind geplant.",
-        aboutText2: "Statt einer separaten Installation laufen die Projekte nach Möglichkeit online im Webbrowser. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword und Habit Tracker / Daily Planner mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        pageDescription: "Entdecke kostenlose Apps und Browserspiele wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
+        appsText: "Entdecke praktische Apps für den Alltag. Zur aktuellen Sammlung gehören Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword und Habit Tracker / Daily Planner; weitere Apps sind geplant.",
+        aboutText2: "Viele Projekte laufen direkt im Webbrowser, während ausgewählte Apps zusätzlich als Windows- und Android-Versionen zum Download verfügbar sind. Die Sammlung verbindet praktische Apps wie Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword und Habit Tracker / Daily Planner mit Spielen wie Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake und Memory Game.",
         card: ["Baue wiederkehrende Gewohnheiten auf, plane tägliche Aufgaben, verfolge Serien und den Sieben-Tage-Fortschritt und speichere Daten lokal im Browser.", ["Gewohnheiten", "Planer", "Produktivität"]]
     },
     it: {
-        pageDescription: "Scopri applicazioni online e giochi per browser gratuiti come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
-        appsText: "Apri app pratiche direttamente nel browser. La raccolta attuale include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword e Habit Tracker / Daily Planner, con altre app in arrivo.",
-        aboutText2: "Senza richiedere un'installazione separata, i progetti sono pensati per funzionare online in un browser quando possibile. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword e Habit Tracker / Daily Planner a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        pageDescription: "Scopri app gratuite e giochi per browser come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
+        appsText: "Scopri app pratiche per l'uso quotidiano. La raccolta attuale include Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword e Habit Tracker / Daily Planner, con altre app in arrivo.",
+        aboutText2: "Molti progetti funzionano direttamente nel browser, mentre alcune app sono disponibili anche come versioni Windows e Android da scaricare. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword e Habit Tracker / Daily Planner a giochi come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake e Memory Game.",
         card: ["Crea abitudini ricorrenti, pianifica attività quotidiane, segui serie e progressi di sette giorni e conserva i dati localmente nel browser.", ["Abitudini", "Planner", "Produttività"]]
     },
     es: {
-        pageDescription: "Descubre aplicaciones online y juegos de navegador gratuitos como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
-        appsText: "Abre aplicaciones prácticas directamente en el navegador. La colección actual incluye Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword y Habit Tracker / Daily Planner, y seguirá creciendo.",
-        aboutText2: "Sin necesidad de una instalación independiente, los proyectos están diseñados para funcionar online en un navegador siempre que sea posible. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword y Habit Tracker / Daily Planner con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        pageDescription: "Descubre aplicaciones gratuitas y juegos de navegador como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword, Habit Tracker / Daily Planner, Tetris, UFO Invaders, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
+        appsText: "Explora aplicaciones prácticas para el uso diario. La colección actual incluye Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword y Habit Tracker / Daily Planner, y seguirá creciendo.",
+        aboutText2: "Muchos proyectos funcionan directamente en el navegador, mientras que algunas apps también están disponibles como versiones descargables para Windows y Android. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste, Unit Converter, Crossword y Habit Tracker / Daily Planner con juegos como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake y Memory Game.",
         card: ["Crea hábitos recurrentes, planifica tareas diarias, sigue rachas y progreso de siete días y conserva los datos localmente en el navegador.", ["Hábitos", "Planificador", "Productividad"]]
     }
 };
@@ -255,12 +255,13 @@ const apps = [
         category: "utility",
         badge: "APP",
         name: "Digital Clock",
-        description: "A multifunctional online digital clock with a large display, clean design and useful everyday functionality.",
+        description: "A multifunctional digital clock for web, Windows and Android with a large customizable display and useful everyday tools.",
         image: "assets/images/digital-clock.png",
         button: "OPEN APP →",
         url: "https://digitalclock.appsandgames.org/",
         detailsUrl: "digital-clock",
-        tags: ["Clock", "App", "Online"],
+        platforms: ["Web", "Windows", "Android"],
+        tags: ["Clock", "App", "Tools"],
         status: "LIVE",
         analyticsEvent: "open_app"
     },
@@ -612,6 +613,7 @@ function renderApps() {
             || [app.description, app.tags];
         const localizedDescription = localizedCard[0];
         const localizedTags = localizedCard[1];
+        const platforms = app.platforms || ["Web"];
         const isGame = app.category === "game";
 
         const card = document.createElement("article");
@@ -632,6 +634,10 @@ function renderApps() {
                     <span class="app-status">${t("live")}</span>
                 </div>
                 <p class="app-description">${localizedDescription}</p>
+                <div class="app-platforms">
+                    <span>${t("availableOn")}</span>
+                    <strong>${platforms.join(" · ")}</strong>
+                </div>
                 <div class="app-meta">${tagsHTML}</div>
                 <a
                     class="secondary-button"
