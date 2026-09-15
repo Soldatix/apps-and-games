@@ -520,42 +520,42 @@
                 en: {
                     windowsDownload: "Download for Windows",
                     windowsHelp: "Installation instructions",
-                    windowsDescription: "Windows 10/11 x64 · Version 2.0.3 · Free installer. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional Digital Clock Screen Saver.",
+                    windowsDescription: "Windows 10/11 x64 · Version 2.0.3 · Free installer. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional OLED-friendly Digital Clock Screen Saver.",
                     androidDownload: "Download for Android",
                     androidHelp: "Installation instructions",
-                    androidDescription: "Android 7.0+ · Version 1.1 · Free APK. Night mode with OLED protection, full screen, alarms and timer. Manual update checks are available in Info."
+                    androidDescription: "Android 7.0+ · Version 1.1 · Free APK. Night mode with OLED-friendly display behavior, full screen, alarms and timer. Manual update checks are available in Info."
                 },
                 hr: {
                     windowsDownload: "Preuzmi za Windows",
                     windowsHelp: "Upute za instalaciju",
-                    windowsDescription: "Windows 10/11 x64 · Verzija 2.0.3 · Besplatan instalacijski program. Uključuje noćni način uz krevet, cijeli zaslon, alarme, mjerač vremena, svjetski sat, štopericu i opcionalni Digital Clock čuvar zaslona.",
+                    windowsDescription: "Windows 10/11 x64 · Verzija 2.0.3 · Besplatan instalacijski program. Uključuje noćni način uz krevet, cijeli zaslon, alarme, mjerač vremena, svjetski sat, štopericu i opcionalni OLED-friendly Digital Clock čuvar zaslona.",
                     androidDownload: "Preuzmi za Android",
                     androidHelp: "Upute za instalaciju",
-                    androidDescription: "Android 7.0+ · Verzija 1.1 · Besplatan APK. Noćni način s OLED zaštitom, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."
+                    androidDescription: "Android 7.0+ · Verzija 1.1 · Besplatan APK. Noćni način s OLED-friendly ponašanjem zaslona, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."
                 },
                 de: {
                     windowsDownload: "Für Windows herunterladen",
                     windowsHelp: "Installationsanleitung",
-                    windowsDescription: "Windows 10/11 x64 · Version 2.0.3 · Kostenloser Installer. Mit Nachttischmodus, Vollbild, Wecker, Timer, Weltzeituhr, Stoppuhr und optionalem Digital Clock-Bildschirmschoner.",
+                    windowsDescription: "Windows 10/11 x64 · Version 2.0.3 · Kostenloser Installer. Mit Nachttischmodus, Vollbild, Wecker, Timer, Weltzeituhr, Stoppuhr und optionalem OLED-freundlichem Digital Clock-Bildschirmschoner.",
                     androidDownload: "Für Android herunterladen",
                     androidHelp: "Installationsanleitung",
-                    androidDescription: "Android 7.0+ · Version 1.1 · Kostenlose APK. Nachtmodus mit OLED-Schutz, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."
+                    androidDescription: "Android 7.0+ · Version 1.1 · Kostenlose APK. Nachtmodus mit OLED-freundlichem Anzeigeverhalten, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."
                 },
                 it: {
                     windowsDownload: "Scarica per Windows",
                     windowsHelp: "Istruzioni di installazione",
-                    windowsDescription: "Windows 10/11 x64 · Versione 2.0.3 · Installer gratuito. Include modalità comodino, schermo intero, sveglie, timer, orologio mondiale, cronometro e screensaver Digital Clock opzionale.",
+                    windowsDescription: "Windows 10/11 x64 · Versione 2.0.3 · Installer gratuito. Include modalità comodino, schermo intero, sveglie, timer, orologio mondiale, cronometro e screensaver Digital Clock OLED-friendly opzionale.",
                     androidDownload: "Scarica per Android",
                     androidHelp: "Istruzioni di installazione",
-                    androidDescription: "Android 7.0+ · Versione 1.1 · APK gratuito. Modalità notte con protezione OLED, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."
+                    androidDescription: "Android 7.0+ · Versione 1.1 · APK gratuito. Modalità notte con comportamento OLED-friendly del display, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."
                 },
                 es: {
                     windowsDownload: "Descargar para Windows",
                     windowsHelp: "Instrucciones de instalación",
-                    windowsDescription: "Windows 10/11 x64 · Versión 2.0.3 · Instalador gratuito. Incluye modo de mesita, pantalla completa, alarmas, temporizador, reloj mundial, cronómetro y protector de pantalla Digital Clock opcional.",
+                    windowsDescription: "Windows 10/11 x64 · Versión 2.0.3 · Instalador gratuito. Incluye modo de mesita, pantalla completa, alarmas, temporizador, reloj mundial, cronómetro y protector de pantalla Digital Clock OLED-friendly opcional.",
                     androidDownload: "Descargar para Android",
                     androidHelp: "Instrucciones de instalación",
-                    androidDescription: "Android 7.0+ · Versión 1.1 · APK gratuito. Modo nocturno con protección OLED, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."
+                    androidDescription: "Android 7.0+ · Versión 1.1 · APK gratuito. Modo nocturno con comportamiento OLED-friendly de la pantalla, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."
                 }
             }[language];
 
