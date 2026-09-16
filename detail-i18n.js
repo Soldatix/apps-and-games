@@ -521,6 +521,8 @@
                     windowsDownload: "Download for Windows",
                     windowsHelp: "Installation instructions",
                     windowsDescription: "Windows 10/11 x64 · Version 2.0.5 · Free installer. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional OLED-friendly Digital Clock Screen Saver.",
+                    webOpen: "Open / Install Web App",
+                    webDescription: "Runs directly in your browser and does not require a traditional installer. In supported browsers, it can be installed as a web app (PWA) and launched like a regular application. After the first load, core features can also work without an internet connection. An internet connection is required for updates. Some operating-system-specific features available in the Windows or Android versions may not be included. Digital Clock Web does not include the Windows Screen Saver.",
                     androidDownload: "Download for Android",
                     androidHelp: "Installation instructions",
                     androidDescription: "Android 7.0+ · Version 1.1 · Free APK. Night mode with OLED-friendly display behavior, full screen, alarms and timer. Manual update checks are available in Info."
@@ -529,6 +531,8 @@
                     windowsDownload: "Preuzmi za Windows",
                     windowsHelp: "Upute za instalaciju",
                     windowsDescription: "Windows 10/11 x64 · Verzija 2.0.5 · Besplatan instalacijski program. Uključuje noćni način uz krevet, cijeli zaslon, alarme, mjerač vremena, svjetski sat, štopericu i opcionalni OLED-friendly Digital Clock čuvar zaslona.",
+                    webOpen: "Otvori / instaliraj Web App",
+                    webDescription: "Radi izravno u pregledniku i ne zahtijeva klasični instalacijski program. U podržanim preglednicima može se instalirati kao web aplikacija (PWA) i pokretati poput obične aplikacije. Nakon prvog učitavanja osnovne funkcije mogu raditi i bez internetske veze. Za ažuriranja je potrebna internetska veza. Neke funkcije specifične za Windows ili Android verziju možda nisu dostupne. Digital Clock Web ne uključuje Windows Screen Saver.",
                     androidDownload: "Preuzmi za Android",
                     androidHelp: "Upute za instalaciju",
                     androidDescription: "Android 7.0+ · Verzija 1.1 · Besplatan APK. Noćni način s OLED-friendly ponašanjem zaslona, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."
@@ -537,6 +541,8 @@
                     windowsDownload: "Für Windows herunterladen",
                     windowsHelp: "Installationsanleitung",
                     windowsDescription: "Windows 10/11 x64 · Version 2.0.5 · Kostenloser Installer. Mit Nachttischmodus, Vollbild, Wecker, Timer, Weltzeituhr, Stoppuhr und optionalem OLED-freundlichem Digital Clock-Bildschirmschoner.",
+                    webOpen: "Web-App öffnen / installieren",
+                    webDescription: "Läuft direkt im Browser und benötigt kein klassisches Installationsprogramm. In unterstützten Browsern kann sie als Web-App (PWA) installiert und wie eine normale Anwendung gestartet werden. Nach dem ersten Laden können die Grundfunktionen auch ohne Internetverbindung funktionieren. Für Updates ist eine Internetverbindung erforderlich. Einige betriebssystemspezifische Funktionen der Windows- oder Android-Version sind möglicherweise nicht verfügbar. Digital Clock Web enthält keinen Windows-Bildschirmschoner.",
                     androidDownload: "Für Android herunterladen",
                     androidHelp: "Installationsanleitung",
                     androidDescription: "Android 7.0+ · Version 1.1 · Kostenlose APK. Nachtmodus mit OLED-freundlichem Anzeigeverhalten, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."
@@ -545,6 +551,8 @@
                     windowsDownload: "Scarica per Windows",
                     windowsHelp: "Istruzioni di installazione",
                     windowsDescription: "Windows 10/11 x64 · Versione 2.0.5 · Installer gratuito. Include modalità comodino, schermo intero, sveglie, timer, orologio mondiale, cronometro e screensaver Digital Clock OLED-friendly opzionale.",
+                    webOpen: "Apri / installa Web App",
+                    webDescription: "Funziona direttamente nel browser e non richiede un programma di installazione tradizionale. Nei browser supportati può essere installata come app web (PWA) e avviata come una normale applicazione. Dopo il primo caricamento, le funzioni principali possono funzionare anche senza connessione Internet. Per gli aggiornamenti è necessaria una connessione Internet. Alcune funzioni specifiche delle versioni Windows o Android potrebbero non essere disponibili. Digital Clock Web non include lo screensaver di Windows.",
                     androidDownload: "Scarica per Android",
                     androidHelp: "Istruzioni di installazione",
                     androidDescription: "Android 7.0+ · Versione 1.1 · APK gratuito. Modalità notte con comportamento OLED-friendly del display, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."
@@ -553,18 +561,25 @@
                     windowsDownload: "Descargar para Windows",
                     windowsHelp: "Instrucciones de instalación",
                     windowsDescription: "Windows 10/11 x64 · Versión 2.0.5 · Instalador gratuito. Incluye modo de mesita, pantalla completa, alarmas, temporizador, reloj mundial, cronómetro y protector de pantalla Digital Clock OLED-friendly opcional.",
+                    webOpen: "Abrir / instalar Web App",
+                    webDescription: "Se ejecuta directamente en el navegador y no requiere un instalador tradicional. En navegadores compatibles, se puede instalar como aplicación web (PWA) y abrir como una aplicación normal. Después de la primera carga, las funciones principales también pueden funcionar sin conexión a Internet. Se requiere conexión a Internet para las actualizaciones. Es posible que algunas funciones específicas de las versiones de Windows o Android no estén disponibles. Digital Clock Web no incluye el protector de pantalla de Windows.",
                     androidDownload: "Descargar para Android",
                     androidHelp: "Instrucciones de instalación",
                     androidDescription: "Android 7.0+ · Versión 1.1 · APK gratuito. Modo nocturno con comportamiento OLED-friendly de la pantalla, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."
                 }
             }[language];
 
+            const webAppOpen = document.getElementById("web-app-open");
+            const webAppDescription = document.getElementById("web-app-description");
             const windowsDownload = document.getElementById("windows-download");
             const windowsHelp = document.getElementById("windows-help");
             const windowsDescription = document.getElementById("windows-description");
             const androidDownload = document.getElementById("android-download");
             const androidHelp = document.getElementById("android-help");
             const androidDescription = document.getElementById("android-description");
+
+            if (webAppOpen) webAppOpen.textContent = downloads.webOpen;
+            if (webAppDescription) webAppDescription.textContent = downloads.webDescription;
 
             if (windowsDownload) windowsDownload.textContent = downloads.windowsDownload;
             if (windowsHelp) {
