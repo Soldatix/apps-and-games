@@ -11,8 +11,10 @@ section{margin:42px 0;padding-top:24px;border-top:1px solid #ccc}
 li{margin:10px 0}
 a{color:#173bb8}
 .download{display:inline-block;background:#173bb8;color:#fff;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:700}
+.download.secondary{background:#4c566a}
 code{overflow-wrap:anywhere}
 .note{padding:12px 14px;border-left:4px solid #d39e00;background:#fff8db}
+.portable-note{padding:12px 14px;border-left:4px solid #4c7bd9;background:#edf4ff}
 .checksum{font-size:.9rem}
 </style>
 </head>
@@ -25,7 +27,8 @@ code{overflow-wrap:anywhere}
 <h2>Hrvatski</h2>
 <div class="platform" id="hr-windows">
 <h3>Windows 10/11 x64 — verzija 2.0.5</h3>
-<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Preuzmi za Windows</a></p>
+<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Preuzmi Windows installer</a> <a class="download secondary" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Preuzmi Portable ZIP</a></p>
+<h4>Standardna Windows instalacija</h4>
 <ol>
 <li>Preuzmi <strong>DigitalClock-Setup-x64.exe</strong> (oko 55 MB) s Apps &amp; Games download domene.</li>
 <li>Pokreni instalacijski program. Ako Windows prikaže poruku <strong>Windows protected your PC</strong>, klikni <strong>More info (Više informacija)</strong>, a zatim <strong>Run anyway (Svejedno pokreni)</strong>. Nastavi samo ako je datoteka preuzeta s naše službene download domene i SHA-256 se podudara s vrijednošću ispod.</li>
@@ -36,7 +39,20 @@ code{overflow-wrap:anywhere}
 <li>Buduće nadogradnje možeš provjeriti u <strong>Info → Windows nadogradnja</strong>. Nadogradnja se instalira preko postojeće verzije i zadržava spremljene postavke i profile.</li>
 </ol>
 <p class="note"><strong>Napomena:</strong> ova verzija još nije digitalno potpisana pa Windows SmartScreen može prikazati upozorenje. Nastavi samo ako je datoteka preuzeta s <strong>downloads.appsandgames.org</strong> i SHA-256 se podudara s vrijednošću ispod.</p>
-<p class="checksum">SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+<p class="checksum">Installer SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+
+<h4 id="hr-windows-portable">Portable verzija — bez instalacije</h4>
+<ol>
+<li>Preuzmi <strong>DigitalClock-Portable-x64.zip</strong> sa službene Apps &amp; Games download domene.</li>
+<li>Desni klik na ZIP i odaberi <strong>Izdvoji sve / Extract All</strong>.</li>
+<li>Raspakiranu mapu možeš premjestiti u Dokumente, na drugi disk ili USB memoriju.</li>
+<li>Otvori raspakiranu mapu i pokreni <strong>DigitalClock.Windows.exe</strong>. Nemoj pokretati EXE izravno iz ZIP arhive.</li>
+<li>Portable verzija ima isti izgled i glavne funkcije Windows aplikacije. Njezine postavke i lokalni podaci spremaju se u mapu <strong>Data</strong> unutar portable mape.</li>
+<li><strong>Windows Screen Saver nije uključen</strong> u portable izdanje. Za njega koristi standardni Windows installer.</li>
+<li>Ako nedostaje Microsoft Edge WebView2 Runtime, instaliraj službeni Microsoft WebView2 Runtime i ponovno pokreni aplikaciju.</li>
+<li>Za nadogradnju zatvori Digital Clock, preuzmi novi Portable ZIP i zamijeni aplikacijske datoteke. Zadrži postojeću mapu <strong>Data</strong> kako bi sačuvao postavke.</li>
+</ol>
+<p class="portable-note"><strong>Važno:</strong> portable izdanje ne zahtijeva instalaciju. Ako u aplikaciji ručno uključiš opciju <strong>Pokreni sa sustavom Windows</strong>, Windows će napraviti startup zapis za trenutnog korisnika. Isključi tu opciju prije premještanja ili brisanja portable mape.</p>
 </div>
 <div class="platform" id="hr-android">
 <h3>Android 7.0+ — verzija 1.1</h3>
@@ -57,7 +73,8 @@ code{overflow-wrap:anywhere}
 <h2>English</h2>
 <div class="platform" id="en-windows">
 <h3>Windows 10/11 x64 — version 2.0.5</h3>
-<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Download for Windows</a></p>
+<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Download Windows Installer</a> <a class="download secondary" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Download Portable ZIP</a></p>
+<h4>Standard Windows installation</h4>
 <ol>
 <li>Download <strong>DigitalClock-Setup-x64.exe</strong> (about 55 MB) from the Apps &amp; Games download domain.</li>
 <li>Run the installer. If Windows shows <strong>Windows protected your PC</strong>, click <strong>More info</strong>, then <strong>Run anyway</strong>. Continue only if the file was downloaded from our official download domain and its SHA-256 matches the value below.</li>
@@ -68,7 +85,20 @@ code{overflow-wrap:anywhere}
 <li>Future updates can be checked in <strong>Info → Windows update</strong>. Updates install over the existing version and keep saved settings and profiles.</li>
 </ol>
 <p class="note"><strong>Note:</strong> this release is not yet digitally signed, so Windows SmartScreen may show a warning. Continue only if the file came from <strong>downloads.appsandgames.org</strong> and its SHA-256 matches the value below.</p>
-<p class="checksum">SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+<p class="checksum">Installer SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+
+<h4 id="en-windows-portable">Portable edition — no installation</h4>
+<ol>
+<li>Download <strong>DigitalClock-Portable-x64.zip</strong> from the official Apps &amp; Games download domain.</li>
+<li>Right-click the ZIP and choose <strong>Extract All</strong>.</li>
+<li>Move the extracted folder anywhere you want, such as Documents, another drive or a USB drive.</li>
+<li>Open the extracted folder and run <strong>DigitalClock.Windows.exe</strong>. Do not run the EXE directly from inside the ZIP archive.</li>
+<li>The portable edition has the same interface and main Windows app functions. Its settings and local data are stored in the local <strong>Data</strong> folder.</li>
+<li><strong>The Windows Screen Saver is not included</strong> in the portable edition. Use the regular Windows installer if you want the Screen Saver.</li>
+<li>If Microsoft Edge WebView2 Runtime is missing, install the official Microsoft WebView2 Runtime and launch Digital Clock again.</li>
+<li>To update, close Digital Clock, download the newest Portable ZIP and replace the application files. Keep the existing <strong>Data</strong> folder to preserve your portable settings.</li>
+</ol>
+<p class="portable-note"><strong>Important:</strong> the portable edition itself requires no installation. If you manually enable <strong>Start with Windows</strong> inside the app, Windows creates a startup entry for the current user. Disable it before moving or deleting the portable folder.</p>
 </div>
 <div class="platform" id="en-android">
 <h3>Android 7.0+ — version 1.1</h3>
@@ -89,7 +119,8 @@ code{overflow-wrap:anywhere}
 <h2>Deutsch</h2>
 <div class="platform" id="de-windows">
 <h3>Windows 10/11 x64 — Version 2.0.5</h3>
-<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Für Windows herunterladen</a></p>
+<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Windows-Installer herunterladen</a> <a class="download secondary" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Portable ZIP herunterladen</a></p>
+<h4>Normale Windows-Installation</h4>
 <ol>
 <li>Lade <strong>DigitalClock-Setup-x64.exe</strong> (ca. 55 MB) von der Apps-&amp;-Games-Download-Domain herunter.</li>
 <li>Starte das Installationsprogramm. Wenn Windows <strong>Der PC wurde durch Windows geschützt</strong> bzw. <strong>Windows protected your PC</strong> anzeigt, klicke auf <strong>Weitere Informationen</strong> und danach auf <strong>Trotzdem ausführen</strong>. Fahre nur fort, wenn die Datei von unserer offiziellen Download-Domain stammt und der SHA-256-Wert unten übereinstimmt.</li>
@@ -100,7 +131,20 @@ code{overflow-wrap:anywhere}
 <li>Künftige Updates kannst du unter <strong>Info → Windows-Update</strong> prüfen. Updates werden über die vorhandene Version installiert und behalten gespeicherte Einstellungen und Profile bei.</li>
 </ol>
 <p class="note"><strong>Hinweis:</strong> diese Version ist noch nicht digital signiert. Windows SmartScreen kann deshalb eine Warnung anzeigen. Fahre nur fort, wenn die Datei von <strong>downloads.appsandgames.org</strong> stammt und der SHA-256-Wert übereinstimmt.</p>
-<p class="checksum">SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+<p class="checksum">Installer SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+
+<h4 id="de-windows-portable">Portable-Version — ohne Installation</h4>
+<ol>
+<li>Lade <strong>DigitalClock-Portable-x64.zip</strong> von der offiziellen Apps-&amp;-Games-Download-Domain herunter.</li>
+<li>Entpacke die ZIP-Datei vollständig.</li>
+<li>Verschiebe den entpackten Ordner bei Bedarf in Dokumente, auf ein anderes Laufwerk oder auf einen USB-Stick.</li>
+<li>Starte <strong>DigitalClock.Windows.exe</strong> aus dem entpackten Ordner und nicht direkt aus der ZIP-Datei.</li>
+<li>Die Portable-Version verwendet dieselbe Oberfläche und die wichtigsten Windows-Funktionen. Einstellungen und lokale Daten werden im Unterordner <strong>Data</strong> gespeichert.</li>
+<li>Der <strong>Windows-Bildschirmschoner ist nicht enthalten</strong>. Verwende dafür den normalen Windows-Installer.</li>
+<li>Falls Microsoft Edge WebView2 Runtime fehlt, installiere die offizielle Microsoft-Version und starte Digital Clock erneut.</li>
+<li>Für ein Update Digital Clock schließen, die neue Portable-ZIP entpacken und die Programmdateien ersetzen. Den vorhandenen <strong>Data</strong>-Ordner behalten.</li>
+</ol>
+<p class="portable-note"><strong>Wichtig:</strong> die Portable-Version selbst benötigt keine Installation. Wenn <strong>Mit Windows starten</strong> aktiviert wird, legt Windows für den aktuellen Benutzer einen Autostart-Eintrag an.</p>
 </div>
 <div class="platform" id="de-android">
 <h3>Android 7.0+ — Version 1.1</h3>
@@ -121,7 +165,8 @@ code{overflow-wrap:anywhere}
 <h2>Italiano</h2>
 <div class="platform" id="it-windows">
 <h3>Windows 10/11 x64 — versione 2.0.5</h3>
-<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Scarica per Windows</a></p>
+<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Scarica installer Windows</a> <a class="download secondary" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Scarica Portable ZIP</a></p>
+<h4>Installazione Windows standard</h4>
 <ol>
 <li>Scarica <strong>DigitalClock-Setup-x64.exe</strong> (circa 55 MB) dal dominio download di Apps &amp; Games.</li>
 <li>Avvia il programma di installazione. Se Windows mostra <strong>Windows protected your PC</strong>, fai clic su <strong>More info (Ulteriori informazioni)</strong> e poi su <strong>Run anyway (Esegui comunque)</strong>. Continua solo se il file proviene dal nostro dominio di download ufficiale e il valore SHA-256 qui sotto corrisponde.</li>
@@ -132,7 +177,20 @@ code{overflow-wrap:anywhere}
 <li>Gli aggiornamenti futuri possono essere verificati in <strong>Info → Aggiornamento Windows</strong>. L'aggiornamento viene installato sopra la versione esistente e mantiene impostazioni e profili salvati.</li>
 </ol>
 <p class="note"><strong>Nota:</strong> questa versione non è ancora firmata digitalmente, quindi Windows SmartScreen potrebbe mostrare un avviso. Continua solo se il file proviene da <strong>downloads.appsandgames.org</strong> e il valore SHA-256 corrisponde.</p>
-<p class="checksum">SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+<p class="checksum">Installer SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+
+<h4 id="it-windows-portable">Versione Portable — senza installazione</h4>
+<ol>
+<li>Scarica <strong>DigitalClock-Portable-x64.zip</strong> dal dominio ufficiale di Apps &amp; Games.</li>
+<li>Estrai completamente il file ZIP.</li>
+<li>Sposta la cartella estratta dove preferisci, ad esempio Documenti, un'altra unità o una chiavetta USB.</li>
+<li>Avvia <strong>DigitalClock.Windows.exe</strong> dalla cartella estratta, non direttamente dal file ZIP.</li>
+<li>La versione Portable usa la stessa interfaccia e le principali funzioni Windows. Impostazioni e dati locali vengono salvati nella cartella <strong>Data</strong>.</li>
+<li>Lo <strong>screensaver di Windows non è incluso</strong>. Per lo screensaver usa l'installer Windows standard.</li>
+<li>Se manca Microsoft Edge WebView2 Runtime, installa la versione ufficiale Microsoft e riavvia Digital Clock.</li>
+<li>Per aggiornare, chiudi Digital Clock, estrai il nuovo Portable ZIP e sostituisci i file dell'applicazione. Conserva la cartella <strong>Data</strong>.</li>
+</ol>
+<p class="portable-note"><strong>Importante:</strong> la versione Portable non richiede installazione. Se abiliti manualmente <strong>Avvia con Windows</strong>, Windows crea una voce di avvio per l'utente corrente.</p>
 </div>
 <div class="platform" id="it-android">
 <h3>Android 7.0+ — versione 1.1</h3>
@@ -153,7 +211,8 @@ code{overflow-wrap:anywhere}
 <h2>Español</h2>
 <div class="platform" id="es-windows">
 <h3>Windows 10/11 x64 — versión 2.0.5</h3>
-<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Descargar para Windows</a></p>
+<p><a class="download" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Descargar instalador de Windows</a> <a class="download secondary" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Descargar Portable ZIP</a></p>
+<h4>Instalación estándar de Windows</h4>
 <ol>
 <li>Descarga <strong>DigitalClock-Setup-x64.exe</strong> (aprox. 55 MB) desde el dominio de descargas de Apps &amp; Games.</li>
 <li>Ejecuta el instalador. Si Windows muestra <strong>Windows protected your PC</strong>, haz clic en <strong>More info (Más información)</strong> y después en <strong>Run anyway (Ejecutar de todas formas)</strong>. Continúa solo si el archivo procede de nuestro dominio oficial de descargas y el SHA-256 de abajo coincide.</li>
@@ -164,7 +223,20 @@ code{overflow-wrap:anywhere}
 <li>Las futuras actualizaciones se pueden comprobar en <strong>Info → Actualización de Windows</strong>. La actualización se instala sobre la versión existente y conserva los ajustes y perfiles guardados.</li>
 </ol>
 <p class="note"><strong>Nota:</strong> esta versión todavía no está firmada digitalmente, por lo que Windows SmartScreen puede mostrar una advertencia. Continúa solo si el archivo procede de <strong>downloads.appsandgames.org</strong> y el SHA-256 coincide.</p>
-<p class="checksum">SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+<p class="checksum">Installer SHA-256: <code>AF549F479F01EBACE212A826F0FF8775AEC5E787912B3F6C84E784F19DE5B4E1</code></p>
+
+<h4 id="es-windows-portable">Versión Portable — sin instalación</h4>
+<ol>
+<li>Descarga <strong>DigitalClock-Portable-x64.zip</strong> desde el dominio oficial de Apps &amp; Games.</li>
+<li>Extrae completamente el archivo ZIP.</li>
+<li>Mueve la carpeta extraída a Documentos, otra unidad o una memoria USB si lo deseas.</li>
+<li>Ejecuta <strong>DigitalClock.Windows.exe</strong> desde la carpeta extraída, no directamente desde el ZIP.</li>
+<li>La versión Portable usa la misma interfaz y las principales funciones de Windows. Los ajustes y datos locales se guardan en la carpeta <strong>Data</strong>.</li>
+<li>El <strong>protector de pantalla de Windows no está incluido</strong>. Para usarlo, instala la versión estándar de Windows.</li>
+<li>Si falta Microsoft Edge WebView2 Runtime, instala la versión oficial de Microsoft y vuelve a iniciar Digital Clock.</li>
+<li>Para actualizar, cierra Digital Clock, extrae el nuevo Portable ZIP y sustituye los archivos de la aplicación. Conserva la carpeta <strong>Data</strong>.</li>
+</ol>
+<p class="portable-note"><strong>Importante:</strong> la versión Portable no requiere instalación. Si activas manualmente <strong>Iniciar con Windows</strong>, Windows crea una entrada de inicio para el usuario actual.</p>
 </div>
 <div class="platform" id="es-android">
 <h3>Android 7.0+ — versión 1.1</h3>
