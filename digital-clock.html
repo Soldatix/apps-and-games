@@ -101,11 +101,11 @@
                     </div>
                     <div class="hero-buttons">
                         <a id="windows-download" class="primary-button" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Download Windows Installer</a>
-                        <a class="secondary-button" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Portable ZIP</a>
+                        <a id="windows-portable-download" class="secondary-button" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Portable ZIP</a>
                         <a id="windows-help" class="secondary-button" href="/downloads/digital-clock/Installation.html#en-windows">Installation instructions</a>
                     </div>
                     <p id="windows-description" class="hero-text">Windows 10/11 x64 · Version 2.0.5 · Free installer. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional OLED-friendly Digital Clock Screen Saver.</p>
-                    <p class="hero-text"><strong>Portable edition:</strong> the same Digital Clock interface and main Windows app functions in a ZIP package that requires no installation. Extract the ZIP and run <strong>DigitalClock.Windows.exe</strong>. Portable settings are kept in the local <strong>Data</strong> folder. The Windows Screen Saver is not included in the portable edition.</p>
+                    <p id="windows-portable-description" class="hero-text"><strong>Portable edition:</strong> the same Digital Clock interface and main Windows app functions in a ZIP package that requires no installation. Extract the ZIP and run <strong>DigitalClock.Windows.exe</strong>. Portable settings are kept in the local <strong>Data</strong> folder. The Windows Screen Saver is not included in the portable edition.</p>
                 </article>
 
                 <article class="platform-download-card">
@@ -145,9 +145,11 @@
                 <li>Optional Digital Clock Screen Saver with the Windows installer.</li>
             </ul>
 
-            <h3>Windows portable edition</h3>
-            <p>The portable Windows edition is distributed as a ZIP archive and does not require a traditional installation. After extraction, Digital Clock runs from its own folder and keeps its portable settings and local data in a <strong>Data</strong> subfolder. This lets the portable and installed Windows editions coexist without sharing their application settings.</p>
-            <p>The portable edition does not include or register the Windows Screen Saver. Use the regular Windows installer if you want the optional Screen Saver integration.</p>
+            <div id="portable-info-block">
+                <h3>Windows portable edition</h3>
+                <p>The portable Windows edition is distributed as a ZIP archive and does not require a traditional installation. After extraction, Digital Clock runs from its own folder and keeps its portable settings and local data in a <strong>Data</strong> subfolder. This lets the portable and installed Windows editions coexist without sharing their application settings.</p>
+                <p>The portable edition does not include or register the Windows Screen Saver. Use the regular Windows installer if you want the optional Screen Saver integration.</p>
+            </div>
 
             <h3>OLED-friendly Windows Screen Saver</h3>
             <p>The regular Windows installer can optionally install the Digital Clock Screen Saver. While the computer is idle, it shows the current time and slowly shifts the clock position around the screen instead of keeping it permanently in one place. This reduces prolonged static screen content and makes the Screen Saver better suited to OLED displays as well as standard LCD screens.</p>
@@ -185,5 +187,6 @@
     </div>
 </footer>
 <script src="detail-i18n.js"></script>
+<script src="digital-clock-portable-i18n.js"></script>
 </body>
 </html>
