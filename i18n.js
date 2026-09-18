@@ -92,7 +92,7 @@ window.APP_I18N = {
 window.APP_CARD_I18N = {
     en: [
         ["A multifunctional digital clock for web, Windows and Android with a large customizable display and useful everyday tools.", ["Clock", "App", "Tools"]],
-        ["Generate repeatable lotto number combinations from any selected date with customizable lotto formats and number ranges.", ["Lotto", "Numbers", "Generator"]],
+        ["Generate repeatable lotto combinations from a selected date using a Personal Key or custom formats.", ["Lotto", "Personal Key", "Custom Formats"]],
         ["Find emoji meanings by category, copy emojis instantly and paste country flags into Word as real images.", ["Emoji", "Copy & Paste", "Symbols"]],
         ["Convert everyday, technical and digital measurement units quickly across 17 categories and 115 units.", ["Converter", "Measurements", "Tools"]],
         ["Modern Tetris browser game with a stylish neon interface, smooth gameplay and instant play in your browser.", ["Arcade", "Puzzle", "Browser"]],
@@ -102,7 +102,7 @@ window.APP_CARD_I18N = {
     ],
     hr: [
         ["Višenamjenski digitalni sat za web, Windows i Android s velikim prilagodljivim prikazom i korisnim svakodnevnim alatima.", ["Sat", "Aplikacija", "Alati"]],
-        ["Generirajte ponovljive kombinacije loto brojeva iz odabranog datuma uz prilagodljive formate i raspone brojeva.", ["Loto", "Brojevi", "Generator"]],
+        ["Stvorite ponovljive loto kombinacije iz odabranog datuma uz Osobni ključ ili prilagođene formate.", ["Loto", "Osobni ključ", "Prilagođeni formati"]],
         ["Pronađite značenja emojija po kategorijama, odmah ih kopirajte i zalijepite zastave država u Word kao prave slike.", ["Emoji", "Kopiranje", "Simboli"]],
         ["Brzo pretvarajte svakodnevne, tehničke i digitalne mjerne jedinice u 17 kategorija i 115 jedinica.", ["Pretvarač", "Mjere", "Alati"]],
         ["Moderna igra Tetris za preglednik s elegantnim neonskim sučeljem, glatkim izvođenjem i trenutnim pokretanjem.", ["Arkadna", "Slagalica", "Preglednik"]],
@@ -112,7 +112,7 @@ window.APP_CARD_I18N = {
     ],
     de: [
         ["Eine vielseitige Digitaluhr für Web, Windows und Android mit grosser anpassbarer Anzeige und praktischen Alltagsfunktionen.", ["Uhr", "App", "Werkzeuge"]],
-        ["Erstelle wiederholbare Lottozahlen aus einem gewählten Datum mit anpassbaren Formaten und Zahlenbereichen.", ["Lotto", "Zahlen", "Generator"]],
+        ["Erstelle wiederholbare Lotto-Kombinationen aus einem Datum mit persönlichem Schlüssel oder eigenen Formaten.", ["Lotto", "Persönlicher Schlüssel", "Eigene Formate"]],
         ["Finde Emoji-Bedeutungen nach Kategorien, kopiere Emojis sofort und füge Länderflaggen als echte Bilder in Word ein.", ["Emoji", "Kopieren", "Symbole"]],
         ["Wandle Alltags-, Technik- und Dateneinheiten schnell in 17 Kategorien mit 115 Einheiten um.", ["Umrechner", "Einheiten", "Werkzeuge"]],
         ["Modernes Tetris-Browserspiel mit stilvoller Neonoberfläche, flüssigem Spiel und sofortigem Start.", ["Arcade", "Puzzle", "Browser"]],
@@ -122,7 +122,7 @@ window.APP_CARD_I18N = {
     ],
     it: [
         ["Un orologio digitale multifunzione per web, Windows e Android con ampio display personalizzabile e utili strumenti quotidiani.", ["Orologio", "App", "Utilità"]],
-        ["Genera combinazioni ripetibili di numeri del lotto da qualsiasi data con formati e intervalli personalizzabili.", ["Lotto", "Numeri", "Generatore"]],
+        ["Crea combinazioni del lotto ripetibili da una data con una Chiave personale o formati personalizzati.", ["Lotto", "Chiave personale", "Formati personalizzati"]],
         ["Trova il significato degli emoji per categoria, copiali subito e incolla le bandiere in Word come immagini reali.", ["Emoji", "Copia", "Simboli"]],
         ["Converti rapidamente unità quotidiane, tecniche e digitali in 17 categorie e 115 unità.", ["Convertitore", "Misure", "Strumenti"]],
         ["Tetris moderno per browser con elegante interfaccia al neon, gioco fluido e avvio immediato.", ["Arcade", "Puzzle", "Browser"]],
@@ -132,7 +132,7 @@ window.APP_CARD_I18N = {
     ],
     es: [
         ["Un reloj digital multifunción para web, Windows y Android con una gran pantalla personalizable y herramientas útiles para el día a día.", ["Reloj", "App", "Utilidad"]],
-        ["Genera combinaciones repetibles de lotería desde cualquier fecha con formatos y rangos personalizables.", ["Lotería", "Números", "Generador"]],
+        ["Crea combinaciones de lotería repetibles desde una fecha con una Clave personal o formatos personalizados.", ["Lotería", "Clave personal", "Formatos personalizados"]],
         ["Encuentra significados de emojis por categoría, cópialos al instante y pega banderas en Word como imágenes reales.", ["Emoji", "Copiar", "Símbolos"]],
         ["Convierte rápidamente unidades cotidianas, técnicas y digitales en 17 categorías y 115 unidades.", ["Conversor", "Medidas", "Herramientas"]],
         ["Tetris moderno para navegador con elegante interfaz de neón, juego fluido e inicio instantáneo.", ["Arcade", "Puzle", "Navegador"]],
