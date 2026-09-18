@@ -932,6 +932,11 @@ a {
     gap: 16px;
 }
 
+.platform-download-grid--single {
+    max-width: 700px;
+    grid-template-columns: minmax(0, 1fr);
+}
+
 .platform-download-card {
     padding: 20px;
     border: 1px solid var(--border);
