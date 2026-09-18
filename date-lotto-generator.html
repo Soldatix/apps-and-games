@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Lotto Generator — Free Online App | Apps & Games</title>
-    <meta name="description" content="Learn how Date Lotto Generator creates repeatable lottery number combinations from a selected date, lotto format and number ranges.">
+    <title>Date Lotto Generator — Repeatable Lotto Combinations | Apps & Games</title>
+    <meta name="description" content="Create repeatable lotto combinations from a date with six presets, custom formats and an optional Personal Key. Free multilingual PWA with local storage.">
+    <meta name="keywords" content="date lotto generator, repeatable lotto combinations, deterministic lottery numbers, Personal Key, custom lotto format, lottery number generator, offline lotto app">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://appsandgames.org/date-lotto-generator">
 
-    <meta property="og:title" content="Date Lotto Generator — Free Online App | Apps & Games">
-    <meta property="og:description" content="Create repeatable lottery number combinations from a selected date and configurable lotto settings.">
+    <meta property="og:title" content="Date Lotto Generator — Repeatable Lotto Combinations | Apps & Games">
+    <meta property="og:description" content="Create repeatable lotto combinations from a date using six presets, custom formats and an optional Personal Key.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://appsandgames.org/date-lotto-generator">
     <meta property="og:site_name" content="Apps & Games">
     <meta property="og:image" content="https://appsandgames.org/assets/social/date-lotto-generator.jpg">
-    <meta property="og:image:alt" content="Date Lotto Generator app preview">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Date Lotto Generator interface with a repeatable date-based number combination">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Date Lotto Generator — Free Online App | Apps & Games">
-    <meta name="twitter:description" content="Create repeatable lottery number combinations from a selected date and configurable lotto settings.">
+    <meta name="twitter:title" content="Date Lotto Generator — Repeatable Lotto Combinations | Apps & Games">
+    <meta name="twitter:description" content="Create repeatable lotto combinations from a date using six presets, custom formats and an optional Personal Key.">
     <meta name="twitter:image" content="https://appsandgames.org/assets/social/date-lotto-generator.jpg">
-    <meta name="twitter:image:alt" content="Date Lotto Generator app preview">
+    <meta name="twitter:image:alt" content="Date Lotto Generator interface with a repeatable date-based number combination">
 
     <link rel="icon" href="assets/icons/favicon.ico">
     <link rel="stylesheet" href="style.css">
@@ -38,14 +41,28 @@
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
-      "@type":"SoftwareApplication",
+      "@type":["SoftwareApplication","WebApplication"],
       "name":"Date Lotto Generator",
-      "applicationCategory":"WebApplication",
-      "operatingSystem":"Any",
       "url":"https://appsandgames.org/date-lotto-generator",
-      "image":"https://appsandgames.org/assets/images/lotto-date-generator.png",
+      "sameAs":"https://lotto.appsandgames.org/",
+      "installUrl":"https://lotto.appsandgames.org/",
+      "description":"A free multilingual web app for creating deterministic, repeatable lotto combinations from a date, preset or custom format, and optional Personal Key.",
+      "image":"https://appsandgames.org/assets/social/date-lotto-generator.jpg",
+      "applicationCategory":"UtilitiesApplication",
+      "operatingSystem":"Any",
+      "browserRequirements":"Requires a modern web browser with JavaScript and localStorage enabled.",
       "isAccessibleForFree":true,
-      "description":"A free browser app that creates repeatable lotto number combinations from a selected date and configurable number ranges."
+      "inLanguage":["en","hr","de","it","es"],
+      "publisher":{
+        "@type":"Organization",
+        "name":"Apps & Games",
+        "url":"https://appsandgames.org/"
+      },
+      "offers":{
+        "@type":"Offer",
+        "price":"0",
+        "priceCurrency":"USD"
+      }
     }
     </script>
 </head>
@@ -70,9 +87,9 @@
             <div class="hero-badge">APP • NUMBERS • GENERATOR</div>
             <h1>Date Lotto Generator</h1>
             <p class="hero-subtitle">Create repeatable number combinations from a date</p>
-            <p class="hero-text">Date Lotto Generator is a free browser app that turns a selected date and your chosen lottery settings into a reproducible number combination. It is designed as an easy way to create personal number sets while keeping the process transparent and configurable.</p>
+            <p class="hero-text">Date Lotto Generator is a free multilingual browser app that creates deterministic, repeatable combinations from a selected date, one of six preset formats or a Custom setup, and an optional Personal Key.</p>
             <div class="hero-buttons">
-                <a class="primary-button" href="https://lotto.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open Lotto Generator →</a>
+                <a class="primary-button" href="https://lotto.appsandgames.org/" target="_blank" rel="noopener noreferrer" data-ga-event="open_app" data-app-name="Date Lotto Generator">Open Lotto Generator →</a>
                 <a class="secondary-button" href="/#apps">Back to Apps</a>
             </div>
         </div>
@@ -82,19 +99,22 @@
         <div class="info-card">
             <span class="section-label">ABOUT THE APP</span>
             <h2>How the generator works</h2>
-            <p>You select a date, choose the lotto format you want to use and set the available number range. The app then produces a combination based on those inputs. Using the same date and the same settings produces a repeatable result, which makes it easy to recreate a favorite combination later.</p>
-            <p>The generator is intended for entertainment and convenience. It does not use hidden access to lottery systems, future draw data or guaranteed prediction methods. Lottery drawings are random, so no date-based method can guarantee a winning result.</p>
+            <p>Select a date, choose a lotto format and optionally enter a Personal Key. The app deterministically derives a combination from those inputs: the same date, format, ranges and Personal Key produce the same result, so a combination can be recreated later.</p>
+            <p>The generator is intended for entertainment and convenient number selection. It does not use future draw data or a prediction method, and it cannot guarantee a result.</p>
 
-            <h3>Flexible lotto formats</h3>
-            <p>The app is designed for several common lottery structures rather than only one national game. Depending on the selected setup, you can work with main numbers and, where applicable, additional numbers. This makes the generator useful for formats such as 6-number games, 6+1, 7-number games and 5+2 style lotteries.</p>
+            <h3>Preset and custom formats</h3>
+            <p>Six preset formats cover common lottery structures, including formats with main and additional numbers. Custom mode lets you define the number counts and ranges for a different game instead of being limited to one national lottery.</p>
 
-            <h3>What you can control</h3>
+            <h3>Features and controls</h3>
             <ul>
-                <li>The date used to create the combination.</li>
-                <li>The number of main numbers in the selected lotto format.</li>
-                <li>The available range for the main numbers.</li>
-                <li>Additional-number ranges when the chosen format uses bonus numbers.</li>
-                <li>Interface options supported by the app, such as language or display preferences.</li>
+                <li>Deterministic, repeatable combinations based on the selected date and settings.</li>
+                <li>Six preset lotto formats plus Custom number counts and ranges.</li>
+                <li>An optional Personal Key for an additional personal input.</li>
+                <li>History for up to 30 saved combinations, with a Copy action for quick reuse.</li>
+                <li>English, Croatian, German, Italian and Spanish interfaces.</li>
+                <li>Light, Dark and System theme choices.</li>
+                <li>Backup and Restore for locally stored app data, plus Reset stored data.</li>
+                <li>Installable PWA support and offline use after the first successful load.</li>
             </ul>
 
             <h3>Why use a date-based generator?</h3>
@@ -103,8 +123,11 @@
             <h3>Important lottery note</h3>
             <p>Date Lotto Generator does not predict future lottery draws and does not improve the mathematical odds of winning. Every valid combination in a fair lottery has the same chance of being drawn. Use the app as a number-selection aid and for entertainment only.</p>
 
+            <h3>Privacy and local data</h3>
+            <p>Your settings, Personal Key and saved history stay in your browser's localStorage. No account is required, and user combinations are not stored on an Apps & Games server. Backup and Restore let you move or retain your data yourself, while Reset stored data clears the app data saved in that browser.</p>
+
             <h3>Using the app</h3>
-            <p>Open the generator, choose your date and lottery settings, then generate a combination. You can then copy or save the result using the options available in the app. No Apps & Games account is required.</p>
+            <p>Open the generator, choose a date and one of the six presets or a Custom format, optionally add a Personal Key, and generate the combination. Copy it directly or keep it in History. After the first successful load, the PWA can also run offline on a supported browser.</p>
 
             <p>For information about analytics, advertising and privacy choices on Apps & Games, see the <a href="privacy-policy"><u>Privacy Policy</u></a>.</p>
         </div>
@@ -123,5 +146,12 @@
     </div>
 </footer>
 <script src="detail-i18n.js"></script>
+<script>
+    document.querySelector(".hero-buttons .primary-button[data-ga-event='open_app']")?.addEventListener("click", event => {
+        if (typeof window.gtag === "function") {
+            window.gtag("event", "open_app", { app_name: event.currentTarget.dataset.appName });
+        }
+    });
+</script>
 </body>
 </html>
