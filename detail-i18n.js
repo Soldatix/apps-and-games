@@ -62,7 +62,7 @@
             name: "Date Lotto Generator",
             en: {
                 webTitle: "Web App",
-                webOpen: "Open / Install Web App",
+                webOpen: "Install Web App",
                 webDescription: "Runs directly in your browser and does not require a traditional installer. In supported browsers, it can be installed as a web app (PWA) and launched like a regular application. After the first successful load, the core generator also works offline. Your settings and history are stored locally on your device, and no Apps & Games account is required.",
                 title: "Date Lotto Generator — Repeatable Lotto Combinations | Apps & Games",
                 description: "Create repeatable lotto combinations from a date with six presets, custom formats and an optional Personal Key. Free multilingual PWA with local storage.",
@@ -75,7 +75,7 @@
             },
             hr: {
                 webTitle: "Web App",
-                webOpen: "Otvori / instaliraj web aplikaciju",
+                webOpen: "Instaliraj web aplikaciju",
                 webDescription: "Radi izravno u pregledniku i ne zahtijeva klasičnu instalaciju. U podržanim preglednicima može se instalirati kao web aplikacija (PWA) i pokretati poput obične aplikacije. Nakon prvog uspješnog učitavanja osnovni generator radi i bez internetske veze. Postavke i povijest spremaju se lokalno na uređaju i nije potreban Apps & Games račun.",
                 title: "Date Lotto Generator — ponovljive loto kombinacije | Apps & Games",
                 description: "Stvorite ponovljive loto kombinacije iz datuma uz šest predložaka, prilagođene formate i opcionalni Personal Key. Besplatna višejezična PWA aplikacija s lokalnom pohranom.",
@@ -88,7 +88,7 @@
             },
             de: {
                 webTitle: "Web-App",
-                webOpen: "Web-App öffnen / installieren",
+                webOpen: "Web-App installieren",
                 webDescription: "Läuft direkt im Browser und benötigt kein klassisches Installationsprogramm. In unterstützten Browsern lässt sie sich als Web-App (PWA) installieren und wie eine normale Anwendung starten. Nach dem ersten erfolgreichen Laden funktioniert der eigentliche Generator auch offline. Deine Einstellungen und dein Verlauf werden lokal auf deinem Gerät gespeichert. Ein Konto bei Apps & Games ist nicht erforderlich.",
                 title: "Date Lotto Generator — wiederholbare Lotto-Kombinationen | Apps & Games",
                 description: "Erstelle wiederholbare Lotto-Kombinationen aus einem Datum mit sechs Vorlagen, eigenen Formaten und optionalem Personal Key. Kostenlose mehrsprachige PWA mit lokaler Speicherung.",
@@ -101,7 +101,7 @@
             },
             it: {
                 webTitle: "App web",
-                webOpen: "Apri / installa l’app web",
+                webOpen: "Installa app web",
                 webDescription: "Funziona direttamente nel browser e non richiede un programma di installazione tradizionale. Nei browser supportati può essere installata come app web (PWA) e avviata come una normale applicazione. Dopo il primo caricamento riuscito, le funzioni principali del generatore sono disponibili anche offline. Le impostazioni e la cronologia vengono salvate localmente sul dispositivo e non è necessario un account Apps & Games.",
                 title: "Date Lotto Generator — combinazioni del lotto ripetibili | Apps & Games",
                 description: "Crea combinazioni del lotto ripetibili da una data con sei formati predefiniti, formati personalizzati e una Chiave personale opzionale. PWA gratuita e multilingue con dati locali.",
@@ -114,7 +114,7 @@
             },
             es: {
                 webTitle: "Aplicación web",
-                webOpen: "Abrir / instalar la aplicación web",
+                webOpen: "Instalar aplicación web",
                 webDescription: "Funciona directamente en el navegador y no requiere un instalador tradicional. En los navegadores compatibles se puede instalar como aplicación web (PWA) y abrir como una aplicación normal. Después de la primera carga correcta, las funciones principales del generador también están disponibles sin conexión. Los ajustes y el historial se guardan localmente en tu dispositivo y no necesitas una cuenta de Apps & Games.",
                 title: "Date Lotto Generator — combinaciones de lotería repetibles | Apps & Games",
                 description: "Crea combinaciones de lotería repetibles desde una fecha con seis formatos predefinidos, formatos personalizados y una Clave personal opcional. PWA gratuita y multilingüe con datos locales.",
