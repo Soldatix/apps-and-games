@@ -5,6 +5,7 @@
             installerDownload: "Download Windows Installer",
             installerHelp: "Installation instructions",
             installerDescription: "Windows 10/11 x64 · Version 2.0.5 · Standard installation. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional OLED-friendly Digital Clock Screen Saver.",
+            storeDescription: "Microsoft Store edition: Version 2.0.6 · Automatic updates through Microsoft Store. Windows Screen Saver integration is not included. Use the Windows Installer if you want Screen Saver support.",
             portableTitle: "Windows Portable",
             portableDownload: "Download Portable ZIP",
             portableHelp: "Portable instructions",
@@ -15,6 +16,7 @@
             installerDownload: "Preuzmi Windows Installer",
             installerHelp: "Upute za instalaciju",
             installerDescription: "Windows 10/11 x64 · Verzija 2.0.5 · Standardna instalacija. Uključuje noćni način uz krevet, cijeli zaslon, alarme, mjerač vremena, svjetski sat, štopericu i opcionalni OLED-friendly Digital Clock Screen Saver.",
+            storeDescription: "Microsoft Store verzija: Verzija 2.0.6 · Automatska ažuriranja putem Microsoft Storea. Windows Screen Saver nije uključen. Koristi Windows Installer ako želiš Screen Saver.",
             portableTitle: "Windows Portable",
             portableDownload: "Preuzmi Portable ZIP",
             portableHelp: "Portable upute",
@@ -25,6 +27,7 @@
             installerDownload: "Windows-Installer herunterladen",
             installerHelp: "Installationsanleitung",
             installerDescription: "Windows 10/11 x64 · Version 2.0.5 · Normale Installation. Mit Nachttischmodus, Vollbild, Wecker, Timer, Weltzeituhr, Stoppuhr und optionalem OLED-freundlichem Digital Clock-Bildschirmschoner.",
+            storeDescription: "Microsoft Store-Version: Version 2.0.6 · Automatische Updates über den Microsoft Store. Die Windows-Bildschirmschoner-Integration ist nicht enthalten. Verwende den Windows-Installer, wenn du den Bildschirmschoner möchtest.",
             portableTitle: "Windows Portable",
             portableDownload: "Portable ZIP herunterladen",
             portableHelp: "Portable-Anleitung",
@@ -35,6 +38,7 @@
             installerDownload: "Scarica installer Windows",
             installerHelp: "Istruzioni di installazione",
             installerDescription: "Windows 10/11 x64 · Versione 2.0.5 · Installazione standard. Include modalità comodino, schermo intero, sveglie, timer, orologio mondiale, cronometro e screensaver Digital Clock OLED-friendly opzionale.",
+            storeDescription: "Versione Microsoft Store: Versione 2.0.6 · Aggiornamenti automatici tramite Microsoft Store. L'integrazione con lo screensaver di Windows non è inclusa. Usa l'Installer Windows se desideri lo screensaver.",
             portableTitle: "Windows Portable",
             portableDownload: "Scarica Portable ZIP",
             portableHelp: "Istruzioni Portable",
@@ -45,6 +49,7 @@
             installerDownload: "Descargar instalador de Windows",
             installerHelp: "Instrucciones de instalación",
             installerDescription: "Windows 10/11 x64 · Versión 2.0.5 · Instalación estándar. Incluye modo de mesita, pantalla completa, alarmas, temporizador, reloj mundial, cronómetro y protector de pantalla Digital Clock OLED-friendly opcional.",
+            storeDescription: "Versión de Microsoft Store: Versión 2.0.6 · Actualizaciones automáticas mediante Microsoft Store. La integración con el protector de pantalla de Windows no está incluida. Usa el instalador de Windows si deseas el protector de pantalla.",
             portableTitle: "Windows Portable",
             portableDownload: "Descargar Portable ZIP",
             portableHelp: "Instrucciones Portable",
@@ -145,6 +150,7 @@
         const installerDownload = document.getElementById("windows-download");
         const installerHelp = document.getElementById("windows-help");
         const installerDescription = document.getElementById("windows-description");
+        const storeDescription = document.getElementById("windows-store-description");
         const portableTitle = document.getElementById("windows-portable-title");
         const portableDownload = document.getElementById("windows-portable-download");
         const portableHelp = document.getElementById("windows-portable-help");
@@ -157,6 +163,7 @@
             installerHelp.href = `/downloads/digital-clock/Installation.html#${language}-windows`;
         }
         if (installerDescription) installerDescription.textContent = text.installerDescription;
+        if (storeDescription) storeDescription.textContent = text.storeDescription;
 
         if (portableTitle) portableTitle.textContent = text.portableTitle;
         if (portableDownload) portableDownload.textContent = text.portableDownload;
