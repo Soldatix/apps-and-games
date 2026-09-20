@@ -149,7 +149,16 @@
             storeCard.id = "windows-store-card";
             storeCard.innerHTML = `
                 <div class="platform-download-heading">
-                    <span class="platform-download-icon" aria-hidden="true">⊞</span>
+                    <span class="platform-download-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 8V6.5C7 3.8 9.2 2 12 2s5 1.8 5 4.5V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <rect x="4" y="8" width="16" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/>
+                            <rect x="8" y="12" width="3" height="3" rx=".4" fill="currentColor"/>
+                            <rect x="13" y="12" width="3" height="3" rx=".4" fill="currentColor"/>
+                            <rect x="8" y="16" width="3" height="3" rx=".4" fill="currentColor"/>
+                            <rect x="13" y="16" width="3" height="3" rx=".4" fill="currentColor"/>
+                        </svg>
+                    </span>
                     <div>
                         <strong>Microsoft Store</strong>
                         <span class="platform-download-version">Version 2.0.6</span>
