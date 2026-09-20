@@ -5,7 +5,7 @@
             installerDownload: "Download Windows Installer",
             installerHelp: "Installation instructions",
             installerDescription: "Windows 10/11 x64 · Version 2.0.5 · Standard installation. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional OLED-friendly Digital Clock Screen Saver.",
-            storeDescription: "Microsoft Store edition: Version 2.0.6 · Automatic updates through Microsoft Store. Windows Screen Saver integration is not included. Use the Windows Installer if you want Screen Saver support.",
+            storeDescription: "Automatic updates through Microsoft Store. Windows Screen Saver integration is not included. Use the Windows Installer if you want Screen Saver support.",
             portableTitle: "Windows Portable",
             portableDownload: "Download Portable ZIP",
             portableHelp: "Portable instructions",
@@ -16,7 +16,7 @@
             installerDownload: "Preuzmi Windows Installer",
             installerHelp: "Upute za instalaciju",
             installerDescription: "Windows 10/11 x64 · Verzija 2.0.5 · Standardna instalacija. Uključuje noćni način uz krevet, cijeli zaslon, alarme, mjerač vremena, svjetski sat, štopericu i opcionalni OLED-friendly Digital Clock Screen Saver.",
-            storeDescription: "Microsoft Store verzija: Verzija 2.0.6 · Automatska ažuriranja putem Microsoft Storea. Windows Screen Saver nije uključen. Koristi Windows Installer ako želiš Screen Saver.",
+            storeDescription: "Automatska ažuriranja putem Microsoft Storea. Windows Screen Saver nije uključen. Koristi Windows Installer ako želiš Screen Saver.",
             portableTitle: "Windows Portable",
             portableDownload: "Preuzmi Portable ZIP",
             portableHelp: "Portable upute",
@@ -27,7 +27,7 @@
             installerDownload: "Windows-Installer herunterladen",
             installerHelp: "Installationsanleitung",
             installerDescription: "Windows 10/11 x64 · Version 2.0.5 · Normale Installation. Mit Nachttischmodus, Vollbild, Wecker, Timer, Weltzeituhr, Stoppuhr und optionalem OLED-freundlichem Digital Clock-Bildschirmschoner.",
-            storeDescription: "Microsoft Store-Version: Version 2.0.6 · Automatische Updates über den Microsoft Store. Die Windows-Bildschirmschoner-Integration ist nicht enthalten. Verwende den Windows-Installer, wenn du den Bildschirmschoner möchtest.",
+            storeDescription: "Automatische Updates über den Microsoft Store. Die Windows-Bildschirmschoner-Integration ist nicht enthalten. Verwende den Windows-Installer, wenn du den Bildschirmschoner möchtest.",
             portableTitle: "Windows Portable",
             portableDownload: "Portable ZIP herunterladen",
             portableHelp: "Portable-Anleitung",
@@ -38,7 +38,7 @@
             installerDownload: "Scarica installer Windows",
             installerHelp: "Istruzioni di installazione",
             installerDescription: "Windows 10/11 x64 · Versione 2.0.5 · Installazione standard. Include modalità comodino, schermo intero, sveglie, timer, orologio mondiale, cronometro e screensaver Digital Clock OLED-friendly opzionale.",
-            storeDescription: "Versione Microsoft Store: Versione 2.0.6 · Aggiornamenti automatici tramite Microsoft Store. L'integrazione con lo screensaver di Windows non è inclusa. Usa l'Installer Windows se desideri lo screensaver.",
+            storeDescription: "Aggiornamenti automatici tramite Microsoft Store. L'integrazione con lo screensaver di Windows non è inclusa. Usa l'Installer Windows se desideri lo screensaver.",
             portableTitle: "Windows Portable",
             portableDownload: "Scarica Portable ZIP",
             portableHelp: "Istruzioni Portable",
@@ -49,7 +49,7 @@
             installerDownload: "Descargar instalador de Windows",
             installerHelp: "Instrucciones de instalación",
             installerDescription: "Windows 10/11 x64 · Versión 2.0.5 · Instalación estándar. Incluye modo de mesita, pantalla completa, alarmas, temporizador, reloj mundial, cronómetro y protector de pantalla Digital Clock OLED-friendly opcional.",
-            storeDescription: "Versión de Microsoft Store: Versión 2.0.6 · Actualizaciones automáticas mediante Microsoft Store. La integración con el protector de pantalla de Windows no está incluida. Usa el instalador de Windows si deseas el protector de pantalla.",
+            storeDescription: "Actualizaciones automáticas mediante Microsoft Store. La integración con el protector de pantalla de Windows no está incluida. Usa el instalador de Windows si deseas el protector de pantalla.",
             portableTitle: "Windows Portable",
             portableDownload: "Descargar Portable ZIP",
             portableHelp: "Instrucciones Portable",
@@ -134,6 +134,48 @@
         return { installerCard, portableCard };
     }
 
+    function ensureStoreCard() {
+        const installerCard = document.getElementById("windows-installer-card");
+        const storeButton = document.getElementById("windows-store-download");
+        const storeDescription = document.getElementById("windows-store-description");
+
+        if (!installerCard || !storeButton || !storeDescription) return null;
+
+        let storeCard = document.getElementById("windows-store-card");
+
+        if (!storeCard) {
+            storeCard = document.createElement("article");
+            storeCard.className = "platform-download-card";
+            storeCard.id = "windows-store-card";
+            storeCard.innerHTML = `
+                <div class="platform-download-heading">
+                    <span class="platform-download-icon" aria-hidden="true">⊞</span>
+                    <div>
+                        <strong>Microsoft Store</strong>
+                        <span class="platform-download-version">Version 2.0.6</span>
+                    </div>
+                </div>
+                <div class="hero-buttons" id="windows-store-buttons"></div>
+            `;
+
+            installerCard.insertAdjacentElement("afterend", storeCard);
+        }
+
+        const storeButtons =
+            storeCard.querySelector("#windows-store-buttons") ||
+            storeCard.querySelector(".hero-buttons");
+
+        if (storeButton.parentElement !== storeButtons) {
+            storeButton.className = "primary-button";
+            storeButtons.appendChild(storeButton);
+        }
+
+        if (storeDescription.parentElement !== storeCard) {
+            storeCard.appendChild(storeDescription);
+        }
+
+        return storeCard;
+    }
     function removePortableInfoBlock() {
         document.getElementById("portable-info-block")?.remove();
     }
@@ -141,6 +183,7 @@
     function applyWindowsCards() {
         ensureGridStyle();
         ensureSeparateWindowsCards();
+        ensureStoreCard();
         removePortableInfoBlock();
 
         const language = currentLanguage();
