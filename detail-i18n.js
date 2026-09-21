@@ -557,7 +557,7 @@
                     webDescription: "Runs directly in your browser and does not require a traditional installer. Works on Windows, Mac (macOS), iPhone, iPad and Android devices in supported browsers and can be installed as a web app (PWA). After the first load, core features can also work without an internet connection. An internet connection is required for updates. Some operating-system-specific features available in the Windows or Android versions may not be included. Digital Clock Web does not include the Windows Screen Saver.",
                     androidDownload: "Download for Android",
                     androidHelp: "Installation instructions",
-                    androidDescription: "Android 7.0+ · Version 1.1 · Free APK. Night mode with OLED-friendly display behavior, full screen, alarms and timer. Manual update checks are available in Info."
+                    androidDescription: "Android 7.0+ · Version 1.2 · Free APK. Night mode with OLED-friendly display behavior, full screen, alarms and timer. Manual update checks are available in Info."
                 },
                 hr: {
                     windowsDownload: "Preuzmi za Windows",
@@ -567,7 +567,7 @@
                     webDescription: "Radi izravno u pregledniku i ne zahtijeva klasični instalacijski program. Radi na Windows i Mac (macOS) računalima te iPhone, iPad i Android uređajima u podržanim preglednicima i može se instalirati kao web aplikacija (PWA). Nakon prvog učitavanja osnovne funkcije mogu raditi i bez internetske veze. Za ažuriranja je potrebna internetska veza. Neke funkcije specifične za Windows ili Android verziju nisu dostupne. Digital Clock Web ne uključuje Windows Screen Saver.",
                     androidDownload: "Preuzmi za Android",
                     androidHelp: "Upute za instalaciju",
-                    androidDescription: "Android 7.0+ · Verzija 1.1 · Besplatan APK. Noćni način s OLED-friendly ponašanjem zaslona, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."
+                    androidDescription: "Android 7.0+ · Verzija 1.2 · Besplatan APK. Noćni način s OLED-friendly ponašanjem zaslona, cijeli zaslon, alarmi i mjerač vremena. Ručna provjera nadogradnji dostupna je u Info."
                 },
                 de: {
                     windowsDownload: "Für Windows herunterladen",
@@ -577,7 +577,7 @@
                     webDescription: "Läuft direkt im Browser und benötigt kein klassisches Installationsprogramm. Funktioniert auf Windows- und Mac-Computern (macOS) sowie auf iPhone-, iPad- und Android-Geräten in unterstützten Browsern und kann als Web-App (PWA) installiert werden. Nach dem ersten Laden können die Grundfunktionen auch ohne Internetverbindung funktionieren. Für Updates ist eine Internetverbindung erforderlich. Einige betriebssystemspezifische Funktionen der Windows- oder Android-Version sind möglicherweise nicht verfügbar. Digital Clock Web enthält keinen Windows-Bildschirmschoner.",
                     androidDownload: "Für Android herunterladen",
                     androidHelp: "Installationsanleitung",
-                    androidDescription: "Android 7.0+ · Version 1.1 · Kostenlose APK. Nachtmodus mit OLED-freundlichem Anzeigeverhalten, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."
+                    androidDescription: "Android 7.0+ · Version 1.2 · Kostenlose APK. Nachtmodus mit OLED-freundlichem Anzeigeverhalten, Vollbild, Wecker und Timer. Manuelle Update-Prüfung unter Info."
                 },
                 it: {
                     windowsDownload: "Scarica per Windows",
@@ -587,7 +587,7 @@
                     webDescription: "Funziona direttamente nel browser e non richiede un programma di installazione tradizionale. Funziona su computer Windows e Mac (macOS) e su dispositivi iPhone, iPad e Android nei browser supportati e può essere installata come app web (PWA). Dopo il primo caricamento, le funzioni principali possono funzionare anche senza connessione Internet. Per gli aggiornamenti è necessaria una connessione Internet. Alcune funzioni specifiche delle versioni Windows o Android potrebbero non essere disponibili. Digital Clock Web non include lo screensaver di Windows.",
                     androidDownload: "Scarica per Android",
                     androidHelp: "Istruzioni di installazione",
-                    androidDescription: "Android 7.0+ · Versione 1.1 · APK gratuito. Modalità notte con comportamento OLED-friendly del display, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."
+                    androidDescription: "Android 7.0+ · Versione 1.2 · APK gratuito. Modalità notte con comportamento OLED-friendly del display, schermo intero, sveglie e timer. Verifica manuale degli aggiornamenti in Info."
                 },
                 es: {
                     windowsDownload: "Descargar para Windows",
@@ -597,7 +597,7 @@
                     webDescription: "Se ejecuta directamente en el navegador y no requiere un instalador tradicional. Funciona en ordenadores Windows y Mac (macOS), así como en dispositivos iPhone, iPad y Android con navegadores compatibles, y se puede instalar como aplicación web (PWA). Después de la primera carga, las funciones principales también pueden funcionar sin conexión a Internet. Se requiere conexión a Internet para las actualizaciones. Es posible que algunas funciones específicas de las versiones de Windows o Android no estén disponibles. Digital Clock Web no incluye el protector de pantalla de Windows.",
                     androidDownload: "Descargar para Android",
                     androidHelp: "Instrucciones de instalación",
-                    androidDescription: "Android 7.0+ · Versión 1.1 · APK gratuito. Modo nocturno con comportamiento OLED-friendly de la pantalla, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."
+                    androidDescription: "Android 7.0+ · Versión 1.2 · APK gratuito. Modo nocturno con comportamiento OLED-friendly de la pantalla, pantalla completa, alarmas y temporizador. Búsqueda manual de actualizaciones en Info."
                 }
             }[language];
 
