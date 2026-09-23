@@ -38,15 +38,28 @@
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
-      "@type":"SoftwareApplication",
+      "@type":["SoftwareApplication","WebApplication"],
       "name":"Emoji Copy & Paste",
-      "applicationCategory":"WebApplication",
+      "url":"https://appsandgames.org/emoji-copy-paste",
+      "sameAs":"https://emoji.appsandgames.org/",
+      "installUrl":"https://emoji.appsandgames.org/?install=web",
+      "image":"https://appsandgames.org/assets/social/emoji-copy-paste.jpg",
+      "applicationCategory":"UtilitiesApplication",
       "operatingSystem":"Any",
-      "url":"https://emoji.appsandgames.org/",
-      "image":"https://appsandgames.org/assets/logo/apps-and-games-logo.png",
+      "browserRequirements":"Requires a modern web browser with JavaScript and localStorage enabled.",
       "isAccessibleForFree":true,
       "inLanguage":["en","hr","de","it","es"],
-      "description":"A free multilingual browser app for finding emoji meanings and copying emojis or country flag images."
+      "description":"A free multilingual browser app for finding emoji meanings, copying emojis and images, and installing the app as a PWA.",
+      "publisher":{
+        "@type":"Organization",
+        "name":"Apps & Games",
+        "url":"https://appsandgames.org/"
+      },
+      "offers":{
+        "@type":"Offer",
+        "price":"0",
+        "priceCurrency":"USD"
+      }
     }
     </script>
 </head>
@@ -75,6 +88,21 @@
             <div class="hero-buttons">
                 <a class="primary-button" href="https://emoji.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open Emoji App →</a>
                 <a class="secondary-button" href="/#apps">Back to Apps</a>
+            </div>
+            <div class="platform-download-grid platform-download-grid--single">
+                <article class="platform-download-card" aria-labelledby="web-platform-title">
+                    <div class="platform-download-heading">
+                        <span class="platform-download-icon" aria-hidden="true">◫</span>
+                        <div>
+                            <strong id="web-platform-title">Web App</strong>
+                            <span class="platform-download-version">Web / PWA</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a id="web-app-open" class="primary-button" href="https://emoji.appsandgames.org/?install=web" target="_blank" rel="noopener noreferrer">Install Web App</a>
+                    </div>
+                    <p id="web-app-description" class="hero-text">Runs directly in your browser and does not require a traditional installer. Works on Windows and Mac (macOS) computers as well as iPhone, iPad and Android devices in supported browsers and can be installed as a web app (PWA). After the first successful load, core features also work offline. Favorites and recently used emojis are stored locally on your device, and no Apps & Games account is required.</p>
+                </article>
             </div>
         </div>
     </section>

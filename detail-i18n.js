@@ -540,6 +540,44 @@
             if (infoCard) infoCard.innerHTML = `<span class="section-label">${common[language][page.kind === "game" ? "aboutGame" : "aboutApp"]}</span>${d.info}`;
         }
 
+        if (slug === "emoji-copy-paste") {
+            const downloads = {
+                en: {
+                    webTitle: "Web App",
+                    webOpen: "Install Web App",
+                    webDescription: "Runs directly in your browser and does not require a traditional installer. Works on Windows and Mac (macOS) computers as well as iPhone, iPad and Android devices in supported browsers and can be installed as a web app (PWA). After the first successful load, core features also work offline. Favorites and recently used emojis are stored locally on your device, and no Apps & Games account is required."
+                },
+                hr: {
+                    webTitle: "Web App",
+                    webOpen: "Instaliraj web aplikaciju",
+                    webDescription: "Radi izravno u pregledniku i ne zahtijeva klasični instalacijski program. Radi na Windows i Mac (macOS) računalima te iPhone, iPad i Android uređajima u podržanim preglednicima i može se instalirati kao web aplikacija (PWA). Nakon prvog uspješnog učitavanja osnovne funkcije rade i bez internetske veze. Favoriti i nedavno korišteni emojiji spremaju se lokalno na uređaju i nije potreban Apps & Games račun."
+                },
+                de: {
+                    webTitle: "Web App",
+                    webOpen: "Web-App installieren",
+                    webDescription: "Läuft direkt im Browser und benötigt kein klassisches Installationsprogramm. Funktioniert auf Windows- und Mac-Computern (macOS) sowie auf iPhone-, iPad- und Android-Geräten in unterstützten Browsern und kann als Web-App (PWA) installiert werden. Nach dem ersten erfolgreichen Laden funktionieren die Grundfunktionen auch offline. Favoriten und zuletzt verwendete Emojis werden lokal auf deinem Gerät gespeichert, und ein Apps-&-Games-Konto ist nicht erforderlich."
+                },
+                it: {
+                    webTitle: "Web App",
+                    webOpen: "Installa Web App",
+                    webDescription: "Funziona direttamente nel browser e non richiede un programma di installazione tradizionale. Funziona su computer Windows e Mac (macOS) e su dispositivi iPhone, iPad e Android nei browser supportati e può essere installata come app web (PWA). Dopo il primo caricamento riuscito, le funzioni principali funzionano anche offline. I preferiti e gli emoji usati di recente vengono salvati localmente sul dispositivo e non è richiesto un account Apps & Games."
+                },
+                es: {
+                    webTitle: "Web App",
+                    webOpen: "Instalar Web App",
+                    webDescription: "Se ejecuta directamente en el navegador y no requiere un instalador tradicional. Funciona en ordenadores Windows y Mac (macOS), así como en dispositivos iPhone, iPad y Android con navegadores compatibles, y se puede instalar como aplicación web (PWA). Después de la primera carga correcta, las funciones principales también funcionan sin conexión. Los favoritos y los emojis usados recientemente se guardan localmente en el dispositivo y no se requiere una cuenta de Apps & Games."
+                }
+            }[language];
+
+            const webPlatformTitle = document.getElementById("web-platform-title");
+            const webAppOpen = document.getElementById("web-app-open");
+            const webAppDescription = document.getElementById("web-app-description");
+
+            if (webPlatformTitle) webPlatformTitle.textContent = downloads.webTitle;
+            if (webAppOpen) webAppOpen.textContent = downloads.webOpen;
+            if (webAppDescription) webAppDescription.textContent = downloads.webDescription;
+        }
+
         if (slug === "date-lotto-generator") {
             const d = page[language] || page.en;
             document.getElementById("web-platform-title").textContent = d.webTitle;
