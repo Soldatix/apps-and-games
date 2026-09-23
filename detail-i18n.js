@@ -578,6 +578,44 @@
             if (webAppDescription) webAppDescription.textContent = downloads.webDescription;
         }
 
+        if (slug === "unit-converter") {
+            const downloads = {
+                en: {
+                    webTitle: "Web App",
+                    webOpen: "Open / Install Web App",
+                    webDescription: "Runs directly in your browser and can be installed as a web app (PWA) on supported devices. After the first successful load, the converter can reopen with its core functionality without an internet connection. Theme and language preferences are stored locally on your device. No Apps & Games account is required."
+                },
+                hr: {
+                    webTitle: "Web App",
+                    webOpen: "Otvori / instaliraj Web App",
+                    webDescription: "Radi izravno u pregledniku i može se instalirati kao web-aplikacija (PWA) na podržanim uređajima. Nakon prvog uspješnog učitavanja pretvarač se može ponovno otvoriti s osnovnim funkcijama i bez internetske veze. Postavke teme i jezika spremaju se lokalno na uređaju. Apps & Games račun nije potreban."
+                },
+                de: {
+                    webTitle: "Web App",
+                    webOpen: "Web-App öffnen / installieren",
+                    webDescription: "Läuft direkt im Browser und kann auf unterstützten Geräten als Web-App (PWA) installiert werden. Nach dem ersten erfolgreichen Laden kann der Umrechner mit seinen Kernfunktionen auch ohne Internetverbindung erneut geöffnet werden. Design- und Spracheinstellungen werden lokal auf dem Gerät gespeichert. Ein Apps-&-Games-Konto ist nicht erforderlich."
+                },
+                it: {
+                    webTitle: "Web App",
+                    webOpen: "Apri / installa Web App",
+                    webDescription: "Funziona direttamente nel browser e può essere installata come web app (PWA) sui dispositivi supportati. Dopo il primo caricamento riuscito, il convertitore può essere riaperto con le funzioni principali anche senza connessione Internet. Le preferenze di tema e lingua vengono salvate localmente sul dispositivo. Non è richiesto un account Apps & Games."
+                },
+                es: {
+                    webTitle: "Web App",
+                    webOpen: "Abrir / instalar Web App",
+                    webDescription: "Funciona directamente en el navegador y puede instalarse como aplicación web (PWA) en dispositivos compatibles. Después de la primera carga correcta, el conversor puede volver a abrirse con sus funciones principales sin conexión a Internet. Las preferencias de tema e idioma se guardan localmente en el dispositivo. No se requiere una cuenta de Apps & Games."
+                }
+            }[language];
+
+            const webPlatformTitle = document.getElementById("web-platform-title");
+            const webAppOpen = document.getElementById("web-app-open");
+            const webAppDescription = document.getElementById("web-app-description");
+
+            if (webPlatformTitle) webPlatformTitle.textContent = downloads.webTitle;
+            if (webAppOpen) webAppOpen.textContent = downloads.webOpen;
+            if (webAppDescription) webAppDescription.textContent = downloads.webDescription;
+        }
+
         if (slug === "date-lotto-generator") {
             const d = page[language] || page.en;
             document.getElementById("web-platform-title").textContent = d.webTitle;
