@@ -260,6 +260,7 @@ const apps = [
         button: "OPEN APP →",
         url: "https://digitalclock.appsandgames.org/",
         detailsUrl: "digital-clock",
+        hasDownload: true,
         platforms: ["Web", "Windows", "Android"],
         tags: ["Clock", "App", "Tools"],
         status: "LIVE",
@@ -274,6 +275,7 @@ const apps = [
         button: "OPEN APP →",
         url: "https://lotto.appsandgames.org/",
         detailsUrl: "date-lotto-generator",
+        hasDownload: true,
         tags: ["Lotto", "Personal Key", "Custom Formats"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -287,6 +289,7 @@ const apps = [
         button: "OPEN APP →",
         url: "https://emoji.appsandgames.org/",
         detailsUrl: "emoji-copy-paste",
+        hasDownload: true,
         tags: ["Emoji", "Copy & Paste", "Symbols"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -643,8 +646,8 @@ function renderApps() {
                     class="secondary-button"
                     style="width:100%; margin-bottom:10px;"
                     href="${app.detailsUrl}"
-                    aria-label="${t("learnMore")} ${app.name}"
-                >${t("learnMore")}</a>
+                    aria-label="${t(app.hasDownload ? "infoDownload" : "learnMore")} ${app.name}"
+                >${t(app.hasDownload ? "infoDownload" : "learnMore")}</a>
                 <a
                     class="app-button"
                     href="${app.url}"
