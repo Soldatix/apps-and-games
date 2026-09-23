@@ -1664,10 +1664,10 @@ a {
     }
 
     .language-select {
-        width: 48px;
-        min-width: 48px;
-        padding: 0 18px 0 7px;
-        font-size: 0.76rem;
+        width: 62px;
+        min-width: 62px;
+        padding: 0 22px 0 8px;
+        font-size: 0.78rem;
     }
 
 
