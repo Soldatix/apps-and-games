@@ -2,7 +2,7 @@
   const supported = ["en", "hr", "de", "it", "es"];
   const saved = localStorage.getItem("appsGamesLanguage");
   const browser = (navigator.language || "en").slice(0, 2).toLowerCase();
-  const language = supported.includes(saved) ? saved : (supported.includes(browser) ? browser : "en");
+  let language = supported.includes(saved) ? saved : (supported.includes(browser) ? browser : "en");
 
   const common = {
     en: {
@@ -75,28 +75,42 @@
     }
   };
 
-  const c = common[language];
-  const p = copy[language];
-  document.documentElement.lang = language;
-  document.title = p.title;
-  document.querySelector('meta[name="description"]')?.setAttribute("content", p.description);
-  document.getElementById("navApps").textContent = c.navApps;
-  document.getElementById("navGames").textContent = c.navGames;
-  document.getElementById("navInfo").textContent = c.navInfo;
-  document.getElementById("detailBadge").textContent = p.badge;
-  document.getElementById("detailSubtitle").textContent = p.subtitle;
-  document.getElementById("detailText").textContent = p.text;
-  document.getElementById("primaryButton").textContent = c.primary;
-  document.getElementById("backButton").textContent = c.back;
-  document.getElementById("aboutLabel").textContent = c.about;
-  document.getElementById("detailInfo").innerHTML = p.info;
-  document.getElementById("web-platform-title").textContent = c.webTitle;
-  document.getElementById("web-app-open").textContent = c.webOpen;
-  document.getElementById("web-app-description").textContent = c.webDescription;
-  document.getElementById("footerHome").textContent = c.home;
-  document.getElementById("footerApps").textContent = c.navApps;
-  document.getElementById("footerGames").textContent = c.navGames;
-  document.getElementById("footerPrivacy").textContent = c.privacy;
+  function applyLanguage(nextLanguage) {
+    language = supported.includes(nextLanguage) ? nextLanguage : "en";
+    const c = common[language];
+    const p = copy[language];
+
+    document.documentElement.lang = language;
+    document.title = p.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", p.description);
+    document.getElementById("navApps").textContent = c.navApps;
+    document.getElementById("navGames").textContent = c.navGames;
+    document.getElementById("navInfo").textContent = c.navInfo;
+    document.getElementById("detailBadge").textContent = p.badge;
+    document.getElementById("detailSubtitle").textContent = p.subtitle;
+    document.getElementById("detailText").textContent = p.text;
+    document.getElementById("primaryButton").textContent = c.primary;
+    document.getElementById("backButton").textContent = c.back;
+    document.getElementById("aboutLabel").textContent = c.about;
+    document.getElementById("detailInfo").innerHTML = p.info;
+    document.getElementById("web-platform-title").textContent = c.webTitle;
+    document.getElementById("web-app-open").textContent = c.webOpen;
+    document.getElementById("web-app-description").textContent = c.webDescription;
+    document.getElementById("footerHome").textContent = c.home;
+    document.getElementById("footerApps").textContent = c.navApps;
+    document.getElementById("footerGames").textContent = c.navGames;
+    document.getElementById("footerPrivacy").textContent = c.privacy;
+    localStorage.setItem("appsGamesLanguage", language);
+
+    const languageSelect = document.getElementById("languageSelect");
+    if (languageSelect) languageSelect.value = language;
+  }
+
+  applyLanguage(language);
+
+  document.getElementById("languageSelect")?.addEventListener("change", event => {
+    applyLanguage(event.target.value);
+  });
 
   const year = document.getElementById("currentYear");
   if (year) year.textContent = new Date().getFullYear();
