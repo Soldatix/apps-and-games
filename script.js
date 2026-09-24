@@ -395,6 +395,8 @@ const apps = [
         button: "OPEN APP →",
         url: "https://crossword.appsandgames.org/",
         detailsUrl: "crossword",
+        hasDownload: true,
+        platforms: ["Web"],
         tags: ["Crossword", "Puzzle", "Creator"],
         status: "LIVE",
         analyticsEvent: "open_app"

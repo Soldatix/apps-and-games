@@ -5,11 +5,31 @@
   const language = supported.includes(saved) ? saved : (supported.includes(browser) ? browser : "en");
 
   const common = {
-    en: { navApps:"Apps", navGames:"Games", navInfo:"Info", home:"Home", privacy:"Privacy Policy", about:"ABOUT THE APP", primary:"Open Crossword →", back:"Back to Apps" },
-    hr: { navApps:"Aplikacije", navGames:"Igre", navInfo:"Info", home:"Početna", privacy:"Pravila privatnosti", about:"O APLIKACIJI", primary:"Otvori Crossword →", back:"Natrag na aplikacije" },
-    de: { navApps:"Apps", navGames:"Spiele", navInfo:"Info", home:"Startseite", privacy:"Datenschutzerklärung", about:"ÜBER DIE APP", primary:"Crossword öffnen →", back:"Zurück zu den Apps" },
-    it: { navApps:"App", navGames:"Giochi", navInfo:"Info", home:"Home", privacy:"Informativa sulla privacy", about:"INFORMAZIONI SULL'APP", primary:"Apri Crossword →", back:"Torna alle app" },
-    es: { navApps:"Apps", navGames:"Juegos", navInfo:"Info", home:"Inicio", privacy:"Política de privacidad", about:"ACERCA DE LA APP", primary:"Abrir Crossword →", back:"Volver a las apps" }
+    en: {
+      navApps:"Apps", navGames:"Games", navInfo:"Info", home:"Home", privacy:"Privacy Policy", about:"ABOUT THE APP", primary:"Open Crossword →", back:"Back to Apps",
+      webTitle:"Web App", webOpen:"Open / Install Web App",
+      webDescription:"Runs directly in modern browsers on Windows, macOS, Android, iPhone/iPad and other modern devices. On supported browsers and devices, it can also be installed as a web app (PWA). Crossword creation, solving progress and preferences stay in the browser, while the ready-made puzzle library is loaded when needed. No Apps & Games account is required."
+    },
+    hr: {
+      navApps:"Aplikacije", navGames:"Igre", navInfo:"Info", home:"Početna", privacy:"Pravila privatnosti", about:"O APLIKACIJI", primary:"Otvori Crossword →", back:"Natrag na aplikacije",
+      webTitle:"Web App", webOpen:"Otvori / instaliraj Web App",
+      webDescription:"Radi izravno u modernim preglednicima na Windowsu, macOS-u, Androidu, iPhoneu/iPadu i drugim modernim uređajima. Na podržanim preglednicima i uređajima može se instalirati kao web-aplikacija (PWA). Izrada križaljki, napredak rješavanja i postavke ostaju u pregledniku, a biblioteka gotovih križaljki učitava se po potrebi. Apps & Games račun nije potreban."
+    },
+    de: {
+      navApps:"Apps", navGames:"Spiele", navInfo:"Info", home:"Startseite", privacy:"Datenschutzerklärung", about:"ÜBER DIE APP", primary:"Crossword öffnen →", back:"Zurück zu den Apps",
+      webTitle:"Web App", webOpen:"Web-App öffnen / installieren",
+      webDescription:"Läuft direkt in modernen Browsern unter Windows, macOS, Android, iPhone/iPad und auf anderen modernen Geräten. Auf unterstützten Browsern und Geräten kann Crossword auch als Web-App (PWA) installiert werden. Erstellung, Spielfortschritt und Einstellungen bleiben im Browser; die fertige Rätselbibliothek wird bei Bedarf geladen. Ein Apps-&-Games-Konto ist nicht erforderlich."
+    },
+    it: {
+      navApps:"App", navGames:"Giochi", navInfo:"Info", home:"Home", privacy:"Informativa sulla privacy", about:"INFORMAZIONI SULL'APP", primary:"Apri Crossword →", back:"Torna alle app",
+      webTitle:"Web App", webOpen:"Apri / installa Web App",
+      webDescription:"Funziona direttamente nei browser moderni su Windows, macOS, Android, iPhone/iPad e altri dispositivi moderni. Nei browser e dispositivi compatibili può essere installato anche come web app (PWA). Creazione, progressi e preferenze restano nel browser, mentre la libreria dei cruciverba pronti viene caricata quando serve. Non è richiesto un account Apps & Games."
+    },
+    es: {
+      navApps:"Apps", navGames:"Juegos", navInfo:"Info", home:"Inicio", privacy:"Política de privacidad", about:"ACERCA DE LA APP", primary:"Abrir Crossword →", back:"Volver a las apps",
+      webTitle:"Web App", webOpen:"Abrir / instalar Web App",
+      webDescription:"Funciona directamente en navegadores modernos de Windows, macOS, Android, iPhone/iPad y otros dispositivos modernos. En navegadores y dispositivos compatibles también puede instalarse como aplicación web (PWA). La creación, el progreso y las preferencias permanecen en el navegador, mientras que la biblioteca de crucigramas preparados se carga cuando hace falta. No se requiere una cuenta de Apps & Games."
+    }
   };
 
   const copy = {
@@ -70,6 +90,9 @@
   document.getElementById("backButton").textContent = c.back;
   document.getElementById("aboutLabel").textContent = c.about;
   document.getElementById("detailInfo").innerHTML = p.info;
+  document.getElementById("web-platform-title").textContent = c.webTitle;
+  document.getElementById("web-app-open").textContent = c.webOpen;
+  document.getElementById("web-app-description").textContent = c.webDescription;
   document.getElementById("footerHome").textContent = c.home;
   document.getElementById("footerApps").textContent = c.navApps;
   document.getElementById("footerGames").textContent = c.navGames;
