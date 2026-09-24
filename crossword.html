@@ -59,7 +59,17 @@
             <a href="/#games">🎮 <span id="navGames">Games</span></a>
             <a href="/#info">ℹ <span id="navInfo">Info</span></a>
         </nav>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+        <div class="header-actions">
+            <label class="sr-only" for="languageSelect">Language</label>
+            <select id="languageSelect" class="language-select" aria-label="Select language">
+                <option value="en">EN</option>
+                <option value="hr">HR</option>
+                <option value="de">DE</option>
+                <option value="it">IT</option>
+                <option value="es">ES</option>
+            </select>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+        </div>
     </div>
 </header>
 
