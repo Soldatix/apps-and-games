@@ -583,27 +583,27 @@
                 en: {
                     webTitle: "Web App",
                     webOpen: "Open / Install Web App",
-                    webDescription: "Runs directly in your browser and can be installed as a web app (PWA) on supported devices. After the first successful load, the converter can reopen with its core functionality without an internet connection. Theme and language preferences are stored locally on your device. No Apps & Games account is required."
+                    webDescription: "Runs directly in modern browsers on Windows, macOS, Android, iPhone/iPad and other modern devices. On supported browsers and devices, it can also be installed as a web app (PWA). After the first successful load, the converter can reopen with its core functionality without an internet connection. Theme and language preferences are stored locally on your device. No Apps & Games account is required."
                 },
                 hr: {
                     webTitle: "Web App",
                     webOpen: "Otvori / instaliraj Web App",
-                    webDescription: "Radi izravno u pregledniku i može se instalirati kao web-aplikacija (PWA) na podržanim uređajima. Nakon prvog uspješnog učitavanja pretvarač se može ponovno otvoriti s osnovnim funkcijama i bez internetske veze. Postavke teme i jezika spremaju se lokalno na uređaju. Apps & Games račun nije potreban."
+                    webDescription: "Radi izravno u modernim preglednicima na Windowsu, macOS-u, Androidu, iPhoneu/iPadu i drugim modernim uređajima. Na podržanim preglednicima i uređajima može se instalirati i kao web-aplikacija (PWA). Nakon prvog uspješnog učitavanja pretvarač se može ponovno otvoriti s osnovnim funkcijama i bez internetske veze. Postavke teme i jezika spremaju se lokalno na uređaju. Apps & Games račun nije potreban."
                 },
                 de: {
                     webTitle: "Web App",
                     webOpen: "Web-App öffnen / installieren",
-                    webDescription: "Läuft direkt im Browser und kann auf unterstützten Geräten als Web-App (PWA) installiert werden. Nach dem ersten erfolgreichen Laden kann der Umrechner mit seinen Kernfunktionen auch ohne Internetverbindung erneut geöffnet werden. Design- und Spracheinstellungen werden lokal auf dem Gerät gespeichert. Ein Apps-&-Games-Konto ist nicht erforderlich."
+                    webDescription: "Läuft direkt in modernen Browsern unter Windows, macOS, Android, auf iPhone/iPad und anderen modernen Geräten. Auf unterstützten Browsern und Geräten kann die App außerdem als Web-App (PWA) installiert werden. Nach dem ersten erfolgreichen Laden kann der Umrechner mit seinen Kernfunktionen auch ohne Internetverbindung erneut geöffnet werden. Design- und Spracheinstellungen werden lokal auf dem Gerät gespeichert. Ein Apps-&-Games-Konto ist nicht erforderlich."
                 },
                 it: {
                     webTitle: "Web App",
                     webOpen: "Apri / installa Web App",
-                    webDescription: "Funziona direttamente nel browser e può essere installata come web app (PWA) sui dispositivi supportati. Dopo il primo caricamento riuscito, il convertitore può essere riaperto con le funzioni principali anche senza connessione Internet. Le preferenze di tema e lingua vengono salvate localmente sul dispositivo. Non è richiesto un account Apps & Games."
+                    webDescription: "Funziona direttamente nei browser moderni su Windows, macOS, Android, iPhone/iPad e altri dispositivi moderni. Nei browser e dispositivi supportati può anche essere installata come web app (PWA). Dopo il primo caricamento riuscito, il convertitore può essere riaperto con le funzioni principali anche senza connessione Internet. Le preferenze di tema e lingua vengono salvate localmente sul dispositivo. Non è richiesto un account Apps & Games."
                 },
                 es: {
                     webTitle: "Web App",
                     webOpen: "Abrir / instalar Web App",
-                    webDescription: "Funciona directamente en el navegador y puede instalarse como aplicación web (PWA) en dispositivos compatibles. Después de la primera carga correcta, el conversor puede volver a abrirse con sus funciones principales sin conexión a Internet. Las preferencias de tema e idioma se guardan localmente en el dispositivo. No se requiere una cuenta de Apps & Games."
+                    webDescription: "Funciona directamente en navegadores modernos de Windows, macOS, Android, iPhone/iPad y otros dispositivos modernos. En navegadores y dispositivos compatibles también puede instalarse como aplicación web (PWA). Después de la primera carga correcta, el conversor puede volver a abrirse con sus funciones principales sin conexión a Internet. Las preferencias de tema e idioma se guardan localmente en el dispositivo. No se requiere una cuenta de Apps & Games."
                 }
             }[language];
 
