@@ -303,6 +303,7 @@ const apps = [
         button: "OPEN APP →",
         url: "https://unitconverter.appsandgames.org/",
         detailsUrl: "unit-converter",
+        hasDownload: true,
         tags: ["Converter", "Measurements", "Tools"],
         status: "LIVE",
         analyticsEvent: "open_app"
