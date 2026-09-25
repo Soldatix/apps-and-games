@@ -1,5 +1,22 @@
 (() => {
     const SUPPORTED = ["en", "hr", "de", "it", "es"];
+
+    function ensureStandardLanguageMenu() {
+        const select = document.getElementById("languageSelect");
+        if (select) select.setAttribute("data-ag-language-menu", "");
+
+        if (window.AppsGamesLanguageMenu) {
+            window.AppsGamesLanguageMenu.enhanceAll(document);
+            return;
+        }
+
+        if (document.querySelector('script[data-ag-language-menu-loader]')) return;
+        const script = document.createElement("script");
+        script.src = "assets/js/ag-language-menu.js";
+        script.defer = true;
+        script.dataset.agLanguageMenuLoader = "1";
+        document.head.appendChild(script);
+    }
     const STORAGE_KEY = "appsGamesLanguage";
     const slug = location.pathname.replace(/^\/+|\/+$/g, "").replace(/\.html$/i, "");
 
@@ -462,10 +479,13 @@
         const select = document.createElement("select");
         select.id = "languageSelect";
         select.className = "language-select";
+        select.setAttribute("data-ag-language-menu", "");
         select.innerHTML = '<option value="en">EN</option><option value="hr">HR</option><option value="de">DE</option><option value="it">IT</option><option value="es">ES</option>';
         themeToggle.replaceWith(actions);
         actions.append(label, select, themeToggle);
     }
+
+    ensureStandardLanguageMenu();
 
     const select = document.getElementById("languageSelect");
     const label = document.querySelector('label[for="languageSelect"]');
