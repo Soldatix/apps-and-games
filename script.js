@@ -410,6 +410,7 @@ const apps = [
         button: "OPEN APP →",
         url: "https://habit-tracker.appsandgames.org/",
         detailsUrl: "habit-tracker",
+        hasDownload: true,
         tags: ["Habits", "Planner", "Productivity"],
         status: "LIVE",
         analyticsEvent: "open_app"
