@@ -261,7 +261,7 @@ const apps = [
         url: "https://digitalclock.appsandgames.org/",
         detailsUrl: "digital-clock",
         hasDownload: true,
-        platforms: ["Web", "Windows", "Android"],
+        platforms: ["Web / PWA", "Windows", "Android"],
         tags: ["Clock", "App", "Tools"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -276,6 +276,7 @@ const apps = [
         url: "https://lotto.appsandgames.org/",
         detailsUrl: "date-lotto-generator",
         hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Lotto", "Personal Key", "Custom Formats"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -290,6 +291,7 @@ const apps = [
         url: "https://emoji.appsandgames.org/",
         detailsUrl: "emoji-copy-paste",
         hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Emoji", "Copy & Paste", "Symbols"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -304,6 +306,7 @@ const apps = [
         url: "https://unitconverter.appsandgames.org/",
         detailsUrl: "unit-converter",
         hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Converter", "Measurements", "Tools"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -396,7 +399,7 @@ const apps = [
         url: "https://crossword.appsandgames.org/",
         detailsUrl: "crossword",
         hasDownload: true,
-        platforms: ["Web"],
+        platforms: ["Web / PWA"],
         tags: ["Crossword", "Puzzle", "Creator"],
         status: "LIVE",
         analyticsEvent: "open_app"
@@ -411,6 +414,7 @@ const apps = [
         url: "https://habit-tracker.appsandgames.org/",
         detailsUrl: "habit-tracker",
         hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Habits", "Planner", "Productivity"],
         status: "LIVE",
         analyticsEvent: "open_app"
