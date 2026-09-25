@@ -320,6 +320,8 @@ const apps = [
         button: "PLAY GAME →",
         url: "https://tetris.appsandgames.org/",
         detailsUrl: "tetris",
+        hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Arcade", "Puzzle", "Browser"],
         status: "LIVE",
         analyticsEvent: "play_game"
