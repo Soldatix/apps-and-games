@@ -335,6 +335,8 @@ const apps = [
         button: "PLAY GAME →",
         url: "https://ufo-invaders.appsandgames.org/",
         detailsUrl: "ufo-invaders",
+        hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Arcade", "Shooter", "Browser"],
         status: "LIVE",
         analyticsEvent: "play_game"
