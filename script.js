@@ -350,6 +350,8 @@ const apps = [
         button: "PLAY GAME →",
         url: "https://phoenix-arcade.appsandgames.org/",
         detailsUrl: "phoenix-arcade",
+        hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Arcade", "Shooter", "Power-ups"],
         status: "LIVE",
         analyticsEvent: "play_game"
