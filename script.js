@@ -365,6 +365,8 @@ const apps = [
         button: "PLAY GAME →",
         url: "https://neonpacman.appsandgames.org/",
         detailsUrl: "neon-pacman",
+        hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Arcade", "Maze", "Retro"],
         status: "LIVE",
         analyticsEvent: "play_game"
