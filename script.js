@@ -380,6 +380,8 @@ const apps = [
         button: "PLAY GAME →",
         url: "https://snake.appsandgames.org/",
         detailsUrl: "modern-snake",
+        hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Arcade", "Snake", "Bonuses"],
         status: "LIVE",
         analyticsEvent: "play_game"
