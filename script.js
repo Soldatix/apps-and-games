@@ -395,6 +395,8 @@ const apps = [
         button: "PLAY GAME →",
         url: "https://memory.appsandgames.org/",
         detailsUrl: "memory-game",
+        hasDownload: true,
+        platforms: ["Web / PWA"],
         tags: ["Memory", "Puzzle", "Brain"],
         status: "LIVE",
         analyticsEvent: "play_game"
