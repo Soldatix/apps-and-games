@@ -491,7 +491,130 @@
                 Explore practical apps for everyday use. Most are available on the web, while selected projects also offer Windows and Android versions.
             </p>
         </div>
-        <div id="utilitiesGrid" class="apps-grid"></div>
+        <!-- Pre-rendered cards keep app links and descriptions available before JavaScript loads.
+             script.js replaces these cards with localized versions when JavaScript is available. -->
+        <div id="utilitiesGrid" class="apps-grid">
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/digital-clock.png" alt="Digital Clock preview" class="app-image" loading="lazy">
+                    <span class="app-badge utility">APP</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Digital Clock</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">A multifunctional digital clock for web, Windows and Android with a large customizable display and useful everyday tools.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA · Windows · Android</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Clock</span><span class="meta-pill">App</span><span class="meta-pill">Tools</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="digital-clock" aria-label="Info and Download Digital Clock">Info and Download</a>
+                    <a class="app-button" href="https://digitalclock.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open App</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/lotto-date-generator.png" alt="Date Lotto Generator preview" class="app-image" loading="lazy">
+                    <span class="app-badge utility">APP</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Date Lotto Generator</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Generate repeatable lotto combinations from a selected date using a Personal Key or custom formats.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Lotto</span><span class="meta-pill">Personal Key</span><span class="meta-pill">Custom Formats</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="date-lotto-generator" aria-label="Info and Download Date Lotto Generator">Info and Download</a>
+                    <a class="app-button" href="https://lotto.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open App</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/emoji-copy-paste.svg" alt="Emoji Copy &amp; Paste preview" class="app-image" loading="lazy">
+                    <span class="app-badge utility">APP</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Emoji Copy &amp; Paste</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Find emoji meanings by category, copy emojis instantly and paste country flags into Word as real images.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Emoji</span><span class="meta-pill">Copy &amp; Paste</span><span class="meta-pill">Symbols</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="emoji-copy-paste" aria-label="Info and Download Emoji Copy &amp; Paste">Info and Download</a>
+                    <a class="app-button" href="https://emoji.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open App</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/unit-converter.svg" alt="Unit Converter preview" class="app-image" loading="lazy">
+                    <span class="app-badge utility">APP</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Unit Converter</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Convert everyday, technical and digital measurement units quickly across 17 categories and 115 units.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Converter</span><span class="meta-pill">Measurements</span><span class="meta-pill">Tools</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="unit-converter" aria-label="Info and Download Unit Converter">Info and Download</a>
+                    <a class="app-button" href="https://unitconverter.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open App</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/crossword-cover.svg" alt="Crossword preview" class="app-image" loading="lazy">
+                    <span class="app-badge utility">APP</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Crossword</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Create, solve, print and share custom crosswords, or play from a multilingual library of 500 ready-made puzzles.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Crossword</span><span class="meta-pill">Puzzle</span><span class="meta-pill">Creator</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="crossword" aria-label="Info and Download Crossword">Info and Download</a>
+                    <a class="app-button" href="https://crossword.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open App</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="https://habit-tracker.appsandgames.org/habit-tracker-cover.png" alt="Habit Tracker / Daily Planner preview" class="app-image" loading="lazy">
+                    <span class="app-badge utility">APP</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Habit Tracker / Daily Planner</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Build recurring habits, plan daily tasks, track streaks and seven-day progress, and keep your data locally in the browser.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Habits</span><span class="meta-pill">Planner</span><span class="meta-pill">Productivity</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="habit-tracker" aria-label="Info and Download Habit Tracker / Daily Planner">Info and Download</a>
+                    <a class="app-button" href="https://habit-tracker.appsandgames.org/" target="_blank" rel="noopener noreferrer">Open App</a>
+                </div>
+            </article>
+        </div>
     </section>
 
     <section id="games" class="app-section">
@@ -502,7 +625,129 @@
                 Choose from puzzle and arcade-style games and start playing directly in your browser. The current collection includes Tetris, UFO Invaders: Neon Defense, Phoenix Arcade, Neon Pac-Man, Modern Snake and Memory Game.
             </p>
         </div>
-        <div id="gamesGrid" class="apps-grid"></div>
+        <!-- Pre-rendered game links remain navigable when JavaScript is disabled or fails. -->
+        <div id="gamesGrid" class="apps-grid">
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/tetris.png" alt="Tetris preview" class="app-image" loading="lazy">
+                    <span class="app-badge game">GAME</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Tetris</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Modern Tetris browser game with a stylish neon interface, smooth gameplay and instant play in your browser.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Arcade</span><span class="meta-pill">Puzzle</span><span class="meta-pill">Browser</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="tetris" aria-label="Info and Download Tetris">Info and Download</a>
+                    <a class="app-button" href="https://tetris.appsandgames.org/" target="_blank" rel="noopener noreferrer">Play Game</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/ufo-invaders.png" alt="UFO Invaders: Neon Defense preview" class="app-image" loading="lazy">
+                    <span class="app-badge game">GAME</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>UFO Invaders: Neon Defense</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Defend Earth in a modern neon arcade battle with challenging waves, power-ups, bunkers and instant browser gameplay.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Arcade</span><span class="meta-pill">Shooter</span><span class="meta-pill">Browser</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="ufo-invaders" aria-label="Info and Download UFO Invaders: Neon Defense">Info and Download</a>
+                    <a class="app-button" href="https://ufo-invaders.appsandgames.org/" target="_blank" rel="noopener noreferrer">Play Game</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/phoenix-arcade-cover.png" alt="Phoenix Arcade preview" class="app-image" loading="lazy">
+                    <span class="app-badge game">GAME</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Phoenix Arcade</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Defend the last star gate in a modern neon arcade shooter with diving Phoenix enemies, collectible power-ups and instant browser play.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Arcade</span><span class="meta-pill">Shooter</span><span class="meta-pill">Power-ups</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="phoenix-arcade" aria-label="Info and Download Phoenix Arcade">Info and Download</a>
+                    <a class="app-button" href="https://phoenix-arcade.appsandgames.org/" target="_blank" rel="noopener noreferrer">Play Game</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/neon-pacman-cover.svg" alt="Neon Pac-Man preview" class="app-image" loading="lazy">
+                    <span class="app-badge game">GAME</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Neon Pac-Man</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Guide Neon Pac-Man through a glowing maze, collect every dot, use power pellets and chase a place on the local leaderboard.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Arcade</span><span class="meta-pill">Maze</span><span class="meta-pill">Retro</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="neon-pacman" aria-label="Info and Download Neon Pac-Man">Info and Download</a>
+                    <a class="app-button" href="https://neonpacman.appsandgames.org/" target="_blank" rel="noopener noreferrer">Play Game</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/modern-snake-cover.svg" alt="Modern Snake preview" class="app-image" loading="lazy">
+                    <span class="app-badge game">GAME</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Modern Snake</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Play a modern Snake game with three lives, timed bonus food, keyboard and mouse controls, saved progress and a local leaderboard.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Arcade</span><span class="meta-pill">Snake</span><span class="meta-pill">Bonuses</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="modern-snake" aria-label="Info and Download Modern Snake">Info and Download</a>
+                    <a class="app-button" href="https://snake.appsandgames.org/" target="_blank" rel="noopener noreferrer">Play Game</a>
+                </div>
+            </article>
+            <article class="app-card" data-static-catalog>
+                <div class="app-image-wrap">
+                    <img src="assets/images/memory-game-cover.svg" alt="Memory Game preview" class="app-image" loading="lazy">
+                    <span class="app-badge game">GAME</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-title-row">
+                        <h3>Memory Game</h3>
+                        <span class="app-status">LIVE</span>
+                    </div>
+                    <p class="app-description">Train your memory with themed matching pairs, four difficulty levels, saved progress and a multilingual interface.</p>
+                    <div class="app-platforms">
+                        <span>Available on</span>
+                        <strong>Web / PWA</strong>
+                    </div>
+                    <div class="app-meta"><span class="meta-pill">Memory</span><span class="meta-pill">Puzzle</span><span class="meta-pill">Brain</span></div>
+                    <a class="secondary-button" style="width:100%; margin-bottom:10px;" href="memory-game" aria-label="Info and Download Memory Game">Info and Download</a>
+                    <a class="app-button" href="https://memory.appsandgames.org/" target="_blank" rel="noopener noreferrer">Play Game</a>
+                </div>
+            </article>
+        </div>
     </section>
 
     <section id="about" class="info-section">
