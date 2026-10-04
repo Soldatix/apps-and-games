@@ -276,7 +276,7 @@ const apps = [
         url: "https://lotto.appsandgames.org/",
         detailsUrl: "date-lotto-generator",
         hasDownload: true,
-        platforms: ["Web / PWA"],
+        platforms: ["Web / PWA", "Windows"],
         tags: ["Lotto", "Personal Key", "Custom Formats"],
         status: "LIVE",
         analyticsEvent: "open_app"
