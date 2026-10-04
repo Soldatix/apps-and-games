@@ -1,0 +1,51 @@
+name: Date Lotto Store portal checks
+
+on:
+  push:
+    branches:
+      - factory/date-lotto-microsoft-store-portal
+  pull_request:
+    branches:
+      - main
+    paths:
+      - date-lotto-generator.html
+      - detail-i18n.js
+      - index.html
+      - script.js
+      - style.css
+      - tests/**
+      - ci/**
+      - .github/workflows/date-lotto-store-portal.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portal-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        run: |
+          node --check script.js
+          node --check detail-i18n.js
+      - name: Static catalog and Store link regression tests
+        run: node --test tests/*.test.mjs
+      - name: Install isolated Chromium test dependencies
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+      - name: Browser and responsive portal smoke tests
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/portal-http.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail http://127.0.0.1:4173/ > /dev/null
+          node ci/date-lotto-store-portal-smoke.mjs
