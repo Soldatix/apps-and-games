@@ -316,7 +316,7 @@ const apps = [
         badge: "GAME",
         name: "Tetris",
         description: "Modern Tetris browser game with a stylish neon interface, smooth gameplay and instant play in your browser.",
-        image: "assets/images/tetris.png",
+        image: "assets/images/tetris-neon-cover.webp",
         button: "PLAY GAME →",
         url: "https://tetris.appsandgames.org/",
         detailsUrl: "tetris",
