@@ -36,7 +36,7 @@ try {
 
   await page.goto(root + "date-lotto-generator.html?lang=en", { waitUntil: "domcontentloaded" });
   await page.waitForSelector("#languageSelect");
-  assert.equal(await page.locator(".platform-download-card").count(), 3);
+  assert.equal(await page.locator(".platform-download-card").count(), 4);
   assert.equal(await page.locator("#web-app-open").getAttribute("href"), "https://lotto.appsandgames.org/?install=web");
   assert.equal(await page.locator("#windows-store-download").getAttribute("href"), store);
   assert.equal(await page.locator("#windows-store-download").getAttribute("target"), "_blank");
@@ -66,7 +66,7 @@ try {
       return { left: r.left, right: r.right, width: r.width };
     })
   );
-  assert.equal(cards.length, 3);
+  assert.equal(cards.length, 4);
   for (const card of cards) {
     assert.ok(card.left >= -1 && card.right <= 376, "Download card overflows mobile viewport");
     assert.ok(card.width > 100, "Download card collapsed");

@@ -331,7 +331,7 @@ const apps = [
         badge: "GAME",
         name: "UFO Invaders: Neon Defense",
         description: "Defend Earth in a modern neon arcade battle with challenging waves, power-ups, bunkers and instant browser gameplay.",
-        image: "assets/images/ufo-invaders.png",
+        image: "assets/images/ufo-invaders-neon-defense.webp",
         button: "PLAY GAME →",
         url: "https://ufo-invaders.appsandgames.org/",
         detailsUrl: "ufo-invaders",
