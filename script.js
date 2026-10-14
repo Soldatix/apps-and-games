@@ -361,7 +361,7 @@ const apps = [
         badge: "GAME",
         name: "Neon Pac-Man",
         description: "Guide Neon Pac-Man through a glowing maze, collect every dot, use power pellets and chase a place on the local leaderboard.",
-        image: "assets/images/neon-pacman-cover.svg",
+        image: "assets/images/neon-pacman-cover.webp",
         button: "PLAY GAME →",
         url: "https://neonpacman.appsandgames.org/",
         detailsUrl: "neon-pacman",
