@@ -376,7 +376,7 @@ const apps = [
         badge: "GAME",
         name: "Modern Snake",
         description: "Play a modern Snake game with three lives, timed bonus food, keyboard and mouse controls, saved progress and a local leaderboard.",
-        image: "assets/images/modern-snake-cover.svg",
+        image: "assets/images/modern-snake-cover.webp",
         button: "PLAY GAME →",
         url: "https://snake.appsandgames.org/",
         detailsUrl: "modern-snake",
@@ -462,7 +462,7 @@ function patchModernSnakeSeo() {
                     "@type": "VideoGame",
                     name: "Modern Snake",
                     url: "https://snake.appsandgames.org/",
-                    image: "https://appsandgames.org/assets/images/modern-snake-cover.svg",
+                    image: "https://appsandgames.org/assets/images/modern-snake-cover.webp",
                     description: "A modern Snake browser game with three lives, timed bonus food, keyboard and mouse controls, saved progress and a local leaderboard.",
                     gamePlatform: "Web browser",
                     isAccessibleForFree: true
