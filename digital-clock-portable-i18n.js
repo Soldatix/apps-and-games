@@ -59,7 +59,7 @@
         if (download) download.textContent = copy.btn;
         if (help) {
             help.textContent = copy.help;
-            help.href = "/downloads/digital-clock/Installation.html#" + language + "-windows-portable";
+            help.href = "/downloads/digital-clock/Installation.html?platform=windows#" + language + "-windows-portable";
         }
         if (description) description.textContent = copy.desc;
         if (storeDescription) storeDescription.textContent = copy.store;
