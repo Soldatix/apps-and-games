@@ -937,7 +937,7 @@
             if (androidDownload) androidDownload.textContent = downloads.androidDownload;
             if (androidHelp) {
                 androidHelp.textContent = downloads.androidHelp;
-                androidHelp.href = "/downloads/digital-clock/Installation.html#" + language + "-android";
+                androidHelp.href = "/downloads/digital-clock/Installation.html?platform=android#" + language + "-android";
             }
             if (androidDescription) androidDescription.textContent = downloads.androidDescription;
         }
