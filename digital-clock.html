@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Clock — Windows, Android & Web | Apps & Games</title>
-    <meta name="description" content="Digital Clock is a free customizable clock for Web, Windows and Android with alarms, timer, stopwatch, world clock, bedside use, a Windows portable edition and an optional OLED-friendly Windows screen saver.">
+    <meta name="description" content="Digital Clock is a free customizable clock for Web, Windows and Android with alarms, timer, stopwatch, world clock, bedside use, a Windows portable edition and an in-app Windows screensaver.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://appsandgames.org/digital-clock">
 
     <meta property="og:title" content="Digital Clock — Windows, Android & Web | Apps & Games">
-    <meta property="og:description" content="A free customizable Digital Clock for Web, Windows and Android, with alarms, timer, stopwatch, world clock, bedside use, a portable Windows edition and an optional OLED-friendly Windows screen saver.">
+    <meta property="og:description" content="A free customizable Digital Clock for Web, Windows and Android, with alarms, timer, stopwatch, world clock, bedside use, a portable Windows edition and an in-app Windows screensaver.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://appsandgames.org/digital-clock">
     <meta property="og:site_name" content="Apps & Games">
@@ -42,11 +42,11 @@
       "name":"Digital Clock",
       "applicationCategory":"UtilitiesApplication",
       "operatingSystem":"Web, Windows 10, Windows 11, Android 7.0+",
-      "softwareVersion":"2.0.5",
+      "softwareVersion":"0.3.8-rc3.2",
       "url":"https://appsandgames.org/digital-clock",
       "image":"https://appsandgames.org/assets/images/digital-clock.png",
       "isAccessibleForFree":true,
-      "description":"A free customizable Digital Clock for Web, Windows and Android with alarms, timer, stopwatch, world clock, bedside use, a Windows portable edition and an optional OLED-friendly Windows screen saver."
+      "description":"A free customizable Digital Clock for Web, Windows and Android with alarms, timer, stopwatch, world clock, bedside use, a Windows portable edition and an in-app Windows screensaver."
     }
     </script>
 </head>
@@ -91,23 +91,33 @@
                     <p id="web-app-description" class="hero-text">Runs directly in your browser and does not require a traditional installer. In supported browsers, it can be installed as a web app (PWA) and launched like a regular application. After the first load, core features can also work without an internet connection. Updates require an internet connection. Some operating-system-specific features available in the Windows or Android versions may not be included. Digital Clock Web does not include the Windows Screen Saver.</p>
                 </article>
 
-                <article class="platform-download-card" id="portable-windows">
+                <article class="platform-download-card" id="windows-portable-card">
                     <div class="platform-download-heading">
-                        <span class="platform-download-icon" aria-hidden="true">▣</span>
+                        <span class="platform-download-icon" aria-hidden="true">▤</span>
                         <div>
-                            <strong id="windows-platform-title">Windows</strong>
-                            <span class="platform-download-version">Version 2.0.5</span>
+                            <strong id="windows-portable-title">Digital Clock Windows Portable</strong>
+                            <span class="platform-download-version">v0.3.8 RC3.2 · Pre-release</span>
                         </div>
                     </div>
                     <div class="hero-buttons">
-                        <a id="windows-download" class="primary-button" href="https://downloads.appsandgames.org/DigitalClock-Setup-x64.exe">Download Windows Installer</a>
-                        <a id="windows-store-download" class="secondary-button" href="https://apps.microsoft.com/detail/9N2X3W43CP4T" target="_blank" rel="noopener noreferrer">Microsoft Store</a>
-                        <a id="windows-portable-download" class="secondary-button" href="https://downloads.appsandgames.org/DigitalClock-Portable-x64.zip">Portable ZIP</a>
-                        <a id="windows-help" class="secondary-button" href="/downloads/digital-clock/Installation.html#en-windows">Installation instructions</a>
+                        <a id="windows-portable-download" class="primary-button" href="https://github.com/Soldatix/Digital-Clock-Rust/releases/download/v0.3.8-rc3.2/Digital-Clock-Rust-Portable-Windows-x64-v0.3.8-rc3.2.zip">Download Windows Portable ZIP</a>
+                        <a id="windows-portable-help" class="secondary-button" href="/downloads/digital-clock/Installation.html#en-windows-portable">Portable instructions</a>
                     </div>
-                    <p id="windows-description" class="hero-text">Windows 10/11 x64 · Version 2.0.5 · Free installer. Includes Bedside mode, full screen, alarms, timer, world clock, stopwatch and an optional OLED-friendly Digital Clock Screen Saver.</p>
-                    <p id="windows-store-description" class="hero-text"><strong>Microsoft Store edition:</strong> Version 2.0.6 · Automatic updates through Microsoft Store. Windows Screen Saver integration is not included. Use the Windows Installer if you want Screen Saver support.</p>
-                    <p id="windows-portable-description" class="hero-text"><strong>Portable edition:</strong> the same Digital Clock interface and main Windows app functions in a ZIP package that requires no installation. Extract the ZIP and run <strong>DigitalClock.Windows.exe</strong>. Portable settings are kept in the local <strong>Data</strong> folder. The Windows Screen Saver is not included in the portable edition.</p>
+                    <p id="windows-portable-description" class="hero-text">Windows 10/11 x64 · v0.3.8 RC3.2 · No installation or WebView2 required. Extract all files and run digital-clock-rust-portable.exe. Keep vcruntime140.dll and NOTICES together with the app. Settings and backups are kept in Data. The built-in screensaver runs inside the application, not as a Windows .scr.</p>
+                </article>
+
+                <article class="platform-download-card" id="windows-store-card">
+                    <div class="platform-download-heading">
+                        <span class="platform-download-icon" aria-hidden="true">▣</span>
+                        <div>
+                            <strong>Microsoft Store</strong>
+                            <span class="platform-download-version">Version 2.0.6 · Store edition</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a id="windows-store-download" class="secondary-button" href="https://apps.microsoft.com/detail/9N2X3W43CP4T" target="_blank" rel="noopener noreferrer">Microsoft Store</a>
+                    </div>
+                    <p id="windows-store-description" class="hero-text">Separate Microsoft Store edition, version 2.0.6. Installation and updates are handled by Microsoft Store. This is not the Windows Portable download.</p>
                 </article>
 
                 <article class="platform-download-card">
@@ -131,7 +141,7 @@
                     <p id="android-description" class="hero-text">Android 7.0+ · Version 1.2 · Free APK. Night mode with OLED-friendly display behavior, full screen, alarms and timer. Manual update checks are available in Info.</p>
                 </article>
             </div>
-            <p class="download-checksum-link"><a href="/downloads/digital-clock/SHA256SUMS.txt">SHA-256 checksums</a></p>
+            <p class="download-checksum-link"><a href="https://github.com/Soldatix/Digital-Clock-Rust/releases/download/v0.3.8-rc3.2/SHA256SUMS.txt">Windows Portable SHA-256 checksums</a></p>
         </div>
     </section>
 
@@ -139,46 +149,25 @@
         <div class="info-card">
             <span class="section-label">ABOUT THE APP</span>
             <h2>About Digital Clock</h2>
-            <p>Digital Clock is a free and customizable clock for computers, tablets and smartphones. It is designed for situations where you want to see the time clearly from a distance or use a device as a bedside clock without excessive screen brightness.</p>
-            <p>Besides the main clock display, Digital Clock includes practical time-management tools and appearance controls. The same project is available as a web app and as dedicated Windows and Android applications.</p>
-
+            <p>Digital Clock is a free customizable clock for Windows, Android and the web. Its clear time display is useful on a desk, across a room, or beside the bed.</p>
             <h3>Main features</h3>
             <ul>
-                <li>Large and customizable digital time and date display.</li>
-                <li>Alarm, countdown timer and stopwatch.</li>
-                <li>World clock for different cities and time zones.</li>
-                <li>Fullscreen and night modes for low-light use.</li>
-                <li>Saved profiles, colors, fonts and display controls.</li>
-                <li>Web, Windows installer, Windows portable and Android versions.</li>
-                <li>Optional Digital Clock Screen Saver with the Windows installer.</li>
+                <li>Customizable time and date display, fonts, colors and fullscreen view.</li>
+                <li>Alarms, countdown timer, stopwatch and world clock.</li>
+                <li>Bedside mode and an in-app screensaver.</li>
+                <li>Local settings, backup and restore in Windows Portable.</li>
             </ul>
-
-            <div id="portable-info-block">
-                <h3>Windows portable edition</h3>
-                <p>The portable Windows edition is distributed as a ZIP archive and does not require a traditional installation. After extraction, Digital Clock runs from its own folder and keeps its portable settings and local data in a <strong>Data</strong> subfolder. This lets the portable and installed Windows editions coexist without sharing their application settings.</p>
-                <p>The portable edition does not include or register the Windows Screen Saver. Use the regular Windows installer if you want the optional Screen Saver integration.</p>
-            </div>
-
-            <h3>OLED-friendly Windows Screen Saver</h3>
-            <p>The regular Windows installer can optionally install the Digital Clock Screen Saver. While the computer is idle, it shows the current time and slowly shifts the clock position around the screen instead of keeping it permanently in one place. This reduces prolonged static screen content and makes the Screen Saver better suited to OLED displays as well as standard LCD screens.</p>
-            <p>No software can guarantee complete prevention of OLED burn-in, so normal display-care recommendations should still be followed.</p>
-
-            <h3>How to use Digital Clock</h3>
-            <p>Choose the clock appearance that is most comfortable for your environment and use fullscreen mode when the device should work primarily as a clock. Night mode reduces brightness for bedside use or dark rooms. Alarm, Timer, Stopwatch and World Clock are available directly from the application.</p>
-
+            <h3>Digital Clock Windows Portable</h3>
+            <p>Download the ZIP for Windows 10/11 x64, extract every file, and run <strong>digital-clock-rust-portable.exe</strong>. No Windows installer or Microsoft Edge WebView2 is required. Keep <strong>Data</strong> when updating to preserve settings and backups.</p>
+            <p>The screensaver works <strong>inside the application</strong>; it is not a system Windows <code>.scr</code> screensaver. The Microsoft Store edition is a separate installed version.</p>
             <h3>Available platforms</h3>
-            <p>Use the web version instantly in a browser, choose the Windows installer for normal desktop installation and optional Screen Saver support, use the Windows portable ZIP when you prefer a self-contained folder without installation, or install the Android version on a compatible phone or tablet.</p>
-
+            <p>Use Digital Clock as Web/PWA, Windows Portable, a separate Microsoft Store installation, or on Android.</p>
             <h3>Frequently asked questions</h3>
-            <p><strong>Is Digital Clock free?</strong><br>Yes. Digital Clock is free to use.</p>
-            <p><strong>Can I use it as a bedside clock?</strong><br>Yes. Bedside use is one of the main reasons Digital Clock was created. Fullscreen and night modes are especially useful in dark rooms.</p>
-            <p><strong>Does Digital Clock include an alarm and timer?</strong><br>Yes. It includes alarms, a countdown timer and a stopwatch.</p>
-            <p><strong>Is there a portable Windows version?</strong><br>Yes. Download the Portable ZIP, extract it and run DigitalClock.Windows.exe. It keeps its portable data in the Data folder and does not install the Windows Screen Saver.</p>
-            <p><strong>Is there a Windows Screen Saver?</strong><br>Yes. The regular Windows installer can optionally install the Digital Clock Screen Saver. It is not included in the portable ZIP.</p>
-            <p><strong>Is the Screen Saver suitable for OLED displays?</strong><br>It uses a slow position-shifting animation to reduce prolonged static content. This is OLED-friendly behavior, but it cannot guarantee complete prevention of burn-in.</p>
-
+            <p><strong>Is Digital Clock free?</strong> Yes.</p>
+            <p><strong>Does the Windows Portable version require installation?</strong> No. Extract the ZIP and run the EXE.</p>
+            <p><strong>Does the Windows Portable version include a screensaver?</strong> Yes, an in-app screensaver, not a Windows <code>.scr</code> screensaver.</p>
             <h3>Privacy and availability</h3>
-            <p>Apps & Games does not require an account to use Digital Clock. Settings and profiles are stored locally on the device where supported. For information about analytics, advertising and privacy choices on this website, see the <a href="privacy-policy"><u>Privacy Policy</u></a>.</p>
+            <p>No Apps &amp; Games account is required. Settings are stored locally where supported. Read the <a href="privacy-policy"><u>Privacy Policy</u></a> for website analytics and privacy information.</p>
         </div>
     </section>
 </main>
