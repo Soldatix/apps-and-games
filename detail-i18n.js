@@ -866,7 +866,7 @@
                 en: {
                     windowsDownload: "Download for Windows",
                     windowsHelp: "Installation instructions",
-                    windowsDescription: "Windows 10/11 x64 · v0.3.8 RC3.2 · Digital Clock Windows Portable. Download the ZIP, extract all files and run the EXE.",
+                    windowsDescription: "Windows 10/11 x64 · v0.3.8 · Digital Clock Windows Portable. Download the ZIP, extract all files and run the EXE.",
                     webOpen: "Open / Install Web App",
                     webDescription: "Runs directly in your browser and does not require a traditional installer. Works on Windows, Mac (macOS), iPhone, iPad and Android devices in supported browsers and can be installed as a web app (PWA). After the first load, core features can also work without an internet connection. An internet connection is required for updates. Some operating-system-specific features available in the Windows or Android versions may not be included. Digital Clock Web does not include the Windows Screen Saver.",
                     androidDownload: "Download for Android",
@@ -876,7 +876,7 @@
                 hr: {
                     windowsDownload: "Preuzmi za Windows",
                     windowsHelp: "Upute za instalaciju",
-                    windowsDescription: "Windows 10/11 x64 · v0.3.8 RC3.2 · Digital Clock Windows Portable. Raspakiraj ZIP i pokreni EXE.",
+                    windowsDescription: "Windows 10/11 x64 · v0.3.8 · Digital Clock Windows Portable. Raspakiraj ZIP i pokreni EXE.",
                     webOpen: "Otvori / instaliraj Web App",
                     webDescription: "Radi izravno u pregledniku i ne zahtijeva klasični instalacijski program. Radi na Windows i Mac (macOS) računalima te iPhone, iPad i Android uređajima u podržanim preglednicima i može se instalirati kao web aplikacija (PWA). Nakon prvog učitavanja osnovne funkcije mogu raditi i bez internetske veze. Za ažuriranja je potrebna internetska veza. Neke funkcije specifične za Windows ili Android verziju nisu dostupne. Digital Clock Web ne uključuje Windows Screen Saver.",
                     androidDownload: "Preuzmi za Android",
@@ -886,7 +886,7 @@
                 de: {
                     windowsDownload: "Für Windows herunterladen",
                     windowsHelp: "Installationsanleitung",
-                    windowsDescription: "Windows 10/11 x64 · v0.3.8 RC3.2 · Digital Clock Windows Portable. ZIP entpacken und EXE starten.",
+                    windowsDescription: "Windows 10/11 x64 · v0.3.8 · Digital Clock Windows Portable. ZIP entpacken und EXE starten.",
                     webOpen: "Web-App öffnen / installieren",
                     webDescription: "Läuft direkt im Browser und benötigt kein klassisches Installationsprogramm. Funktioniert auf Windows- und Mac-Computern (macOS) sowie auf iPhone-, iPad- und Android-Geräten in unterstützten Browsern und kann als Web-App (PWA) installiert werden. Nach dem ersten Laden können die Grundfunktionen auch ohne Internetverbindung funktionieren. Für Updates ist eine Internetverbindung erforderlich. Einige betriebssystemspezifische Funktionen der Windows- oder Android-Version sind möglicherweise nicht verfügbar. Digital Clock Web enthält keinen Windows-Bildschirmschoner.",
                     androidDownload: "Für Android herunterladen",
@@ -896,7 +896,7 @@
                 it: {
                     windowsDownload: "Scarica per Windows",
                     windowsHelp: "Istruzioni di installazione",
-                    windowsDescription: "Windows 10/11 x64 · v0.3.8 RC3.2 · Digital Clock Windows Portable. Estrai lo ZIP e avvia l'EXE.",
+                    windowsDescription: "Windows 10/11 x64 · v0.3.8 · Digital Clock Windows Portable. Estrai lo ZIP e avvia l'EXE.",
                     webOpen: "Apri / installa Web App",
                     webDescription: "Funziona direttamente nel browser e non richiede un programma di installazione tradizionale. Funziona su computer Windows e Mac (macOS) e su dispositivi iPhone, iPad e Android nei browser supportati e può essere installata come app web (PWA). Dopo il primo caricamento, le funzioni principali possono funzionare anche senza connessione Internet. Per gli aggiornamenti è necessaria una connessione Internet. Alcune funzioni specifiche delle versioni Windows o Android potrebbero non essere disponibili. Digital Clock Web non include lo screensaver di Windows.",
                     androidDownload: "Scarica per Android",
@@ -906,7 +906,7 @@
                 es: {
                     windowsDownload: "Descargar para Windows",
                     windowsHelp: "Instrucciones de instalación",
-                    windowsDescription: "Windows 10/11 x64 · v0.3.8 RC3.2 · Digital Clock Windows Portable. Extrae el ZIP y ejecuta el EXE.",
+                    windowsDescription: "Windows 10/11 x64 · v0.3.8 · Digital Clock Windows Portable. Extrae el ZIP y ejecuta el EXE.",
                     webOpen: "Abrir / instalar Web App",
                     webDescription: "Se ejecuta directamente en el navegador y no requiere un instalador tradicional. Funciona en ordenadores Windows y Mac (macOS), así como en dispositivos iPhone, iPad y Android con navegadores compatibles, y se puede instalar como aplicación web (PWA). Después de la primera carga, las funciones principales también pueden funcionar sin conexión a Internet. Se requiere conexión a Internet para las actualizaciones. Es posible que algunas funciones específicas de las versiones de Windows o Android no estén disponibles. Digital Clock Web no incluye el protector de pantalla de Windows.",
                     androidDownload: "Descargar para Android",

@@ -4,31 +4,31 @@
     "en": {
         "btn": "Download Windows Portable ZIP",
         "help": "Portable instructions",
-        "desc": "Windows 10/11 x64 · v0.3.8 RC3.2 (pre-release). No installation or WebView2 needed. Extract all files and run digital-clock-rust-portable.exe. Keep the DLL and NOTICES folder. Settings and backups are in Data. The in-app screensaver is not a Windows .scr screensaver.",
+        "desc": "Windows 10/11 x64 · v0.3.8. No installation or WebView2 needed. Extract all files and run digital-clock-rust-portable.exe. Keep the DLL and NOTICES folder. Settings and backups are in Data. The in-app screensaver is not a Windows .scr screensaver.",
         "store": "Separate Microsoft Store edition (version 2.0.6). Installation and automatic updates are handled by Microsoft Store. This is not the Windows Portable download."
     },
     "hr": {
         "btn": "Preuzmi Windows Portable ZIP",
         "help": "Upute za Portable verziju",
-        "desc": "Windows 10/11 x64 · v0.3.8 RC3.2 (pretizdanje). Bez instalacije i WebView2. Raspakiraj sve datoteke i pokreni digital-clock-rust-portable.exe. Zadrži DLL i mapu NOTICES. Postavke i sigurnosne kopije su u mapi Data. Ugrađeni čuvar zaslona nije Windows .scr čuvar zaslona.",
+        "desc": "Windows 10/11 x64 · v0.3.8. Bez instalacije i WebView2. Raspakiraj sve datoteke i pokreni digital-clock-rust-portable.exe. Zadrži DLL i mapu NOTICES. Postavke i sigurnosne kopije su u mapi Data. Ugrađeni čuvar zaslona nije Windows .scr čuvar zaslona.",
         "store": "Zasebno izdanje u Microsoft Storeu (verzija 2.0.6). Instalaciju i automatska ažuriranja obavlja Microsoft Store. To nije Windows Portable preuzimanje."
     },
     "de": {
         "btn": "Windows Portable ZIP herunterladen",
         "help": "Portable-Anleitung",
-        "desc": "Windows 10/11 x64 · v0.3.8 RC3.2 (Vorabversion). Keine Installation und kein WebView2. Alle Dateien entpacken und digital-clock-rust-portable.exe starten. DLL und NOTICES-Ordner behalten. Einstellungen und Backups liegen in Data. Der integrierte Bildschirmschoner ist kein Windows-.scr-Bildschirmschoner.",
+        "desc": "Windows 10/11 x64 · v0.3.8. Keine Installation und kein WebView2. Alle Dateien entpacken und digital-clock-rust-portable.exe starten. DLL und NOTICES-Ordner behalten. Einstellungen und Backups liegen in Data. Der integrierte Bildschirmschoner ist kein Windows-.scr-Bildschirmschoner.",
         "store": "Separate Microsoft-Store-Version (2.0.6). Installation und automatische Updates erfolgen über Microsoft Store. Dies ist nicht der Windows-Portable-Download."
     },
     "it": {
         "btn": "Scarica Windows Portable ZIP",
         "help": "Istruzioni Portable",
-        "desc": "Windows 10/11 x64 · v0.3.8 RC3.2 (versione preliminare). Nessuna installazione o WebView2. Estrai tutti i file e avvia digital-clock-rust-portable.exe. Conserva DLL e cartella NOTICES. Impostazioni e backup sono in Data. Lo screensaver integrato non è uno screensaver Windows .scr.",
+        "desc": "Windows 10/11 x64 · v0.3.8. Nessuna installazione o WebView2. Estrai tutti i file e avvia digital-clock-rust-portable.exe. Conserva DLL e cartella NOTICES. Impostazioni e backup sono in Data. Lo screensaver integrato non è uno screensaver Windows .scr.",
         "store": "Versione separata di Microsoft Store (2.0.6). Installazione e aggiornamenti automatici sono gestiti da Microsoft Store. Non è il download Windows Portable."
     },
     "es": {
         "btn": "Descargar Windows Portable ZIP",
         "help": "Instrucciones Portable",
-        "desc": "Windows 10/11 x64 · v0.3.8 RC3.2 (versión preliminar). No necesita instalación ni WebView2. Extrae todos los archivos y ejecuta digital-clock-rust-portable.exe. Conserva la DLL y la carpeta NOTICES. La configuración y las copias están en Data. El protector integrado no es un protector Windows .scr.",
+        "desc": "Windows 10/11 x64 · v0.3.8. No necesita instalación ni WebView2. Extrae todos los archivos y ejecuta digital-clock-rust-portable.exe. Conserva la DLL y la carpeta NOTICES. La configuración y las copias están en Data. El protector integrado no es un protector Windows .scr.",
         "store": "Edición independiente de Microsoft Store (versión 2.0.6). La instalación y las actualizaciones automáticas se gestionan en Microsoft Store. No es la descarga Windows Portable."
     }
 };
