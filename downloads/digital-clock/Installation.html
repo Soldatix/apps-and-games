@@ -18,6 +18,7 @@ body{font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;max-width:900px;m
 section{margin:42px 0;padding-top:24px;border-top:1px solid #ccc}.platform{margin:26px 0;padding:20px;border:1px solid #ddd;border-radius:14px;background:#fafafa}li{margin:10px 0}a{color:#173bb8}.download{display:inline-block;background:#173bb8;color:#fff;padding:11px 18px;border-radius:8px;text-decoration:none;font-weight:700}.download.secondary{background:#4c566a}code{overflow-wrap:anywhere}.note{padding:12px 14px;border-left:4px solid #d39e00;background:#fff8db}.portable-note{padding:12px 14px;border-left:4px solid #4c7bd9;background:#edf4ff}.checksum{font-size:.9rem}
 html[data-platform="windows"] .platform[id$="-android"],
 html[data-platform="windows"] .android-only,
+html[data-platform="android"] .platform[id$="-windows-installer"],
 html[data-platform="android"] .platform[id$="-windows-portable"],
 html[data-platform="android"] .windows-only{display:none}
 </style>
@@ -39,6 +40,11 @@ html[data-platform="android"] .windows-only{display:none}
 
 <section id="en" lang="en">
 <h2>English</h2>
+<div class="platform" id="en-windows-installer">
+<h3>Windows Installer and Screen Saver</h3>
+<p>The standard Windows Installer provides a separate Windows <code>.scr</code> Screen Saver. Activation is optional and off by default; it does not require enabling the Screen Saver during installation. Unlike the Portable edition, the Windows installer can integrate it with Windows Screen Saver settings. Its moving clock reduces prolonged static content but cannot guarantee prevention of OLED burn-in. Do not remove your existing edition or backups when changing versions.</p>
+<p class="note">The previous .NET Installer is being replaced by a Rust edition. The Installer download is temporarily unavailable until the release and license reviews are complete.</p>
+</div>
 <div class="platform" id="en-windows-portable">
 <h3>Digital Clock Windows Portable — v0.3.8</h3>
 <p><a class="download" href="https://github.com/Soldatix/Digital-Clock-Rust/releases/download/v0.3.8/Digital-Clock-Windows-Portable-v0.3.8.zip">Download Windows Portable ZIP</a></p>
@@ -51,6 +57,11 @@ html[data-platform="android"] .windows-only{display:none}
 
 <section id="hr" lang="hr">
 <h2>Hrvatski</h2>
+<div class="platform" id="hr-windows-installer">
+<h3>Windows Installer i čuvar zaslona</h3>
+<p>Standardni Windows Installer uključuje zasebni Windows <code>.scr</code> čuvar zaslona. Aktivacija je opcionalna i početno isključena. Za razliku od Portable verzije, čuvar se može povezati s Windows postavkama čuvara zaslona. Sat se polako pomiče kako bi smanjio dugotrajni statični prikaz, ali to ne jamči sprječavanje OLED burn-ina. Pri promjeni verzije sačuvaj postojeću aplikaciju i sigurnosne kopije.</p>
+<p class="note">Stari .NET Installer zamjenjujemo Rust verzijom. Preuzimanje je privremeno nedostupno do završnih testova i licencnog odobrenja.</p>
+</div>
 <div class="platform" id="hr-windows-portable">
 <h3>Digital Clock Windows Portable — v0.3.8</h3>
 <p><a class="download" href="https://github.com/Soldatix/Digital-Clock-Rust/releases/download/v0.3.8/Digital-Clock-Windows-Portable-v0.3.8.zip">Preuzmi Windows Portable ZIP</a></p>
@@ -63,6 +74,11 @@ html[data-platform="android"] .windows-only{display:none}
 
 <section id="de" lang="de">
 <h2>Deutsch</h2>
+<div class="platform" id="de-windows-installer">
+<h3>Windows-Installer und Bildschirmschoner</h3>
+<p>Der Windows-Installer enthält einen separaten Windows-<code>.scr</code>-Bildschirmschoner. Seine Aktivierung ist optional und standardmäßig deaktiviert. Anders als die Portable-Version kann er in die Windows-Bildschirmschoner-Einstellungen eingebunden werden. Die Uhr bewegt sich langsam, um dauerhaft statische Inhalte zu reduzieren; ein Schutz vor OLED-Einbrennen ist jedoch nicht garantiert. Vor dem Versionswechsel bestehende Installation und Backups behalten.</p>
+<p class="note">Der bisherige .NET-Installer wird durch eine Rust-Version ersetzt. Der Download bleibt bis zum Abschluss der Freigabe- und Lizenzprüfungen ausgesetzt.</p>
+</div>
 <div class="platform" id="de-windows-portable">
 <h3>Digital Clock Windows Portable — v0.3.8</h3>
 <p><a class="download" href="https://github.com/Soldatix/Digital-Clock-Rust/releases/download/v0.3.8/Digital-Clock-Windows-Portable-v0.3.8.zip">Windows Portable ZIP herunterladen</a></p>
@@ -75,6 +91,11 @@ html[data-platform="android"] .windows-only{display:none}
 
 <section id="it" lang="it">
 <h2>Italiano</h2>
+<div class="platform" id="it-windows-installer">
+<h3>Installer Windows e salvaschermo</h3>
+<p>L'Installer Windows include uno screensaver Windows <code>.scr</code> separato. L'attivazione è facoltativa e inizialmente disabilitata. A differenza della versione Portable, può integrarsi nelle impostazioni screensaver di Windows. L'orologio si sposta lentamente per ridurre le immagini statiche prolungate, senza garantire la prevenzione del burn-in OLED. Conserva installazione e backup esistenti durante il passaggio.</p>
+<p class="note">Il precedente Installer .NET verrà sostituito da una versione Rust. Il download rimane sospeso fino al completamento dei controlli di rilascio e delle licenze.</p>
+</div>
 <div class="platform" id="it-windows-portable">
 <h3>Digital Clock Windows Portable — v0.3.8</h3>
 <p><a class="download" href="https://github.com/Soldatix/Digital-Clock-Rust/releases/download/v0.3.8/Digital-Clock-Windows-Portable-v0.3.8.zip">Scarica Windows Portable ZIP</a></p>
@@ -87,6 +108,11 @@ html[data-platform="android"] .windows-only{display:none}
 
 <section id="es" lang="es">
 <h2>Español</h2>
+<div class="platform" id="es-windows-installer">
+<h3>Instalador Windows y protector de pantalla</h3>
+<p>El instalador Windows incluye un protector de pantalla <code>.scr</code> independiente. Su activación es opcional y está desactivada de forma predeterminada. A diferencia de Portable, puede integrarse con la configuración del protector de pantalla de Windows. El reloj se desplaza lentamente para reducir las imágenes estáticas prolongadas, pero no garantiza evitar el desgaste OLED. Conserva la instalación y las copias de seguridad existentes al cambiar de versión.</p>
+<p class="note">El antiguo instalador .NET se sustituirá por una versión Rust. La descarga está suspendida hasta finalizar la revisión de lanzamiento y licencias.</p>
+</div>
 <div class="platform" id="es-windows-portable">
 <h3>Digital Clock Windows Portable — v0.3.8</h3>
 <p><a class="download" href="https://github.com/Soldatix/Digital-Clock-Rust/releases/download/v0.3.8/Digital-Clock-Windows-Portable-v0.3.8.zip">Descargar Windows Portable ZIP</a></p>
