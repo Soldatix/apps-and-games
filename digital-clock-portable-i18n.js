@@ -4,7 +4,8 @@
     "en": {
         "installerTitle": "Digital Clock Windows Installer",
         "installerHelp": "Installer instructions",
-        "installerStatus": "Installer download is temporarily paused while the Rust replacement completes final release checks.",
+        "installerStatus": "Rust Windows Installer v3.0.0 is available.",
+        "installerDownload": "Download Windows Installer",
         "installerDesc": "Windows 10/11 x64 · Separate standard installation with optional Windows .scr Screen Saver integration. Unlike Portable, this edition can register the Screen Saver for your Windows account. Screen Saver activation is optional and off by default.",
         "btn": "Download Windows Portable ZIP",
         "help": "Portable instructions",
@@ -14,7 +15,8 @@
     "hr": {
         "installerTitle": "Digital Clock Windows Installer",
         "installerHelp": "Upute za Installer",
-        "installerStatus": "Preuzimanje Installera privremeno je pauzirano dok Rust zamjena ne prođe završne provjere.",
+        "installerStatus": "Rust Windows Installer v3.0.0 dostupan je za preuzimanje.",
+        "installerDownload": "Preuzmi Windows Installer",
         "installerDesc": "Windows 10/11 x64 · Zasebna standardna instalacija s opcionalnom integracijom Windows .scr čuvara zaslona. Za razliku od Portable verzije, čuvar se može registrirati za Windows korisnika. Aktivacija je opcionalna i početno isključena.",
         "btn": "Preuzmi Windows Portable ZIP",
         "help": "Upute za Portable verziju",
@@ -24,7 +26,8 @@
     "de": {
         "installerTitle": "Digital Clock Windows-Installer",
         "installerHelp": "Installer-Anleitung",
-        "installerStatus": "Der Installer-Download ist pausiert, bis die neue Rust-Version die abschließenden Freigabeprüfungen bestanden hat.",
+        "installerStatus": "Rust Windows Installer v3.0.0 steht zum Download bereit.",
+        "installerDownload": "Windows-Installer herunterladen",
         "installerDesc": "Windows 10/11 x64 · Separate Standardinstallation mit optionaler Windows-.scr-Bildschirmschoner-Integration. Anders als Portable kann diese Edition den Bildschirmschoner für das Windows-Benutzerkonto registrieren. Die Aktivierung ist standardmäßig ausgeschaltet.",
         "btn": "Windows Portable ZIP herunterladen",
         "help": "Portable-Anleitung",
@@ -34,7 +37,8 @@
     "it": {
         "installerTitle": "Digital Clock Installer Windows",
         "installerHelp": "Istruzioni Installer",
-        "installerStatus": "Il download dell'Installer è temporaneamente sospeso finché la nuova versione Rust non supera le verifiche finali.",
+        "installerStatus": "Rust Windows Installer v3.0.0 è disponibile per il download.",
+        "installerDownload": "Scarica Windows Installer",
         "installerDesc": "Windows 10/11 x64 · Installazione standard separata con integrazione facoltativa dello screensaver Windows .scr. A differenza della versione Portable, può registrare lo screensaver per l'utente Windows. L'attivazione è disattivata per impostazione predefinita.",
         "btn": "Scarica Windows Portable ZIP",
         "help": "Istruzioni Portable",
@@ -44,7 +48,8 @@
     "es": {
         "installerTitle": "Digital Clock Instalador Windows",
         "installerHelp": "Instrucciones del instalador",
-        "installerStatus": "La descarga del instalador está pausada hasta que la nueva versión Rust supere las comprobaciones finales.",
+        "installerStatus": "Rust Windows Installer v3.0.0 ya está disponible.",
+        "installerDownload": "Descargar instalador de Windows",
         "installerDesc": "Windows 10/11 x64 · Instalación estándar independiente con integración opcional del protector Windows .scr. A diferencia de Portable, puede registrar el protector para el usuario de Windows. Su activación está desmarcada de forma predeterminada.",
         "btn": "Descargar Windows Portable ZIP",
         "help": "Instrucciones Portable",
@@ -75,11 +80,13 @@
         const description = document.getElementById("windows-portable-description");
         const storeDescription = document.getElementById("windows-store-description");
         const installerTitle = document.getElementById("windows-installer-title");
+        const installerDownload = document.getElementById("windows-installer-download");
         const installerHelp = document.getElementById("windows-installer-help");
         const installerStatus = document.getElementById("windows-installer-status");
         const installerDescription = document.getElementById("windows-installer-description");
 
         if (installerTitle) installerTitle.textContent = copy.installerTitle;
+        if (installerDownload) installerDownload.textContent = copy.installerDownload;
         if (installerHelp) {
             installerHelp.textContent = copy.installerHelp;
             installerHelp.href = "/downloads/digital-clock/Installation.html?platform=windows#" + language + "-windows-installer";
