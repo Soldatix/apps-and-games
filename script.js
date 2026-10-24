@@ -498,7 +498,7 @@ const apps = [
     },
     {
         category: "game", badge: "GAME", name: "Animated 3D Chess",
-        description: "Animated 3D chess with six AI levels, local two-player play, saves and offline PWA.", image: "assets/images/wizard-chess-3d-cover.png", button: "PLAY GAME →",
+        description: "Animated 3D chess with six AI levels, local two-player play, saves and offline PWA.", image: "assets/images/wizard-chess-3d-side.png", button: "PLAY GAME →",
         url: "https://chess.appsandgames.org/", detailsUrl: "wizard-chess-3d", hasDownload: true,
         platforms: ["Web / PWA"], tags: ["Chess", "3D", "Strategy"],
         status: "LIVE", analyticsEvent: "play_game"
