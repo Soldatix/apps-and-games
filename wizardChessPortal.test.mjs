@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const read = p => readFileSync(new URL('./'+p,import.meta.url),'utf8');
+const idx=read('index.html'), js=read('script.js'), detail=read('wizard-chess-3d.html'),i18n=read('detail-i18n.js');
+test('chess static catalog and dynamic catalog',()=>{assert.match(idx,/href="wizard-chess-3d"/);assert.match(js,/detailsUrl: "wizard-chess-3d"/);});
+test('existing catalog indexes and appended index 12',()=>{assert.match(js,/cardTranslations\[language\]\[11\] = habitText\.card/);assert.match(js,/cardTranslations\[language\]\[12\] = entry\.card/);});
+test('SEO JSON-LD is exactly thirteen records',()=>{const m=idx.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);assert.ok(m);const a=JSON.parse(m[1]);const list=a['@graph'].find(x=>x['@type']==='ItemList');assert.equal(list.numberOfItems,13);assert.equal(list.itemListElement.length,13);assert.equal(list.itemListElement.at(-1).item.name,'Animated 3D Chess');});
+test('detail has five languages and PWA install entrypoint',()=>{assert.match(i18n,/"wizard-chess-3d"/);for(const k of ['en','hr','de','it','es'])assert.ok(i18n.includes('"'+k+'"'),k);assert.match(detail,/\?install=web/);});
+test('real chess screenshots are staged as PNG files',()=>{for(const p of ['assets/images/wizard-chess-3d-cover.png','assets/images/wizard-chess-3d-side.png']){const b=readFileSync(new URL('./'+p,import.meta.url));assert.ok(b.length>1024);assert.equal(b.subarray(0,8).toString('hex'),'89504e470d0a1a0a');}});
+test('SEO sitemap and canonical route',()=>{assert.match(read('sitemap.xml'),/appsandgames\.org\/wizard-chess-3d/);assert.match(detail,/rel="canonical"/);});
+test('existing catalog and analytics remains available',()=>{assert.match(idx,/href="tetris"/);assert.match(js,/detailsUrl: "tetris"/);assert.match(detail,/googletagmanager/);});
+test('Stockfish cache limitation disclosed',()=>{assert.match(detail,/Stockfish level 6 also requires/);});

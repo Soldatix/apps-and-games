@@ -213,6 +213,71 @@ supportedLanguages.forEach(language => {
     cardTranslations[language][11] = habitText.card;
 });
 
+const wizardChessPortalI18n = {
+  "en": {
+    "card": [
+      "Animated 3D chess with six AI levels, local two-player play, saves and offline PWA.",
+      [
+        "Chess",
+        "3D",
+        "Strategy"
+      ]
+    ],
+    "extra": "Discover Animated 3D Chess."
+  },
+  "hr": {
+    "card": [
+      "Animirani 3D šah sa šest AI razina, lokalnom igrom za dvoje, spremanjem i offline PWA.",
+      [
+        "Šah",
+        "3D",
+        "Strategija"
+      ]
+    ],
+    "extra": "Otkrijte Animated 3D Chess."
+  },
+  "de": {
+    "card": [
+      "3D-Schach mit sechs KI-Stufen, lokal zu zweit, Speicherfunktion und Offline-PWA.",
+      [
+        "Schach",
+        "3D",
+        "Strategie"
+      ]
+    ],
+    "extra": "Entdecke Animated 3D Chess."
+  },
+  "it": {
+    "card": [
+      "Scacchi 3D con sei livelli IA, due giocatori locali, salvataggi e PWA offline.",
+      [
+        "Scacchi",
+        "3D",
+        "Strategia"
+      ]
+    ],
+    "extra": "Scopri Animated 3D Chess."
+  },
+  "es": {
+    "card": [
+      "Ajedrez 3D con seis niveles de IA, juego local para dos, guardados y PWA sin conexión.",
+      [
+        "Ajedrez",
+        "3D",
+        "Estrategia"
+      ]
+    ],
+    "extra": "Descubre Animated 3D Chess."
+  }
+};
+supportedLanguages.forEach(language => {
+    const entry = wizardChessPortalI18n[language];
+    if (!entry) return;
+    if (translations[language]) translations[language].gamesText = (translations[language].gamesText || "") + " " + entry.extra;
+    if (!Array.isArray(cardTranslations[language])) cardTranslations[language] = [];
+    cardTranslations[language][12] = entry.card;
+});
+
 function t(key) {
     return translations[currentLanguage]?.[key] ?? translations.en?.[key] ?? key;
 }
@@ -430,6 +495,13 @@ const apps = [
         tags: ["Habits", "Planner", "Productivity"],
         status: "LIVE",
         analyticsEvent: "open_app"
+    },
+    {
+        category: "game", badge: "GAME", name: "Animated 3D Chess",
+        description: "Animated 3D chess with six AI levels, local two-player play, saves and offline PWA.", image: "assets/images/wizard-chess-3d-cover.png", button: "PLAY GAME →",
+        url: "https://chess.appsandgames.org/", detailsUrl: "wizard-chess-3d", hasDownload: true,
+        platforms: ["Web / PWA"], tags: ["Chess", "3D", "Strategy"],
+        status: "LIVE", analyticsEvent: "play_game"
     }
 ];
 
