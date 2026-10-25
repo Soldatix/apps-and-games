@@ -1,0 +1,28 @@
+# Cloudflare Workers Static Assets: never publish repository/build internals.
+# The portal is served from assets.directory ".", so ignore non-public paths.
+**/.git
+**/.git/**
+**/.github
+**/.github/**
+**/.wrangler
+**/.wrangler/**
+**/node_modules
+**/node_modules/**
+**/.DS_Store
+**/.env
+**/.env.*
+**/.dev.vars*
+**/*.pem
+**/*.key
+**/.gitkeep
+/.gitignore
+/.assetsignore
+/wrangler.jsonc
+/wrangler.json
+/wrangler.toml
+/README.md
+/SEO-PUBLISHING-STANDARD.md
+/ci/
+/tests/
+/docs/
+/wizardChessPortal.test.mjs

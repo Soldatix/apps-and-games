@@ -289,6 +289,61 @@
             }
         },
 
+        "wizard-chess-3d": {
+          "kind": "game",
+          "name": "Animated 3D Chess",
+          "en": {
+            "title": "Animated 3D Chess — Free Chess Game | Apps & Games",
+            "description": "Free animated 3D chess versus six computer levels or a friend on one device. Offline PWA, save and load games.",
+            "badge": "GAME • 3D • STRATEGY",
+            "subtitle": "Cinematic 3D chess with six computer difficulty levels",
+            "text": "Play against six computer levels or a friend on one device. Rotate the 3D board, save your games and install the offline Web App.",
+            "primary": "Play Animated 3D Chess →",
+            "back": "Back to Games",
+            "info": "<h2>How to play</h2><p>Choose a computer level or two players on one device; select a piece and a legal destination.</p><h3>Game features</h3><ul><li>Six AI levels, including bundled local Stockfish at level 6</li><li>Two players on one device with optional camera flip</li><li>Legal chess rules, undo, save and load</li><li>Five languages, installable PWA</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline and installation</h3><p>After a complete first load, core chess modes and 3D models work offline. Stockfish level 6 also requires its engine files to be cached while online.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+          },
+          "hr": {
+            "title": "Animated 3D Chess — besplatni 3D šah | Apps & Games",
+            "description": "Animirani 3D šah protiv računala sa šest razina ili prijatelja na istom uređaju, offline PWA i spremanje.",
+            "badge": "IGRA • 3D • STRATEGIJA",
+            "subtitle": "Filmski 3D šah sa šest razina težine",
+            "text": "Igrajte protiv računala ili prijatelja na jednom uređaju. Okrenite 3D ploču, spremite partiju i instalirajte offline Web App.",
+            "primary": "Igraj Animated 3D Chess →",
+            "back": "Natrag na igre",
+            "info": "<h2>Kako igrati</h2><p>Odaberite razinu računala ili lokalna dva igrača, zatim figuru i dopušteno polje.</p><h3>Funkcije igre</h3><ul><li>Šest AI razina, uključujući lokalni Stockfish na razini 6</li><li>Dva igrača na istom uređaju uz opcionalno okretanje kamere</li><li>Šahovska pravila, poništavanje, spremanje i učitavanje</li><li>Pet jezika, instalacijska PWA</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline igranje i instalacija</h3><p>Nakon prvog potpunog učitavanja, osnovna igra i 3D modeli rade offline. Stockfish razina 6 zahtijeva prethodno učitane datoteke motora.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+          },
+          "de": {
+            "title": "Animated 3D Chess — kostenloses 3D-Schach | Apps & Games",
+            "description": "Animiertes 3D-Schach gegen sechs Computerstufen oder lokal zu zweit, Offline-PWA und Spielstände.",
+            "badge": "SPIEL • 3D • STRATEGIE",
+            "subtitle": "Filmreifes 3D-Schach mit sechs Schwierigkeitsstufen",
+            "text": "Spiele gegen den Computer oder zu zweit an einem Gerät. Drehe das Brett, speichere Partien und installiere die Offline-Web-App.",
+            "primary": "Animated 3D Chess spielen →",
+            "back": "Zurück zu den Spielen",
+            "info": "<h2>Spielanleitung</h2><p>Wähle eine Computerstufe oder zwei Spieler, dann eine Figur und ein legales Zielfeld.</p><h3>Spielfunktionen</h3><ul><li>Sechs KI-Stufen einschließlich lokaler Stockfish-Engine auf Stufe 6</li><li>Zwei Spieler an einem Gerät mit optionalem Kamerawechsel</li><li>Schachregeln, Rücknahme, Speichern und Laden</li><li>Fünf Sprachen, installierbare PWA</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline und Installation</h3><p>Nach dem vollständigen ersten Laden funktionieren das Grundspiel und die 3D-Modelle offline. Stockfish Stufe 6 benötigt zuvor geladene Engine-Dateien.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+          },
+          "it": {
+            "title": "Animated 3D Chess — scacchi 3D gratis | Apps & Games",
+            "description": "Scacchi 3D animati con sei livelli del computer o due giocatori locali, PWA offline e salvataggi.",
+            "badge": "GIOCO • 3D • STRATEGIA",
+            "subtitle": "Scacchi 3D cinematografici con sei livelli di difficoltà",
+            "text": "Gioca contro il computer o con un amico sullo stesso dispositivo. Ruota la scacchiera, salva le partite e installa la Web App offline.",
+            "primary": "Gioca a Animated 3D Chess →",
+            "back": "Torna ai giochi",
+            "info": "<h2>Come si gioca</h2><p>Scegli un livello del computer o due giocatori, quindi seleziona un pezzo e una casa legale.</p><h3>Funzioni</h3><ul><li>Sei livelli IA con Stockfish locale al livello 6</li><li>Due giocatori sullo stesso dispositivo con rotazione opzionale</li><li>Regole degli scacchi, annullamento, salvataggio e caricamento</li><li>Cinque lingue, PWA installabile</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline e installazione</h3><p>Dopo il primo caricamento completo, il gioco base e i modelli 3D funzionano offline. Stockfish livello 6 richiede prima il download dei file del motore.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+          },
+          "es": {
+            "title": "Animated 3D Chess — ajedrez 3D gratis | Apps & Games",
+            "description": "Ajedrez 3D animado con seis niveles del ordenador o dos jugadores locales, PWA offline y partidas guardadas.",
+            "badge": "JUEGO • 3D • ESTRATEGIA",
+            "subtitle": "Ajedrez 3D cinematográfico con seis niveles de dificultad",
+            "text": "Juega contra el ordenador o con otra persona en el mismo dispositivo. Gira el tablero, guarda partidas e instala la Web App offline.",
+            "primary": "Jugar a Animated 3D Chess →",
+            "back": "Volver a los juegos",
+            "info": "<h2>Cómo jugar</h2><p>Elige un nivel del ordenador o dos jugadores, después una pieza y una casilla legal.</p><h3>Funciones del juego</h3><ul><li>Seis niveles IA con Stockfish local en el nivel 6</li><li>Dos jugadores en un dispositivo con giro opcional de cámara</li><li>Reglas del ajedrez, deshacer, guardar y cargar</li><li>Cinco idiomas, PWA instalable</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Sin conexión e instalación</h3><p>Tras una primera carga completa, las funciones básicas y los modelos 3D funcionan sin conexión. Stockfish nivel 6 requiere precargar los archivos del motor.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+          }
+        },
+
         "tetris": {
             kind: "game",
             name: "Tetris",
@@ -689,6 +744,42 @@
             if (webPlatformTitle) webPlatformTitle.textContent = downloads.webTitle;
             if (webAppOpen) webAppOpen.textContent = downloads.webOpen;
             if (webAppDescription) webAppDescription.textContent = downloads.webDescription;
+        }
+
+        if (slug === "wizard-chess-3d") {
+            const w = {
+  "en": {
+    "webTitle": "Web App",
+    "webOpen": "Open / Install Web App",
+    "webDescription": "After a complete first load, core chess modes and 3D models work offline. Stockfish level 6 also requires its engine files to be cached while online."
+  },
+  "hr": {
+    "webTitle": "Web App",
+    "webOpen": "Otvori / instaliraj Web App",
+    "webDescription": "Nakon prvog potpunog učitavanja, osnovna igra i 3D modeli rade offline. Stockfish razina 6 zahtijeva prethodno učitane datoteke motora."
+  },
+  "de": {
+    "webTitle": "Web App",
+    "webOpen": "Web-App öffnen / installieren",
+    "webDescription": "Nach dem vollständigen ersten Laden funktionieren das Grundspiel und die 3D-Modelle offline. Stockfish Stufe 6 benötigt zuvor geladene Engine-Dateien."
+  },
+  "it": {
+    "webTitle": "Web App",
+    "webOpen": "Apri / installa Web App",
+    "webDescription": "Dopo il primo caricamento completo, il gioco base e i modelli 3D funzionano offline. Stockfish livello 6 richiede prima il download dei file del motore."
+  },
+  "es": {
+    "webTitle": "Web App",
+    "webOpen": "Abrir / instalar Web App",
+    "webDescription": "Tras una primera carga completa, las funciones básicas y los modelos 3D funcionan sin conexión. Stockfish nivel 6 requiere precargar los archivos del motor."
+  }
+}[language];
+            const title = document.getElementById("web-platform-title");
+            const open = document.getElementById("web-app-open");
+            const description = document.getElementById("web-app-description");
+            if (title) title.textContent = w.webTitle;
+            if (open) open.textContent = w.webOpen;
+            if (description) description.textContent = w.webDescription;
         }
 
         if (slug === "tetris") {
