@@ -1,0 +1,44 @@
+/* Adsterra pilot: isolated CSS, no impact while regions remain hidden. */
+.adsterra-pilot-region[hidden] { display: none !important; }
+.adsterra-pilot-region {
+  box-sizing: border-box;
+  margin: 18px auto 26px;
+  padding: 12px;
+  width: min(100%, var(--max-width, 1200px));
+  text-align: center;
+  color: var(--text-secondary, #6c7585);
+}
+.adsterra-pilot-region .adsterra-label {
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  margin: 0 0 7px;
+}
+.adsterra-slot {
+  width: fit-content;
+  max-width: 100%;
+  margin: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+}
+.adsterra-slot-preview {
+  width: min(var(--ad-width), 100%);
+  min-height: var(--ad-height);
+  border: 1px dashed var(--border, #888);
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background: var(--surface-2, #f5f5f5);
+  border-radius: 8px;
+}
+.adsterra-vendor-frame { display: block; border: 0; max-width: none; }
+.adsterra-hint { font-size: 0.85rem; max-width: 52ch; margin: 8px auto; }
+.adsterra-action {
+  background: var(--surface-2, #eef0f5); color: var(--text, #111);
+  border: 1px solid var(--border, #888); border-radius: 9px;
+  padding: 8px 13px; cursor: pointer; font: inherit;
+}
+.adsterra-action:focus-visible { outline: 2px solid var(--primary, #229cee); outline-offset: 2px; }
+.adsterra-preferences-link { font-size: inherit; }
+@media (max-width: 359px) {
+  .adsterra-pilot-region { padding: 4px 0; }
+}
