@@ -46,6 +46,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6296601518048221" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="adsterra-pilot.css">
 
     <!-- Donation presentation is intentionally kept here so only index.html
          has to be replaced in the main Apps & Games repository. -->
@@ -503,6 +504,9 @@
         </div>
     </section>
 
+    <!-- Adsterra staging: hidden unless preview or reviewed opt-in activation -->
+    <section id="adsterra-pilot-top" class="adsterra-pilot-region" aria-label="Advertisement" hidden></section>
+
     <section id="apps" class="app-section">
         <div class="section-heading">
             <span class="section-label" data-i18n="appsLabel">📱 APPS</span>
@@ -779,6 +783,8 @@
             </article>
         </div>
     </section>
+
+    <section id="adsterra-pilot-secondary" class="adsterra-pilot-region" aria-label="Advertisement" hidden></section>
 
     <section id="about" class="info-section">
         <div class="info-card">
@@ -1058,5 +1064,6 @@
 
 <script src="assets/js/ag-language-menu.js"></script>
 <script src="script.js"></script>
+<script src="adsterra-pilot.js" defer></script>
 </body>
 </html>
