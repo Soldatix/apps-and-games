@@ -69,3 +69,9 @@
   .adsterra-pilot-region { padding: 4px 0; }
   .adsterra-action { width: 100%; }
 }
+/* Disabled Adsterra release candidate: only active in a reviewed opt-in build. */
+.adsterra-consent-panel { max-width: 770px; margin: 0 auto; }
+.adsterra-consent-description { line-height: 1.55; margin: 8px 0 12px; }
+.adsterra-consent-links { margin: 12px 0; }
+.adsterra-consent-link { color: var(--primary, #229cee); text-decoration: underline; }
+.adsterra-consent-link:focus-visible { outline: 2px solid var(--primary, #229cee); outline-offset: 3px; }
