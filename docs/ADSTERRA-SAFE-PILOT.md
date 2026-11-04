@@ -115,6 +115,22 @@ Files: `adsterra-consent-candidate.js` wired synchronously inside the top HTML B
 
 **NO MERGE / NO PRODUCTION DEPLOY / NO REAL AD REQUEST**.
 
+## Site-wide Google-tag privacy quarantine (review branch only, 2026-11-04)
+
+**Source audit:** all 15 public portal HTML documents using Google Analytics `G-8QJLPBJPJ8` (homepage, 13 app/game detail pages, and privacy-policy page) loaded `gtag.js` directly from HEAD with no repository-visible pre-consent gate. Fourteen of those documents also loaded the AdSense client `ca-pub-6296601518048221` script unconditionally. The owner confirmed an AdSense site status of `Needs attention — Low value content` and a published Google CMP that did not show in incognito testing.
+
+**Safety action in the DRAFT BRANCH ONLY:** all 15 immediately loaded Google external tags and accompanying GA4 inline `config` blocks were removed pending a verified, appropriate consent management solution. No new tracking code was inserted. `tests/privacy-tag-hold.test.mjs` explicitly asserts the tags remain absent on these 15 pages; `ci/privacy-network-smoke.mjs` exercises the pages in Chromium and checks that neither Google ad/analytics endpoints nor `bauval.org` receive requests. The original `main` branch remains unchanged.
+
+**Effect if this draft were ever merged without completing the remaining work:** Google Analytics collection and AdSense auto-loading would stop on these pages. This is *intentional in the test branch*, but is NOT yet a production-approved change. It does not fix Google CMP by itself, and must be reconciled with site analytics needs before release. Existing game/portal functions should continue to operate; CI validates regressions.
+
+**Restoration path, pending approval:** implement a reviewed Google Basic Consent Mode flow that blocks Google tags until an explicit analytics (and when applicable advertising) consent is collected; set correct Consent Mode v2 defaults before GA4 `config` and update it only from valid choices. Do **not** equate a separate Adsterra opt-in with analytics/AdSense consent, and do not restore auto-loading AdSense on an unapproved site merely to display a CMP.
+
+Relevant official guidance:
+- https://developers.google.com/tag-platform/security/concepts/consent-mode
+- https://developers.google.com/tag-platform/security/guides/consent
+
+**Still blocked:** production activation, merge, live ads, automated deploy. A genuine compliant consent decision and approved tag-loading method must be reviewed first.
+
 ## Requirements before production
 
 1. Respect Adsterra policy: insert the **original publisher-provided tag directly in the page body, never inside any publisher-created iframe**. Adsterra Support confirmed its own `format: 'iframe'` parameter is valid.
