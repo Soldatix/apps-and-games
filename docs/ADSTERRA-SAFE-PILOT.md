@@ -1,35 +1,39 @@
-# Adsterra safe banner pilot — Apps & Games
+# Adsterra banner pilot — PREVIEW ONLY / PRODUCTION NO-GO
 
-**Status: REVIEW ONLY / PRODUCTION NO-GO.** This branch is not deployed. It must not be merged or deployed automatically.
+**Account-specific Adsterra support reply received on 2026-11-04.**
+- `bauval.org` IS their authorized banner serving domain.
+- Embedding publisher ad tags **inside our own iframe** is forbidden by Adsterra Terms and could lead to account suspension.
+- Adsterra says their standard banners do not cause forced redirects; clicking a normal banner can lead to advertiser landing pages. No unusual redirect was reported.
+- Adsterra does not advise on jurisdiction-specific consent compliance. Obtain independent review before production.
+- Support's warning mentioned more than one ad code on the same page; **clarify whether two separate native placements on one page are permitted**, rather than assuming.
 
-## Publisher-supplied units (2026-11-01)
+## Approved publisher inventory (not activated on site)
 
-| Unit | Adsterra ID | Key | Purpose |
-| --- | --- | --- | --- |
-| 728×90 | 32042360 | 3e88187807f72645af6b39e90957f6a8 | Desktop |
-| 320×50 | 32042361 | fc02ce1675aa14021ad3dee29c123264 | Mobile |
-| 300×250 | 32042362 | 0f5386e1fbab687b18a7f7686197bec7 | Optional secondary |
+| Size | Ad unit ID | Key |
+| --- | --- | --- |
+| Desktop 728×90 | 32042360 | 3e88187807f72645af6b39e90957f6a8 |
+| Mobile 320×50 | 32042361 | fc02ce1675aa14021ad3dee29c123264 |
+| Optional 300×250 | 32042362 | 0f5386e1fbab687b18a7f7686197bec7 |
 
-Source supplied by account owner directly from Adsterra Publisher Dashboard (approved site 6168026).
+Website ID: 6168026, appsandgames.org (Publisher Dashboard approved).
 
-## Built in
+## Implemented safely in this branch
 
-- Two isolated HTML placeholder regions, one responsive top slot (desktop/mobile) and one optional 300×250.
-- `adsterra-pilot.js` has `adsEnabled: false` and `secondaryEnabled: false` by default.
-- Preview mock placements locally using `?adPreview=1`. This mode never loads third-party advertising.
-- If the flag is enabled after independent review, the script requires an explicit first-party Adsterra opt-in before requesting the vendor. A preference button supports withdrawal. It does not claim to replace a compliant CMP or cover analytics / AdSense.
-- Vendor snippets are assembled in separate sandboxed iframe documents to avoid shared `atOptions` collisions; may not work with every Adsterra campaign. Needs **provider approval / real browser testing** before go-live.
-- Offline mode never requests ads. No files for PWA games, AI Factory, or Cloudflare Workers configuration modified.
+- `adsterra-pilot.js` renders **mock placement boxes only**, and only when `?adPreview=1` is present.
+- Preview boxes reflect desktop/mobile breakpoints and a future optional 300×250 placement.
+- There is **no** iframe wrapper, vendor script, vendor tag insertion, first-party consent promise, or outside network request in the preview.
+- Without `?adPreview=1`, both regions stay hidden and the portal behaves as before.
+- HTML/CSS additions are isolated; no changes to game code, workers configuration, AI Factory, or production deployment.
 
-## Stop / production gates
+## Requirements before production
 
-1. Confirm the publisher script origin `https://bauval.org/22/<key>` directly with Adsterra, and verify ad category protections. Never infer trust solely from appearance.
-2. Confirm Adsterra policy permits nested sandboxed iframe and reports valid impressions; otherwise redesign placement without risking the host page.
-3. Verify CMP and region-specific GDPR/ePrivacy/Swiss privacy behavior for Adsterra, including reject and withdrawal. The pilot's basic opt-in is **not** a legal compliance certification.
-4. Review existing direct Google Analytics and AdSense integration; do not assume the existing Google CMP gates Adsterra. Avoid loading two ad stacks unintentionally.
-5. Test desktop 728×90, mobile 320×50, tiny viewports, 300×250 optional unit, dark/light themes, EN/HR/DE/IT/ES, keyboard, offline behavior, ad blockers and CSP.
-6. Do not invent an Adsterra `ads.txt` record; ask provider if it is required.
-7. Run `node --check adsterra-pilot.js` and `node --test tests/adsterra-pilot.test.mjs` plus existing portal tests; run manual browser smoke tests. Results must be recorded.
-8. Obtain explicit approval before enabling `adsEnabled`, merging, or any production deployment. AI Factory production HOLD remains untouched.
+1. Respect Adsterra policy: insert the **original publisher-provided tag directly in the page body, never inside any publisher-created iframe**. Adsterra's own `format: 'iframe'` parameter appears in its official output; ask support to confirm this is allowed and differs from a publisher wrapper.
+2. Start with only **one** active tag per page. Select 728×90 on desktop or 320×50 on mobile. Do not combine tags until explicit clarification about more than one code on a page.
+3. **Design and review a real consent integration** before enabling the network, including EU/EEA/UK/CH requirements, previous non-essential cookies, rejection and withdrawal. No local mock or basic button constitutes verified CMP compliance.
+4. Review the existing AdSense and Analytics tags in `index.html` and on the privacy page. Existing Google CMP behavior is not confirmed for Adsterra.
+5. Verify loaded banner visibility/interactions and tracking with Adsterra, plus ad safety categories, responsive layout, PWA/offline behavior and absence of unexpected redirects.
+6. Test with vendor network blocked first; later one controlled external test after explicit approval. Keep third-party advertising absent from offline/PWA caches.
+7. Do not add an invented `ads.txt` record. Await Adsterra's actual instructions.
+8. **No merge, no feature activation, no production deploy** until all safety, policy, legal, functional and browser gates are reviewed and user explicitly approves.
 
-Rollback: drop this pilot branch or revert its eventual merge. All new markup is isolated and hidden when the feature is disabled.
+Validation: `node --check adsterra-pilot.js`, `node --test tests/*.test.mjs` and Playwright `node ci/adsterra-pilot-smoke.mjs`. Run GitHub CI; record results.
