@@ -49,3 +49,28 @@ test("five language consent choices; provider and site privacy links", () => {
   assert.match(js, /adsterra-consent-actions/);
   assert.match(css, /\.adsterra-action:focus-visible/);
 });
+
+test("native banner candidate is wired directly into body but hard-disabled", () => {
+  const candidate = readFileSync(new URL("../adsterra-consent-candidate.js", import.meta.url), "utf8");
+  assert.match(html, /<section id="adsterra-pilot-top"[\s\S]*?<script src="adsterra-consent-candidate\.js"><\/script>[\s\S]*?<\/section>/);
+  assert.match(candidate, /const APPROVED_FOR_LIVE_ADS = false/);
+  assert.match(candidate, /if \(!APPROVED_FOR_LIVE_ADS\) return/);
+  assert.doesNotMatch(candidate, /\bsrcdoc\b|createElement\("iframe"\)/);
+  assert.match(candidate, /document\.write\(unit\)/);
+  assert.match(candidate, /document\.readyState === "loading"/);
+  for (const adKey of ["3e88187807f72645af6b39e90957f6a8", "fc02ce1675aa14021ad3dee29c123264"]) {
+    assert.match(candidate, new RegExp(adKey));
+  }
+});
+
+test("native candidate versioned, reject-first, reversible, one ad per view", () => {
+  const candidate = readFileSync(new URL("../adsterra-consent-candidate.js", import.meta.url), "utf8");
+  assert.match(candidate, /appsGamesAdsterraExplicitConsentV1/);
+  assert.match(candidate, /180 \* 24 \* 60 \* 60 \* 1000/);
+  assert.match(candidate, /window\.localStorage\.setItem\(STORE_KEY/);
+  assert.match(candidate, /readChoice\(\) === choice/);
+  assert.match(candidate, /button\(t.reject, \(\) => navigateAfterChoice\("reject"\)\)/);
+  assert.match(candidate, /button\(t.accept, \(\) => navigateAfterChoice\("allow"\)\)/);
+  assert.match(candidate, /button\(language\(\)\.withdraw, \(\) => navigateAfterChoice\("reject"\)\)/);
+  assert.match(candidate, /window\.matchMedia\(DESKTOP\)\.matches \? desktopCode : mobileCode/);
+});
