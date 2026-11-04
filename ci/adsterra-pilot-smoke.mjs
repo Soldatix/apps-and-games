@@ -44,7 +44,9 @@ try {
 
   for (const [lang, text] of [["hr", "Oglas"], ["de", "Anzeige"], ["it", "Pubblicità"], ["es", "Publicidad"]]) {
     await page.locator("#languageSelect").selectOption(lang);
-    assert.ok((await page.locator("#adsterra-pilot-top .adsterra-label").innerText()).includes(text));
+    const rendered = await page.locator("#adsterra-pilot-top .adsterra-label").innerText();
+    console.log("LANGUAGE CHECK", lang, JSON.stringify(rendered));
+    assert.ok(rendered.includes(text), "Language " + lang + " rendered " + JSON.stringify(rendered));
   }
   console.log("PASS: HR/DE/IT/ES preview labels");
   assert.equal(externalRequests.filter(url => /bauval\.org/.test(url)).length, 0);
