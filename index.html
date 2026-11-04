@@ -505,7 +505,10 @@
     </section>
 
     <!-- Adsterra staging: hidden unless preview or reviewed opt-in activation -->
-    <section id="adsterra-pilot-top" class="adsterra-pilot-region" aria-label="Advertisement" hidden></section>
+    <section id="adsterra-pilot-top" class="adsterra-pilot-region" aria-label="Advertisement" hidden>
+        <!-- Release candidate always returns immediately: APPROVED_FOR_LIVE_ADS=false. -->
+        <script src="adsterra-consent-candidate.js"></script>
+    </section>
 
     <section id="apps" class="app-section">
         <div class="section-heading">
