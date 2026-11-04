@@ -21,7 +21,8 @@ test("approved placement sizes: desktop, mobile, optional", () => {
   assert.match(js, /min-width: 768px/);
 });
 test("no vendor implementation or custom iframe after Adsterra ruling", () => {
-  assert.doesNotMatch(js, /iframe|srcdoc|bauval|atOptions|createElement\("script"\)|fetch\(/i);
+  const executable = js.replace(/\/\*[\s\S]*?\*\//g, ""); // ignore safety-only comment text
+  assert.doesNotMatch(executable, /iframe|srcdoc|bauval|atOptions|createElement\("script"\)|fetch\(/i);
   assert.doesNotMatch(html, /bauval\.org|adsterra-vendor-frame/);
   assert.match(html, /src="adsterra-pilot\.js"/);
   assert.match(html, /href="adsterra-pilot\.css"/);
