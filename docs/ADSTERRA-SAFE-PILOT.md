@@ -68,6 +68,19 @@ The site owner checked the live Google AdSense Privacy & messaging partner selec
 
 **This documentation update does not activate Adsterra or change the production site.**
 
+## Separate Adsterra consent preview implemented (2026-11-04)
+
+The draft PR has a fully localized **TEST-ONLY** UI, available only on a local deployment/branch at `/?adPreview=1`:
+
+- In EN/HR/DE/IT/ES, it introduces Adsterra by name, explains possible outside requests and identifiers, and links to the portal's privacy notice and Adsterra's published privacy policy.
+- Equal prominence **Allow** and **Reject** buttons. Optional consent, not preselected. Declining has no impact on Apps & Games access.
+- A session-scoped **pilot-only** choice is stored under `appsGamesAdsterraPilotChoiceV1`; reload remembers accept/reject in the same browser tab. This is deliberately **NOT** reused for eventual live ad consent.
+- A **Withdraw permission** action turns an accepted test choice into reject; **Change choice** and footer preferences permit reopening and updating. Responsive mock shows a single 728×90 desktop OR 320×50 mobile placeholder only after an accepted choice. The 300×250 is always inactive.
+- Absolutely **no ad delivery, ad tag, third-party scripts, own iframe wrappers, analytics integrations or Adsterra calls** are included in this preview. This branch must remain unmerged until the real consent and policy questions are resolved.
+- Existing GA4 and AdSense loads in `index.html` remain unchanged and are **outside the scope** of this pilot: the mock cannot be presented as site-wide privacy compliance. AdSense's site approval still shows **Needs attention / Low value content**, and the published Google CMP did not appear in the owner's private-browsing test.
+
+Before live deployment, **replace the TEST ONLY interface with a reviewed production consent management design** (including how Adsterra handles actual personal data and withdrawal, persistent preferences, CMP coexistence, vendor disclosures, and regional applicability). Reusing this pilot's session preference for production would be invalid.
+
 ## Requirements before production
 
 1. Respect Adsterra policy: insert the **original publisher-provided tag directly in the page body, never inside any publisher-created iframe**. Adsterra Support confirmed its own `format: 'iframe'` parameter is valid.
