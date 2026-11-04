@@ -36,6 +36,21 @@ Website ID: 6168026, appsandgames.org (Publisher Dashboard approved).
 - Without `?adPreview=1`, both regions stay hidden and the portal behaves as before.
 - HTML/CSS additions are isolated; no changes to game code, workers configuration, AI Factory, or production deployment.
 
+## Existing consent/CMP code audit (2026-11-04)
+
+Evidence reviewed from `main`:
+- `index.html` includes an immediately loaded Google Analytics tag (`gtag/js`, followed by `gtag('config', ...)`) and the Google AdSense `adsbygoogle.js` tag in `<head>`.
+- `privacy-policy.html` also loads `gtag/js` and states that the site uses a **Google-certified CMP**.
+- `script.js` emits analytics events through `gtag`, but a repository search in these files found no explicitly implemented `__tcfapi`, consent default/update, Adsterra vendor permission callback, or publisher-side CMP controls.
+- **Important limitation**: Google's AdSense / Privacy & messaging may inject the actual CMP remotely; source-code inspection does **not** prove its absence or that users do not see a consent message. We cannot infer its live configuration or whether Adsterra is a declared vendor.
+
+Next verification requested from owner:
+1. Inspect AdSense > Privacy & messaging > European regulations: is the message for appsandgames.org published and which vendors, purposes and revocation settings are configured?
+2. Confirm Google CMP integration and `__tcfapi` state in a live browser (consent denied/accepted), and independently determine whether Adsterra is covered or requires separate opt-in/vendor declaration.
+3. Only after verified coverage, design native original-tag insertion directly in the page body with **one** responsive banner per page and no vendor request before relevant consent; re-test withdrawal and no reloads in offline mode.
+
+**No consent or advertising behavior was changed in the portal by this audit.**
+
 ## Requirements before production
 
 1. Respect Adsterra policy: insert the **original publisher-provided tag directly in the page body, never inside any publisher-created iframe**. Adsterra Support confirmed its own `format: 'iframe'` parameter is valid.
