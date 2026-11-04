@@ -93,6 +93,28 @@ GitHub Actions run: https://github.com/Soldatix/apps-and-games/actions/runs/4183
 
 Before production, confirm vendor acceptance of any conditional or `document.write`-based insertion, or choose an allowed alternative that inserts the original code only after verified consent. Separate legal review is needed for vendor purposes, user disclosure, retention, cookies, refusal, and withdrawal. A previously loaded third-party tag or its cookies cannot be undone merely by removing its DOM element; reload and vendor/browser data handling are required.
 
+## Gated native consent release candidate — disabled (2026-11-04)
+
+Files: `adsterra-consent-candidate.js` wired synchronously inside the top HTML BODY section; `ci/adsterra-candidate-smoke.mjs` for intercepted tests. **`const APPROVED_FOR_LIVE_ADS = false;` is a hard fail-closed stop.** The public site and Draft branch default show no live ads and do not expose the candidate consent interface (the separate `?adPreview=1` demonstration continues to work).
+
+**Functional draft:** If this flag is explicitly enabled in a *test-only served copy*:
+- An independent Adsterra-specific notice appears, with provider and publisher privacy links, equally weighted Allow/Reject options, EN/HR/DE/IT/ES strings and no pre-checked state.
+- Decisions save a minimal, versioned first-party preference to localStorage (allow/reject, version and timestamp only). A missing, stale (>180 days), malformed or inaccessible preference fails closed.
+- Withdrawal and re-entry through a footer Preferences control are supported; a reload prevents any future requests after rejection. Reload **cannot remove already-set third-party cookies**.
+- After affirmative permission only, a parser-time native two-script Adsterra snippet is written directly into the BODY at the designated placement: either desktop 728×90 **or** mobile 320×50, never both, no additional wrapper iframe. Screens narrower than 320px and offline views skip loading.
+- The native tag uses `document.write` at initial parsing in this **candidate only**. This is *not* yet a confirmed production-allowed delivery method with Adsterra, and long-blocking external scripts may harm page speed. Obtain vendor acceptance or replace with an approved equivalent.
+
+**CI run:** https://github.com/Soldatix/apps-and-games/actions/runs/41834747184 **PASS** — 14/14 static tests plus all Chromium smoke tests; extra candidate checks verified no pre-consent network, rejection, acceptance, correct single desktop/mobile tag, withdrawal, viewport <320px and expired consent. Every Adsterra call was fulfilled with inert mock JS; **ZERO actual external Adsterra requests/impressions**.
+
+**Outstanding release blockers**:
+1. The live main page currently fetches Google Analytics and AdSense tags in its HEAD without verified consent gating. The Google CMP message was published in AdSense but did **not** appear in the owner's incognito browser tests, and AdSense currently marks the site `Needs attention — Low value content`. The site-wide Google collection/privacy behavior requires its own audit and corrections; this Adsterra-only manager does **not** solve it.
+2. Determine whether a separate Adsterra-specific first-party consent prompt legally suffices in the target jurisdictions, or adopt a unified compliant CMP. Confirm the actual vendor purposes, third parties, retention, cookie practices and privacy disclosures (https://adsterra.com/privacy-policy-managed).
+3. Obtain Adsterra approval for the **conditional native-code insertion technique**; its approval of the original `format:'iframe'` option is not blanket approval of `document.write`.
+4. Controlled real-ad staging test only after approved consent, network safety and opt-out checks; then require explicit owner authorization to modify `APPROVED_FOR_LIVE_ADS`, merge and deploy.
+5. Do not enable a script solely based on the old pilot `sessionStorage` demo choice. The release candidate maintains its own separate preference key.
+
+**NO MERGE / NO PRODUCTION DEPLOY / NO REAL AD REQUEST**.
+
 ## Requirements before production
 
 1. Respect Adsterra policy: insert the **original publisher-provided tag directly in the page body, never inside any publisher-created iframe**. Adsterra Support confirmed its own `format: 'iframe'` parameter is valid.
