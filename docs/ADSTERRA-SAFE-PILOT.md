@@ -81,6 +81,18 @@ The draft PR has a fully localized **TEST-ONLY** UI, available only on a local d
 
 Before live deployment, **replace the TEST ONLY interface with a reviewed production consent management design** (including how Adsterra handles actual personal data and withdrawal, persistent preferences, CMP coexistence, vendor disclosures, and regional applicability). Reusing this pilot's session preference for production would be invalid.
 
+## Native original-tag blocked-network acceptance test (2026-11-04)
+
+GitHub Actions run: https://github.com/Soldatix/apps-and-games/actions/runs/41831983863 — **PASS**.
+- Portal static tests: **12/12 PASS**, existing responsive browser smoke tests: **PASS**.
+- `ci/adsterra-native-guard-smoke.mjs` contains a local-only, completely intercepted browser fixture. It uses two Adsterra-style publisher tags (`atOptions` and external `bauval.org` script, with exact publisher keys and sizes) directly in the normal HTML body, **no publisher-created iframe**.
+- In the fixture only, a prior affirmative session choice allows `document.write` of exactly one original-format tag *while the HTML parser is still running*. This is an experimental test method, **not yet approved by Adsterra for production**.
+- Test cases: no request before opt-in; rejection remains blocked after reload; explicit desktop 728×90 opt-in triggers exactly one intercepted request; withdrawal prevents later requests after reload; mobile 320×50 activates only mobile unit.
+- All requests for `bauval.org` are fulfilled with an inert local JavaScript stub. **No real Adsterra request, tracking, or payable impression.**
+- Actual portal `adsterra-pilot.js` is still **preview-only**, with a session-scoped choice that is deliberately **not** production consent. No live tag was added to `index.html` and no production deployment took place.
+
+Before production, confirm vendor acceptance of any conditional or `document.write`-based insertion, or choose an allowed alternative that inserts the original code only after verified consent. Separate legal review is needed for vendor purposes, user disclosure, retention, cookies, refusal, and withdrawal. A previously loaded third-party tag or its cookies cannot be undone merely by removing its DOM element; reload and vendor/browser data handling are required.
+
 ## Requirements before production
 
 1. Respect Adsterra policy: insert the **original publisher-provided tag directly in the page body, never inside any publisher-created iframe**. Adsterra Support confirmed its own `format: 'iframe'` parameter is valid.
