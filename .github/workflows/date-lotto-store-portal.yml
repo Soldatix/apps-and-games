@@ -54,3 +54,4 @@ jobs:
           node ci/adsterra-pilot-smoke.mjs
           node ci/adsterra-native-guard-smoke.mjs
           node ci/adsterra-candidate-smoke.mjs
+          node ci/privacy-network-smoke.mjs
