@@ -34,6 +34,9 @@ try {
   console.log("PASS: 728x90 desktop placeholder; no Adsterra network request");
 
   await page.setViewportSize({ width: 375, height: 812 });
+  // Media-query change notification is asynchronous in Chromium.
+  await page.waitForFunction(() => document.querySelector("#adsterra-pilot-top .adsterra-slot-preview")
+    ?.style.getPropertyValue("--ad-width") === "320px");
   box = await top.boundingBox();
   const secondary = await page.locator("#adsterra-pilot-secondary .adsterra-slot-preview").boundingBox();
   assert.ok(box && box.width >= 310 && box.width <= 321, "320x50 mock missing");
