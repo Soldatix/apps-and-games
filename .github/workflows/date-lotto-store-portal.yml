@@ -33,6 +33,7 @@ jobs:
       - name: Validate JavaScript syntax
         run: |
           node --check script.js
+          node --check adsterra-pilot.js
           node --check detail-i18n.js
       - name: Static catalog and Store link regression tests
         run: node --test tests/*.test.mjs
@@ -49,3 +50,4 @@ jobs:
           done
           curl --fail http://127.0.0.1:4173/ > /dev/null
           node ci/date-lotto-store-portal-smoke.mjs
+          node ci/adsterra-pilot-smoke.mjs
