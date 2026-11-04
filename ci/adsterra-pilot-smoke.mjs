@@ -3,14 +3,14 @@ import { chromium } from "playwright";
 
 const base = "http://127.0.0.1:4173/";
 const origin = new URL(base).origin;
-const externalRequests = [];
 const browser = await chromium.launch({ headless: true });
 try {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  const vendorRequests = [];
   await context.route("**/*", route => {
-    const url = new URL(route.request().url());
-    if (url.origin === origin) return route.continue();
-    externalRequests.push(url.href);
+    const target = new URL(route.request().url());
+    if (target.origin === origin) return route.continue();
+    vendorRequests.push(target.href);
     return route.abort();
   });
   const page = await context.newPage();
@@ -20,41 +20,60 @@ try {
   await page.goto(base, { waitUntil: "domcontentloaded" });
   assert.equal(await page.locator("#adsterra-pilot-top").isHidden(), true);
   assert.equal(await page.locator("#adsterra-pilot-secondary").isHidden(), true);
-  assert.equal(await page.locator(".adsterra-vendor-frame").count(), 0);
-  console.log("PASS: preview disabled by default");
+  assert.equal(await page.locator(".adsterra-consent-panel").count(), 0);
+  console.log("PASS: feature completely hidden on ordinary portal URL");
 
   await page.goto(base + "?adPreview=1", { waitUntil: "domcontentloaded" });
-  assert.equal(await page.locator("#adsterra-pilot-top").isVisible(), true);
-  assert.equal(await page.locator("#adsterra-pilot-secondary").isVisible(), true);
-  const top = page.locator("#adsterra-pilot-top .adsterra-slot-preview");
-  let box = await top.boundingBox();
-  assert.ok(box && box.width >= 700 && box.width <= 730, "728x90 mock missing");
-  assert.equal(await page.locator("#adsterra-pilot-top iframe").count(), 0);
-  assert.equal(externalRequests.filter(url => /bauval\.org/.test(url)).length, 0);
-  console.log("PASS: 728x90 desktop placeholder; no Adsterra network request");
+  assert.equal(await page.locator(".adsterra-consent-panel").count(), 1);
+  assert.equal(await page.locator(".adsterra-consent-actions button").count(), 2);
+  assert.equal(await page.locator(".adsterra-slot-preview").count(), 0);
+  assert.equal(await page.locator("#adsterra-pilot-secondary").isHidden(), true);
+  console.log("PASS: preview asks for separate consent; optional unit remains off");
+
+  await page.locator(".adsterra-reject").click();
+  assert.equal(await page.locator(".adsterra-slot-preview").count(), 0);
+  assert.equal(await page.evaluate(() => sessionStorage.getItem("appsGamesAdsterraPilotChoiceV1")), "reject");
+  console.log("PASS: reject saves choice, does not render banner mock");
+
+  await page.reload({ waitUntil: "domcontentloaded" });
+  assert.equal(await page.locator(".adsterra-consent-panel").count(), 0);
+  assert.equal(await page.locator(".adsterra-slot-preview").count(), 0);
+  await page.locator(".adsterra-change").click();
+  assert.equal(await page.locator(".adsterra-consent-panel").count(), 1);
+  await page.locator(".adsterra-accept").click();
+  assert.equal(await page.evaluate(() => sessionStorage.getItem("appsGamesAdsterraPilotChoiceV1")), "allow");
+  let box = await page.locator(".adsterra-slot-preview").boundingBox();
+  assert.ok(box && box.width >= 700 && box.width <= 730, "728x90 desktop mock missing");
+  assert.equal(await page.locator(".adsterra-slot-preview").count(), 1);
+  console.log("PASS: explicit accept shows exactly one 728x90 mock");
 
   await page.setViewportSize({ width: 375, height: 812 });
-  // Media-query change notification is asynchronous in Chromium.
   await page.waitForFunction(() => document.querySelector("#adsterra-pilot-top .adsterra-slot-preview")
     ?.style.getPropertyValue("--ad-width") === "320px");
-  box = await top.boundingBox();
-  const secondary = await page.locator("#adsterra-pilot-secondary .adsterra-slot-preview").boundingBox();
-  assert.ok(box && box.width >= 310 && box.width <= 321, "320x50 mock missing");
-  assert.ok(box.x >= -1 && box.x + box.width <= 376, "mobile overflow");
-  assert.ok(secondary && secondary.width >= 295 && secondary.width <= 301, "300x250 mock missing");
-  assert.equal(await page.locator("#adsterra-pilot-secondary iframe").count(), 0);
-  console.log("PASS: 320x50 mobile and 300x250 optional placeholders; no custom iframe");
+  box = await page.locator(".adsterra-slot-preview").boundingBox();
+  assert.ok(box && box.width >= 310 && box.width <= 321, "mobile 320x50 mock missing");
+  assert.ok(box.x >= -1 && box.x + box.width <= 376, "mobile ad preview overflows");
+  assert.equal(await page.locator(".adsterra-slot-preview").count(), 1);
+  console.log("PASS: mobile responsive single ad mock");
 
-  for (const [lang, text] of [["hr", "Oglas"], ["de", "Anzeige"], ["it", "Pubblicità"], ["es", "Publicidad"]]) {
+  for (const [lang, phrase] of [["hr", "Dopusti"], ["de", "erlauben"], ["it", "Consenti"], ["es", "Permitir"]]) {
     await page.locator("#languageSelect").selectOption(lang);
-    // innerText applies CSS text-transform: uppercase; use semantic DOM text instead.
-    const rendered = await page.locator("#adsterra-pilot-top .adsterra-label").textContent();
-    assert.ok(rendered.includes(text), "Language " + lang + " rendered " + JSON.stringify(rendered));
+    await page.locator(".adsterra-change").click();
+    assert.ok((await page.locator(".adsterra-accept").textContent()).includes(phrase), lang);
+    await page.locator(".adsterra-accept").click();
   }
-  console.log("PASS: HR/DE/IT/ES preview labels");
-  assert.equal(externalRequests.filter(url => /bauval\.org/.test(url)).length, 0);
+  console.log("PASS: five-language consent UI and choices");
+
+  await page.locator(".adsterra-withdraw").click();
+  assert.equal(await page.evaluate(() => sessionStorage.getItem("appsGamesAdsterraPilotChoiceV1")), "reject");
+  assert.equal(await page.locator(".adsterra-slot-preview").count(), 0);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  assert.equal(await page.locator(".adsterra-slot-preview").count(), 0);
+  console.log("PASS: withdrawal persists and mock is removed");
+  assert.equal(vendorRequests.filter(url => /bauval\.org|adsterra/i.test(url)).length, 0);
   assert.deepEqual(errors, []);
-  console.log("PASS: zero vendor ad requests and no uncaught page errors");
+  console.log("PASS: no Adsterra network requests; no page errors");
+
   await context.close();
 } finally {
   await browser.close();
