@@ -51,6 +51,23 @@ Next verification requested from owner:
 
 **No consent or advertising behavior was changed in the portal by this audit.**
 
+## Google CMP vendor lookup (2026-11-04)
+
+The site owner checked the live Google AdSense Privacy & messaging partner selector: **Adsterra is not among available partners**.
+
+**Consequence:** We cannot treat Google's published EU consent message or Google Consent Mode as affirmative authorization to load Adsterra's independent third-party ad tag. The Google-managed list only covers the vendors included in its TCF/ATP framework. Google describes Additional Consent as supporting non-TCF vendors *already present on Google's ATP list*, not arbitrary ad networks.
+
+**Do not:** add Adsterra under another provider's name; equate Google's Accept All with Adsterra permission; load the Adsterra script before permission; use the originally prohibited publisher-created iframe; remove the existing Google CMP without an alternative tested for AdSense.
+
+**Proposed approval-gated approach:**
+1. Retain the published Google CMP without unreviewed changes while separately verifying it actually appears and records visitor consent in a fresh EU/CH browser session (AdSense reported 0 messages shown).
+2. Choose either (a) one reviewed Google-certified TCF-compatible CMP supporting BOTH Google's partners and explicit/custom Adsterra vendor disclosures, or (b) keep Google's CMP for Google products AND implement a genuinely informed, separate Adsterra opt-in, provided legal review accepts the combined user experience. Two prompts may be confusing, so a unified CMP is preferable if practical.
+3. For Adsterra, show clear purpose/vendor information before any script request, with equally accessible Accept / Reject, no preselected consent, persistent preference and easy withdrawal. Explain data processing and link to Adsterra's own policy; determine the exact categories, recipients and applicability from the vendor and jurisdiction.
+4. On acceptance, render exactly one publisher-supplied native banner tag in page BODY (728x90 desktop OR 320x50 mobile). On reject, do not fetch it. After withdrawal, prevent further loading; inform users that previously set third-party cookies may require provider/browser controls. Never promise removing a DOM node deletes third-party cookies.
+5. Confirm Google analytics/AdSense defaults and behavior with CMP denied before go-live. Update privacy policy to accurately document both vendors and data practices. Conduct real-browser tests including EEA/CH, mobile, offline and refusal.
+
+**This documentation update does not activate Adsterra or change the production site.**
+
 ## Requirements before production
 
 1. Respect Adsterra policy: insert the **original publisher-provided tag directly in the page body, never inside any publisher-created iframe**. Adsterra Support confirmed its own `format: 'iframe'` parameter is valid.
