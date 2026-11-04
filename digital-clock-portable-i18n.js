@@ -4,7 +4,7 @@
     "en": {
         "installerTitle": "Digital Clock Windows Installer",
         "installerHelp": "Installer instructions",
-        "installerStatus": "Rust Windows Installer v3.0.0 is available.",
+        "installerStatus": "Rust Windows Installer v3.0.1 is available.",
         "installerDownload": "Download Windows Installer",
         "installerDesc": "Windows 10/11 x64 · Separate standard installation with optional Windows .scr Screen Saver integration. Unlike Portable, this edition can register the Screen Saver for your Windows account. Screen Saver activation is optional and off by default.",
         "btn": "Download Windows Portable ZIP",
@@ -15,7 +15,7 @@
     "hr": {
         "installerTitle": "Digital Clock Windows Installer",
         "installerHelp": "Upute za Installer",
-        "installerStatus": "Rust Windows Installer v3.0.0 dostupan je za preuzimanje.",
+        "installerStatus": "Rust Windows Installer v3.0.1 dostupan je za preuzimanje.",
         "installerDownload": "Preuzmi Windows Installer",
         "installerDesc": "Windows 10/11 x64 · Zasebna standardna instalacija s opcionalnom integracijom Windows .scr čuvara zaslona. Za razliku od Portable verzije, čuvar se može registrirati za Windows korisnika. Aktivacija je opcionalna i početno isključena.",
         "btn": "Preuzmi Windows Portable ZIP",
@@ -26,7 +26,7 @@
     "de": {
         "installerTitle": "Digital Clock Windows-Installer",
         "installerHelp": "Installer-Anleitung",
-        "installerStatus": "Rust Windows Installer v3.0.0 steht zum Download bereit.",
+        "installerStatus": "Rust Windows Installer v3.0.1 steht zum Download bereit.",
         "installerDownload": "Windows-Installer herunterladen",
         "installerDesc": "Windows 10/11 x64 · Separate Standardinstallation mit optionaler Windows-.scr-Bildschirmschoner-Integration. Anders als Portable kann diese Edition den Bildschirmschoner für das Windows-Benutzerkonto registrieren. Die Aktivierung ist standardmäßig ausgeschaltet.",
         "btn": "Windows Portable ZIP herunterladen",
@@ -37,7 +37,7 @@
     "it": {
         "installerTitle": "Digital Clock Installer Windows",
         "installerHelp": "Istruzioni Installer",
-        "installerStatus": "Rust Windows Installer v3.0.0 è disponibile per il download.",
+        "installerStatus": "Rust Windows Installer v3.0.1 è disponibile per il download.",
         "installerDownload": "Scarica Windows Installer",
         "installerDesc": "Windows 10/11 x64 · Installazione standard separata con integrazione facoltativa dello screensaver Windows .scr. A differenza della versione Portable, può registrare lo screensaver per l'utente Windows. L'attivazione è disattivata per impostazione predefinita.",
         "btn": "Scarica Windows Portable ZIP",
@@ -48,7 +48,7 @@
     "es": {
         "installerTitle": "Digital Clock Instalador Windows",
         "installerHelp": "Instrucciones del instalador",
-        "installerStatus": "Rust Windows Installer v3.0.0 ya está disponible.",
+        "installerStatus": "Rust Windows Installer v3.0.1 ya está disponible.",
         "installerDownload": "Descargar instalador de Windows",
         "installerDesc": "Windows 10/11 x64 · Instalación estándar independiente con integración opcional del protector Windows .scr. A diferencia de Portable, puede registrar el protector para el usuario de Windows. Su activación está desmarcada de forma predeterminada.",
         "btn": "Descargar Windows Portable ZIP",
