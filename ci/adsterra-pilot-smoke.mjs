@@ -44,8 +44,8 @@ try {
 
   for (const [lang, text] of [["hr", "Oglas"], ["de", "Anzeige"], ["it", "Pubblicità"], ["es", "Publicidad"]]) {
     await page.locator("#languageSelect").selectOption(lang);
-    const rendered = await page.locator("#adsterra-pilot-top .adsterra-label").innerText();
-    console.log("LANGUAGE CHECK", lang, JSON.stringify(rendered));
+    // innerText applies CSS text-transform: uppercase; use semantic DOM text instead.
+    const rendered = await page.locator("#adsterra-pilot-top .adsterra-label").textContent();
     assert.ok(rendered.includes(text), "Language " + lang + " rendered " + JSON.stringify(rendered));
   }
   console.log("PASS: HR/DE/IT/ES preview labels");
