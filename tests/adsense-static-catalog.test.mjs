@@ -50,12 +50,13 @@ test("all catalog entries are in the HTML response, without running JavaScript",
     }
 });
 
-test("existing JavaScript language enhancement, analytics and AdSense loading remain intact", () => {
+test("existing portal behavior remains intact; Google tags are quarantined in this draft", () => {
     assert.match(html, /<script src="script\.js"><\/script>/);
     assert.match(script, /function renderApps\(\)/);
     assert.match(script, /cardTranslations\[currentLanguage\]/);
     assert.match(script, /setupAppTracking\(\)/);
-    assert.match(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/);
+    assert.doesNotMatch(html, /<script[^>]*src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js/);
+    assert.match(html, /PR #36 PRIVACY HOLD/);
     assert.match(html, /href="privacy-policy\.html"/);
 });
 

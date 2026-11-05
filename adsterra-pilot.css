@@ -1,0 +1,77 @@
+/* Adsterra pilot: explicit TEST ONLY UI; no vendor advertising CSS. */
+.adsterra-pilot-region[hidden] { display: none !important; }
+.adsterra-pilot-region {
+  box-sizing: border-box;
+  margin: 18px auto 26px;
+  padding: 12px;
+  width: min(100%, var(--max-width, 1200px));
+  text-align: center;
+  color: var(--text-secondary, #6c7585);
+}
+.adsterra-consent-panel {
+  margin: 0 auto;
+  max-width: 770px;
+  text-align: left;
+  padding: 22px;
+  border: 1px solid var(--border, #888);
+  border-radius: 16px;
+  background: var(--surface, #ffffff);
+}
+.adsterra-consent-heading { font-size: 1.2rem; margin: 0 0 12px; color: var(--text); }
+.adsterra-consent-description { margin: 0 0 12px; line-height: 1.55; }
+.adsterra-consent-demo { margin: 0 0 12px; font-weight: 700; font-size: 0.88rem; }
+.adsterra-consent-links { margin: 12px 0; }
+.adsterra-consent-link { color: var(--primary, #229cee); text-decoration: underline; }
+.adsterra-consent-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.adsterra-action {
+  background: var(--surface-2, #eef0f5);
+  color: var(--text, #111);
+  border: 1px solid var(--border, #888);
+  border-radius: 9px;
+  min-width: 180px;
+  min-height: 44px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font: inherit;
+}
+.adsterra-accept, .adsterra-reject { font-weight: 650; }
+.adsterra-action:focus-visible, .adsterra-consent-link:focus-visible {
+  outline: 2px solid var(--primary, #229cee);
+  outline-offset: 3px;
+}
+.adsterra-consent-status { margin: 10px auto; font-size: 0.9rem; }
+.adsterra-pilot-region .adsterra-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 14px 0 7px;
+}
+.adsterra-slot {
+  width: fit-content;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+}
+.adsterra-slot-preview {
+  width: min(var(--ad-width), 100%);
+  min-height: var(--ad-height);
+  border: 1px dashed var(--border, #888);
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background: var(--surface-2, #f5f5f5);
+  border-radius: 8px;
+}
+.adsterra-hint { font-size: 0.85rem; max-width: 52ch; margin: 8px auto; }
+.adsterra-preferences-link { min-width: auto; font-size: inherit; }
+@media (max-width: 359px) {
+  .adsterra-pilot-region { padding: 4px 0; }
+  .adsterra-action { width: 100%; }
+}
+/* Disabled Adsterra release candidate: only active in a reviewed opt-in build. */
+.adsterra-consent-panel { max-width: 770px; margin: 0 auto; }
+.adsterra-consent-description { line-height: 1.55; margin: 8px 0 12px; }
+.adsterra-consent-links { margin: 12px 0; }
+.adsterra-consent-link { color: var(--primary, #229cee); text-decoration: underline; }
+.adsterra-consent-link:focus-visible { outline: 2px solid var(--primary, #229cee); outline-offset: 3px; }
