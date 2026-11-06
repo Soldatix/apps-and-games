@@ -53,6 +53,10 @@ try {
  const mobile=await mobileContext.newPage();
  const mobileErrors=[];
  mobile.on("pageerror",error=>mobileErrors.push(error.message));
+ // On pages without a language selector, the browser locale must win.
+ await mobile.goto(url+"privacy-policy.html",{waitUntil:"domcontentloaded"});
+ await mobile.getByRole("button",{name:"Odbij analitiku",exact:true}).waitFor();
+ assert.equal(mobileGoogle.length,0,"Privacy page must not send Google traffic before consent");
  await mobile.goto(url+"date-lotto-generator.html",{waitUntil:"domcontentloaded"});
  await mobile.waitForSelector("#ag-privacy-banner");
  const labels={

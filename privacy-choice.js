@@ -75,7 +75,7 @@
 
   const language = () => {
     const picker = document.getElementById("languageSelect");
-    const lang = (picker && picker.value) || document.documentElement.lang || navigator.language || "en";
+    const lang = (picker && picker.value) || navigator.language || document.documentElement.lang || "en";
     return LANGS[lang.slice(0, 2).toLowerCase()] || LANGS.en;
   };
 
