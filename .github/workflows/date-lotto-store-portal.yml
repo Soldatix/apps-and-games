@@ -11,6 +11,9 @@ on:
       - date-lotto-generator.html
       - detail-i18n.js
       - index.html
+      - privacy-policy.html
+      - privacy-choice.js
+      - privacy-choice.css
       - script.js
       - style.css
       - tests/**
@@ -49,3 +52,5 @@ jobs:
           done
           curl --fail http://127.0.0.1:4173/ > /dev/null
           node ci/date-lotto-store-portal-smoke.mjs
+      - name: Browser website analytics consent and withdrawal tests
+        run: node ci/website-consent-smoke.mjs
