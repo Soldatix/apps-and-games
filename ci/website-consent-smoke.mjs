@@ -40,4 +40,41 @@ try {
  assert.equal(await page.locator("#ag-privacy-choices").count(),1);
  console.log("PASS: default no network, rejection, opt-in, withdrawal, ads held");
  await context.close();
+
+ // A new mobile, privacy-clean browser must be able to refuse without Google calls.
+ const mobileContext=await browser.newContext({
+   viewport:{width:375,height:812},locale:"hr-HR",isMobile:true,hasTouch:true
+ });
+ const mobileGoogle=[];
+ await mobileContext.route(/googletagmanager\.com|google-analytics\.com|googlesyndication\.com|doubleclick\.net/,route=>{
+  mobileGoogle.push(route.request().url());
+  route.abort();
+ });
+ const mobile=await mobileContext.newPage();
+ const mobileErrors=[];
+ mobile.on("pageerror",error=>mobileErrors.push(error.message));
+ await mobile.goto(url+"date-lotto-generator.html",{waitUntil:"domcontentloaded"});
+ await mobile.waitForSelector("#ag-privacy-banner");
+ const labels={
+   en:"Reject analytics",hr:"Odbij analitiku",de:"Analyse ablehnen",
+   it:"Rifiuta analisi",es:"Rechazar analítica"
+ };
+ for(const [code,label] of Object.entries(labels)){
+   await mobile.locator("#languageSelect").evaluate((element,lang)=>{
+    element.value=lang;
+    element.dispatchEvent(new Event("change",{bubbles:true}));
+   },code);
+   await mobile.getByRole("button",{name:label,exact:true}).waitFor();
+ }
+ const rect=await mobile.locator("#ag-privacy-banner").boundingBox();
+ assert.ok(rect,"Mobile banner is missing");
+ assert.ok(rect.x>=0 && rect.y>=0 && rect.x+rect.width<=376 &&
+   rect.y+rect.height<=813,"Mobile banner must remain visible within viewport");
+ await mobile.getByRole("button",{name:"Rechazar analítica"}).click();
+ assert.equal(mobileGoogle.length,0,"Rejecting on mobile must send no Google requests");
+ assert.equal(await mobile.locator("#ag-privacy-banner").count(),0);
+ assert.equal(await mobile.locator("#ag-privacy-choices").count(),1);
+ assert.deepEqual(mobileErrors,[],"No mobile JavaScript errors");
+ console.log("PASS: mobile 375px and five languages, no traffic when rejected");
+ await mobileContext.close();
 } finally {await browser.close();}
