@@ -22,7 +22,9 @@ test("Privacy Policy combines Android disclosures with website opt-in script",()
 
 test("website disclosure and analytics mechanism agree on opt-in and no ads",()=>{
  assert.match(html,/Website consent controls, where configured, are separate/);
- assert.match(html,/consent controls currently deployed on the website are subject/);
+ assert.match(html,/Website analytics is optional/);
+ assert.match(html,/persistent Privacy choices control/);
+ assert.match(html,/analytics choice does not activate Google AdSense/);
  assert.match(analytics,/readChoice\(\) !== true\) return/);
  assert.match(analytics,/analytics_storage: "denied"/);
  assert.match(analytics,/ad_storage: "denied"/);
