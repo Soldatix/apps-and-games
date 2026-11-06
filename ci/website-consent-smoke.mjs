@@ -67,6 +67,7 @@ try {
    await mobile.getByRole("button",{name:label,exact:true}).waitFor();
  }
  const rect=await mobile.locator("#ag-privacy-banner").boundingBox();
+ console.log("MOBILE_LAYOUT_DIAG",JSON.stringify({rect,viewport:await mobile.evaluate(()=>({width:window.innerWidth,height:window.innerHeight,visualWidth:window.visualViewport?.width,visualHeight:window.visualViewport?.height,scale:window.visualViewport?.scale,css:document.querySelector("#ag-privacy-banner")?.getAttribute("style")}))}));
  assert.ok(rect,"Mobile banner is missing");
  assert.ok(rect.x>=0 && rect.y>=0 && rect.x+rect.width<=376 &&
    rect.y+rect.height<=813,"Mobile banner must remain visible within viewport");
