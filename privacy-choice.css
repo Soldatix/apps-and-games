@@ -35,7 +35,7 @@
 .ag-privacy-toggle input { width: 22px; height: 22px; accent-color: #265bd8; flex-shrink: 0; }
 .ag-privacy-explain { font-size: 14px; }
 @media (max-width: 480px) {
-  .ag-privacy-banner { padding: 15px; bottom: 6px; width: calc(100% - 12px); }
+  .ag-privacy-banner { padding: 15px; bottom: max(24px, env(safe-area-inset-bottom, 0px)); width: calc(100% - 12px); max-height: min(76dvh, 650px); }
   .ag-privacy-dialog { padding: 18px; }
   .ag-privacy-actions { flex-direction: column; }
   .ag-privacy-btn { width: 100%; }
