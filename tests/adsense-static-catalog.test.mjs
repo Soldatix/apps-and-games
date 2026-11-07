@@ -50,12 +50,14 @@ test("all catalog entries are in the HTML response, without running JavaScript",
     }
 });
 
-test("existing JavaScript language enhancement, analytics and AdSense loading remain intact", () => {
+test("existing JavaScript language enhancement stays intact while analytics requires opt-in", () => {
     assert.match(html, /<script src="script\.js"><\/script>/);
     assert.match(script, /function renderApps\(\)/);
     assert.match(script, /cardTranslations\[currentLanguage\]/);
     assert.match(script, /setupAppTracking\(\)/);
-    assert.match(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/);
+    assert.match(html, /src="privacy-choice\.js"/);
+    assert.match(html, /href="privacy-choice\.css"/);
+    assert.doesNotMatch(html, /pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js/);
     assert.match(html, /href="privacy-policy\.html"/);
 });
 
