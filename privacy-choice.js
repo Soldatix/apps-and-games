@@ -11,7 +11,7 @@
   const LANGS = {
     en: {
       title: "Your privacy choices",
-      intro: "Optional website analytics help us understand visits. Google Analytics is not loaded unless you agree. Advertising is disabled while we prepare a certified consent solution.",
+      intro: "Optional website analytics help us understand visits. Google Analytics is not loaded unless you agree. Adsterra advertisements have a separate optional choice on the homepage.",
       accept: "Accept analytics", reject: "Reject analytics", manage: "Manage options",
       preferences: "Privacy choices", details: "Website analytics (Google Analytics 4)",
       explain: "Allow measurement of visits and interactions. Lottery combinations and Personal Keys are not sent to Apps & Games for analytics.",
@@ -19,7 +19,7 @@
     },
     hr: {
       title: "Vaši izbori privatnosti",
-      intro: "Neobavezna analitika pomaže nam razumjeti posjete. Google Analytics ne učitava se bez vaše privole. Oglasi su isključeni dok pripremamo certificirano rješenje.",
+      intro: "Neobavezna analitika pomaže nam razumjeti posjete. Google Analytics ne učitava se bez vaše privole. Adsterra oglasi imaju zasebnu neobaveznu privolu na početnoj stranici.",
       accept: "Prihvati analitiku", reject: "Odbij analitiku", manage: "Upravljaj postavkama",
       preferences: "Postavke privatnosti", details: "Analitika web-stranice (Google Analytics 4)",
       explain: "Dopusti mjerenje posjeta i interakcija. Lotto kombinacije i osobni ključevi ne šalju se Apps & Gamesu radi analitike.",
@@ -27,7 +27,7 @@
     },
     de: {
       title: "Ihre Datenschutzeinstellungen",
-      intro: "Optionale Analysen helfen uns, Besuche zu verstehen. Google Analytics wird nur nach Ihrer Zustimmung geladen. Werbung bleibt bis zur Einführung einer zertifizierten Einwilligungslösung deaktiviert.",
+      intro: "Optionale Analysen helfen uns, Besuche zu verstehen. Google Analytics wird nur nach Ihrer Zustimmung geladen. Adsterra-Werbung hat eine separate freiwillige Einwilligung auf der Startseite.",
       accept: "Analyse akzeptieren", reject: "Analyse ablehnen", manage: "Einstellungen verwalten",
       preferences: "Datenschutzeinstellungen", details: "Website-Analyse (Google Analytics 4)",
       explain: "Messung von Besuchen und Interaktionen erlauben. Lotto-Kombinationen und persönliche Schlüssel werden nicht für Analysen an Apps & Games gesendet.",
@@ -35,7 +35,7 @@
     },
     it: {
       title: "Le tue scelte sulla privacy",
-      intro: "Le analisi facoltative ci aiutano a capire le visite. Google Analytics viene caricato solo con il tuo consenso. La pubblicità resta disattivata in attesa di una soluzione certificata.",
+      intro: "Le analisi facoltative ci aiutano a capire le visite. Google Analytics viene caricato solo con il tuo consenso. La pubblicità Adsterra richiede una scelta facoltativa separata nella pagina iniziale.",
       accept: "Accetta analisi", reject: "Rifiuta analisi", manage: "Gestisci opzioni",
       preferences: "Scelte sulla privacy", details: "Analisi del sito (Google Analytics 4)",
       explain: "Consenti la misurazione di visite e interazioni. Le combinazioni del lotto e le chiavi personali non vengono inviate a Apps & Games per l'analisi.",
@@ -43,7 +43,7 @@
     },
     es: {
       title: "Tus opciones de privacidad",
-      intro: "La analítica opcional nos ayuda a entender las visitas. Google Analytics solo se carga con tu consentimiento. La publicidad sigue desactivada hasta contar con una solución certificada.",
+      intro: "La analítica opcional nos ayuda a entender las visitas. Google Analytics solo se carga con tu consentimiento. Los anuncios de Adsterra tienen una opción independiente en la página principal.",
       accept: "Aceptar analítica", reject: "Rechazar analítica", manage: "Gestionar opciones",
       preferences: "Opciones de privacidad", details: "Analítica del sitio (Google Analytics 4)",
       explain: "Permite medir visitas e interacciones. Las combinaciones de lotería y claves personales no se envían a Apps & Games para analítica.",
