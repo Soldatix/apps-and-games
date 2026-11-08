@@ -10,8 +10,8 @@ const css=read("style.css");
 const DAY=86400000;
 
 function queryMatches(q,w) {
- const min=q.match(/min-width:\\s*(\\d+)px/);
- const max=q.match(/max-width:\\s*(\\d+)px/);
+ const min=q.match(/min-width:\s*(\d+)px/);
+ const max=q.match(/max-width:\s*(\d+)px/);
  return (!min||w>=Number(min[1]))&&(!max||w<=Number(max[1]));
 }
 function simulate(unit,width,choice="allow",ageDays=0,readyState="loading"){
@@ -46,15 +46,15 @@ test("no ad requests without active ad consent",()=>{
  assert.equal(simulate("sidebar",1440,"allow",0,"complete").output.length,0);
 });
 test("original snippets and unique placement IDs remain intact",()=>{
- assert.equal((html.match(/src="adsterra-banner-loader\\.js"/g)||[]).length,3);
+ assert.equal((html.match(/src="adsterra-banner-loader\.js"/g)||[]).length,3);
  for(const [unit,id] of [["desktop","32042360"],["mobile","32042361"],["sidebar","32042362"]]) {
   assert.match(html,new RegExp('data-ad-placement="'+id+'"[^>]*hidden><script src="adsterra-banner-loader.js"[^>]*data-unit="'+unit+'"'));
  }
  for(const snippet of codes(1440)) {
    assert.match(snippet,/format' : 'iframe'/);
    assert.match(snippet,/^<script>/);
-   assert.match(snippet,/https:\\/\\/bauval\\.org\\/22\\//);
+   assert.match(snippet,/https:\/\/bauval\.org\/22\//);
  }
- assert.match(css,/@media \\(max-width: 799px\\)/);
- assert.match(css,/@media \\(min-width: 1280px\\)/);
+ assert.match(css,/@media \(max-width: 799px\)/);
+ assert.match(css,/@media \(min-width: 1280px\)/);
 });
