@@ -8,6 +8,7 @@
   "use strict";
   const GA_ID = "G-8QJLPBJPJ8";
   const CONSENT_KEY = "appsGamesPrivacyConsentV1";
+  const SHARED_COOKIE = "ag_privacy_choices_v1";
   const PARTNER_REVISION = "adsterra-2026-11";
   const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
   const LEGACY_ANALYTICS_KEY = "appsGamesWebAnalyticsChoiceV1";
@@ -21,7 +22,7 @@
       save: "Save choices", cancel: "Cancel", policy: "Privacy Policy",
       analytics: "Website analytics", analyticsInfo: "Google Analytics measures visits and website usage.",
       advertising: "Advertising", advertisingInfo: "Advertising partners may use device information, identifiers, cookies and ad interactions for delivery, measurement or personalization.",
-      partnerHeading: "Partners and details", partners: "Current providers: Google Analytics for analytics, and Adsterra for advertising on the homepage. New or materially changed partners require a new consent request.",
+      partnerHeading: "Partners and details", partners: "Current providers: Google Analytics for analytics, and Adsterra for advertising on approved Apps & Games pages. New or materially changed partners require a new consent request.",
       adPolicy: "Adsterra Privacy Policy", adCookies: "Adsterra Cookies Policy",
       withdraw: "You can withdraw either permission here at any time. Declining never blocks access to Apps & Games.",
       error: "Unable to save your choice. Nonessential scripts will remain disabled."
@@ -33,7 +34,7 @@
       save: "Spremi odabir", cancel: "Odustani", policy: "Pravila privatnosti",
       analytics: "Analitika stranice", analyticsInfo: "Google Analytics mjeri posjete i korištenje stranice.",
       advertising: "Oglašavanje", advertisingInfo: "Oglašivački partneri mogu koristiti podatke o uređaju, identifikatore, kolačiće i interakcije radi prikaza, mjerenja ili personalizacije oglasa.",
-      partnerHeading: "Partneri i detalji", partners: "Trenutačni pružatelji: Google Analytics za analitiku i Adsterra za oglase na početnoj stranici. Novi ili bitno promijenjeni partneri zahtijevaju novu privolu.",
+      partnerHeading: "Partneri i detalji", partners: "Trenutačni pružatelji: Google Analytics za analitiku i Adsterra za oglase na odobrenim Apps & Games stranicama. Novi ili bitno promijenjeni partneri zahtijevaju novu privolu.",
       adPolicy: "Pravila privatnosti Adsterre", adCookies: "Adsterra kolačići",
       withdraw: "Bilo koju privolu ovdje možete povući u svakom trenutku. Odbijanje ne ograničava pristup Apps & Games.",
       error: "Odabir se ne može spremiti. Neobavezne skripte ostat će isključene."
@@ -45,7 +46,7 @@
       save: "Auswahl speichern", cancel: "Abbrechen", policy: "Datenschutzerklärung",
       analytics: "Website-Analyse", analyticsInfo: "Google Analytics misst Besuche und die Nutzung der Website.",
       advertising: "Werbung", advertisingInfo: "Werbepartner können Gerätedaten, Kennungen, Cookies und Anzeigeninteraktionen zur Bereitstellung, Messung und Personalisierung verwenden.",
-      partnerHeading: "Partner und Details", partners: "Aktuelle Anbieter: Google Analytics für Analysen und Adsterra für Werbung auf der Startseite. Neue oder wesentlich veränderte Partner erfordern eine neue Einwilligung.",
+      partnerHeading: "Partner und Details", partners: "Aktuelle Anbieter: Google Analytics für Analysen und Adsterra für Werbung auf freigegebenen Apps & Games-Seiten. Neue oder wesentlich veränderte Partner erfordern eine neue Einwilligung.",
       adPolicy: "Adsterra Datenschutz", adCookies: "Adsterra Cookies",
       withdraw: "Sie können jede Einwilligung hier jederzeit widerrufen. Ablehnen schränkt die Website nicht ein.",
       error: "Auswahl konnte nicht gespeichert werden. Optionale Skripte bleiben deaktiviert."
@@ -57,7 +58,7 @@
       save: "Salva scelte", cancel: "Annulla", policy: "Informativa privacy",
       analytics: "Analisi del sito", analyticsInfo: "Google Analytics misura visite e utilizzo del sito.",
       advertising: "Pubblicità", advertisingInfo: "I partner pubblicitari possono usare dati del dispositivo, identificatori, cookie e interazioni per distribuire, misurare o personalizzare annunci.",
-      partnerHeading: "Partner e dettagli", partners: "Fornitori attuali: Google Analytics per le analisi e Adsterra per gli annunci nella pagina iniziale. Nuovi partner o modifiche sostanziali richiederanno un nuovo consenso.",
+      partnerHeading: "Partner e dettagli", partners: "Fornitori attuali: Google Analytics per le analisi e Adsterra per annunci nelle pagine Apps & Games approvate. Nuovi partner o modifiche sostanziali richiederanno un nuovo consenso.",
       adPolicy: "Privacy Adsterra", adCookies: "Cookie Adsterra",
       withdraw: "Puoi revocare qualsiasi consenso in ogni momento. Rifiutare non limita l'accesso.",
       error: "Impossibile salvare la scelta. Gli script facoltativi resteranno disattivati."
@@ -69,7 +70,7 @@
       save: "Guardar selección", cancel: "Cancelar", policy: "Política de privacidad",
       analytics: "Analítica del sitio", analyticsInfo: "Google Analytics mide las visitas y el uso del sitio.",
       advertising: "Publicidad", advertisingInfo: "Los socios publicitarios pueden usar datos del dispositivo, identificadores, cookies e interacciones para mostrar, medir y personalizar anuncios.",
-      partnerHeading: "Socios y detalles", partners: "Proveedores actuales: Google Analytics para analítica y Adsterra para anuncios en la página principal. Los socios nuevos o cambios importantes requerirán un nuevo consentimiento.",
+      partnerHeading: "Socios y detalles", partners: "Proveedores actuales: Google Analytics para analítica y Adsterra para anuncios en páginas Apps & Games aprobadas. Los socios nuevos o cambios importantes requerirán un nuevo consentimiento.",
       adPolicy: "Privacidad Adsterra", adCookies: "Cookies Adsterra",
       withdraw: "Puedes retirar cualquier permiso aquí en cualquier momento. Rechazar no restringe el sitio.",
       error: "No se pudo guardar la elección. Los scripts opcionales permanecerán desactivados."
@@ -79,13 +80,36 @@
   const validTimestamp = value =>
     Number.isFinite(value) && Date.now() >= value && Date.now() - value <= MAX_AGE;
 
-  const readPreferences = () => {
+  const validate = stored =>
+    stored && stored.version === 1 && stored.partnerRevision === PARTNER_REVISION &&
+    typeof stored.analytics === "boolean" && typeof stored.advertising === "boolean" &&
+    validTimestamp(stored.timestamp) ? stored : null;
+
+  const readLocal = () => {
+    try { return validate(JSON.parse(localStorage.getItem(CONSENT_KEY) || "null")); }
+    catch (_) { return null; }
+  };
+  // Shared first-party cookie is readable by appsandgames.org and its subdomains.
+  // A missing or unrecognized preference never counts as consent.
+  const readShared = () => {
     try {
-      const stored = JSON.parse(localStorage.getItem(CONSENT_KEY) || "null");
-      return stored && stored.version === 1 && stored.partnerRevision === PARTNER_REVISION &&
-        typeof stored.analytics === "boolean" && typeof stored.advertising === "boolean" &&
-        validTimestamp(stored.timestamp) ? stored : null;
+      const value = document.cookie.split("; ").find(part => part.startsWith(SHARED_COOKIE + "="));
+      return value ? validate(JSON.parse(decodeURIComponent(value.slice(SHARED_COOKIE.length + 1)))) : null;
     } catch (_) { return null; }
+  };
+  const writeShared = record => {
+    const maxAge = Math.floor((MAX_AGE - (Date.now() - record.timestamp)) / 1000);
+    if (maxAge <= 0) return false;
+    try {
+      document.cookie = SHARED_COOKIE + "=" + encodeURIComponent(JSON.stringify(record)) +
+        "; Domain=appsandgames.org; Path=/; Max-Age=" + maxAge + "; SameSite=Lax; Secure";
+      return !!readShared();
+    } catch (_) { return false; }
+  };
+  const readPreferences = () => {
+    const local = readLocal(), shared = readShared();
+    if (shared && (!local || shared.timestamp >= local.timestamp)) return shared;
+    return local;
   };
   const readChoice = () => readPreferences()?.analytics ?? null;
 
@@ -110,10 +134,12 @@
   const store = (analytics, advertising) => {
     if (typeof analytics !== "boolean" || typeof advertising !== "boolean") return false;
     try {
-      localStorage.setItem(CONSENT_KEY, JSON.stringify({
-        version: 1, partnerRevision: PARTNER_REVISION,
-        analytics, advertising, timestamp: Date.now()
-      }));
+      const record = {version: 1, partnerRevision: PARTNER_REVISION,
+        analytics, advertising, timestamp: Date.now()};
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
+      // If the shared cookie is blocked, fail closed for cross-subdomain advertising.
+      // The portal still remembers this choice locally.
+      writeShared(record);
       const saved = readPreferences();
       return !!saved && saved.analytics === analytics && saved.advertising === advertising;
     } catch (_) { return false; }
@@ -129,7 +155,7 @@
 
   let analyticsLoaded = false, currentDialog = null, lastFocused = null;
   const language = () => {
-    const picker = document.getElementById("languageSelect");
+    const picker = document.getElementById("languageSelect") || document.getElementById("language");
     const preferred = picker?.value || document.documentElement.lang || navigator.language || "en";
     return LANGS[preferred.slice(0,2).toLowerCase()] || LANGS.en;
   };
@@ -147,7 +173,7 @@
   };
   const privacyLink = t => {
     const link = element("a", "ag-privacy-link", t.policy);
-    link.href = "/privacy-policy";
+    link.href = "https://appsandgames.org/privacy-policy";
     return link;
   };
   const externalLink = (caption, url) => {
@@ -168,7 +194,8 @@
     }
   };
   const loadAnalyticsOnlyAfterConsent = () => {
-    if (analyticsLoaded || readChoice() !== true) return;
+    if (analyticsLoaded || readChoice() !== true ||
+        !["appsandgames.org", "www.appsandgames.org"].includes(location.hostname)) return;
     analyticsLoaded = true;
     window["ga-disable-" + GA_ID] = false;
     window.dataLayer = window.dataLayer || [];
@@ -296,16 +323,21 @@
   };
   const start = () => {
     migrateExistingChoices();
+    // Backfill a valid previous portal choice without resetting its expiry.
+    const current = readPreferences(), shared = readShared();
+    if (current && (!shared || current.timestamp > shared.timestamp)) writeShared(current);
     addPersistentControl();
     if (readChoice() === true) loadAnalyticsOnlyAfterConsent();
     showBanner();
-    document.getElementById("languageSelect")?.addEventListener("change",() => {
+    (document.getElementById("languageSelect") || document.getElementById("language"))?.addEventListener("change",() => {
       const control = document.getElementById("ag-privacy-choices");
       if (control) control.textContent = language().preferences;
       if (document.getElementById("ag-privacy-banner")) { closeBanner(); showBanner(); }
       if (currentDialog) { closeDialog(); openPreferences(); }
     });
   };
+  // Game info menus can open the same consent dialog on demand.
+  window.AppsGamesPrivacy = Object.freeze({openPreferences});
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded",start,{once:true});
   else start();
 })();
