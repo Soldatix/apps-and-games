@@ -1,6 +1,6 @@
 # Apps & Games — Adsterra monetizacija: predložak + prijenos u novi chat
 
-**Verzija:** 1.0 · **Datum:** 8. 11. 2026. · **Jezik:** hrvatski  
+**Verzija:** 1.1 · **Datum:** 8. 11. 2026. · **Jezik:** hrvatski  
 **Namjena:** ponovno korištenje postojećeg koda za web-igre i web-aplikacije. Ovo je dokumentacija; ne odobrava automatsku produkcijsku objavu.
 
 ## I. Obvezna pravila (prije pisanja koda)
@@ -9,7 +9,7 @@
 2. Svaki zasebni hostname/poddomena mora se najprije prijaviti na **Adsterra Websites** i imati status **Approved**; traženi Ad Unit treba imati **Active**. Za sljedeću igru ne kopirati odobrenje glavne domene.
 3. Uzeti isključivo originalni **GET CODE te odobrene domene**, zasebno za 728×90 i 320×50 ili odgovarajuće dimenzije. Ne mijenjati Adsterra kod, ne dodavati vlastiti iframe i ne kopirati ključ druge igre. Adsterra formalno još nije odgovorila na upit od 4. 11. o parser-time \`document.write()\`; na postojećim projektima taj način prikazuje oglase, ali to nije službena potvrda metode.
 4. Prije tehničkog širenja potvrditi ostvariv put do isplate za **fizičku osobu sa švicarskim prebivalištem**, uz minimalni iznos, naknade, identifikaciju, porezne zahtjeve i metodu. Za web-igre na vlastitim domenama Google Play nije potreban.
-5. Za igre: **jedan prilagodljivi banner**, u startnom/izbornom/rezultatnom prostoru ili drugom sigurnom položaju, **nikad preko aktivne igre, šahovske ploče, timera ni kontrola**. Bez automatskog osvježavanja, umjetnih prikaza, vlastitih klikova, popunder i nametnutih preusmjeravanja.
+5. Već **pri dizajnu svake nove igre ili Utility aplikacije** planirati **zaseban, prilagodljiv oglasni prostor** koji je što bolje vidljiv bez ometanja funkcije. Za igre: jedan prilagodljivi banner u startnom/izbornom/rezultatnom prostoru ili drugom sigurnom položaju, **nikad preko aktivne igre, šahovske ploče, timera ni kontrola**. Bez automatskog osvježavanja, umjetnih prikaza, vlastitih klikova, popunder i nametnutih preusmjeravanja.
 6. Jedan zajednički 5-jezični sustav privola. Odbijanje oglašavanja znači **0 Adsterra zahtjeva**; analitika ima vlastiti odabir. Izbor se može povući. Novi partneri ili značajne promjene zahtijevaju ažuriranje informacija i novu privolu prema potrebi.
 7. Najprije razvojna grana + PR; bez spajanja u produkciju dok vlasnik to izričito ne odobri. Nakon merga: Cloudflare **Ready**, jedna vizualna provjera, provjera da banner ne prekriva gameplay, te prirodna statistika po domeni.
 8. Ne dodavati Adsterra u CrazyGames build samo zato što je dopuštena na našoj poddomeni: uvjete partnerskih portala provjeravati zasebno. Ovo nije predložak za Android SDK oglase.
@@ -20,7 +20,7 @@
 | --- | --- | --- |
 | \`appsandgames.org\` | \`6168026\` | Adsterra **Approved**, glavni banneri aktivni |
 | \`phoenix-arcade.appsandgames.org\` | \`6185853\` | Adsterra **Approved**, Phoenix banner prikazan i nestaje po početku igre |
-| \`chess.appsandgames.org\` | **Nije dostavljen** | **Sljedeći projekt: registracija/odobrenje prije implementacije** |
+| \`chess.appsandgames.org\` | **Nije dostavljen** | Adsterra **Approved** i oba oglasa **Active** (potvrda vlasnika); desktop 728×90 na vrhu početnog ekrana prikazan na produkciji, PR #1 i #2 spojeni; prikaz mobitela zasebno nije potvrđen |
 
 **Statistika s portala, 8. 11. 2026. (trenutačni rezultat, ne garancija isplate):** glavna stranica 52 prikaza / 6 klikova / $0.01; Phoenix Arcade 3 prikaza / 0 klikova / $0.00; ukupno **55 prikaza i $0.01**. Iznosi mogu biti naknadno prilagođeni; **prva stvarna isplata nije potvrđena**.
 
@@ -38,6 +38,20 @@
 
 ## IV. Predložak jedne nove igre — popuniti prije implementacije
 
+### Obavezno pravilo dizajna: prostor za banner planira se unaprijed
+
+Za **svaku novu web-igru ili Utility aplikaciju** već u početnom UI/UX nacrtu predvidjeti odvojeni **Ad Slot** koji se može uključiti kasnije bez preuređivanja čitavog sučelja. Namjera je spojiti **stvarnu vidljivost oglasa** i **neometano korištenje** igre/aplikacije, bez obećanja određenog broja prikaza ili prihoda.
+
+- **Položaj ovisi o rasporedu:** iznad ili ispod početnog izbornika, u namjenskoj traci ispod zaglavlja, uz rub na širokom desktopu ili ispod glavnog sadržaja — samo ako nije previše skriven pomicanjem. Ne primjenjivati naslijepo položaj iz Chess ili Phoenix na druge igre.
+- **Vidljiv, ali nenametljiv:** po mogućnosti u početnom vidljivom dijelu stranice (*above the fold*), bez namjernog pomicanja stranice radi oglasa. Ako bi takav položaj prekrio sadržaj, dati prednost funkcionalnosti i odabrati drugi položaj; ne koristiti agresivni fiksni/sticky overlay.
+- **Desktop + mobilni + tablet + krajoliki prikaz:** rezervirati siguran responzivni prostor za izvorne formate (tipično 728×90 i 320×50); oglas ne smije izlaziti iz viewporta, biti odsječen, gurati gumbe ili prekriti elemente. Kad nema dovoljno prostora za podržani format, **ne učitavati taj format**. Maksimalno jedan aktivni banner za predviđeni oglasni prostor.
+- **Izvan aktivne uporabe:** gameplay, igraća ploča, tipke, HUD, timer, unos podataka i osnovni rezultati ne smiju biti prekriveni. Oglas može biti na startnom/izbornom/rezultatnom ekranu; nestaje po početku aktivne igre. Za Utility mjesta određivati zasebno; **Digital Clock glavni sat i screensaver su potpuno izuzeti**.
+- **Privole i čitljivost:** računati na postojeći donji prozor za privole i otvorene postavke. Nikada ne postaviti banner tako da zaklanja dijalog, akcijske gumbe ili obavijesti. Oglasni zahtjev **tek nakon važeće privole za oglašavanje**; bez privole ne prikazivati ni nepotreban prazan rezervirani okvir.
+- **Stabilnost rasporeda:** gdje je smisleno rezervirati odgovarajuće dimenzije tek kada je oglas dopušten, kako se pri učitavanju ne bi pomicali važni kontrolni elementi. Po početku igre maknuti oglas i njegov rezervirani prostor; ne ostavljati praznu traku.
+- **Minimalna provjera prije objave:** samo po jedan pregled desktopa i mobitela/tableta, test bez privole (0 ad zahtjeva), te provjera da se oglas pravilno uklanja u igri. Ako je prostor na dnu izvan vidljivog dijela, **ne računati da je to vidljiv ili naplativ prikaz**.
+
+**Iskustvo iz postojećih igara (8. 11. 2026.):** Animated 3D Chess: gornji centrirani banner na početnom ekranu, odvojen od gumba i donjih privola; tijekom partije uklonjen. Phoenix Arcade: banner u izborniku. Neon Pac-Man: zbog velike igraće površine i bočnih kartica **razmotriti mjesto ispod glavnog sadržaja**, ali provjeriti vidljivost bez suvišnog scrollanja prije implementacije. Ovo su primjeri, **ne univerzalni propis o položaju**.
+
 \`\`\`text
 APP_NAME:
 APP_CATEGORY: GAME / UTILITY
@@ -48,7 +62,11 @@ CLOUDFLARE_PROJECT:
 ADSTERRA_WEBSITE_ID: [mora biti Approved]
 DESKTOP_AD_UNIT_ID: [Active; originalni GET CODE]
 MOBILE_AD_UNIT_ID: [Active; originalni GET CODE]
-BANNER_LOCATION: [izvan gameplaya i kontrola]
+BANNER_LOCATION_DESKTOP: [predviđena zona i vidljivost na početnom viewportu]
+BANNER_LOCATION_MOBILE: [predviđena zona, safe-area, mali zasloni]
+AD_SLOT_RESERVED_IN_INITIAL_UI: YES / NO [za novu aplikaciju planirati YES]
+CONSENT_OVERLAP_CHECK: [donji dijalog i kontrole bez preklapanja]
+GAMEPLAY_NO_ADS: YES / N/A [za igre uvijek YES]
 PR_URL:
 EXPLICIT_PRODUCTION_APPROVAL: NO
 CLOUDFLARE_DEPLOYMENT: [Ready nakon merga]
@@ -58,18 +76,18 @@ ADSTERRA_REVENUE: [samo priznata statistika]
 
 **Kratka procedura za svaki novi projekt:**
 
-1. Provjeriti aktualnu GitHub granu koja se objavljuje, Cloudflare hostname, gameplay i prostor na desktopu/tabletu/mobitelu. Za React/Vite, Unity WebGL ili druge strukture ne pretpostavljati isti HTML raspored.
+1. Provjeriti aktualnu GitHub granu koja se objavljuje, Cloudflare hostname, gameplay i prostor na desktopu/tabletu/mobitelu. **Prije tehničke integracije odabrati i upisati desktop/mobilni Ad Slot iz odjeljka IV**: vidljiv, bez prekrivanja funkcije ili donjih privola, uz jasno ponašanje pri početku igre. Za React/Vite, Unity WebGL ili druge strukture ne pretpostavljati isti HTML raspored.
 2. U [Adsterra Websites](https://beta.publishers.adsterra.com/websites) dodati točan HTTPS hostname; kategorija Games ako postoji; Adult ads ostaviti **OFF** kao u postojećim projektima. Pričekati Approved.
 3. Izraditi 728×90 i 320×50 prema slobodnom prostoru. Prije kodiranja dohvatiti oba **originalna** GET CODE bloka i njihove jedinstvene placement ID-ove.
 4. Preuzeti i prilagoditi Phoenix **logiku** (host, zajednička privola, točno jedan prikladan format), ne kopirati njegove ključeve ni poziciju naslijepo. Originalni tag ne mijenjati.
-5. Minimalni test: bez/odbijena/istekla privola → 0 ad requests; odgovarajući prikaz na desktopu/mobitelu; gameplay ili funkcija ostaju upotrebljivi. Bez serijskog klikanja i osvježavanja.
+5. Minimalni test: bez/odbijena/istekla privola → 0 ad requests; odgovarajući prikaz na desktopu/mobitelu; oglas se vidi gdje je planirano, ne preklapa privole, HUD ni glavne kontrole; tijekom aktivne igre nema oglasa niti prazne trake. Bez serijskog klikanja i osvježavanja.
 6. Pripremiti PR bez merga; vlasnik mora izričito odobriti produkciju. Nakon Cloudflare Ready jednom vizualno provjeriti i očitati \`Statistics → Domain\` ili \`Placement\`, bez zaključivanja o isplati iz jednoga prikaza.
 
 ## V. Prioritet i iznimka Digital Clock
 
-**Faza 1: web-igre, od Animated 3D Chess.**
-- **Animated 3D Chess** — \`chess.appsandgames.org\`, GitHub: [Soldatix/Wizard-Chess-3D-Table-Edition](https://github.com/Soldatix/Wizard-Chess-3D-Table-Edition). Repozitorij koristi React/Three.js/Vite; referentna release grana \`release/wizard-chess-workers-v1\`. Potvrditi aktualnu Cloudflare granu. **Još nema potvrđen Adsterra Website ID.**
-- Zatim Neon Pac-Man, Tetris, UFO Invaders, Memory Game, Modern Snake i ostale web-igre. Za svaku zasebno odobrenje/ad tag; prednost onima s prometom i malo potrebnih izmjena.
+**Faza 1: web-igre, prvo Animated 3D Chess pa Neon Pac-Man.**
+- **Animated 3D Chess** — \`chess.appsandgames.org\`, GitHub: [Soldatix/Wizard-Chess-3D-Table-Edition](https://github.com/Soldatix/Wizard-Chess-3D-Table-Edition). Repozitorij koristi React/Three.js/Vite; referentna release grana \`release/wizard-chess-workers-v1\`. Potvrditi aktualnu Cloudflare granu. **Desktop integracija objavljena i potvrđena na produkciji; Website ID nije dostavljen, mobilni prikaz nije zasebno verificiran.**
+- Zatim **Neon Pac-Man** (\`neonpacman.appsandgames.org\`, [Soldatix/Neon-PacMan](https://github.com/Soldatix/Neon-PacMan), glavni početni izbornik i velika igraća površina; najprije odobriti zasebnu Adsterra domenu i dobiti originalni GET CODE), Tetris, UFO Invaders, Memory Game, Modern Snake i ostale web-igre. Za svaku zasebno odobrenje/ad tag; prednost onima s prometom i malo potrebnih izmjena.
 
 **Faza 2: web Utility** — Date Lotto Generator, Unit Converter, Crossword, Emoji Copy & Paste, Habit Tracker i ostale aplikacije.
 
