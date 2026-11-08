@@ -1,0 +1,42 @@
+/* Analytics preferences only. NOT a Google-certified advertising CMP. */
+.ag-privacy-banner, .ag-privacy-dialog {
+  color: #171929; background: #fff; border: 1px solid #cfd5e6;
+  border-radius: 14px; box-shadow: 0 12px 44px rgba(0,0,0,.28);
+  font: 15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.ag-privacy-banner { position: fixed; z-index: 2147483000; bottom: 12px; left: 50%;
+  transform: translateX(-50%); width: min(740px, calc(100% - 24px));
+  max-height: min(80vh, 650px); overflow-y: auto; padding: 20px 24px; box-sizing: border-box;
+}
+.ag-privacy-banner h2, .ag-privacy-dialog h2 {
+  font: 700 20px/1.3 system-ui,sans-serif; margin: 0 0 10px; color: #171929;
+}
+.ag-privacy-banner p, .ag-privacy-dialog p { margin: 0 0 14px; color: #30344b; }
+.ag-privacy-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.ag-privacy-btn { border: 2px solid #265bd8; border-radius: 9px; font: 600 14px/1.3 system-ui,sans-serif;
+  padding: 11px 17px; cursor: pointer; min-height: 44px; }
+.ag-privacy-primary { background: #265bd8; color: #fff; }
+.ag-privacy-secondary { background: #fff; color: #1c48ac; }
+.ag-privacy-tertiary { background: transparent; color: #1c48ac; border-color: transparent; text-decoration: underline; }
+.ag-privacy-btn:hover, .ag-privacy-footer-control:hover { filter: brightness(.9); }
+.ag-privacy-btn:focus-visible, .ag-privacy-footer-control:focus-visible, .ag-privacy-link:focus-visible {
+  outline: 3px solid #f59e0b; outline-offset: 3px;
+}
+.ag-privacy-links { margin-top: 8px; }
+.ag-privacy-link { color: #194bb6; text-decoration: underline; }
+.ag-privacy-footer-control { background: transparent; color: inherit; font: inherit; border: 0;
+  cursor: pointer; text-decoration: underline; padding: 4px 7px; }
+.ag-privacy-backdrop { position: fixed; inset: 0; display: flex; align-items: center;
+  justify-content: center; z-index: 2147483001; background: rgba(0,0,0,.6); padding: 16px; }
+.ag-privacy-dialog { box-sizing: border-box; width: min(540px, 100%); max-height: 90vh;
+  overflow-y: auto; padding: 25px; }
+.ag-privacy-toggle { display: flex; gap: 12px; align-items: center; cursor: pointer;
+  margin: 10px 0 12px; font-weight: 650; }
+.ag-privacy-toggle input { width: 22px; height: 22px; accent-color: #265bd8; flex-shrink: 0; }
+.ag-privacy-explain { font-size: 14px; }
+@media (max-width: 480px) {
+  .ag-privacy-banner { padding: 15px; bottom: max(24px, env(safe-area-inset-bottom, 0px)); width: calc(100% - 12px); max-height: min(76dvh, 650px); }
+  .ag-privacy-dialog { padding: 18px; }
+  .ag-privacy-actions { flex-direction: column; }
+  .ag-privacy-btn { width: 100%; }
+}
