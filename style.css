@@ -1677,3 +1677,74 @@ a {
     }
 
 }
+
+/* =====================================================
+   ADSTERRA RESPONSIVE SLOTS — INACTIVE PREPARATION ONLY.
+   No script requests or ad impressions are generated.
+===================================================== */
+.ag-ad-slot {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    text-align: center;
+}
+.ag-ad-slot--desktop { width: 728px; min-height: 90px; }
+.ag-ad-slot--mobile { width: 320px; min-height: 50px; }
+.ag-ad-slot--desktop:not([hidden]) { display: block; }
+.ag-ad-slot--mobile:not([hidden]) { display: none; }
+.ag-catalog-layout { max-width: var(--max-width); margin: 0 auto; }
+.ag-catalog-main { min-width: 0; }
+.ag-catalog-sidebar { display: none; }
+
+@media (max-width: 767px) {
+    .ag-ad-slot--desktop:not([hidden]) { display: none; }
+    .ag-ad-slot--mobile:not([hidden]) { display: block; }
+}
+@media (min-width: 1280px) {
+    .ag-catalog-layout:has(> .ag-catalog-sidebar:not([hidden])) {
+        max-width: 1280px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 24px;
+        padding: 0 24px;
+    }
+    .ag-catalog-layout:has(> .ag-catalog-sidebar:not([hidden])) .app-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .ag-catalog-sidebar:not([hidden]) {
+        display: block;
+        width: 300px;
+        height: 250px;
+        align-self: start;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+}
+
+
+/* PREVIEW-ONLY advertising choice. Never launches an advertising request. */
+.ag-ad-consent-demo {
+  max-width: 900px; margin: 20px auto; padding: 22px;
+  border: 1px solid var(--border); border-radius: 18px;
+  background: var(--surface); color: var(--text);
+}
+.ag-ad-consent-demo h2 { margin: 0 0 10px; font-size: 1.25rem; }
+.ag-ad-consent-demo p { margin: 0 0 12px; color: var(--text-secondary); }
+.ag-ad-consent-demo .ag-ad-demo-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.ag-ad-consent-demo button { border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface-2); color: var(--text); font: inherit; cursor: pointer;
+  padding: 9px 14px; }
+.ag-ad-consent-demo button:focus-visible { outline: 3px solid var(--primary); }
+.ag-ad-consent-demo a { color: var(--primary); }
+.ag-ad-demo-placeholder {
+  box-sizing: border-box; display: grid; place-items: center; height: 100%;
+  border: 1px dashed var(--border); border-radius: 10px;
+  background: var(--surface-2); color: var(--text-secondary);
+  font-size: 0.88rem; text-align: center; padding: 10px;
+}
+@media (max-width: 760px) {
+  .ag-ad-consent-demo { margin: 14px 12px; padding: 16px; }
+  .ag-ad-consent-demo .ag-ad-demo-actions button { flex: 1 1 130px; }
+}
