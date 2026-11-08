@@ -1677,3 +1677,49 @@ a {
     }
 
 }
+
+
+/* =====================================================
+   ADSTERRA RESPONSIVE SLOTS — INACTIVE PREPARATION ONLY.
+   No script requests or ad impressions are generated.
+===================================================== */
+.ag-ad-slot {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    text-align: center;
+}
+.ag-ad-slot--desktop { width: 728px; min-height: 90px; }
+.ag-ad-slot--mobile { width: 320px; min-height: 50px; }
+.ag-ad-slot--desktop:not([hidden]) { display: block; }
+.ag-ad-slot--mobile:not([hidden]) { display: none; }
+.ag-catalog-layout { max-width: var(--max-width); margin: 0 auto; }
+.ag-catalog-main { min-width: 0; }
+.ag-catalog-sidebar { display: none; }
+
+@media (max-width: 767px) {
+    .ag-ad-slot--desktop:not([hidden]) { display: none; }
+    .ag-ad-slot--mobile:not([hidden]) { display: block; }
+}
+@media (min-width: 1280px) {
+    .ag-catalog-layout:has(> .ag-catalog-sidebar:not([hidden])) {
+        max-width: 1280px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 24px;
+        padding: 0 24px;
+    }
+    .ag-catalog-layout:has(> .ag-catalog-sidebar:not([hidden])) .app-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .ag-catalog-sidebar:not([hidden]) {
+        display: block;
+        width: 300px;
+        height: 250px;
+        align-self: start;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+}
