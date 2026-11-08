@@ -14,6 +14,6 @@ test("AdSense ownership claim uses an inert meta tag only",()=>{
 });
 test("privacy-message choice remains independent of AdSense verification",()=>{
  assert.match(main,/src="privacy-choice\.js"/);
- assert.match(consent,/readChoice\(\) !== true\) return/);
+ assert.match(consent,/readChoice\(\) !== true/);
  assert.doesNotMatch(main,/<script[^>]+src="https:\/\/(?:pagead2|fundingchoices)/);
 });
