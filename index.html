@@ -38,7 +38,7 @@
     <!-- Google Analytics 4 -->
     <link rel="stylesheet" href="privacy-choice.css">
     <script defer src="privacy-choice.js"></script>
-<script defer src="adsterra-consent-preview.js"></script>
+<script defer src="adsterra-consent.js"></script>
 
     <link rel="stylesheet" href="style.css">
 
@@ -498,11 +498,14 @@
         </div>
     </section>
 
-    <!-- INACTIVE Adsterra placements, no vendor scripts or requests -->
+    <!-- Adsterra: original GET CODE is emitted only by a synchronous loader on
+         a later page load following explicit, revocable advertising consent. -->
     <div class="ag-ad-slot ag-ad-slot--desktop" data-ad-placement="32042360"
-         aria-label="Advertisement" hidden></div>
+         aria-label="Advertisement" hidden><script src="adsterra-banner-loader.js"
+         data-unit="desktop"></script></div>
     <div class="ag-ad-slot ag-ad-slot--mobile" data-ad-placement="32042361"
-         aria-label="Advertisement" hidden></div>
+         aria-label="Advertisement" hidden><script src="adsterra-banner-loader.js"
+         data-unit="mobile"></script></div>
 
     <div class="ag-catalog-layout">
         <div class="ag-catalog-main">
@@ -832,7 +835,7 @@
             <p data-i18n="faqA5">Most projects are designed for modern desktop and mobile browsers. The exact layout and performance can vary depending on screen size, browser version and device capabilities.</p>
 
             <h3 data-i18n="faqQ6">Does Apps & Games use analytics or advertising?</h3>
-            <p><span data-i18n="faqA6">The website uses Google Analytics to understand site usage and may use Google AdSense for advertising. More information is available in the</span> <a href="privacy-policy.html"><u data-i18n="privacyPolicy">Privacy Policy</u></a>.</p>
+            <p><span data-i18n="faqA6">The website uses optional Google Analytics and can show Adsterra banners after separate consent. More information is available in the</span> <a href="privacy-policy.html"><u data-i18n="privacyPolicy">Privacy Policy</u></a>.</p>
         </div>
     </section>
 
