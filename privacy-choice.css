@@ -56,3 +56,21 @@
   .ag-privacy-banner .ag-privacy-actions .ag-privacy-primary,
   .ag-privacy-banner .ag-privacy-actions .ag-privacy-secondary { flex: 1; }
 }
+
+/* Consent and refusal have equal prominence in the first layer. */
+.ag-privacy-banner .ag-privacy-secondary,
+.ag-privacy-banner .ag-privacy-primary {
+  background: #265bd8;
+  color: #fff;
+  border: 2px solid #265bd8;
+  font-weight: 650;
+}
+.ag-privacy-dialog .ag-privacy-secondary,
+.ag-privacy-dialog .ag-privacy-primary {
+  min-width: 150px;
+}
+@media (max-width: 480px) {
+  .ag-privacy-banner .ag-privacy-actions {
+    gap: 9px;
+  }
+}
