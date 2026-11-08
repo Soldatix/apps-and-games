@@ -99,7 +99,7 @@ test("all five languages and vendor disclosures are in the shared control",()=>{
   assert.match(consent,/Adsterra Privacy Policy/);
   assert.match(consent,/analytics_storage: "denied"/);
   assert.match(consent,/ad_storage: "denied"/);
-  assert.match(consent,/readChoice\(\) !== true\) return/);
+  assert.match(consent,/readChoice\(\) !== true \|\|/);
   assert.doesNotMatch(consent,/adsbygoogle|googlesyndication/);
   assert.match(loader,/appsGamesPrivacyConsentV1/);
   assert.match(loader,/record\.advertising === true/);

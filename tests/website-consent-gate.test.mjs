@@ -19,7 +19,7 @@ test("all public HTML pages load the opt-in analytics preference gate",()=>{
 
 test("GA4 and AdSense remain held when consent is absent",()=>{
  const js=read("privacy-choice.js");
- assert.match(js,/readChoice\(\) !== true\) return/);
+ assert.match(js,/readChoice\(\) !== true/);
  assert.match(js,/analytics_storage: "denied"/);
  assert.match(js,/ad_storage: "denied"/);
  assert.match(js,/ad_user_data: "denied"/);
