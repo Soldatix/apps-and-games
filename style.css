@@ -1679,8 +1679,8 @@ a {
 }
 
 /* =====================================================
-   ADSTERRA RESPONSIVE SLOTS — INACTIVE PREPARATION ONLY.
-   No script requests or ad impressions are generated.
+   ADSTERRA RESPONSIVE SLOTS — CONSENT-GATED BANNERS.
+   One responsive top ad; sidebar only on wide screens.
 ===================================================== */
 .ag-ad-slot {
     box-sizing: border-box;
@@ -1697,7 +1697,7 @@ a {
 .ag-catalog-main { min-width: 0; }
 .ag-catalog-sidebar { display: none; }
 
-@media (max-width: 767px) {
+@media (max-width: 799px) {
     .ag-ad-slot--desktop:not([hidden]) { display: none; }
     .ag-ad-slot--mobile:not([hidden]) { display: block; }
 }
@@ -1716,7 +1716,8 @@ a {
     .ag-catalog-sidebar:not([hidden]) {
         display: block;
         width: 300px;
-        height: 250px;
+        min-height: 272px;
+        height: auto;
         align-self: start;
         margin-top: 50px;
         overflow: hidden;
@@ -1745,7 +1746,7 @@ a {
 .ag-ad-consent-links { display:flex; gap:16px; flex-wrap:wrap; margin:10px 0 14px; }
 .ag-ad-consent-links a { color:var(--primary); text-decoration:underline; }
 .ag-ad-disclaimer { font-size:.82rem; }
-.ag-ad-slot .ag-ad-label { display:block; font-size:11px; color:var(--text-secondary); margin:0 0 6px; }
+.ag-ad-slot .ag-ad-label, .ag-catalog-sidebar .ag-ad-label { display:block; font-size:11px; color:var(--text-secondary); margin:0 0 6px; }
 @media(max-width:760px) {
   .ag-ad-consent-panel { margin:14px 12px; padding:16px; }
   .ag-ad-consent-actions button { flex:1 1 130px; }
