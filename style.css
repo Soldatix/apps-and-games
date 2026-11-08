@@ -1723,31 +1723,7 @@ a {
         overflow: hidden;
     }
 }
-
-
-/* Ads consent choices are distinct from Analytics consent. */
-.ag-ad-consent-panel {
-  box-sizing: border-box; max-width: 850px; margin: 20px auto 26px; padding: 20px;
-  background: var(--surface); color: var(--text); border: 1px solid var(--border);
-  border-radius: 18px; box-shadow: var(--shadow);
-}
-.ag-ad-consent-panel h2 { font-size: 1.2rem; margin: 0 0 9px; }
-.ag-ad-consent-panel p { margin: 0 0 14px; color: var(--text-secondary); }
-.ag-ad-consent-actions { display:flex; flex-wrap:wrap; gap:12px; }
-.ag-ad-consent-actions button, .ag-ad-privacy-control {
-  border:1px solid var(--border); border-radius:10px; padding:10px 15px;
-  background:var(--surface-2); color:var(--text); cursor:pointer;
-  font:inherit; font-size:.92rem; min-height:42px;
-}
-.ag-ad-consent-actions .ag-ad-accept { background:var(--primary); color:var(--bg); font-weight:700; }
-.ag-ad-consent-actions button:focus-visible,.ag-ad-privacy-control:focus-visible {
-  outline:3px solid var(--primary); outline-offset:2px;
-}
-.ag-ad-consent-links { display:flex; gap:16px; flex-wrap:wrap; margin:10px 0 14px; }
-.ag-ad-consent-links a { color:var(--primary); text-decoration:underline; }
-.ag-ad-disclaimer { font-size:.82rem; }
-.ag-ad-slot .ag-ad-label, .ag-catalog-sidebar .ag-ad-label { display:block; font-size:11px; color:var(--text-secondary); margin:0 0 6px; }
-@media(max-width:760px) {
-  .ag-ad-consent-panel { margin:14px 12px; padding:16px; }
-  .ag-ad-consent-actions button { flex:1 1 130px; }
+/* Advertisement labels for approved responsive placements. */
+.ag-ad-slot .ag-ad-label, .ag-catalog-sidebar .ag-ad-label {
+  display: block; font-size: 11px; color: var(--text-secondary); margin: 0 0 6px;
 }

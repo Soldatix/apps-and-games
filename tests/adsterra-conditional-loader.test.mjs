@@ -20,7 +20,8 @@ function simulate(unit,width,choice="allow",ageDays=0,readyState="loading"){
  const script={dataset:{unit},parentElement:slot};
  const document={currentScript:script,readyState,createElement:()=>({}),write:code=>output.push(code)};
  const localStorage={getItem:()=>choice===null?null:JSON.stringify({
-    version:2,choice,when:Date.now()-ageDays*DAY})};
+    version:1,partnerRevision:"adsterra-2026-11",analytics:false,
+    advertising:choice==="allow",timestamp:Date.now()-ageDays*DAY})};
  const matchMedia=query=>({matches:queryMatches(query,width)});
  runInNewContext(source,{document,localStorage,matchMedia,Date});
  return {output,hidden:slot.hidden};
@@ -37,7 +38,7 @@ test("tablets use size that fits; wide desktop gets a second distinct banner",()
  assert.match(codes(1024)[0],/3e88187807f72645af6b39e90957f6a8/);
  assert.match(codes(1440)[1],/0f5386e1fbab687b18a7f7686197bec7/);
 });
-test("no ad requests without active ad consent",()=>{
+test("no ad requests without active advertising purpose consent",()=>{
  for(const w of [390,768,800,1024,1280,1440]){
   assert.equal(codes(w,"reject").length,0);
   assert.equal(codes(w,null).length,0);

@@ -1,4 +1,4 @@
-/* Analytics preferences only. NOT a Google-certified advertising CMP. */
+/* Unified website privacy controls (not a Google-certified advertising CMP). */
 .ag-privacy-banner, .ag-privacy-dialog {
   color: #171929; background: #fff; border: 1px solid #cfd5e6;
   border-radius: 14px; box-shadow: 0 12px 44px rgba(0,0,0,.28);
@@ -39,4 +39,38 @@
   .ag-privacy-dialog { padding: 18px; }
   .ag-privacy-actions { flex-direction: column; }
   .ag-privacy-btn { width: 100%; }
+}
+
+/* Two independent purpose controls within one five-language privacy dialog. */
+.ag-privacy-dialog { width: min(610px, 100%); }
+.ag-privacy-toggle { align-items: flex-start; padding: 12px; border: 1px solid #dbe1ee;
+  border-radius: 12px; background: #f8faff; }
+.ag-privacy-toggle-text { display: flex; flex-direction: column; gap: 3px; }
+.ag-privacy-toggle-text small { font-size: 13px; font-weight: 400; color: #3c4560; line-height: 1.4; }
+.ag-privacy-partners { font-size: 13px; color: #3c4560; margin: 12px 0; }
+.ag-privacy-partners p { margin: 6px 0 !important; }
+.ag-privacy-partners a { display: inline-block; margin: 4px 12px 0 0; }
+.ag-privacy-error { color: #a01d21 !important; font-weight: 650; }
+@media (min-width: 481px) {
+  .ag-privacy-banner .ag-privacy-actions { justify-content: space-between; }
+  .ag-privacy-banner .ag-privacy-actions .ag-privacy-primary,
+  .ag-privacy-banner .ag-privacy-actions .ag-privacy-secondary { flex: 1; }
+}
+
+/* Consent and refusal have equal prominence in the first layer. */
+.ag-privacy-banner .ag-privacy-secondary,
+.ag-privacy-banner .ag-privacy-primary {
+  background: #265bd8;
+  color: #fff;
+  border: 2px solid #265bd8;
+  font-weight: 650;
+}
+.ag-privacy-dialog .ag-privacy-secondary,
+.ag-privacy-dialog .ag-privacy-primary {
+  min-width: 150px;
+}
+@media (max-width: 480px) {
+  .ag-privacy-banner .ag-privacy-actions {
+    gap: 9px;
+  }
 }

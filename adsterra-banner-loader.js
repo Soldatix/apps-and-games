@@ -1,8 +1,8 @@
 /* Apps & Games: Adsterra banner loader, parser-time only.
  * Uses original GET CODE for ONE responsive banner per viewport,
  * plus a separate approved 300x250 sidebar on sufficiently wide screens.
- * The original code is NOT inserted until opt-in choice was stored on
- * a previous page load. document.write() compatibility is provider-unconfirmed.
+ * The original code is NOT inserted unless unified advertising consent
+ * has been explicitly stored on a previous page load. document.write() compatibility is provider-unconfirmed.
  * No custom iframe wrapper, no hidden ad impressions, no auto-refresh.
  */
 (() => {
@@ -19,10 +19,12 @@
   if (!validDevice) return;
   let allowed = false;
   try {
-    const record = JSON.parse(localStorage.getItem("appsGamesAdsterraChoiceV2") || "null");
-    const age = record && Date.now() - record.when;
-    allowed = record && record.version === 2 && record.choice === "allow" &&
-      Number.isFinite(age) && age >= 0 && age <= 180 * 24 * 60 * 60 * 1000;
+    const record = JSON.parse(localStorage.getItem("appsGamesPrivacyConsentV1") || "null");
+    const age = record && Date.now() - record.timestamp;
+    allowed = !!record && record.version === 1 &&
+      record.partnerRevision === "adsterra-2026-11" &&
+      record.advertising === true && Number.isFinite(age) &&
+      age >= 0 && age <= 180 * 24 * 60 * 60 * 1000;
   } catch (_) { allowed = false; }
   if (!allowed) return;
   const snippets = {
