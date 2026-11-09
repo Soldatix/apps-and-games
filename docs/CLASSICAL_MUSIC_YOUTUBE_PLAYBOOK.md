@@ -183,3 +183,19 @@ produkcijskog AI Factoryja. Nema automatskog objavljivanja,
 GitHub merga, troškova ili slanja poruka bez mojeg odobrenja.
 Bez nepotrebnog ponavljanja već prošlih testova.
 ```
+
+## VIII. Univerzalni lokalni predložak v1.0.1 (Windows / Lenovo)
+
+**Datum provjere:** 9. 11. 2026. · **Status:** lokalni brzi pregled naslova potvrđen na Lenovu. Potpuni privatni render budućeg primjera zaseban je korak.
+
+- Arhiva: `Timeless_Classical_Archive_Universal_Local_Template_v1.0.1.zip`
+- SHA-256 ZIP-a: `9103856ECABE05F9145356342403DD11D65C4F02B8755A50C0E4B78EA73A32E0`
+- Ispravljena izvorna skripta: [Preview_Titles_Only.ps1](./tca-universal-template/v1.0.1/Preview_Titles_Only.ps1).
+- Provjereni SHA-256 ispravljene skripte: `2FE9594B560CCE59C741B3C362BB5419F780BC41A07B2704B476EF46A66AAE85`.
+- **Uzrok i popravak:** `Preview_Titles_Only.ps1` u v1.0 pozivao je `Generate_Title_Overlay.ps1` bez inicijalizacije varijable `$mainLines`. Verzija v1.0.1 neposredno nakon učitavanja `video.json` postavlja `$mainLines = @($cfg.work.main_lines)` i provjerava da postoji jedan ili dva neprazna retka.
+- **Potvrda iz PowerShella:** `ZIP_SHA256=PASS`, `EXTRACTION=PASS`, `CONFIG_JSON=PASS`, `WINDOWS_GDI=PASS`, `GOLD_TITLE_OVERLAY=PASS`, `TITLE_PREVIEW=PASS`.
+- Novi predložak radi lokalno i bez API kredita, bez automatskog preuzimanja audio datoteka, slanja na YouTube ili izmjena AI Factoryja.
+- Ne ponavljati test naslova u istoj mapi bez prethodnog sigurnog arhiviranja izlaza: skripta namjerno ne prepisuje postojeće datoteke.
+- **Distribucija:** kompletni ZIP s pozadinom i maskom korisnik čuva lokalno. Na GitHubu je pohranjena ispravljena PowerShell skripta i opis promjene; to samo po sebi **nije potpuna kopija svih binarnih resursa ZIP-a**. Ako treba potpuna rekonstrukcija s GitHuba, u zasebnom postupku dodati binarne datoteke i sve ostale skripte nakon provjere kontrolnih zbrojeva.
+
+**Ograničenje:** `TITLE_PREVIEW=PASS` potvrđuje iscrtavanje naslova, ne dokazuje prava na glazbu niti potpunu spremnost za javnu objavu.
