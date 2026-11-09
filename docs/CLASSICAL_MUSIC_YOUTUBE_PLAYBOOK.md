@@ -4,7 +4,7 @@
 
 **Namjena:** trajni predložak za dokumentiranje prava, pripremu izvornih vizuala, lokalni FFmpeg render, opise, kontrolu kvalitete i nastavak rada u novom chatu. **Ovo je dokumentacija, a ne odobrenje za automatsku objavu ili monetizaciju.**
 
-> Ne miješati s [Adsterra Monetization Playbookom](./ADSTERRA_MONETIZATION_PLAYBOOK.md). Taj zasebni dokument uređuje oglašavanje na web-igrama i web-aplikacijama, ne licence za YouTube snimke klasične glazbe.
+> Ne miješati s [Adsterra Monetization Playbookom (PR #49)](https://github.com/Soldatix/apps-and-games/pull/49). Taj zasebni dokument uređuje oglašavanje na web-igrama i web-aplikacijama, ne licence za YouTube snimke klasične glazbe.
 
 ## I. Identitet i trenutačni status
 
