@@ -1,10 +1,12 @@
 # Timeless Classical Archive — YouTube Playbook + prijenos u novi chat
 
-**Verzija:** 1.0 · **Datum:** 9. 11. 2026. · **Jezik koordinacije:** hrvatski · **Jezik kanala:** engleski
+**Verzija:** 1.1 · **Ažurirano:** 9. 11. 2026. · **Jezik koordinacije:** hrvatski · **Jezik kanala:** engleski
 
-**Namjena:** trajni predložak za dokumentiranje prava, pripremu izvornih vizuala, lokalni FFmpeg render, opise, kontrolu kvalitete i nastavak rada u novom chatu. **Ovo je dokumentacija, a ne odobrenje za automatsku objavu ili monetizaciju.**
+**Namjena:** trajni predložak za izbor stvarnih snimki, dokazivanje komercijalnih prava, lokalni FFmpeg render, YouTube opise, QA i prijenos u novi chat. **Ovo je dokumentacija, a ne dopuštenje za automatsko objavljivanje ili tvrdnja da sve snimke na pojedinom portalu imaju slobodnu licenciju.**
 
-> Ne miješati s [Adsterra Monetization Playbookom (PR #49)](https://github.com/Soldatix/apps-and-games/pull/49). Taj zasebni dokument uređuje oglašavanje na web-igrama i web-aplikacijama, ne licence za YouTube snimke klasične glazbe.
+> **PRAVILO OD 9. 11. 2026.: prvo pretražiti [IMSLP](https://imslp.org/wiki/Main_Page) → Performances/Recordings i provjeriti licenciju točnog audio zapisa.** Ako nema prikladne dokumentirane snimke, tražiti Musopenove vlastite projekte, Wikimedia Commons i izvorne objave izvođača. Detaljna kontrolna lista je u odjeljku IX.
+
+> Ne miješati s [Adsterra Monetization Playbookom (PR #49)](https://github.com/Soldatix/apps-and-games/pull/49). Taj zasebni dokument uređuje oglase na web-igrama i aplikacijama.
 
 ## I. Identitet i trenutačni status
 
@@ -17,14 +19,23 @@
 - **Poziv na pretplatu:** kratko na kraju opisa kanala i videa; bez ometanja reprodukcije.
 - **Apps & Games:** jedna poveznica za informacije i podršku: https://appsandgames.org/#info
 - **Status YouTube funkcija, 9. 11. 2026.:** Standard i Intermediate enabled; Advanced još nije enabled (prema snimci zaslona). Vanjski URL-ovi u opisima nisu klikabilni dok potrebna značajka nije omogućena. Ne uklanjati identifikaciju izvora; prikazati nazive i zadržati pune URL-ove u arhivi.
-- **Dopisivanje Liber Liberu:** talijanski upit o komercijalnoj uporabi/monetizaciji poslan putem kontaktnog obrasca 8. 11. 2026.; čeka se pisani odgovor. **Bez korištenja njihovih snimki do provjere dopuštenja za konkretne snimke.**
+- **Liber Liber:** odgovor od 9. 11. 2026. ne daje pojedinačno dopuštenje i upućuje na odvjetnika. Uobičajene CC BY-NC-SA snimke ne koristiti za monetizirani kanal. Iznimke samo ako konkretna snimka ima neovisno provjerena odgovarajuća prava.
 
-### Objavljeni pilot-videozapisi
+### Objavljeni videozapisi i playliste (stanje potvrđeno korisničkim snimkama zaslona 9. 11. 2026.)
 
-| Skladatelj | Djelo / izvođač | Status |
-| --- | --- | --- |
-| Johann Sebastian Bach | Goldberg Variations, BWV 988: Aria / Kimiko Ishizaka | Javno objavljen 8. 11. 2026.; [YouTube video](https://www.youtube.com/watch?v=Xh07Z5mdKbg); playlista **Johann Sebastian Bach – Masterpieces** |
-| Ludwig van Beethoven | Coriolan Overture, Op. 62 / Czech National Symphony Orchestra (Musopen Symphony) | Korisnik 9. 11. 2026. potvrdio javnu objavu snimkama zaslona; playlista **Ludwig van Beethoven – Masterpieces**. Izravnu URL adresu videa unijeti tek nakon provjere. |
+| # | Skladatelj | Djelo / izvođač | Javna playlista |
+| --- | --- | --- | --- |
+| 1 | Johann Sebastian Bach | Goldberg Variations, BWV 988: Aria / Kimiko Ishizaka | Johann Sebastian Bach – Masterpieces |
+| 2 | Ludwig van Beethoven | Coriolan Overture, Op. 62 / Czech National Symphony Orchestra | Ludwig van Beethoven – Masterpieces |
+| 3 | Wolfgang Amadeus Mozart | Symphony No. 40, K. 550: I. Molto allegro / Musopen Symphony | Wolfgang Amadeus Mozart – Masterpieces |
+| 4 | Frédéric Chopin | Nocturne No. 2, Op. 9 No. 2 / Frank Lévy | Frédéric Chopin – Masterpieces |
+| 5 | Edvard Grieg | In the Hall of the Mountain King, Op. 46 / Czech National Symphony Orchestra | Edvard Grieg – Masterpieces |
+| 6 | Richard Wagner | Ride of the Valkyries / Lud and Schlatt's Musical Emporium, Philip Milman (CC BY 3.0) | Richard Wagner – Masterpieces |
+| 7 | Pyotr Ilyich Tchaikovsky | 1812 Overture, Op. 49 / Skidmore College Orchestra | Pyotr Ilyich Tchaikovsky – Masterpieces |
+| 8 | Johann Strauss II | The Blue Danube, Op. 314 / Das Orchester Tsumugi (IMSLP #907155; CC BY 4.0) | Johann Strauss II – Masterpieces |
+
+**Status:** osam javnih videa i osam javnih playlista; pet pretplatnika prema korisnikovoj posljednjoj slici. Brojevi su snimka stanja, ne automatski osvježena analitika. Ne izmišljati javne URL-ove videozapisa: poznat je [Bachov video](https://www.youtube.com/watch?v=Xh07Z5mdKbg) i [Wagnerov video](https://youtu.be/Q7-rDJcWQP0), ostale unijeti tek nakon provjere.
+
 
 **Napomena:** YouTube `Checks: No issues found` znači samo da tada nije prijavljen problem. Ne dokazuje trajnu odsutnost Content ID zahtjeva niti prihvatljivost kanala za monetizaciju.
 
@@ -112,12 +123,14 @@ Learn more about our independent projects: https://appsandgames.org/#info
 
 ## V. Registar idućih zadataka
 
-- Dovršiti opise Bacha i Beethovena s kratkim biografijama i sekcijama iz odjeljka III, bez zamjene izvora/attributiona.
-- Za Mozarta pronaći **konkretnu profesionalnu snimku** s dokazanim komercijalnim pravima; zatim Vivaldi. Ne pretpostavljati da je cijeli Musopen katalog iste licence.
-- Izraditi povratno iskoristiv video/description predložak za skladatelje, bez potrebe da se razvije puni Classical Music Publisher prije osnovnog pilotskog QA.
-- Kad YouTube omogući Advanced features, provjeriti vanjske poveznice na izvore i vratiti klikabilne URL-ove u opise.
-- Zaprimiti i provjeriti eventualni odgovor Liber Libera; ishod i dopuštene snimke zabilježiti pojedinačno.
-- Pratiti reused content politiku i razmotriti originalne edukativne videozapise, naraciju ili vrijedne analize bez ometanja glazbenih izvedbi.
+- **Prije svakog novog skladatelja:** IMSLP-first audit iz odjeljka IX. Ne stvarati naslovnice i MP4 za snimku koja nije prošla provjeru dopuštenja za komercijalnu distribuciju.
+- **Sljedeća dva skladatelja:** Franz Schubert (video #9) i Giacomo Puccini (video #10), s originalnim profesionalnim izvođačima i dokazanim pravima; potom proširivati postojeće playliste.
+- **Strauss II:** objavljen javno, IMSLP izvedba #907155 / Das Orchester Tsumugi / CC BY 4.0. Sačuvati snimku zaslona točne IMSLP kartice licence i atribuciju; lokalni SHA-256 sam po sebi nije dokaz izvornog podrijetla.
+- **Wagner:** javno objavljena izvedba Philipa Milmana (2022.), na izvornom YouTube kanalu javno navedena CC BY 3.0 i komercijalna uporaba; sačuvati snimku zaslona izdavatelja. Izvorni Marine Band privatni v1 ostaje odvojen i ne objavljuje se.
+- **Vivaldi:** privatni lokalni pilot ostaje na HOLD zbog nedovoljno dokazanih prava konkretne snimke, iako Commons ima javnodomensku oznaku.
+- **Liber Liber:** talijanski odgovor ne daje dopuštenje; njihov zadani CC BY-NC-SA ne koristiti za monetizaciju. Poseban Rights Audit može tražiti dokumentirane iznimke, bez automatskog zelenog statusa.
+- **YouTube:** pratiti Content ID, status Advanced features i eventualne ograničene vanjske linkove; odvojeno analizirati YouTube reused/inauthentic content politiku i stvarnu mogućnost monetizacije.
+- **Univerzalni lokalni predložak:** v1.0.1 na Lenovu prošao punu izradu privatnih pilota (Grieg, Wagner v1/v2, Tchaikovsky, Strauss), s provjerom naslova, audio trajanja, dekodiranja i 1080p. Ne zamjenjivati stabilne skripte bez nužde i novog QA.
 
 ## VI. Kartica za svaki novi video
 
@@ -141,6 +154,16 @@ PORTRAIT_LICENSE_EVIDENCE_PATH:
 PORTRAIT_SOURCE_HASH:
 RIGHTS_REVIEW_STATUS: PENDING
 CONTENT_ID_RISK_NOTE:
+IMSLP_RECORDING_ID_IF_APPLICABLE:
+IS_AUDIO_RECORDING_NOT_SHEET_MUSIC:
+ORIGINAL_PUBLISHER_OR_UPLOADER:
+UPSTREAM_HASH_PUBLISHED: YES/NO
+UPSTREAM_HASH_VALUE:
+LOCAL_HASH_ONLY_IS_NOT_UPSTREAM_PROOF: YES/NO
+ATTRIBUTION_TEXT_AND_LICENSE_URL:
+ARRANGEMENT_AND_PERFORMER_RIGHTS_REVIEW:
+TERRITORY_REVIEW_NOTES:
+LICENSE_EVIDENCE_CAPTURE_DATE:
 VIDEO_TEMPLATE_VERSION:
 LOCAL_MP4_PATH:
 QUALITY_CHECK: PENDING
@@ -154,39 +177,40 @@ YOUTUBE_URL:
 ## VII. Prompt za novi chat (kopirati)
 
 ```text
-Nastavljamo projekt “Classical Music – YouTube Channel”, kanal
+Nastavljamo projekt „Classical Music – YouTube Channel”,
 Timeless Classical Archive (@TimelessClassicalArchive).
-Prvo pročitaj trajni GitHub playbook:
-https://github.com/Soldatix/apps-and-games/blob/docs/classical-music-youtube-playbook-2026-11-09/docs/CLASSICAL_MUSIC_YOUTUBE_PLAYBOOK.md
+Trajni i trenutačni GitHub playbook:
+https://github.com/Soldatix/apps-and-games/blob/main/docs/CLASSICAL_MUSIC_YOUTUBE_PLAYBOOK.md
 
-Komunikacija hrvatski; sav tekst javnog kanala engleski.
-Koristimo isključivo stvarne, dopuštene izvedbe glazbenika/orkestara,
-ne AI generiranu glazbu. Svaka snimka i portret moraju imati zasebno
-dokumentirana prava za planiranu međunarodnu komercijalnu YouTube uporabu.
-CC0/javna domena ili odgovarajući CC BY; ne koristiti NC bez posebnog
-pisanog dopuštenja. Content ID provjera i monetizacija nisu jamstvo.
+Hrvatski za komunikaciju, engleski za javne YouTube opise.
+Zaključno s 9. 11. 2026. imamo osam JAVNIH videa / osam JAVNIH
+skladateljskih playlista: Bach, Beethoven, Mozart, Chopin,
+Grieg, Wagner, Tchaikovsky i Johann Strauss II.
 
-Kanal je aktivan, s objavljenim videima Bach – Goldberg Variations:
-Aria (Kimiko Ishizaka) i Beethoven – Coriolan Overture, Op. 62
-(Czech National Symphony Orchestra); imaju zasebne playliste.
-Trenutačno Advanced features još nisu Enabled, pa poveznice na izvore
-u opisima nisu klikabilne.
+Od sada PRVO traži stvarnu snimku na IMSLP (Performances / Recordings);
+nikad ne zamijeni audio snimku notnim zapisom ili MIDI izvedbom.
+Licenciju CC0/PD/CC BY provjeri za KONKRETNI audio zapis,
+s izvornim nositeljem prava, aranžmanom, izvođačem i državama uporabe.
+Bez NC za monetizirani YouTube, a BY-SA/ND dodatno pravno provjeri.
+Hash je identitet datoteke, ne dokaz licence. Ako IMSLP ne objavljuje
+hash, lokalni SHA-256 to ne mijenja. Spremi izvor i dokaz licence.
 
-NOVI STANDARD OPISA: About This Performance; About the Composer;
-Famous Works; About This Composition; Recording & Copyright Information;
-Subscribe & Support, uz link https://appsandgames.org/#info.
-Prvo urediti postojeće opise; zatim pripremiti Mozarta i Vivaldija,
-pojedinačno uz potvrđene licence i realne izvore.
+Izrađujemo stvarne izvedbe, a ne AI audio. Koristimo stabilni
+lokalni Universal Local Template v1.0.1 na Lenovo/Windows/FFmpeg;
+prvo provjera prava, zatim naslovnica/portret, lokalni QA,
+YouTube Private + Checks, tek potom izričito odobren Public.
+Šest engleskih sekcija YouTube opisa i potpuni kredit izvora.
 
-Lokalni Lenovo/FFmpeg, minimalni troškovi/API; bez promjena
-produkcijskog AI Factoryja. Nema automatskog objavljivanja,
-GitHub merga, troškova ili slanja poruka bez mojeg odobrenja.
-Bez nepotrebnog ponavljanja već prošlih testova.
+Sljedeći su Franz Schubert i Giacomo Puccini.
+Vivaldi ostaje HOLD, Liber Liber uglavnom CC BY-NC-SA.
+Ne modificirati produkcijski AI Factory, oglase ili druge projekte.
+Nema automatske objave, troškova, emailova ili GitHub merga
+bez izričitog korisničkog odobrenja. Bez ponovnih nepotrebnih testova.
 ```
 
 ## VIII. Univerzalni lokalni predložak v1.0.1 (Windows / Lenovo)
 
-**Datum provjere:** 9. 11. 2026. · **Status:** lokalni brzi pregled naslova potvrđen na Lenovu. Potpuni privatni render budućeg primjera zaseban je korak.
+**Datum provjere:** 9. 11. 2026. · **Status:** brzi pregled naslova i potpuni privatni 1080p render potvrđeni na Lenovu na više skladatelja (Grieg, Wagner v1/v2, Tchaikovsky, Strauss). Svaka nova snimka i dalje treba zasebnu pravnu, tehničku i YouTube provjeru.
 
 - Arhiva: `Timeless_Classical_Archive_Universal_Local_Template_v1.0.1.zip`
 - SHA-256 ZIP-a: `9103856ECABE05F9145356342403DD11D65C4F02B8755A50C0E4B78EA73A32E0`
@@ -199,3 +223,28 @@ Bez nepotrebnog ponavljanja već prošlih testova.
 - **Distribucija:** kompletni ZIP s pozadinom i maskom korisnik čuva lokalno. Na GitHubu je pohranjena ispravljena PowerShell skripta i opis promjene; to samo po sebi **nije potpuna kopija svih binarnih resursa ZIP-a**. Ako treba potpuna rekonstrukcija s GitHuba, u zasebnom postupku dodati binarne datoteke i sve ostale skripte nakon provjere kontrolnih zbrojeva.
 
 **Ograničenje:** `TITLE_PREVIEW=PASS` potvrđuje iscrtavanje naslova, ne dokazuje prava na glazbu niti potpunu spremnost za javnu objavu.
+
+## IX. IMSLP-first pravilo i evidencija izvora (uvedeno 9. 11. 2026.)
+
+**Prvi izvor:** [IMSLP/Petrucci Music Library](https://imslp.org/wiki/Main_Page). Na stranici djela otvori `Performances [show]` → `Recordings` (NE `Sheet Music`). Zabilježi broj izvedbe (`#NNNNNN`) i stvarnog izvođača/orkestar, dirigenta, trajanje i godinu. Glazbu mora izvoditi stvarni glazbenik/orkestar; bez MIDI, sintetskih ili AI izvedbi.
+
+**Razlikovati tri razine:** (a) je li kompozicija u javnoj domeni, (b) je li konkretni audio master/izvedba pod odgovarajućom licencijom, (c) jesu li aranžman, vokalni tekst, portret i svjetska komercijalna distribucija pokriveni. **Besplatno preuzimanje na IMSLP-u NIJE dokaz neograničene uporabe.**
+
+**Licencne kategorije:**
+- **PRIORITET**: dokazano CC0 ili javna domena konkretne snimke (provjeriti stvarnog nositelja prava i teritorije).
+- **DOZVOLJENO UZ UVJETE**: konkretni CC BY 3.0/4.0 audio s pouzdanim nositeljem prava i punom atribucijom: autor/izvođači/producent, naslov, datum ako je poznat, izvorna URL, URL licence, opis kako je audio uklopljen u video. Nema tvrdnje da izvorni izvođač podržava kanal.
+- **DODATNA PROVJERA**: CC BY-SA (share-alike obveze i način primjene na audiovizualni rezultat), nejasno licenciranje, samo status javne domene u jednoj državi, neprovjerena tvrdnja treće osobe o licenci.
+- **NE koristiti**: CC BY-NC, CC BY-NC-SA, „personal use only”, pravila koja izričito zabranjuju monetizaciju ili izvedbe bez pisanog dopuštenja. Za ND i ostala ograničenja bez jasne pravne provjere ne odobravati objavu.
+
+**Dokazni paket za SVAKI kandidat prije renderiranja:**
+1. Točan IMSLP URL s odabranim ID-jem (`#NNNNNN`), preslika kartice sa stanjem licence i datumom, originalni izdavatelj/izvođač i eventualna izvorna potvrda nositelja prava.
+2. Izvorna datoteka, trajanje, veličina i SHA-256. Ako IMSLP nije objavio originalni hash, napisati `UPSTREAM_HASH=UNAVAILABLE`; lokalni hash je evidencija **naknadno lokalno zaključane datoteke**, ne neovisni dokaz da je to IMSLP datoteka.
+3. Provjera aranžmana i eventualnog teksta, godina, međunarodnog statusa prava (posebno Švicarska, EU, SAD), povijesnog portreta i zasebna dokazna licencija.
+4. Kompletan engleski YouTube opis s attributionom (CC BY link i promjene), naznačiti mogući Content ID i reused-content rizik.
+5. `RIGHTS_REVIEW=PENDING|REVIEWED`, `PUBLICATION_NO_GO=TRUE` sve do izričitog korisničkog odobrenja nakon pregleda; `YOUTUBE_CHECKS` se ne predstavlja kao pravni dokaz.
+
+**Potvrđeni primjer pristupa:** Johann Strauss II, *The Blue Danube*, `IMSLP #907155`, Das Orchester Tsumugi, dirigent Takashi Inoue, snimka uživo 2024., licencija navedena **CC BY 4.0**. Skripta je potvrdila lokalni format, veličinu i trajanje (~633,5 s) te lokalni hash; **izvorni IMSLP checksum nije objavljen**. Video je javno objavljen nakon ljudskog pregleda. Ovaj primjer **ne odobrava sve ostale IMSLP datoteke**.
+
+**Za provjeru IMSLP pravila:** https://imslp.org/wiki/IMSLP:Copyright_Made_Simple i https://imslp.org/wiki/IMSLP:Creative_Commons_licenses. IMSLP izričito razdvaja prava na snimke od prava na skladbe te dopušta i materijale sa specifičnim licencnim ograničenjima.
+
+**Izvedbeni predložak:** stabilne PowerShell skripte Universal Local Template v1.0.1 ostaju nepromijenjene u ovom ažuriranju. [Checklist za IMSLP](./tca-universal-template/v1.0.1/IMSLP_SOURCE_REVIEW.md) dodaje korak provjere prije `Render_Private_Pilot.ps1`. Kompletni lokalni ZIP s grafičkim datotekama nije u cijelosti pohranjen na GitHub.
