@@ -1727,3 +1727,11 @@ a {
 .ag-ad-slot .ag-ad-label, .ag-catalog-sidebar .ag-ad-label {
   display: block; font-size: 11px; color: var(--text-secondary); margin: 0 0 6px;
 }
+
+/* nPerf: distinct third homepage CTA; mobile layout uses existing hero wrapping. */
+.hero-buttons .speed-test-button {
+    color: #fff;
+    background: #142c50;
+    border-color: rgba(73, 158, 255, .4);
+}
+.hero-buttons .speed-test-button:hover { background: #1e3b6a; }
