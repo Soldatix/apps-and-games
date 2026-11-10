@@ -5,17 +5,18 @@ import {fileURLToPath} from "node:url";
 import {dirname,join} from "node:path";
 const root=join(dirname(fileURLToPath(import.meta.url)),"..");
 const read=path=>readFileSync(join(root,path),"utf8");
-test("official nPerf script is user-initiated only on dedicated speed test page",()=>{
- const page=read("speed-test/index.html");
- assert.match(page,/<form method="get" action="\/speed-test\/">/);
- assert.match(page,/<button[^>]+name="run" value="1"/);
- const guard=page.indexOf('new URLSearchParams(window.location.search).get("run") !== "1"');
- const insertion=page.indexOf("document.write(");
- assert.ok(guard>0 && insertion>guard,"nPerf embed must stay behind a query-string gate");
- assert.equal((page.match(/https:\/\/ws\.nperf\.com\/partner\/js\?l=1e09d953-2294-406b-833d-97e3ec53f71e/g)||[]).length,1);
- assert.match(page,/src="\.\.\/privacy-choice\.js"/);
- assert.match(page,/https:\/\/www\.nperf\.com\/en\/privacy-policy/);
- assert.doesNotMatch(page,/src="https:\/\/ws\.nperf\.com\/partner\/js/,"nPerf script must not be an unconditional HTML tag");
+test("official nPerf code loads directly only on the user-triggered run page",()=>{
+ const page=read("speed-test/index.html"),run=read("speed-test/run/index.html");
+ const vendor='<script src="https://ws.nperf.com/partner/js?l=1e09d953-2294-406b-833d-97e3ec53f71e"></script>';
+ assert.match(page,/<form method="get" action="\\/speed-test\\/run\\/">/);
+ assert.match(page,/<button[^>]+type="submit"/);
+ assert.doesNotMatch(page,/ws\\.nperf\\.com\\/partner\\/js/);
+ assert.equal(run.split(vendor).length-1,1,"official nPerf script must be unmodified and embedded once");
+ assert.doesNotMatch(run,/document\\.write\\(/);
+ assert.match(run,/<meta name="robots" content="noindex, follow">/);
+ assert.match(page,/src="\\.\\.\\/privacy-choice\\.js"/);
+ assert.match(run,/src="\\.\\.\\/privacy-choice\\.js"/);
+ assert.match(page,/https:\\/\\/www\\.nperf\\.com\\/en\\/privacy-policy/);
 });
 test("Speed Test entry is consistent across homepage and sitemap",()=>{
  const home=read("index.html"),catalog=read("script.js"),sitemap=read("sitemap.xml");
