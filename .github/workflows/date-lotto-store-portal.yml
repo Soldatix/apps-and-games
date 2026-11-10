@@ -39,6 +39,8 @@ jobs:
           node --check detail-i18n.js
       - name: Static catalog and Store link regression tests
         run: node --test tests/*.test.mjs
+      - name: Read-only nPerf production-vs-GitHub diagnostic
+        run: node ci/nperf-live-origin-check.mjs
       - name: Install isolated Chromium test dependencies
         run: |
           npm install --no-save --package-lock=false playwright
