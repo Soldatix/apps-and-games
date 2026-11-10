@@ -13,6 +13,9 @@ on:
       - index.html
       - script.js
       - style.css
+      - speed-test/**
+      - assets/images/speed-test.svg
+      - assets/js/ag-language-menu.js
       - tests/**
       - ci/**
       - .github/workflows/date-lotto-store-portal.yml
@@ -49,3 +52,4 @@ jobs:
           done
           curl --fail http://127.0.0.1:4173/ > /dev/null
           node ci/date-lotto-store-portal-smoke.mjs
+          node ci/nperf-polish-smoke.mjs
