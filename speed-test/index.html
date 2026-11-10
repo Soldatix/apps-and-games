@@ -8,6 +8,11 @@
     // On ordinary visits no request to nPerf is made.
     const nPerfMode = new URLSearchParams(location.search).get("nperf_trial") === "run" ? "run" : "ready";
     document.documentElement.setAttribute("data-nperf-trial", nPerfMode);
+    // Reuse the website-wide theme setting before the page paints.
+    try {
+      if (localStorage.getItem("theme") === "light") document.documentElement.setAttribute("data-theme", "light");
+      else document.documentElement.removeAttribute("data-theme");
+    } catch (_) { document.documentElement.removeAttribute("data-theme"); }
   </script>
   <title>Internet Speed Test — Free nPerf Speed Test | Apps &amp; Games</title>
   <meta name="description" content="Measure your internet download speed, upload speed and latency with the free nPerf Speed Test on Apps & Games.">
@@ -40,8 +45,26 @@
     .speed-tips{margin-top:25px;max-width:900px}
     .speed-tips p{color:var(--text-secondary)}
     .speed-tips h2{font-size:1.35rem}
-    .speed-header-actions{display:flex;gap:12px;align-items:center}
-    .speed-language{padding:8px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text)}
+    .speed-header-actions{display:flex;gap:8px;align-items:center}
+    /* Match the portal language/appearance controls; keep both reachable on phones. */
+    .speed-header-actions .ag-language-menu{z-index:1010}
+    .speed-header-actions .ag-language-options{z-index:1020}
+    @media(max-width:760px){
+      .speed-header-actions .ag-language-button{width:100px;min-width:100px;min-height:38px;padding:5px 23px 5px 6px;gap:5px}
+      .speed-header-actions .ag-language-name{display:none}
+    }
+    @media(max-width:420px){
+      .speed-header-actions{gap:4px}
+      .speed-header-actions .ag-language-button{width:78px;min-width:78px;padding-right:16px}
+      .speed-header-actions .ag-language-chevron{right:6px}
+      .speed-header-actions .ag-language-flag{width:20px;height:14px;flex-basis:20px}
+      .speed-header-actions .ag-language-code{font-size:.72rem}
+      .header-content{gap:5px;padding:8px}
+      .site-logo-image{height:30px;max-width:113px}
+      .main-nav{gap:0}
+      .main-nav a{padding:5px}
+      .speed-header-actions .theme-toggle{height:34px;width:34px;flex-basis:34px}
+    }
     [hidden]{display:none!important}
     #nperf-intro,#nperf-running{display:none}
     html[data-nperf-trial="ready"] #nperf-intro,
@@ -61,11 +84,12 @@
       <a href="/#games">🎮 <span data-st="navGames">Games</span></a>
       <a href="/#info">ℹ <span>Info</span></a>
     </nav>
-    <div class="speed-header-actions">
+    <div class="header-actions speed-header-actions">
       <label class="sr-only" for="languageSelect">Language</label>
-      <select id="languageSelect" class="speed-language" aria-label="Select page language">
+      <select id="languageSelect" class="language-select" aria-label="Select language" data-ag-language-menu>
         <option value="en">EN</option><option value="hr">HR</option><option value="de">DE</option><option value="it">IT</option><option value="es">ES</option>
       </select>
+      <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀️</button>
     </div>
   </div>
 </header>
@@ -131,11 +155,37 @@ const texts={
 };
 let selected="en";try{const saved=localStorage.getItem("appsGamesLanguage");selected=texts[saved]?saved:(texts[navigator.language.slice(0,2)]?navigator.language.slice(0,2):"en");}catch(_){}
 const picker=document.getElementById("languageSelect");
-function apply(language){const t=texts[language]||texts.en;document.documentElement.lang=language;picker.value=language;document.querySelectorAll("[data-st]").forEach(el=>{el.textContent=t[el.getAttribute("data-st")]||el.textContent;});}
+const themeToggle=document.getElementById("themeToggle");
+const themeLabels={
+ en:"Toggle light or dark theme",hr:"Promijeni svijetlu ili tamnu temu",
+ de:"Helles oder dunkles Design wechseln",it:"Cambia tema chiaro o scuro",
+ es:"Cambiar tema claro u oscuro"
+};
+function apply(language){
+ const t=texts[language]||texts.en;
+ document.documentElement.lang=language;
+ picker.value=language;
+ picker.setAttribute("aria-label",language==="hr"?"Odaberi jezik":"Select language");
+ document.querySelectorAll("[data-st]").forEach(el=>{el.textContent=t[el.getAttribute("data-st")]||el.textContent;});
+ const label=themeLabels[language]||themeLabels.en;
+ themeToggle.setAttribute("aria-label",label);
+ themeToggle.title=label;
+}
+function applyTheme(theme){
+ if(theme==="light"){document.documentElement.setAttribute("data-theme","light");themeToggle.textContent="🌙";}
+ else{document.documentElement.removeAttribute("data-theme");themeToggle.textContent="☀️";}
+}
 picker.addEventListener("change",()=>{apply(picker.value);try{localStorage.setItem("appsGamesLanguage",picker.value);}catch(_){}});
+themeToggle.addEventListener("click",()=>{
+ const next=document.documentElement.getAttribute("data-theme")==="light"?"dark":"light";
+ applyTheme(next);
+ try{localStorage.setItem("theme",next);}catch(_){}
+});
 apply(selected);
+applyTheme(document.documentElement.getAttribute("data-theme")==="light"?"light":"dark");
 document.getElementById("currentYear").textContent=String(new Date().getFullYear());
 })();
 </script>
+<script src="../assets/js/ag-language-menu.js"></script>
 </body>
 </html>
