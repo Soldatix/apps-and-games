@@ -535,7 +535,7 @@ const apps = [
         hasDownload: false,
         platforms: ["Web"],
         tags: ["Speed", "Internet", "nPerf"],
-        status: "LIVE",
+        status: "COMING_SOON",
         analyticsEvent: "open_app"
     }
 ];
@@ -761,7 +761,7 @@ function renderApps() {
             <div class="app-content">
                 <div class="app-title-row">
                     <h3>${app.name}</h3>
-                    <span class="app-status">${t("live")}</span>
+                    <span class="app-status">${app.status === "COMING_SOON" ? t("comingSoon") : t("live")}</span>
                 </div>
                 <p class="app-description">${localizedDescription}</p>
                 <div class="app-platforms">
