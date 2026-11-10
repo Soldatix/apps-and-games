@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <base href="/speed-test/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internet Speed Test — Free nPerf Speed Test | Apps &amp; Games</title>
+  <meta name="description" content="Test your internet connection's download speed, upload speed and latency on Apps & Games using the nPerf Speed Test. Free and browser-based.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://appsandgames.org/speed-test/">
+  <meta property="og:title" content="Internet Speed Test | Apps &amp; Games">
+  <meta property="og:description" content="Check your internet download, upload and latency with nPerf, on Apps & Games.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://appsandgames.org/speed-test/">
+  <meta property="og:site_name" content="Apps &amp; Games">
+  <link rel="icon" href="../assets/icons/favicon.ico">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../privacy-choice.css">
+  <script defer src="../privacy-choice.js"></script>
+  <style>
+    .speed-wrap {max-width:1080px;margin:0 auto;padding:40px 20px 70px}
+    .speed-hero{text-align:center;padding:30px 0 28px}
+    .speed-hero h1{font-size:clamp(2.3rem,6vw,4.2rem);margin:12px 0 8px;line-height:1.12}
+    .speed-hero p{max-width:730px;margin:0 auto;color:var(--text-secondary)}
+    .speed-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:clamp(18px,4vw,34px);box-shadow:var(--shadow)}
+    .speed-card h2{margin:0 0 12px;font-size:clamp(1.25rem,3vw,1.65rem)}
+    .speed-card p{color:var(--text-secondary);max-width:800px}
+    .speed-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:24px 0 10px}
+    .speed-actions form{margin:0}
+    .speed-actions button,.speed-actions a{cursor:pointer}
+    .speed-disclaimer{font-size:.91rem;line-height:1.6}
+    .speed-disclaimer a{color:var(--primary);text-decoration:underline}
+    .speed-stage{margin:18px 0 28px;min-height:540px;width:100%;max-width:100%;overflow-x:auto}
+    .speed-stage iframe{max-width:100%;border:0}
+    .speed-tips{margin-top:25px;max-width:900px}
+    .speed-tips p{color:var(--text-secondary)}
+    .speed-tips h2{font-size:1.35rem}
+    .speed-header-actions{display:flex;gap:12px;align-items:center}
+    .speed-language{padding:8px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text)}
+    [hidden]{display:none!important}
+    @media(max-width:760px){.speed-wrap{padding:20px 12px 52px}.speed-actions{display:block}.speed-actions form,.speed-actions a{margin:10px 0;width:100%}.speed-actions button{width:100%}.speed-stage{min-height:570px}.speed-language{max-width:78px}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Internet Speed Test","applicationCategory":"UtilitiesApplication","operatingSystem":"Web browser","url":"https://appsandgames.org/speed-test/","isAccessibleForFree":true,"provider":{"@type":"Organization","name":"nPerf"},"description":"Free internet download, upload and latency speed test embedded on Apps & Games."}
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <a href="/" class="logo" aria-label="Apps & Games Home"><img src="../assets/logo/apps-and-games-logo.png" alt="Apps & Games" class="site-logo-image"></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/#apps">📱 <span data-st="navApps">Apps</span></a>
+      <a href="/#games">🎮 <span data-st="navGames">Games</span></a>
+      <a href="/#info">ℹ <span>Info</span></a>
+    </nav>
+    <div class="speed-header-actions">
+      <label class="sr-only" for="languageSelect">Language</label>
+      <select id="languageSelect" class="speed-language" aria-label="Select page language">
+        <option value="en">EN</option><option value="hr">HR</option><option value="de">DE</option><option value="it">IT</option><option value="es">ES</option>
+      </select>
+    </div>
+  </div>
+</header>
+<main class="speed-wrap">
+  <section class="speed-hero">
+    <div class="hero-badge">APPS &amp; GAMES · nPerf</div>
+    <h1>Internet Speed Test</h1>
+    <p data-st="intro">Measure your download speed, upload speed and latency directly in your browser, powered by nPerf.</p>
+  </section>
+  <section class="speed-card" aria-label="nPerf Speed Test">
+    <div id="nperf-running">
+      <h2 data-st="runningTitle">nPerf Speed Test</h2>
+      <p class="speed-disclaimer" data-st="runningText">Test provided by nPerf. Pause downloads and other heavy network activity for a more representative measurement.</p>
+      <div class="speed-stage" id="nperf-stage">
+        <script src="https://ws.nperf.com/partner/js?l=1e09d953-2294-406b-833d-97e3ec53f71e"></script>
+      </div>
+      <p class="speed-disclaimer" data-st="problem">If the test does not appear, check content blockers and reload the page. You can return without loading nPerf again.</p>
+      <div class="speed-actions"><a href="/speed-test/" class="secondary-button" data-st="close">Close test</a></div>
+    </div>
+  </section>
+  <section class="speed-tips">
+    <h2 data-st="tipsTitle">Tips for reliable results</h2>
+    <p data-st="tips">Stop large downloads and uploads on your devices, close unnecessary streaming apps and try another measurement at a different time. Wi-Fi speed may differ from a wired connection.</p>
+    <p class="speed-disclaimer"><span data-st="independent">Powered by nPerf. Apps & Games provides the page; nPerf provides the speed-test service.</span> <a href="../privacy-policy.html" data-st="ourPolicy">Apps & Games Privacy Policy</a></p>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-content">
+    <span>© <span id="currentYear">2026</span> Apps &amp; Games</span>
+    <div class="footer-links">
+      <a href="/" data-st="home">Home</a>
+      <a href="/#apps" data-st="navApps">Apps</a>
+      <a href="../privacy-policy.html" data-st="ourPolicy">Apps & Games Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+"use strict";
+const texts={
+  en:{navApps:"Apps",navGames:"Games",intro:"Measure your download speed, upload speed and latency directly in your browser, powered by nPerf.",readyTitle:"Ready to check your connection?",readyText:"Click below to load the official nPerf Speed Test. The nPerf service is not contacted until you choose to load it.",privacyText:"When loaded, nPerf may process your IP address, device/network information and speed-test results according to its own privacy policy.",nperfPolicy:"Read nPerf Privacy Policy",loadTest:"Load nPerf Speed Test",back:"Back to Apps",runningTitle:"nPerf Speed Test",runningText:"Test provided by nPerf. Pause downloads and other heavy network activity for a more representative measurement.",problem:"If the test does not appear, check content blockers and reload the page. You can return without loading nPerf again.",close:"Close test",tipsTitle:"Tips for reliable results",tips:"Stop large downloads and uploads on your devices, close unnecessary streaming apps and try another measurement at a different time. Wi-Fi speed may differ from a wired connection.",independent:"Powered by nPerf. Apps & Games provides the page; nPerf provides the speed-test service.",ourPolicy:"Apps & Games Privacy Policy",home:"Home"},
+  hr:{navApps:"Aplikacije",navGames:"Igre",intro:"Izmjerite brzinu preuzimanja, slanja i latenciju internetske veze izravno u pregledniku uz nPerf.",readyTitle:"Spremni za provjeru veze?",readyText:"Pritisnite gumb za učitavanje službenog nPerf Speed Testa. Usluga nPerf neće se kontaktirati dok je sami ne pokrenete.",privacyText:"Nakon učitavanja nPerf može obrađivati vašu IP adresu, podatke o uređaju i mreži te rezultate mjerenja u skladu sa svojim pravilima privatnosti.",nperfPolicy:"Pravila privatnosti nPerfa",loadTest:"Učitaj nPerf Speed Test",back:"Natrag na aplikacije",runningTitle:"nPerf Speed Test",runningText:"Mjerenje pruža nPerf. Za realniji rezultat zaustavite preuzimanja i druge zahtjevne mrežne aktivnosti.",problem:"Ako se test ne prikaže, provjerite blokatore sadržaja i osvježite stranicu. Možete se vratiti bez ponovnog učitavanja nPerfa.",close:"Zatvori test",tipsTitle:"Savjeti za pouzdanije mjerenje",tips:"Zaustavite velika preuzimanja i slanja, zatvorite nepotreban streaming i ponovite test u drugo doba dana. Wi-Fi brzina može se razlikovati od žičane veze.",independent:"Pokreće nPerf. Apps & Games pruža stranicu, a nPerf uslugu mjerenja.",ourPolicy:"Pravila privatnosti Apps & Games",home:"Početna"},
+  de:{navApps:"Apps",navGames:"Spiele",intro:"Miss Downloadgeschwindigkeit, Uploadgeschwindigkeit und Latenz direkt im Browser – mit nPerf.",readyTitle:"Bereit für deinen Verbindungstest?",readyText:"Klicke, um den offiziellen nPerf-Speedtest zu laden. Vor deiner Auswahl wird keine Verbindung zum nPerf-Dienst hergestellt.",privacyText:"Nach dem Laden kann nPerf deine IP-Adresse, Geräte- und Netzwerkdaten sowie Testergebnisse gemäß seiner Datenschutzerklärung verarbeiten.",nperfPolicy:"nPerf-Datenschutzerklärung",loadTest:"nPerf-Speedtest laden",back:"Zurück zu Apps",runningTitle:"nPerf-Speedtest",runningText:"Testdienst von nPerf. Pausiere Downloads und andere intensive Netzwerkaktivitäten für ein aussagekräftigeres Ergebnis.",problem:"Falls der Test nicht erscheint, prüfe Inhaltsblocker und lade die Seite neu. Ohne erneutes Laden von nPerf kannst du zurückkehren.",close:"Test schließen",tipsTitle:"Tipps für zuverlässige Ergebnisse",tips:"Pausiere große Downloads und Uploads sowie unnötige Streams. Wiederhole die Messung zu einer anderen Uhrzeit. WLAN kann langsamer als LAN sein.",independent:"Bereitgestellt von nPerf. Apps & Games stellt die Seite bereit, nPerf den Geschwindigkeitstest.",ourPolicy:"Datenschutz Apps & Games",home:"Startseite"},
+  it:{navApps:"App",navGames:"Giochi",intro:"Misura download, upload e latenza direttamente nel browser con nPerf.",readyTitle:"Vuoi verificare la tua connessione?",readyText:"Fai clic per caricare lo Speed Test ufficiale di nPerf. Il servizio nPerf non viene contattato prima della tua scelta.",privacyText:"Una volta caricato, nPerf può trattare indirizzo IP, dati di dispositivo e rete e risultati secondo la propria informativa sulla privacy.",nperfPolicy:"Informativa privacy nPerf",loadTest:"Carica nPerf Speed Test",back:"Torna alle app",runningTitle:"nPerf Speed Test",runningText:"Test offerto da nPerf. Sospendi download e attività di rete pesanti per risultati più indicativi.",problem:"Se il test non appare, controlla i blocchi dei contenuti e ricarica la pagina. Puoi tornare senza ricaricare nPerf.",close:"Chiudi test",tipsTitle:"Suggerimenti per risultati affidabili",tips:"Ferma i download e upload pesanti e lo streaming non necessario. Ripeti il test in altri orari. Il Wi-Fi può essere più lento della rete via cavo.",independent:"Tecnologia nPerf. Apps & Games ospita la pagina; nPerf fornisce il test.",ourPolicy:"Privacy Apps & Games",home:"Home"},
+  es:{navApps:"Apps",navGames:"Juegos",intro:"Mide las velocidades de descarga y subida y la latencia desde tu navegador con nPerf.",readyTitle:"¿Listo para comprobar tu conexión?",readyText:"Haz clic para cargar el Speed Test oficial de nPerf. El servicio de nPerf no se contacta antes de que lo elijas.",privacyText:"Al cargarlo, nPerf puede tratar tu dirección IP, datos del dispositivo y de la red y resultados según su política de privacidad.",nperfPolicy:"Política de privacidad de nPerf",loadTest:"Cargar nPerf Speed Test",back:"Volver a Apps",runningTitle:"nPerf Speed Test",runningText:"Prueba proporcionada por nPerf. Pausa las descargas y otras actividades de red intensivas para medir mejor.",problem:"Si la prueba no aparece, comprueba los bloqueadores de contenido y recarga la página. Puedes volver sin cargar nPerf otra vez.",close:"Cerrar prueba",tipsTitle:"Consejos para resultados fiables",tips:"Pausa descargas y subidas grandes y el streaming innecesario. Repite la prueba a otra hora. El Wi-Fi puede rendir distinto de una conexión por cable.",independent:"Con tecnología de nPerf. Apps & Games ofrece la página; nPerf ofrece la prueba.",ourPolicy:"Privacidad de Apps & Games",home:"Inicio"}
+};
+let selected="en";try{const saved=localStorage.getItem("appsGamesLanguage");selected=texts[saved]?saved:(texts[navigator.language.slice(0,2)]?navigator.language.slice(0,2):"en");}catch(_){}
+const picker=document.getElementById("languageSelect");
+function apply(language){const t=texts[language]||texts.en;document.documentElement.lang=language;picker.value=language;document.querySelectorAll("[data-st]").forEach(el=>{el.textContent=t[el.getAttribute("data-st")]||el.textContent;});}
+picker.addEventListener("change",()=>{apply(picker.value);try{localStorage.setItem("appsGamesLanguage",picker.value);}catch(_){}});
+apply(selected);
+document.getElementById("currentYear").textContent=String(new Date().getFullYear());
+})();
+</script>
+</body>
+</html>
