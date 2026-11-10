@@ -278,6 +278,18 @@ supportedLanguages.forEach(language => {
     cardTranslations[language][12] = entry.card;
 });
 
+const speedTestCardI18n = {
+  en: ["Check your internet download speed, upload speed and latency in your browser using the official nPerf test.", ["Speed", "Internet", "nPerf"]],
+  hr: ["Provjerite brzinu preuzimanja, slanja i latenciju interneta u pregledniku uz službeni nPerf test.", ["Brzina", "Internet", "nPerf"]],
+  de: ["Prüfe Download, Upload und Latenz deiner Internetverbindung direkt im Browser mit nPerf.", ["Speedtest", "Internet", "nPerf"]],
+  it: ["Controlla velocità di download, upload e latenza nel browser con il test nPerf ufficiale.", ["Velocità", "Internet", "nPerf"]],
+  es: ["Comprueba velocidad de descarga, subida y latencia directamente en el navegador con nPerf.", ["Velocidad", "Internet", "nPerf"]]
+};
+supportedLanguages.forEach(lang => {
+  if (!Array.isArray(cardTranslations[lang])) cardTranslations[lang] = [];
+  cardTranslations[lang][13] = speedTestCardI18n[lang];
+});
+
 function t(key) {
     return translations[currentLanguage]?.[key] ?? translations.en?.[key] ?? key;
 }
@@ -510,6 +522,21 @@ const apps = [
         tags: ["Chess", "3D", "Strategy"],
         status: "LIVE",
         analyticsEvent: "play_game"
+    },
+    {
+        category: "utility",
+        badge: "APP",
+        name: "Internet Speed Test",
+        description: "Check your internet download speed, upload speed and latency in your browser using the official nPerf test.",
+        image: "assets/images/speed-test.svg",
+        button: "OPEN APP →",
+        url: "speed-test/",
+        detailsUrl: "speed-test/",
+        hasDownload: false,
+        platforms: ["Web"],
+        tags: ["Speed", "Internet", "nPerf"],
+        status: "COMING_SOON",
+        analyticsEvent: "open_app"
     }
 ];
 
@@ -734,7 +761,7 @@ function renderApps() {
             <div class="app-content">
                 <div class="app-title-row">
                     <h3>${app.name}</h3>
-                    <span class="app-status">${t("live")}</span>
+                    <span class="app-status">${app.status === "COMING_SOON" ? t("comingSoon") : t("live")}</span>
                 </div>
                 <p class="app-description">${localizedDescription}</p>
                 <div class="app-platforms">
