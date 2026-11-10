@@ -73,30 +73,13 @@
       <p class="speed-disclaimer" data-st="privacyText">When loaded, nPerf may process your IP address, device/network information and speed-test results according to its own privacy policy.</p>
       <p class="speed-disclaimer"><a href="https://www.nperf.com/en/privacy-policy" target="_blank" rel="noopener noreferrer" data-st="nperfPolicy">Read nPerf Privacy Policy</a></p>
       <div class="speed-actions">
-        <form method="get" action="/speed-test/">
-          <button type="submit" name="run" value="1" class="primary-button" data-st="loadTest">Load nPerf Speed Test</button>
+        <form method="get" action="/speed-test/run/">
+          <button type="submit" class="primary-button" data-st="loadTest">Load nPerf Speed Test</button>
         </form>
         <a href="/#apps" class="secondary-button" data-st="back">Back to Apps</a>
       </div>
     </div>
-    <div id="nperf-running" hidden>
-      <h2 data-st="runningTitle">nPerf Speed Test</h2>
-      <p class="speed-disclaimer" data-st="runningText">Test provided by nPerf. Pause downloads and other heavy network activity for a more representative measurement.</p>
-      <div class="speed-stage" id="nperf-stage">
-        <script>
-          (function () {
-            if (new URLSearchParams(window.location.search).get("run") !== "1") return;
-            document.getElementById("nperf-intro").hidden = true;
-            document.getElementById("nperf-running").hidden = false;
-            // Parser-time insertion preserves nPerf's original, unmodified script tag.
-            // No request to nPerf happens on the default /speed-test/ page.
-            document.write("<script src=\"https://ws.nperf.com/partner/js?l=1e09d953-2294-406b-833d-97e3ec53f71e\"><\/script>");
-          })();
-        </script>
-      </div>
-      <p class="speed-disclaimer" data-st="problem">If the test does not appear, check content blockers and reload the page. You can return without loading nPerf again.</p>
-      <div class="speed-actions"><a href="/speed-test/" class="secondary-button" data-st="close">Close test</a></div>
-    </div>
+
   </section>
   <section class="speed-tips">
     <h2 data-st="tipsTitle">Tips for reliable results</h2>
