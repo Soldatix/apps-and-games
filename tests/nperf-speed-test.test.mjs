@@ -50,10 +50,10 @@ test("speed-test cover and shared header components stay consistent",()=>{
  assert.ok(svg.includes("Apps &amp; Games"),"SVG metadata must escape ampersands");
  assert.ok(!svg.includes("Apps & Games dark"),"Unescaped ampersand breaks XML image");
  assert.match(speed,/data-ag-language-menu/,"Use portal's shared language menu");
- assert.match(speed,/src="\\.\\.\\/assets\\/js\\/ag-language-menu\\.js"/);
+ assert.ok(speed.includes('src="../assets/js/ag-language-menu.js"'));
  assert.match(speed,/id="themeToggle"/);
- assert.match(speed,/localStorage\\.getItem\\("theme"\\)/);
- assert.match(speed,/localStorage\\.setItem\\("theme",next\\)/);
- assert.match(homepage,/src="assets\\/images\\/speed-test\\.svg"/);
- assert.match(registry,/image: "assets\\/images\\/speed-test\\.svg"/);
+ assert.ok(speed.includes('localStorage.getItem("theme")'));
+ assert.ok(speed.includes('localStorage.setItem("theme",next)'));
+ assert.ok(homepage.includes('src="assets/images/speed-test.svg"'));
+ assert.ok(registry.includes('image: "assets/images/speed-test.svg"'));
 });
