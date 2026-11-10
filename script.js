@@ -528,7 +528,7 @@ const apps = [
         badge: "APP",
         name: "Internet Speed Test",
         description: "Check your internet download speed, upload speed and latency in your browser using the official nPerf test.",
-        image: "assets/images/speed-test.svg",
+        image: "assets/images/speed-test-neon.webp",
         button: "OPEN APP →",
         url: "speed-test/",
         detailsUrl: "speed-test/",
