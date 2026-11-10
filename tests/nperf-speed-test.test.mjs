@@ -41,3 +41,19 @@ test("Speed Test wrapper translations and nPerf privacy disclosure",()=>{
  assert.match(policy,/nPerf \(optional Internet Speed Test/);
  assert.match(policy,/nPerf's privacy policy/);
 });
+
+test("speed-test cover and shared header components stay consistent",()=>{
+ const svg=read("assets/images/speed-test.svg");
+ const speed=read("speed-test/index.html");
+ const homepage=read("index.html");
+ const registry=read("script.js");
+ assert.ok(svg.includes("Apps &amp; Games"),"SVG metadata must escape ampersands");
+ assert.ok(!svg.includes("Apps & Games dark"),"Unescaped ampersand breaks XML image");
+ assert.match(speed,/data-ag-language-menu/,"Use portal's shared language menu");
+ assert.ok(speed.includes('src="../assets/js/ag-language-menu.js"'));
+ assert.match(speed,/id="themeToggle"/);
+ assert.ok(speed.includes('localStorage.getItem("theme")'));
+ assert.ok(speed.includes('localStorage.setItem("theme",next)'));
+ assert.ok(homepage.includes('src="assets/images/speed-test.svg"'));
+ assert.ok(registry.includes('image: "assets/images/speed-test.svg"'));
+});
