@@ -8,15 +8,15 @@ const read=path=>readFileSync(join(root,path),"utf8");
 test("official nPerf code loads directly only on the user-triggered run page",()=>{
  const page=read("speed-test/index.html"),run=read("speed-test/run/index.html");
  const vendor='<script src="https://ws.nperf.com/partner/js?l=1e09d953-2294-406b-833d-97e3ec53f71e"></script>';
- assert.match(page,/<form method="get" action="\\/speed-test\\/run\\/">/);
- assert.match(page,/<button[^>]+type="submit"/);
- assert.doesNotMatch(page,/ws\\.nperf\\.com\\/partner\\/js/);
+ assert.ok(page.includes('<form method="get" action="/speed-test/run/">'));
+ assert.ok(page.includes('type="submit"'));
+ assert.ok(!page.includes("ws.nperf.com/partner/js"));
  assert.equal(run.split(vendor).length-1,1,"official nPerf script must be unmodified and embedded once");
- assert.doesNotMatch(run,/document\\.write\\(/);
- assert.match(run,/<meta name="robots" content="noindex, follow">/);
- assert.match(page,/src="\\.\\.\\/privacy-choice\\.js"/);
- assert.match(run,/src="\\.\\.\\/privacy-choice\\.js"/);
- assert.match(page,/https:\\/\\/www\\.nperf\\.com\\/en\\/privacy-policy/);
+ assert.ok(!run.includes("document.write("));
+ assert.ok(run.includes('<meta name="robots" content="noindex, follow">'));
+ assert.ok(page.includes('src="../privacy-choice.js"'));
+ assert.ok(run.includes('src="../privacy-choice.js"'));
+ assert.ok(page.includes("https://www.nperf.com/en/privacy-policy"));
 });
 test("Speed Test entry is consistent across homepage and sitemap",()=>{
  const home=read("index.html"),catalog=read("script.js"),sitemap=read("sitemap.xml");
