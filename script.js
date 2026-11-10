@@ -535,7 +535,7 @@ const apps = [
         hasDownload: false,
         platforms: ["Web"],
         tags: ["Speed", "Internet", "nPerf"],
-        status: "COMING_SOON",
+        status: "LIVE",
         analyticsEvent: "open_app"
     }
 ];
