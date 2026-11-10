@@ -25,7 +25,7 @@ test("Speed Test entry is consistent across homepage and sitemap",()=>{
  assert.match(catalog,/name: "Internet Speed Test"/);
  assert.match(catalog,/cardTranslations\[lang\]\[13\]/);
  assert.match(sitemap,/<loc>https:\/\/appsandgames\.org\/speed-test\/<\/loc>/);
- for(const lang of ["en","hr","de","it","es"]) assert.match(read("i18n.js"),new RegExp("speedTest: \\""));
+ assert.equal((read("i18n.js").match(/speedTest:/g)||[]).length,5);
 });
 test("Speed Test wrapper translations and nPerf privacy disclosure",()=>{
  const page=read("speed-test/index.html"),policy=read("privacy-policy.html");
