@@ -25,8 +25,8 @@ try {
     return { complete: el.complete, naturalWidth: el.naturalWidth, src: el.getAttribute("src") };
   });
   assert.ok(image.complete && image.naturalWidth > 0, "Speed Test preview should load and decode");
-  assert.equal(image.src, "assets/images/speed-test.svg");
-  console.log("PASS: Speed Test card SVG loads with positive natural width");
+  assert.equal(image.src, "assets/images/speed-test-neon.webp");
+  console.log("PASS: approved neon WebP thumbnail decodes on the Speed Test card");
 
   await page.goto(root + "speed-test/", { waitUntil: "domcontentloaded" });
   assert.equal(await page.locator("#themeToggle").count(), 1);

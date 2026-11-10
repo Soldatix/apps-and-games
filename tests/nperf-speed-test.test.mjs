@@ -54,6 +54,10 @@ test("speed-test cover and shared header components stay consistent",()=>{
  assert.match(speed,/id="themeToggle"/);
  assert.ok(speed.includes('localStorage.getItem("theme")'));
  assert.ok(speed.includes('localStorage.setItem("theme",next)'));
- assert.ok(homepage.includes('src="assets/images/speed-test.svg"'));
- assert.ok(registry.includes('image: "assets/images/speed-test.svg"'));
+ const neon=readFileSync(join(root,"assets/images/speed-test-neon.webp"));
+ assert.equal(neon.subarray(0,4).toString(),"RIFF","Neon card asset should be a real WebP file");
+ assert.equal(neon.subarray(8,12).toString(),"WEBP");
+ assert.ok(neon.byteLength < 100000,"Card preview should stay lightweight");
+ assert.ok(homepage.includes('src="assets/images/speed-test-neon.webp"'));
+ assert.ok(registry.includes('image: "assets/images/speed-test-neon.webp"'));
 });
