@@ -17,16 +17,33 @@
       ? matchMedia("(min-width: 320px) and (max-width: 799px)").matches
       : unit === "sidebar" && matchMedia("(min-width: 1280px)").matches;
   if (!validDevice) return;
-  let allowed = false;
+  // Match the shared privacy dialog's selection order: newest valid local
+  // preference or first-party consent cookie. Mobile visits via a different
+  // subdomain may have only the shared cookie on this origin.
+  const validConsent = raw => {
+    try {
+      const record = JSON.parse(raw || "null");
+      const age = record && Date.now() - record.timestamp;
+      return record && record.version === 1 &&
+        record.partnerRevision === "adsterra-2026-11" &&
+        typeof record.analytics === "boolean" &&
+        typeof record.advertising === "boolean" &&
+        Number.isFinite(age) && age >= 0 &&
+        age <= 180 * 24 * 60 * 60 * 1000 ? record : null;
+    } catch (_) { return null; }
+  };
+  let local = null, shared = null;
+  try { local = validConsent(localStorage.getItem("appsGamesPrivacyConsentV1")); }
+  catch (_) { /* Storage unavailable: no local consent. */ }
   try {
-    const record = JSON.parse(localStorage.getItem("appsGamesPrivacyConsentV1") || "null");
-    const age = record && Date.now() - record.timestamp;
-    allowed = !!record && record.version === 1 &&
-      record.partnerRevision === "adsterra-2026-11" &&
-      record.advertising === true && Number.isFinite(age) &&
-      age >= 0 && age <= 180 * 24 * 60 * 60 * 1000;
-  } catch (_) { allowed = false; }
-  if (!allowed) return;
+    const part = document.cookie.split("; ").find(value =>
+      value.startsWith("ag_privacy_choices_v1="));
+    if (part) shared = validConsent(decodeURIComponent(
+      part.slice("ag_privacy_choices_v1=".length)));
+  } catch (_) { /* Invalid or unavailable cookie: no shared consent. */ }
+  const selected = shared && (!local || shared.timestamp >= local.timestamp)
+    ? shared : local;
+  if (!selected || selected.advertising !== true) return;
   const snippets = {
     desktop: "<script>\n  atOptions = {\n    'key' : '3e88187807f72645af6b39e90957f6a8',\n    'format' : 'iframe',\n    'height' : 90,\n    'width' : 728,\n    'params' : {}\n  };\n</script>\n<script src=\"https://bauval.org/22/3e88187807f72645af6b39e90957f6a8\"></script>",
     mobile: "<script>\n  atOptions = {\n    'key' : 'fc02ce1675aa14021ad3dee29c123264',\n    'format' : 'iframe',\n    'height' : 50,\n    'width' : 320,\n    'params' : {}\n  };\n</script>\n<script src=\"https://bauval.org/22/fc02ce1675aa14021ad3dee29c123264\"></script>",
