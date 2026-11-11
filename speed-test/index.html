@@ -99,6 +99,27 @@
     <h1>Internet Speed Test</h1>
     <p data-st="intro">Measure your download speed, upload speed and latency directly in your browser, powered by nPerf.</p>
   </section>
+  <!-- Reuse existing main-domain Adsterra placements. The loader keeps the
+       original provider code unchanged and requires prior advertising consent.
+       Do not even request ad scripts while the nPerf measurement view is active. -->
+  <section class="speed-ad-area" aria-label="Advertisements">
+    <div class="ag-ad-slot ag-ad-slot--desktop" data-ad-placement="32042360"
+         aria-label="Advertisement" hidden>
+      <script>
+        if (document.documentElement.getAttribute("data-nperf-trial") === "ready") {
+          document.write('<script src="../adsterra-banner-loader.js" data-unit="desktop"><\/script>');
+        }
+      </script>
+    </div>
+    <div class="ag-ad-slot ag-ad-slot--mobile" data-ad-placement="32042361"
+         aria-label="Advertisement" hidden>
+      <script>
+        if (document.documentElement.getAttribute("data-nperf-trial") === "ready") {
+          document.write('<script src="../adsterra-banner-loader.js" data-unit="mobile"><\/script>');
+        }
+      </script>
+    </div>
+  </section>
   <section class="speed-card" aria-label="nPerf Speed Test">
     <div id="nperf-intro">
       <h2 data-st="readyTitle">Ready to check your connection?</h2>
