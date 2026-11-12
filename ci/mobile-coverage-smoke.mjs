@@ -30,8 +30,9 @@ try {
   await page.waitForFunction(()=>document.getElementById('nperf-map')?.dataset.mapScale);
   const largeMap = await page.evaluate(()=>{
     const frame=document.getElementById('mock-nperf-map').getBoundingClientRect();
-    const stage=document.getElementById('nperf-map').getBoundingClientRect();
-    return {frameWidth:frame.width,stageWidth:stage.width,scale:parseFloat(stage.dataset.mapScale)};
+    const element=document.getElementById('nperf-map');
+    const stage=element.getBoundingClientRect();
+    return {frameWidth:frame.width,stageWidth:stage.width,scale:parseFloat(element.dataset.mapScale)};
   });
   assert.ok(largeMap.frameWidth>900,"desktop provider map scales wider than the 560px native embed");
   assert.ok(largeMap.frameWidth <= largeMap.stageWidth,"map stays inside wide stage");
