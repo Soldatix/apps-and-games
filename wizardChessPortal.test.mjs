@@ -11,3 +11,6 @@ test('real chess screenshots are staged as PNG files',()=>{for(const p of ['asse
 test('SEO sitemap and canonical route',()=>{assert.match(read('sitemap.xml'),/appsandgames\.org\/wizard-chess-3d/);assert.match(detail,/rel="canonical"/);});
 test('existing catalog and analytics remains available',()=>{assert.match(idx,/href="tetris"/);assert.match(js,/detailsUrl: "tetris"/);assert.match(detail,/googletagmanager/);});
 test('Stockfish cache limitation disclosed',()=>{assert.match(detail,/Stockfish level 6 also requires/);});
+
+test('Microsoft Store chess distribution card and desktop platform metadata',()=>{assert.match(detail,/id="windows-store-card"/);assert.match(detail,/https:\/\/apps\.microsoft\.com\/detail\/9MWQ5CZNLSBD/);assert.match(detail,/platform-download-grid--two/);assert.match(idx,/Web \/ PWA · Windows \(Microsoft Store\)/);assert.match(js,/platforms: \["Web \/ PWA", "Windows \(Microsoft Store\)"\]/);assert.match(read("style.css"),/\.platform-download-grid--two/);});
+test('Store card is translated in all supported site languages',()=>{for(const k of ["en","hr","de","it","es"])assert.match(i18n,new RegExp('"' + k + '":\\s*\\{[\\s\\S]*?"storeOpen"'));assert.match(i18n,/windows-store-open/);assert.match(i18n,/windows-store-description/);});

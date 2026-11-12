@@ -751,27 +751,37 @@
   "en": {
     "webTitle": "Web App",
     "webOpen": "Open / Install Web App",
-    "webDescription": "After a complete first load, core chess modes and 3D models work offline. Stockfish level 6 also requires its engine files to be cached while online."
+    "webDescription": "After a complete first load, core chess modes and 3D models work offline. Stockfish level 6 also requires its engine files to be cached while online.",
+    "storeOpen": "Open in Microsoft Store",
+    "storeDescription": "Free Windows desktop edition. Install and receive updates through Microsoft Store. This is separate from the browser-based Web/PWA edition."
   },
   "hr": {
     "webTitle": "Web App",
     "webOpen": "Otvori / instaliraj Web App",
-    "webDescription": "Nakon prvog potpunog učitavanja, osnovna igra i 3D modeli rade offline. Stockfish razina 6 zahtijeva prethodno učitane datoteke motora."
+    "webDescription": "Nakon prvog potpunog učitavanja, osnovna igra i 3D modeli rade offline. Stockfish razina 6 zahtijeva prethodno učitane datoteke motora.",
+    "storeOpen": "Otvori u Microsoft Storeu",
+    "storeDescription": "Besplatna Windows verzija za računala. Instalacija i ažuriranja dostupni su putem Microsoft Storea. Ovo je zasebno izdanje od Web/PWA verzije."
   },
   "de": {
     "webTitle": "Web App",
     "webOpen": "Web-App öffnen / installieren",
-    "webDescription": "Nach dem vollständigen ersten Laden funktionieren das Grundspiel und die 3D-Modelle offline. Stockfish Stufe 6 benötigt zuvor geladene Engine-Dateien."
+    "webDescription": "Nach dem vollständigen ersten Laden funktionieren das Grundspiel und die 3D-Modelle offline. Stockfish Stufe 6 benötigt zuvor geladene Engine-Dateien.",
+    "storeOpen": "Im Microsoft Store öffnen",
+    "storeDescription": "Kostenlose Windows-Desktopversion. Installation und Updates erfolgen über den Microsoft Store. Diese Version ist unabhängig von der Web/PWA-Version."
   },
   "it": {
     "webTitle": "Web App",
     "webOpen": "Apri / installa Web App",
-    "webDescription": "Dopo il primo caricamento completo, il gioco base e i modelli 3D funzionano offline. Stockfish livello 6 richiede prima il download dei file del motore."
+    "webDescription": "Dopo il primo caricamento completo, il gioco base e i modelli 3D funzionano offline. Stockfish livello 6 richiede prima il download dei file del motore.",
+    "storeOpen": "Apri su Microsoft Store",
+    "storeDescription": "Versione desktop gratuita per Windows. Installazione e aggiornamenti tramite Microsoft Store. È un'edizione separata dalla versione Web/PWA."
   },
   "es": {
     "webTitle": "Web App",
     "webOpen": "Abrir / instalar Web App",
-    "webDescription": "Tras una primera carga completa, las funciones básicas y los modelos 3D funcionan sin conexión. Stockfish nivel 6 requiere precargar los archivos del motor."
+    "webDescription": "Tras una primera carga completa, las funciones básicas y los modelos 3D funcionan sin conexión. Stockfish nivel 6 requiere precargar los archivos del motor.",
+    "storeOpen": "Abrir en Microsoft Store",
+    "storeDescription": "Versión gratuita para Windows. Instalación y actualizaciones mediante Microsoft Store. Es una edición independiente de la versión Web/PWA."
   }
 }[language];
             const title = document.getElementById("web-platform-title");
@@ -780,6 +790,10 @@
             if (title) title.textContent = w.webTitle;
             if (open) open.textContent = w.webOpen;
             if (description) description.textContent = w.webDescription;
+            const storeOpen = document.getElementById("windows-store-open");
+            const storeDescription = document.getElementById("windows-store-description");
+            if (storeOpen) storeOpen.textContent = w.storeOpen;
+            if (storeDescription) storeDescription.textContent = w.storeDescription;
         }
 
         if (slug === "tetris") {
