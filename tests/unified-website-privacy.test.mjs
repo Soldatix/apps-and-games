@@ -102,7 +102,7 @@ test("all five languages and vendor disclosures are in the shared control",()=>{
   assert.match(consent,/readChoice\(\) !== true \|\|/);
   assert.doesNotMatch(consent,/adsbygoogle|googlesyndication/);
   assert.match(loader,/appsGamesPrivacyConsentV1/);
-  assert.match(loader,/record\.advertising === true/);
+  assert.match(loader,/if \(!selected \|\| selected\.advertising !== true\) return;/);
   assert.match(loader,/record\.partnerRevision === "adsterra-2026-11"/);
   const htmls=readdirSync(root).filter(x=>x.endsWith(".html")&&!x.startsWith("google"));
   for(const filename of htmls)assert.match(read(filename),/src="privacy-choice\.js"/);
