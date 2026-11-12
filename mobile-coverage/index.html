@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Release gate: switch to index,follow only after the real custom hostname and map are verified. -->
+  <meta name="robots" content="noindex,follow">
+  <title>Mobile Network Coverage & Speed Maps | Apps &amp; Games</title>
+  <meta name="description" content="Explore free 4G and 5G coverage maps and real-world mobile internet speed maps across nine countries, powered by nPerf.">
+  <link rel="canonical" href="https://mobile-coverage.appsandgames.org/">
+  <meta name="theme-color" content="#071529">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mobile Network Coverage &amp; Speed Maps | Apps &amp; Games">
+  <meta property="og:description" content="Explore interactive mobile coverage and speed maps powered by nPerf.">
+  <meta property="og:url" content="https://mobile-coverage.appsandgames.org/">
+  <meta property="og:site_name" content="Apps &amp; Games">
+  <meta property="og:image" content="https://appsandgames.org/assets/social/apps-and-games-social.jpg">
+  <meta property="og:image:alt" content="Apps &amp; Games logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mobile Network Coverage & Speed Maps | Apps &amp; Games">
+  <meta name="twitter:description" content="Explore free interactive 4G/5G coverage and real-world mobile speed maps, powered by nPerf.">
+  <meta name="twitter:image" content="https://appsandgames.org/assets/social/apps-and-games-social.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Mobile Network Coverage","url":"https://mobile-coverage.appsandgames.org/","description":"Interactive mobile network coverage and measured speed maps powered by nPerf for nine supported countries.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web browser","isAccessibleForFree":true,"inLanguage":["en","hr","de","it","es"],"publisher":{"@type":"Organization","name":"Apps & Games","url":"https://appsandgames.org/"},"provider":{"@type":"Organization","name":"nPerf"}}
+  </script>
+  <link rel="icon" href="https://appsandgames.org/assets/icons/favicon.ico">
+  <link rel="stylesheet" href="./styles.css">
+  <!-- One shared privacy UI; no Adsterra code or ad requests in this draft. -->
+  <link rel="stylesheet" href="https://appsandgames.org/privacy-choice.css">
+  <script>
+    try { if (localStorage.getItem("theme")==="light") document.documentElement.setAttribute("data-theme","light"); }
+    catch (_) {}
+  </script>
+  <script defer src="https://appsandgames.org/privacy-choice.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="https://appsandgames.org/" aria-label="Apps and Games home">
+      <img src="https://appsandgames.org/assets/icons/android-chrome-192x192.png" alt="" width="38" height="38">
+      <span>Apps <strong>&amp;</strong> Games</span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="https://appsandgames.org/#apps" data-i18n="apps">Apps</a>
+      <a href="https://appsandgames.org/#games" data-i18n="games">Games</a>
+      <a href="https://appsandgames.org/#info" data-i18n="info">Info</a>
+    </nav>
+    <div class="controls">
+      <label class="visually-hidden" for="languageSelect">Language</label>
+      <select id="languageSelect" data-ag-language-menu aria-label="Select language">
+        <option value="en">EN</option><option value="hr">HR</option><option value="de">DE</option><option value="it">IT</option><option value="es">ES</option>
+      </select>
+      <button id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">☀️</button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="hero container">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="eyebrow">APPS &amp; GAMES · POWERED BY nPerf</p>
+      <h1 data-i18n="title">Mobile Network Coverage</h1>
+      <p class="hero-lead" data-i18n="intro">Explore mobile coverage and real-world connection speeds on interactive nPerf maps. Compare available national operators and technology where data is available.</p>
+      <div class="chip-row">
+        <span class="chip">4G / 5G</span><span class="chip" data-i18n="speedMaps">Speed maps</span><span class="chip" data-i18n="nineCountries">9 countries</span>
+      </div>
+    </div>
+    <img class="hero-illustration" src="./cover.svg" alt="Stylized mobile coverage map with 5G signal and colorful coverage zones" width="680" height="380">
+  </section>
+  <section class="map-shell container" aria-labelledby="mapHeading">
+    <div class="map-head">
+      <div>
+        <h2 id="mapHeading" data-i18n="mapHeading">Explore the nPerf map</h2>
+        <p data-i18n="mapIntro">Choose an available country, operator or map layer using the controls inside the map.</p>
+      </div>
+      <span class="source">nPerf</span>
+    </div>
+    <div class="map-stage" id="nperf-map" aria-label="Interactive nPerf coverage and speed map">
+      <!-- Provider-issued embed: keep the URL, license and locale unchanged.
+           Preview hosts may not be authorized; verify on the licensed custom domain. -->
+      <script src='https://ws.nperf.com/partner/js-map?l=026f70f3-da84-43d1-bb18-716133fa9c88&locale=en'></script>
+    </div>
+    <p class="map-note" data-i18n="mapNote">Map data and controls are provided by nPerf and update automatically. Map availability varies by country and operator.</p>
+  </section>
+  <section class="detail-grid container">
+    <article class="info-panel">
+      <div class="panel-icon" aria-hidden="true">📡</div>
+      <h2 data-i18n="coverageTitle">Network coverage</h2>
+      <p data-i18n="coverageBody">View reported mobile network coverage, including 4G and 5G layers wherever nPerf offers them.</p>
+    </article>
+    <article class="info-panel">
+      <div class="panel-icon" aria-hidden="true">⚡</div>
+      <h2 data-i18n="speedsTitle">Measured speeds</h2>
+      <p data-i18n="speedsBody">Explore maps of real-world mobile internet measurements. They provide an indication, not a guaranteed speed at every address.</p>
+    </article>
+  </section>
+  <section class="countries container" aria-labelledby="countriesHeading">
+    <h2 id="countriesHeading" data-i18n="countriesHeading">Licensed countries</h2>
+    <p data-i18n="countriesIntro">The initial free nPerf license covers these nine requested countries.</p>
+    <ul id="countryList" class="country-grid"></ul>
+  </section>
+  <section class="explain container">
+    <h2 data-i18n="aboutTitle">About these maps</h2>
+    <p data-i18n="aboutBody">This page embeds nPerf's official consultation maps. nPerf reports that these maps update every four hours and do not collect visitor data. The coverage and speed shown are informational and may not reflect your exact location indoors or at a given time.</p>
+    <p><a href="https://www.nperf.com/" rel="noopener noreferrer" target="_blank" data-i18n="nperfLink">Learn more about nPerf</a> · <a href="https://appsandgames.org/privacy-policy.html" data-i18n="privacy">Privacy Policy</a></p>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© <span id="year">2026</span> Apps &amp; Games</span>
+    <div class="footer-links"><a href="https://appsandgames.org/" data-i18n="home">Home</a><a href="https://appsandgames.org/privacy-policy.html" data-i18n="privacy">Privacy Policy</a></div>
+  </div>
+</footer>
+<script src="./app.js"></script>
+<script src="https://appsandgames.org/assets/js/ag-language-menu.js"></script>
+</body>
+</html>
