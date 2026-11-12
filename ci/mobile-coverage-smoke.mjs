@@ -11,7 +11,7 @@ try {
   await context.route(/ws\.nperf\.com\/partner\/js-map/,route=>{
     mapCalls++;
     return route.fulfill({status:200,contentType:"application/javascript",
-      body:"document.currentScript.insertAdjacentHTML('afterend','<iframe id=\\\"mock-nperf-map\\\" width=\\\"560\\\" height=\\\"385\\\" srcdoc=\\\"<p>nPerf test map</p>\\\"></iframe>');");
+      body:"document.currentScript.insertAdjacentHTML('afterend','<iframe id=\\\"mock-nperf-map\\\" width=\\\"560\\\" height=\\\"385\\\" srcdoc=\\\"<p>nPerf test map</p>\\\"></iframe>');"});
   });
   await context.route(/adsterra|bauval\.org|googletagmanager|google-analytics/,route=>{adCalls++;return route.abort()});
   await context.route("https://appsandgames.org/privacy-choice.js",route=>route.fulfill({path:local("privacy-choice.js"),contentType:"application/javascript"}));
