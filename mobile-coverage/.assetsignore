@@ -1,3 +1,17 @@
+# Static assets only: never publish Wrangler-generated internals or secrets.
+# Wrangler creates .wrangler/tmp/deploy/* during builds.
+.wrangler/
+**/.wrangler/**
+.git/
+**/.git/**
+.github/
+**/.github/**
+node_modules/
+**/node_modules/**
+.env
+.env.*
+*.pem
+*.key
 /wrangler.jsonc
 /.assetsignore
 /README.md
