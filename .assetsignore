@@ -26,6 +26,4 @@
 /tests/
 /docs/
 /wizardChessPortal.test.mjs
-/mobile-coverage/README.md
-/mobile-coverage/wrangler.jsonc
-/mobile-coverage/.assetsignore
+/mobile-coverage/

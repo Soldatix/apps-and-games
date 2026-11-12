@@ -19,8 +19,8 @@ test("nine countries, five languages, no premature ad vendor requests",()=>{
 test("dedicated Worker and portal staging don't touch existing nPerf Speed Test",()=>{
   assert.equal(worker.name,"mobile-coverage");
   assert.equal(worker.assets.directory,".");
-  assert.match(portal,/>Mobile Network Coverage<\/h3>/);
-  assert.match(portal,/>COMING SOON<\/span>/);
-  assert.match(portalJs,/name: "Mobile Network Coverage"/);
-  assert.match(portalJs,/status: "COMING_SOON"/);
+  assert.doesNotMatch(portal,/>Mobile Network Coverage<\/h3>/, "portal card must wait for approved launch");
+  assert.doesNotMatch(portalJs,/name: "Mobile Network Coverage"/, "registry card must wait for launch");
+  const rootIgnore=read(".assetsignore");
+  assert.match(rootIgnore,/^\/mobile-coverage\/\s*$/m, "main portal Worker must exclude dedicated app files");
 });

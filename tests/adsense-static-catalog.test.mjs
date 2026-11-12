@@ -63,15 +63,6 @@ test("existing JavaScript language enhancement stays intact while analytics requ
 
 test("detail routes are listed in the sitemap and crawling is allowed", () => {
     for (const app of apps) {
-        if (app.name === "Mobile Network Coverage") {
-            // A separately hosted app belongs in its own hostname's sitemap,
-            // not the root appsandgames.org sitemap.
-            assert.equal(app.detailsUrl, "https://mobile-coverage.appsandgames.org/");
-            const dedicatedSitemap = readFileSync(join(root, "mobile-coverage", "sitemap.xml"), "utf8");
-            assert.ok(dedicatedSitemap.includes("<loc>" + escapeHtml(app.detailsUrl) + "</loc>"),
-                app.name + " URL absent from its own sitemap");
-            continue;
-        }
         const location = "<loc>https://appsandgames.org/" + escapeHtml(app.detailsUrl) + "</loc>";
         assert.ok(sitemap.includes(location), app.name + " detail URL absent from sitemap");
     }
