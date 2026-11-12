@@ -38,7 +38,7 @@ try {
   assert.equal(await page.locator("html").getAttribute("data-theme"),"light");
   for(const width of [375,768,1280]){
     await page.setViewportSize({width,height:820});
-    const bounds=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,width:innerWidth,language:(()=>{const a=document.querySelector("#languageSelect");const r=a.getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}})(),theme:(()=>{const r=document.querySelector("#themeToggle").getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}})()}));
+    const bounds=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,width:innerWidth,language:(()=>{const a=document.querySelector(".ag-language-button")||document.querySelector("#languageSelect");const r=a.getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}})(),theme:(()=>{const r=document.querySelector("#themeToggle").getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}})()}));
     assert.ok(bounds.scrollWidth<=width+1,"no horizontal overflow at "+width+"px");
     for(const name of ["language","theme"]){const el=bounds[name];assert.ok(el.width>25&&el.left>=-1&&el.right<=width+1,name+" visible at "+width+"px");}
   }
