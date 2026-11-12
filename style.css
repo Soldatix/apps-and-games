@@ -937,6 +937,11 @@ a {
     grid-template-columns: minmax(0, 1fr);
 }
 
+.platform-download-grid--two {
+    max-width: 850px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .platform-download-card {
     padding: 20px;
     border: 1px solid var(--border);
