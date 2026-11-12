@@ -4,6 +4,49 @@
 
 const translations = window.APP_I18N || {};
 const cardTranslations = window.APP_CARD_I18N || {};
+const mobileCoverageCardTranslations = {
+    "en": [
+        "Explore interactive 4G/5G mobile network coverage and real-world speed maps for nine countries, powered by nPerf.",
+        [
+            "4G / 5G",
+            "Coverage",
+            "nPerf"
+        ]
+    ],
+    "hr": [
+        "Istraži pokrivenost 4G/5G mrežama i stvarne brzine mobilnog interneta na interaktivnim nPerf kartama za devet država.",
+        [
+            "4G / 5G",
+            "Pokrivenost",
+            "nPerf"
+        ]
+    ],
+    "de": [
+        "Entdecke 4G/5G-Mobilfunkabdeckung und gemessene mobile Internetgeschwindigkeiten auf interaktiven nPerf-Karten für neun Länder.",
+        [
+            "4G / 5G",
+            "Netzabdeckung",
+            "nPerf"
+        ]
+    ],
+    "it": [
+        "Esplora la copertura mobile 4G/5G e le velocità misurate su mappe interattive nPerf per nove paesi.",
+        [
+            "4G / 5G",
+            "Copertura",
+            "nPerf"
+        ]
+    ],
+    "es": [
+        "Explora la cobertura móvil 4G/5G y las velocidades medidas en mapas interactivos de nPerf para nueve países.",
+        [
+            "4G / 5G",
+            "Cobertura",
+            "nPerf"
+        ]
+    ]
+};
+
 const supportedLanguages = ["en", "hr", "de", "it", "es"];
 const languageSelect = document.getElementById("languageSelect");
 
@@ -537,6 +580,21 @@ const apps = [
         tags: ["Speed", "Internet", "nPerf"],
         status: "LIVE",
         analyticsEvent: "open_app"
+    },
+    {
+        category: "utility",
+        badge: "APP",
+        name: "Mobile Network Coverage",
+        description: "Explore interactive 4G/5G mobile network coverage and real-world speed maps for nine countries, powered by nPerf.",
+        image: "https://mobile-coverage.appsandgames.org/cover.svg",
+        button: "OPEN APP →",
+        url: "https://mobile-coverage.appsandgames.org/",
+        detailsUrl: "https://mobile-coverage.appsandgames.org/",
+        hasDownload: false,
+        platforms: ["Web"],
+        tags: ["4G / 5G", "Coverage", "nPerf"],
+        status: "LIVE",
+        analyticsEvent: "open_app"
     }
 ];
 
@@ -738,7 +796,8 @@ function renderApps() {
     gamesGrid.innerHTML = "";
 
     apps.forEach((app, index) => {
-        const localizedCard = cardTranslations[currentLanguage]?.[index]
+        const localizedCard = (app.name === "Mobile Network Coverage" && mobileCoverageCardTranslations[currentLanguage])
+            || cardTranslations[currentLanguage]?.[index]
             || cardTranslations.en?.[index]
             || [app.description, app.tags];
         const localizedDescription = localizedCard[0];
