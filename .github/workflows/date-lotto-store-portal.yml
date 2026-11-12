@@ -14,6 +14,7 @@ on:
       - script.js
       - style.css
       - speed-test/**
+      - mobile-coverage/**
       - assets/images/speed-test.svg
       - assets/js/ag-language-menu.js
       - tests/**
@@ -53,3 +54,4 @@ jobs:
           curl --fail http://127.0.0.1:4173/ > /dev/null
           node ci/date-lotto-store-portal-smoke.mjs
           node ci/nperf-polish-smoke.mjs
+          node ci/mobile-coverage-smoke.mjs

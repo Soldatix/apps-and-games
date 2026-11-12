@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mobile-coverage.appsandgames.org/sitemap.xml
