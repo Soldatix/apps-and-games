@@ -63,10 +63,39 @@ test("existing JavaScript language enhancement stays intact while analytics requ
 
 test("detail routes are listed in the sitemap and crawling is allowed", () => {
     for (const app of apps) {
-        const location = "<loc>https://appsandgames.org/" + escapeHtml(app.detailsUrl) + "</loc>";
-        assert.ok(sitemap.includes(location), app.name + " detail URL absent from sitemap");
+        const externalHost = /^https:\/\//.test(app.detailsUrl);
+        const location = "<loc>" + (externalHost ? escapeHtml(app.detailsUrl) : "https://appsandgames.org/" + escapeHtml(app.detailsUrl)) + "</loc>";
+        if (externalHost) {
+            assert.equal(app.name, "Mobile Network Coverage");
+            const dedicated = readFileSync(join(root, "mobile-coverage", "sitemap.xml"), "utf8");
+            assert.ok(dedicated.includes(location), app.name + " URL absent from dedicated-domain sitemap");
+            assert.ok(!sitemap.includes(location), "root-domain sitemap must not contain URLs for another hostname");
+        } else {
+            assert.ok(sitemap.includes(location), app.name + " detail URL absent from sitemap");
+        }
     }
     assert.match(robots, /User-agent: \*/);
     assert.match(robots, /Allow: \//);
     assert.match(robots, /Sitemap: https:\/\/appsandgames\.org\/sitemap\.xml/);
+});
+
+
+test("official Mobile Coverage catalog launch is SEO ready and has no Adsterra requests", () => {
+    assert.match(html, /<h3>Mobile Network Coverage<\/h3>[\s\S]*?<span class="app-status">LIVE<\/span>/);
+    assert.match(html, /src="https:\/\/mobile-coverage\.appsandgames\.org\/cover\.svg"/);
+    assert.match(html, /href="https:\/\/mobile-coverage\.appsandgames\.org\/"/);
+    const metadata = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert.ok(metadata);
+    const schema = JSON.parse(metadata[1]);
+    const itemList = schema["@graph"].find(item => item["@type"] === "ItemList");
+    assert.equal(itemList.numberOfItems, itemList.itemListElement.length);
+    assert.ok(itemList.itemListElement.some(entry => entry.item.name === "Mobile Network Coverage"));
+    assert.ok(itemList.itemListElement.some(entry => entry.item.name === "Internet Speed Test"));
+    const site = readFileSync(join(root, "mobile-coverage", "index.html"), "utf8");
+    assert.match(site, /<meta name="robots" content="index,follow">/);
+    assert.match(site, /https:\/\/ws\.nperf\.com\/partner\/js-map\?l=026f70f3-da84-43d1-bb18-716133fa9c88&locale=en/);
+    assert.match(site, /id="ad-area"[^>]*hidden/);
+    assert.doesNotMatch(site,/bauval\.org|adsterra-banner-loader/);
+    const subSitemap=readFileSync(join(root, "mobile-coverage", "sitemap.xml"),"utf8");
+    assert.ok(subSitemap.includes("<loc>https://mobile-coverage.appsandgames.org/</loc>"));
 });

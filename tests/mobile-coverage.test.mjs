@@ -7,7 +7,7 @@ test("official nPerf map tag and licensed hostname are preserved",()=>{
   assert.match(html,/https:\/\/ws\.nperf\.com\/partner\/js-map\?l=026f70f3-da84-43d1-bb18-716133fa9c88&locale=en/);
   assert.equal((html.match(/ws\.nperf\.com\/partner\/js-map/g)||[]).length,1);
   assert.match(html,/rel="canonical" href="https:\/\/mobile-coverage\.appsandgames\.org\/"/);
-  assert.match(html,/name="robots" content="noindex,follow"/);
+  assert.match(html,/name="robots" content="index,follow"/);
 });
 test("nine countries, five languages, no premature ad vendor requests",()=>{
   for(const code of ["CH","HR","DE","IT","AT","FR","ES","GB","US"])assert.match(script,new RegExp("'"+code+"'"));
@@ -19,8 +19,9 @@ test("nine countries, five languages, no premature ad vendor requests",()=>{
 test("dedicated Worker and portal staging don't touch existing nPerf Speed Test",()=>{
   assert.equal(worker.name,"mobile-coverage");
   assert.equal(worker.assets.directory,".");
-  assert.doesNotMatch(portal,/>Mobile Network Coverage<\/h3>/, "portal card must wait for approved launch");
-  assert.doesNotMatch(portalJs,/name: "Mobile Network Coverage"/, "registry card must wait for launch");
+  assert.match(portal,/>Mobile Network Coverage<\/h3>/, "portal must feature live Mobile Coverage");
+  assert.match(portalJs,/name: "Mobile Network Coverage"/, "registry must include Mobile Coverage");
+  assert.match(portalJs,/mobileCoverageCardTranslations/, "five-language catalog entry required");
   const rootIgnore=read(".assetsignore");
   assert.match(rootIgnore,/^\/mobile-coverage\/\s*$/m, "main portal Worker must exclude dedicated app files");
 });
