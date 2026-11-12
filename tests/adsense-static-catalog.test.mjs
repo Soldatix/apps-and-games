@@ -82,8 +82,12 @@ test("detail routes are listed in the sitemap and crawling is allowed", () => {
 
 test("official Mobile Coverage catalog launch is SEO ready and has no Adsterra requests", () => {
     assert.match(html, /<h3>Mobile Network Coverage<\/h3>[\s\S]*?<span class="app-status">LIVE<\/span>/);
-    assert.match(html, /src="https:\/\/mobile-coverage\.appsandgames\.org\/cover\.svg"/);
+    assert.match(html, /src="assets\/images\/mobile-coverage-neon\.webp"/);
     assert.match(html, /href="https:\/\/mobile-coverage\.appsandgames\.org\/"/);
+    const neonImage=readFileSync(join(root,"assets","images","mobile-coverage-neon.webp"));
+    assert.equal(neonImage.subarray(0,4).toString("ascii"),"RIFF","cover WebP RIFF header");
+    assert.equal(neonImage.subarray(8,12).toString("ascii"),"WEBP","cover valid WebP signature");
+
     const metadata = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
     assert.ok(metadata);
     const schema = JSON.parse(metadata[1]);
