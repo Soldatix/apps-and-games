@@ -586,7 +586,7 @@ const apps = [
         badge: "APP",
         name: "Mobile Network Coverage",
         description: "Explore interactive 4G/5G mobile network coverage and real-world speed maps for nine countries, powered by nPerf.",
-        image: "https://mobile-coverage.appsandgames.org/cover.svg",
+        image: "assets/images/mobile-coverage-neon.webp",
         button: "OPEN APP →",
         url: "https://mobile-coverage.appsandgames.org/",
         detailsUrl: "https://mobile-coverage.appsandgames.org/",
