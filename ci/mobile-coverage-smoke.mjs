@@ -54,6 +54,11 @@ try {
     const bounds=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,width:innerWidth,language:(()=>{const a=document.querySelector(".ag-language-button")||document.querySelector("#languageSelect");const r=a.getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}})(),theme:(()=>{const r=document.querySelector("#themeToggle").getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}})()}));
     assert.ok(bounds.scrollWidth<=width+1,"no horizontal overflow at "+width+"px");
     for(const name of ["language","theme"]){const el=bounds[name];assert.ok(el.width>25&&el.left>=-1&&el.right<=width+1,name+" visible at "+width+"px");}
+    await page.waitForFunction(()=>{
+      const stage=document.getElementById("nperf-map")?.getBoundingClientRect();
+      const frame=document.getElementById("mock-nperf-map")?.getBoundingClientRect();
+      return stage && frame && frame.width <= stage.width+1;
+    },null,{timeout:6000});
     const map=await page.evaluate(()=>({stage:document.getElementById("nperf-map").getBoundingClientRect(),frame:document.getElementById("mock-nperf-map").getBoundingClientRect()}));
     assert.ok(map.frame.width <= map.stage.width+1,"whole provider map fits the "+width+"px viewport");
   }
