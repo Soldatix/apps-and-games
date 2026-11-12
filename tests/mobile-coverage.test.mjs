@@ -24,3 +24,12 @@ test("dedicated Worker and portal staging don't touch existing nPerf Speed Test"
   const rootIgnore=read(".assetsignore");
   assert.match(rootIgnore,/^\/mobile-coverage\/\s*$/m, "main portal Worker must exclude dedicated app files");
 });
+
+test("Wrangler temporary files and secrets are excluded from deployed static assets",()=>{
+  const ignored=read("mobile-coverage/.assetsignore");
+  assert.match(ignored,/^\.wrangler\/$/m);
+  assert.match(ignored,/^\*\*\/\.wrangler\/\*\*$/m);
+  for(const pattern of [".env", "*.pem", "*.key", "/wrangler.jsonc"]) {
+    assert.ok(ignored.includes(pattern), "missing ignore rule for "+pattern);
+  }
+});
