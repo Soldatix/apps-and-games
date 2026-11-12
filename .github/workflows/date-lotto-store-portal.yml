@@ -14,6 +14,7 @@ on:
       - script.js
       - style.css
       - speed-test/**
+      - mobile-coverage/**
       - assets/images/speed-test.svg
       - assets/js/ag-language-menu.js
       - tests/**

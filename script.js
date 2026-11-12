@@ -537,6 +537,28 @@ const apps = [
         tags: ["Speed", "Internet", "nPerf"],
         status: "LIVE",
         analyticsEvent: "open_app"
+    },
+    {
+        category: "utility",
+        badge: "APP",
+        name: "Mobile Network Coverage",
+        description: "Explore interactive 4G/5G coverage and real-world mobile speed maps for nine countries, powered by nPerf.",
+        image: "mobile-coverage/cover.svg",
+        button: "OPEN APP →",
+        url: "https://mobile-coverage.appsandgames.org/",
+        detailsUrl: "https://mobile-coverage.appsandgames.org/",
+        hasDownload: false,
+        platforms: ["Web"],
+        tags: ["Mobile", "Coverage", "nPerf"],
+        status: "COMING_SOON",
+        analyticsEvent: "open_app",
+        localized: {
+            en: ["Explore interactive 4G/5G coverage and real-world mobile speed maps for nine countries, powered by nPerf.", ["Mobile", "Coverage", "nPerf"]],
+            hr: ["Istraži interaktivne karte 4G/5G pokrivenosti i izmjerenih brzina mobilnog interneta za devet država.", ["Mobilne mreže", "Pokrivenost", "nPerf"]],
+            de: ["Erkunde interaktive 4G/5G-Netzabdeckungs- und Mobilfunk-Geschwindigkeitskarten für neun Länder.", ["Mobilfunk", "Netzabdeckung", "nPerf"]],
+            it: ["Esplora mappe interattive di copertura 4G/5G e velocità mobili misurate per nove paesi.", ["Mobile", "Copertura", "nPerf"]],
+            es: ["Explora mapas interactivos de cobertura 4G/5G y velocidades móviles medidas en nueve países.", ["Móvil", "Cobertura", "nPerf"]]
+        }
     }
 ];
 
@@ -738,7 +760,8 @@ function renderApps() {
     gamesGrid.innerHTML = "";
 
     apps.forEach((app, index) => {
-        const localizedCard = cardTranslations[currentLanguage]?.[index]
+        const localizedCard = app.localized?.[currentLanguage]
+            || cardTranslations[currentLanguage]?.[index]
             || cardTranslations.en?.[index]
             || [app.description, app.tags];
         const localizedDescription = localizedCard[0];
