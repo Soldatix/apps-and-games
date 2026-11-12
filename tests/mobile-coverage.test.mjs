@@ -33,3 +33,19 @@ test("Wrangler temporary files and secrets are excluded from deployed static ass
     assert.ok(ignored.includes(pattern), "missing ignore rule for "+pattern);
   }
 });
+
+test("standard portal header and two future Adsterra sizes, no active ads",()=>{
+  assert.match(html,/assets\/logo\/apps-and-games-logo\.png/);
+  assert.match(html,/class="main-nav"/);
+  assert.match(html,/class="header-actions"/);
+  assert.match(html,/data-ag-language-menu/);
+  assert.match(html,/id="themeToggle"/);
+  assert.match(html,/id="ad-area"[^>]*hidden/);
+  assert.match(html,/data-ad-size="728x90"/);
+  assert.match(html,/data-ad-size="320x50"/);
+  assert.doesNotMatch(html,/bauval\.org|adsterra-banner-loader|https:\/\/.*adsterra/);
+  assert.match(css,/\.future-ad-area\[hidden\]\{display:none!important\}/);
+  assert.match(html,/id="nperf-embed"/);
+  assert.match(script,/initResponsiveNPerfMap\(\)/);
+  assert.match(script,/canvas\.style\.transform = 'scale\('/);
+});

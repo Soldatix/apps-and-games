@@ -11,3 +11,9 @@ nPerf maps are licensed for `https://mobile-coverage.appsandgames.org/` and up t
 6. After production testing and explicit approval, update the draft robots meta from noindex,follow to index,follow, then add both catalog entries as LIVE. Confirm the final canonical URL, correct social preview, Worker Ready and sitemap.
 7. nPerf said maps automatically follow browser language, yet supplied script contains `locale=en`. Keep vendor-issued URL unchanged; verify language behavior or ask Priscilla before altering it.
 8. No subscription, credits, or usage limits for approved ten-country license; advertising alongside maps explicitly permitted by nPerf.
+
+## Layout v2 / future advertising
+- Uses the same Apps & Games image logo, 3 navigation links, shared language dropdown with flags and persisted light/dark toggle as the homepage.
+- Wraps the *unchanged* nPerf embed in a responsive canvas. It scales the actual iframe together with its controls, without editing provider code or embedding a second map.
+- HTML contains a **hidden** ad reservation zone between hero and map. Desktop 728x90 and mobile 320x50 are alternative responsive placements, not simultaneous placements. No scripts, IDs or ad impressions until original per-domain Get Code and approved consent logic are integrated in a separate PR.
+- Before launch of ads, test 375px mobile, 768px tablet and >1024px desktop, and verify map zoom/menus still work on the licensed hostname.

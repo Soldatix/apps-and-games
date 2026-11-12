@@ -54,5 +54,56 @@
   });
   setTheme(document.documentElement.getAttribute('data-theme')==='light'?'light':'dark');
   setLanguage(language);
+
+  // nPerf renders an intrinsically narrow map (~560px) even on wide screens.
+  // The third-party tag/iframe is untouched; scale its *whole* canvas (controls
+  // included) to our responsive viewport instead of stretching an empty frame.
+  function initResponsiveNPerfMap() {
+    const stage = document.getElementById('nperf-map');
+    const canvas = document.getElementById('nperf-embed');
+    if (!stage || !canvas) return;
+    let pending = false;
+    let lastGeometry = '';
+    const resize = () => {
+      pending = false;
+      const frame = canvas.querySelector('iframe');
+      const mapRoot = frame || [...canvas.children].find(el => el.tagName !== 'SCRIPT');
+      if (!mapRoot) return;
+      const frameWidth = Number.parseInt(frame?.getAttribute('width'),10) || frame?.offsetWidth || 0;
+      const frameHeight = Number.parseInt(frame?.getAttribute('height'),10) || frame?.offsetHeight || 0;
+      const naturalWidth = Math.max(540, frameWidth, mapRoot.offsetWidth || 0);
+      const naturalHeight = Math.max(360, frameHeight, mapRoot.offsetHeight || 0);
+      const computed = getComputedStyle(stage);
+      const available = stage.clientWidth - Number.parseFloat(computed.paddingLeft) - Number.parseFloat(computed.paddingRight);
+      if (available <= 0) return;
+      const scale = Math.max(0.1,Math.min(2.15,available/naturalWidth,780/naturalHeight));
+      const height = Math.ceil(naturalHeight * scale + Number.parseFloat(computed.paddingTop) + Number.parseFloat(computed.paddingBottom));
+      const geometry = [naturalWidth,naturalHeight,scale.toFixed(4),height].join(':');
+      if (geometry === lastGeometry) return;
+      lastGeometry = geometry;
+      canvas.style.width = naturalWidth + 'px';
+      canvas.style.height = naturalHeight + 'px';
+      canvas.style.transform = 'scale(' + scale + ')';
+      stage.style.height = height + 'px';
+      stage.dataset.mapScale = scale.toFixed(3);
+    };
+    const schedule = () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(resize);
+    };
+    const observer = new MutationObserver(schedule);
+    observer.observe(canvas,{childList:true,subtree:true});
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(schedule);
+      ro.observe(stage.parentElement);
+    } else {
+      window.addEventListener('resize',schedule);
+    }
+    window.addEventListener('resize',schedule);
+    window.addEventListener('load',schedule,{once:true});
+    schedule();
+  }
+  initResponsiveNPerfMap();
   document.getElementById('year').textContent=String(new Date().getFullYear());
 })();

@@ -35,22 +35,21 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="https://appsandgames.org/" aria-label="Apps and Games home">
-      <img src="https://appsandgames.org/assets/icons/android-chrome-192x192.png" alt="" width="38" height="38">
-      <span>Apps <strong>&amp;</strong> Games</span>
+  <div class="header-content">
+    <a href="https://appsandgames.org/" class="logo" aria-label="Apps & Games Home">
+      <img src="https://appsandgames.org/assets/logo/apps-and-games-logo.png" alt="Apps & Games" class="site-logo-image" width="180" height="52">
     </a>
-    <nav class="top-nav" aria-label="Main navigation">
-      <a href="https://appsandgames.org/#apps" data-i18n="apps">Apps</a>
-      <a href="https://appsandgames.org/#games" data-i18n="games">Games</a>
-      <a href="https://appsandgames.org/#info" data-i18n="info">Info</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="https://appsandgames.org/#apps">📱 <span data-i18n="apps">Apps</span></a>
+      <a href="https://appsandgames.org/#games">🎮 <span data-i18n="games">Games</span></a>
+      <a href="https://appsandgames.org/#info">ℹ <span data-i18n="info">Info</span></a>
     </nav>
-    <div class="controls">
+    <div class="header-actions">
       <label class="visually-hidden" for="languageSelect">Language</label>
-      <select id="languageSelect" data-ag-language-menu aria-label="Select language">
+      <select id="languageSelect" class="language-select" data-ag-language-menu aria-label="Select language">
         <option value="en">EN</option><option value="hr">HR</option><option value="de">DE</option><option value="it">IT</option><option value="es">ES</option>
       </select>
-      <button id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">☀️</button>
+      <button id="themeToggle" type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀️</button>
     </div>
   </div>
 </header>
@@ -66,6 +65,13 @@
     </div>
     <img class="hero-illustration" src="./cover.svg" alt="Stylized mobile coverage map with 5G signal and colorful coverage zones" width="680" height="380">
   </section>
+  <!-- Placement contract only. Keep hidden until this exact hostname is Approved by Adsterra,
+       original 728×90 / 320×50 GET CODE has been issued, and consent-gated loaders are reviewed.
+       No advertisement script or request is made at this stage. -->
+  <section class="future-ad-area container" id="ad-area" aria-label="Future advertising placement" hidden>
+    <div class="ad-slot ad-slot--desktop" id="ad-desktop-slot" data-ad-size="728x90"></div>
+    <div class="ad-slot ad-slot--mobile" id="ad-mobile-slot" data-ad-size="320x50"></div>
+  </section>
   <section class="map-shell container" aria-labelledby="mapHeading">
     <div class="map-head">
       <div>
@@ -75,9 +81,11 @@
       <span class="source">nPerf</span>
     </div>
     <div class="map-stage" id="nperf-map" aria-label="Interactive nPerf coverage and speed map">
+      <div class="nperf-map-canvas" id="nperf-embed">
       <!-- Provider-issued embed: keep the URL, license and locale unchanged.
            Preview hosts may not be authorized; verify on the licensed custom domain. -->
       <script src='https://ws.nperf.com/partner/js-map?l=026f70f3-da84-43d1-bb18-716133fa9c88&locale=en'></script>
+      </div>
     </div>
     <p class="map-note" data-i18n="mapNote">Map data and controls are provided by nPerf and update automatically. Map availability varies by country and operator.</p>
   </section>
