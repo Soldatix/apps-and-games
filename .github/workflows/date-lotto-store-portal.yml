@@ -54,3 +54,4 @@ jobs:
           curl --fail http://127.0.0.1:4173/ > /dev/null
           node ci/date-lotto-store-portal-smoke.mjs
           node ci/nperf-polish-smoke.mjs
+          node ci/mobile-coverage-smoke.mjs
