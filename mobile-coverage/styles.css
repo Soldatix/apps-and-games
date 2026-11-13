@@ -72,3 +72,24 @@
   .hero{padding-top:30px}
   .map-stage{padding:5px}
 }
+
+/* Active Adsterra units are part of normal document flow, above the nPerf map.
+   Mobile has its full 320px width even on a 320px viewport; no clipped ad.
+   Inactive units and the no-consent parent remain completely hidden. */
+.future-ad-area[hidden],.future-ad-area .ad-slot[hidden]{display:none!important}
+.future-ad-area{box-sizing:border-box;max-width:100%;width:100%;padding-inline:0!important;min-height:0;flex-direction:column;justify-content:center;align-items:center;margin:12px auto 24px;overflow:visible}
+.future-ad-area .ad-slot{box-sizing:content-box;width:auto;max-width:100%;height:auto;min-height:0;overflow:visible;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center}
+.future-ad-area .ad-slot--desktop{width:728px;min-width:728px}
+.future-ad-area .ad-slot--mobile{display:none;width:320px;min-width:320px}
+.future-ad-area .ag-ad-label{display:block;font-size:.72rem;line-height:1.3;margin:0 0 5px;color:var(--muted);letter-spacing:.03em;text-align:center}
+@media(max-width:799px){
+  .future-ad-area{margin:8px auto 17px}
+  .future-ad-area .ad-slot--desktop{display:none!important}
+  .future-ad-area .ad-slot--mobile:not([hidden]){display:flex}
+}
+@media(min-width:800px){
+  .future-ad-area .ad-slot--mobile{display:none!important}
+}
+@media(max-width:319px){
+  .future-ad-area{display:none!important}
+}
