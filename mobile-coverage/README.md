@@ -11,6 +11,7 @@ nPerf maps are licensed for `https://mobile-coverage.appsandgames.org/` and up t
 
 ## Layout v2 / future advertising
 - Uses the same Apps & Games image logo, 3 navigation links, shared language dropdown with flags and persisted light/dark toggle as the homepage.
+- Hero displays the **same optimized original neon WebP** used by the Mobile Coverage app catalog card. The copy is served locally by the dedicated Worker at `/mobile-coverage-neon.webp`, keeping the hero independent of the main site's asset host. Open Graph and Twitter sharing images point to that same hero.
 - Wraps the *unchanged* nPerf embed in a responsive canvas. It scales the actual iframe together with its controls, without editing provider code or embedding a second map.
 - HTML uses a **hidden until consent** ad area between hero and map. The exact provider GET CODE is emitted parser-time by `adsterra-banner-loader.js` only on a page load with valid advertising opt-in from our shared local choice or subdomain cookie (180-day expiry, newest choice wins). Desktop ≥800px: 728×90; mobile 320–799px: 320×50; never both. No overlays, self-refresh, auto-resize of ads or unapproved extra placements.
 - Before launch of ads, test 375px mobile, 768px tablet and >1024px desktop, and verify map zoom/menus still work on the licensed hostname.

@@ -41,6 +41,9 @@ try {
   assert.equal(await page.locator("#countryList li").count(),9);
   const cover=await page.locator(".hero-illustration").evaluate(el=>({complete:el.complete,naturalWidth:el.naturalWidth}));
   assert.ok(cover.complete&&cover.naturalWidth>0,"coverage illustration loads");
+  assert.equal(await page.locator(".hero-illustration").getAttribute("src"),"./mobile-coverage-neon.webp",
+    "Mobile Coverage hero must show same approved neon art as catalog card");
+  assert.equal(cover.naturalWidth,640,"optimized neon image must decode at 640px natural width");
   await page.locator("#languageSelect").selectOption("hr");
   assert.match(await page.locator("h1").innerText(),/Pokrivenost mobilnih mreža/);
   assert.equal(await page.locator("html").getAttribute("lang"),"hr");
