@@ -90,7 +90,7 @@ test("newest valid shared cookie overrides stale local choice across subdomains"
   assert.equal(simulate("desktop",1280,makeChoice(true,old),makeChoice(false,latest)).writes.length,0);
   assert.equal(simulate("desktop",1280,makeChoice(false,old),makeChoice(true,latest)).writes.length,1);
   assert.equal(simulate("mobile",375,null,makeChoice(true)).writes.length,1);
-  assert.equal(simulate("mobile",375,makeChoice(true),makeChoice(false,latest)).writes.length,0);
+  assert.equal(simulate("mobile",375,makeChoice(true,old),makeChoice(false,latest)).writes.length,0);
 });
 
 test("Adsterra tags are not in unconsented HTML and consented units do not overlap nPerf",()=>{
