@@ -103,3 +103,19 @@ test("official Mobile Coverage catalog launch is SEO ready and has no Adsterra r
     const subSitemap=readFileSync(join(root, "mobile-coverage", "sitemap.xml"),"utf8");
     assert.ok(subSitemap.includes("<loc>https://mobile-coverage.appsandgames.org/</loc>"));
 });
+
+
+test("Habit Tracker cover is locally hosted, optimized and consistent across cards and SEO", () => {
+    const cover = readFileSync(join(root, "assets", "images", "habit-tracker-cover.webp"));
+    assert.equal(cover.subarray(0,4).toString("ascii"), "RIFF");
+    assert.equal(cover.subarray(8,12).toString("ascii"), "WEBP");
+    assert.ok(cover.byteLength < 100_000, "Habit cover should be optimized below 100 KB");
+    const expected="assets/images/habit-tracker-cover.webp";
+    assert.ok(html.includes('src="' + expected + '"'));
+    assert.ok(script.includes('image: "' + expected + '"'));
+    const detail=readFileSync(join(root, "habit-tracker.html"), "utf8");
+    assert.ok(detail.includes('https://appsandgames.org/' + expected));
+    assert.ok(!html.includes("habit-tracker.appsandgames.org/habit-tracker-cover.png"));
+    assert.ok(!script.includes("habit-tracker.appsandgames.org/habit-tracker-cover.png"));
+    assert.ok(!detail.includes("habit-tracker.appsandgames.org/habit-tracker-cover.png"));
+});
