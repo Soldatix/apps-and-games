@@ -55,9 +55,3 @@ jobs:
           node ci/date-lotto-store-portal-smoke.mjs
           node ci/nperf-polish-smoke.mjs
           node ci/mobile-coverage-smoke.mjs
-          node ci/habit-image-diagnostic.mjs
-          node ci/habit-image-browser-diagnostic.mjs
-      - name: Prepare optimized original Habit Tracker preview (public bytes only)
-        run: |
-          python3 -m pip install --quiet Pillow
-          python3 ci/habit-card-optimize.py
