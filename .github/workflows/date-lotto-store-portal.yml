@@ -44,6 +44,8 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright
           npx playwright install --with-deps chromium
+      - name: Diagnose external Habit Tracker cover URL (read-only, nonblocking)
+        run: node ci/habit-image-diagnostic.mjs
       - name: Browser and responsive portal smoke tests
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/portal-http.log 2>&1 &
