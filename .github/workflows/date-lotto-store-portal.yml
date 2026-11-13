@@ -55,3 +55,4 @@ jobs:
           node ci/date-lotto-store-portal-smoke.mjs
           node ci/nperf-polish-smoke.mjs
           node ci/mobile-coverage-smoke.mjs
+          node ci/mobile-coverage-ads-smoke.mjs

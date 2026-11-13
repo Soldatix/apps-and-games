@@ -25,7 +25,7 @@
   </script>
   <link rel="icon" href="https://appsandgames.org/assets/icons/favicon.ico">
   <link rel="stylesheet" href="./styles.css">
-  <!-- One shared privacy UI; no Adsterra code or ad requests in this draft. -->
+  <!-- One shared privacy dialog; ads load only after its advertising opt-in. -->
   <link rel="stylesheet" href="https://appsandgames.org/privacy-choice.css">
   <script>
     try { if (localStorage.getItem("theme")==="light") document.documentElement.setAttribute("data-theme","light"); }
@@ -65,12 +65,12 @@
     </div>
     <img class="hero-illustration" src="./cover.svg" alt="Stylized mobile coverage map with 5G signal and colorful coverage zones" width="680" height="380">
   </section>
-  <!-- Placement contract only. Keep hidden until this exact hostname is Approved by Adsterra,
-       original 728×90 / 320×50 GET CODE has been issued, and consent-gated loaders are reviewed.
-       No advertisement script or request is made at this stage. -->
-  <section class="future-ad-area container" id="ad-area" aria-label="Future advertising placement" hidden>
-    <div class="ad-slot ad-slot--desktop" id="ad-desktop-slot" data-ad-size="728x90"></div>
-    <div class="ad-slot ad-slot--mobile" id="ad-mobile-slot" data-ad-size="320x50"></div>
+  <!-- Exactly one original Adsterra placement, chosen at parse time on a
+       second load after explicit advertising consent. These first-party loader
+       scripts do not contact Adsterra unless consent is already recorded. -->
+  <section class="future-ad-area container" id="ad-area" aria-label="Advertisement" hidden>
+    <div class="ad-slot ad-slot--desktop" id="ad-desktop-slot" data-ad-size="728x90" hidden><script src="./adsterra-banner-loader.js" data-unit="desktop"></script></div>
+    <div class="ad-slot ad-slot--mobile" id="ad-mobile-slot" data-ad-size="320x50" hidden><script src="./adsterra-banner-loader.js" data-unit="mobile"></script></div>
   </section>
   <section class="map-shell container" aria-labelledby="mapHeading">
     <div class="map-head">

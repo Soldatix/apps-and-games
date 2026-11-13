@@ -9,10 +9,11 @@ test("official nPerf map tag and licensed hostname are preserved",()=>{
   assert.match(html,/rel="canonical" href="https:\/\/mobile-coverage\.appsandgames\.org\/"/);
   assert.match(html,/name="robots" content="index,follow"/);
 });
-test("nine countries, five languages, no premature ad vendor requests",()=>{
+test("nine countries, five languages, no ad vendor source in static HTML",()=>{
   for(const code of ["CH","HR","DE","IT","AT","FR","ES","GB","US"])assert.match(script,new RegExp("'"+code+"'"));
   for(const lang of ["en","hr","de","it","es"])assert.match(script,new RegExp("\\b"+lang+":\\{"));
-  assert.doesNotMatch(html,/bauval\.org|adsterra-banner-loader|data-ad-placement/);
+  assert.doesNotMatch(html,/bauval\.org|data-ad-placement/);
+  assert.equal((html.match(/src="\.\/adsterra-banner-loader\.js"/g)||[]).length,2);
   assert.match(html,/https:\/\/appsandgames\.org\/privacy-choice\.js/);
   assert.match(css,/@media\(max-width:550px\)/);
 });
@@ -35,7 +36,7 @@ test("Wrangler temporary files and secrets are excluded from deployed static ass
   }
 });
 
-test("standard portal header and two future Adsterra sizes, no active ads",()=>{
+test("standard portal header and consent-gated responsive Adsterra placement",()=>{
   assert.match(html,/assets\/logo\/apps-and-games-logo\.png/);
   assert.match(html,/class="main-nav"/);
   assert.match(html,/class="header-actions"/);
@@ -44,7 +45,11 @@ test("standard portal header and two future Adsterra sizes, no active ads",()=>{
   assert.match(html,/id="ad-area"[^>]*hidden/);
   assert.match(html,/data-ad-size="728x90"/);
   assert.match(html,/data-ad-size="320x50"/);
-  assert.doesNotMatch(html,/bauval\.org|adsterra-banner-loader|https:\/\/.*adsterra/);
+  assert.doesNotMatch(html,/bauval\.org|https:\/\/.*adsterra/);
+  assert.match(html,/id="ad-desktop-slot"[^>]*hidden><script src="\.\/adsterra-banner-loader\.js" data-unit="desktop"/);
+  assert.match(html,/id="ad-mobile-slot"[^>]*hidden><script src="\.\/adsterra-banner-loader\.js" data-unit="mobile"/);
+  assert.match(css,/@media\(max-width:799px\)/);
+  assert.match(css,/\.future-ad-area \.ad-slot\[hidden\]\{display:none!important\}/);
   assert.match(css,/\.future-ad-area\[hidden\]\{display:none!important\}/);
   assert.match(html,/id="nperf-embed"/);
   assert.match(script,/initResponsiveNPerfMap\(\)/);

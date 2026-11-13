@@ -99,7 +99,9 @@ test("official Mobile Coverage catalog launch is SEO ready and has no Adsterra r
     assert.match(site, /<meta name="robots" content="index,follow">/);
     assert.match(site, /https:\/\/ws\.nperf\.com\/partner\/js-map\?l=026f70f3-da84-43d1-bb18-716133fa9c88&locale=en/);
     assert.match(site, /id="ad-area"[^>]*hidden/);
-    assert.doesNotMatch(site,/bauval\.org|adsterra-banner-loader/);
+    assert.doesNotMatch(site,/bauval\.org/,"vendor scripts are loaded only by consent-gated first-party loader");
+    assert.equal((site.match(/src="\.\/adsterra-banner-loader\.js"/g)||[]).length,2,
+      "two responsive first-party loaders must exist, no vendor tag in static HTML");
     const subSitemap=readFileSync(join(root, "mobile-coverage", "sitemap.xml"),"utf8");
     assert.ok(subSitemap.includes("<loc>https://mobile-coverage.appsandgames.org/</loc>"));
 });

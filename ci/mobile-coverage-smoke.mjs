@@ -13,7 +13,7 @@ try {
     return route.fulfill({status:200,contentType:"application/javascript",
       body:"document.currentScript.insertAdjacentHTML('afterend','<iframe id=\\\"mock-nperf-map\\\" width=\\\"560\\\" height=\\\"385\\\" srcdoc=\\\"<p>nPerf test map</p>\\\"></iframe>');"});
   });
-  await context.route(/adsterra|bauval\.org|googletagmanager|google-analytics/,route=>{adCalls++;return route.abort()});
+  await context.route(/bauval\.org|\.adsterra\.com|googletagmanager|google-analytics/,route=>{adCalls++;return route.abort()});
   await context.route("https://appsandgames.org/privacy-choice.js",route=>route.fulfill({path:local("privacy-choice.js"),contentType:"application/javascript"}));
   await context.route("https://appsandgames.org/privacy-choice.css",route=>route.fulfill({path:local("privacy-choice.css"),contentType:"text/css"}));
   await context.route("https://appsandgames.org/assets/js/ag-language-menu.js",route=>route.fulfill({path:local("assets/js/ag-language-menu.js"),contentType:"application/javascript"}));
@@ -23,7 +23,7 @@ try {
   await page.goto(root,{waitUntil:"domcontentloaded"});
   await page.locator("#mock-nperf-map").waitFor();
   assert.equal(mapCalls,1,"vendor script requested once");
-  assert.equal(adCalls,0,"no pre-approval ad requests");
+  assert.equal(adCalls,0,"no Adsterra requests without consent");
   assert.equal(await page.locator(".site-logo-image").count(),1,"portal header logo");
   assert.equal(await page.locator(".main-nav a").count(),3,"portal header links");
   assert.equal(await page.locator("#ad-area").isHidden(),true,"no premature advertising area");
