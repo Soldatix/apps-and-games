@@ -30,8 +30,7 @@ async function visit(width,choice){
   }
   await context.route(/ws\.nperf\.com\/partner\/js-map/,route=>{
     mapRequests++;
-    return route.fulfill({status:200,contentType:"application/javascript",body:
-      'document.currentScript.insertAdjacentHTML("afterend",\\'<iframe id="mock-nperf-map" width="560" height="385" srcdoc="<p>nPerf map</p>"></iframe>\\');'});
+    return route.fulfill({status:200,contentType:"application/javascript",body: "const frame=document.createElement(\"iframe\");frame.id=\"mock-nperf-map\";frame.width=\"560\";frame.height=\"385\";document.currentScript.insertAdjacentElement(\"afterend\",frame);"});
   });
   await context.route(/https:\/\/bauval\.org\/22\//,route=>{
     vendorRequests++;
