@@ -55,3 +55,17 @@ test("standard portal header and consent-gated responsive Adsterra placement",()
   assert.match(script,/initResponsiveNPerfMap\(\)/);
   assert.match(script,/canvas\.style\.transform = 'scale\('/);
 });
+
+
+test("Mobile Coverage hero uses identical same-origin optimized WebP from the catalog card",()=>{
+  const hero=readFileSync(new URL("../mobile-coverage/mobile-coverage-neon.webp",import.meta.url));
+  const card=readFileSync(new URL("../assets/images/mobile-coverage-neon.webp",import.meta.url));
+  assert.equal(hero.byteLength,14070);
+  assert.deepEqual(hero,card,"Hero and app listing must use identical image bytes");
+  assert.equal(hero.subarray(0,4).toString("ascii"),"RIFF");
+  assert.equal(hero.subarray(8,12).toString("ascii"),"WEBP");
+  assert.match(html,/class="hero-illustration" src="\.\/mobile-coverage-neon\.webp"/);
+  assert.doesNotMatch(html,/class="hero-illustration" src="\.\/cover\.svg"/);
+  assert.match(html,/property="og:image" content="https:\/\/mobile-coverage\.appsandgames\.org\/mobile-coverage-neon\.webp"/);
+  assert.match(html,/name="twitter:image" content="https:\/\/mobile-coverage\.appsandgames\.org\/mobile-coverage-neon\.webp"/);
+});
