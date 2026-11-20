@@ -54,15 +54,30 @@ test('chess JSON-LD carries Windows distribution link', () => {
   assert.match(data.gamePlatform, /Windows 11/);
 });
 
-test('Windows V1.1 private online multiplayer has distinct Web/PWA wording',()=>{
+test('Windows V1.1 store card remains correct alongside Web/PWA V1.1 online support',()=>{
   assert.match(detail,/Windows 10\/11 x64 · V1\.1 · Free/);
-  assert.match(detail,/Windows V1\.1 — Online Multiplayer/);
-  assert.match(detail,/Web\/PWA remains local\/offline/);
+  assert.match(detail,/Online Multiplayer — Web\/PWA and Windows V1\.1/);
+  assert.match(detail,/Internet is required for online play/);
   const start=i18n.indexOf('if (slug === "wizard-chess-3d")');
   const stop=i18n.indexOf('if (slug === "tetris")',start);
   const section=i18n.slice(start,stop);
   assert.equal((section.match(/"storeDescription":/g)||[]).length,5);
   assert.match(section,/10-znakovni/);
-  assert.match(catalog,/private online multiplayer on Windows V1\.1/);
-  assert.match(main,/private online multiplayer on Windows V1\.1/);
+  assert.match(catalog,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+  assert.match(main,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+});
+
+test('Web/PWA V1.1 and Microsoft Store V1.1 descriptions present cross-platform online play',()=>{
+  assert.match(detail,/online multiplayer in both V1\.1 editions/);
+  assert.match(detail,/Both Web\/PWA V1\.1 and Windows V1\.1 support online multiplayer/);
+  assert.match(detail,/Internet is required for online play/);
+  const start=i18n.indexOf('if (slug === "wizard-chess-3d")');
+  const stop=i18n.indexOf('if (slug === "tetris")',start);
+  const section=i18n.slice(start,stop);
+  assert.equal((section.match(/"webDescription":/g)||[]).length,5);
+  assert.equal((section.match(/"storeDescription":/g)||[]).length,5);
+  assert.match(section,/Web\/PWA V1\.1/);
+  assert.doesNotMatch(section,/Web\/PWA remains local\/offline|noch nicht in Web\/PWA/);
+  assert.match(main,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+  assert.match(catalog,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
 });
