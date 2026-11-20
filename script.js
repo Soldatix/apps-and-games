@@ -259,7 +259,7 @@ supportedLanguages.forEach(language => {
 const wizardChessPortalI18n = {
   "en": {
     "card": [
-      "Animated 3D chess with six AI levels, local two-player play, saves and offline PWA.",
+      "Animated 3D chess with six AI levels, offline Web/PWA and private online multiplayer on Windows V1.1.",
       [
         "Chess",
         "3D",
@@ -270,7 +270,7 @@ const wizardChessPortalI18n = {
   },
   "hr": {
     "card": [
-      "Animirani 3D šah sa šest AI razina, lokalnom igrom za dvoje, spremanjem i offline PWA.",
+      "Animirani 3D šah sa šest AI razina, offline Web/PWA i privatnim online multiplayerom u Windows V1.1.",
       [
         "Šah",
         "3D",
@@ -281,7 +281,7 @@ const wizardChessPortalI18n = {
   },
   "de": {
     "card": [
-      "3D-Schach mit sechs KI-Stufen, lokal zu zweit, Speicherfunktion und Offline-PWA.",
+      "3D-Schach mit sechs KI-Stufen, Offline-Web/PWA und privaten Online-Partien unter Windows V1.1.",
       [
         "Schach",
         "3D",
@@ -292,7 +292,7 @@ const wizardChessPortalI18n = {
   },
   "it": {
     "card": [
-      "Scacchi 3D con sei livelli IA, due giocatori locali, salvataggi e PWA offline.",
+      "Scacchi 3D con sei livelli IA, Web/PWA offline e partite online private su Windows V1.1.",
       [
         "Scacchi",
         "3D",
@@ -303,7 +303,7 @@ const wizardChessPortalI18n = {
   },
   "es": {
     "card": [
-      "Ajedrez 3D con seis niveles de IA, juego local para dos, guardados y PWA sin conexión.",
+      "Ajedrez 3D con seis niveles de IA, Web/PWA sin conexión y partidas online privadas en Windows V1.1.",
       [
         "Ajedrez",
         "3D",
@@ -555,7 +555,7 @@ const apps = [
         category: "game",
         badge: "GAME",
         name: "Animated 3D Chess",
-        description: "Animated 3D chess with six AI levels, local two-player play, saves and offline PWA.",
+        description: "Animated 3D chess with six AI levels, offline Web/PWA and private online multiplayer on Windows V1.1.",
         image: "assets/images/wizard-chess-3d-side.png",
         button: "PLAY GAME →",
         url: "https://chess.appsandgames.org/",
