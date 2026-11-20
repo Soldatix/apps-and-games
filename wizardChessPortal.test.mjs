@@ -9,7 +9,7 @@ test('SEO JSON-LD reflects all fifteen current records',()=>{const m=idx.match(/
 test('detail has five languages and PWA install entrypoint',()=>{assert.match(i18n,/"wizard-chess-3d"/);for(const k of ['en','hr','de','it','es'])assert.ok(i18n.includes('"'+k+'"'),k);assert.match(detail,/\?install=web/);});
 test('real chess screenshots are staged as PNG files',()=>{for(const p of ['assets/images/wizard-chess-3d-cover.png','assets/images/wizard-chess-3d-side.png']){const b=readFileSync(new URL('./'+p,import.meta.url));assert.ok(b.length>1024);assert.equal(b.subarray(0,8).toString('hex'),'89504e470d0a1a0a');}});
 test('SEO sitemap and canonical route',()=>{assert.match(read('sitemap.xml'),/appsandgames\.org\/wizard-chess-3d/);assert.match(detail,/rel="canonical"/);});
-test('existing catalog and analytics remains available',()=>{assert.match(idx,/href="tetris"/);assert.match(js,/detailsUrl: "tetris"/);assert.match(detail,/googletagmanager/);});
+test('existing catalog and website consent remain available',()=>{assert.match(idx,/href="tetris"/);assert.match(js,/detailsUrl: "tetris"/);assert.match(detail,/privacy-choice\.js/);});
 test('Stockfish cache limitation disclosed',()=>{assert.match(detail,/Stockfish level 6 needs its engine files cached/);});
 
 test('Microsoft Store chess distribution card and desktop platform metadata',()=>{assert.match(detail,/id="windows-store-card"/);assert.match(detail,/https:\/\/apps\.microsoft\.com\/detail\/9MWQ5CZNLSBD/);assert.match(detail,/platform-download-grid--two/);assert.match(idx,/Web \/ PWA · Windows \(Microsoft Store\)/);assert.match(js,/platforms: \["Web \/ PWA", "Windows \(Microsoft Store\)"\]/);assert.match(read("style.css"),/\.platform-download-grid--two/);});
