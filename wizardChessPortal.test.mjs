@@ -16,3 +16,10 @@ test('Microsoft Store chess distribution card and desktop platform metadata',()=
 test('Store card is translated in all supported site languages',()=>{for(const k of ["en","hr","de","it","es"])assert.match(i18n,new RegExp('"' + k + '":\\s*\\{[\\s\\S]*?"storeOpen"'));assert.match(i18n,/windows-store-open/);assert.match(i18n,/windows-store-description/);});
 
 test('Windows V1.1 is advertised without implying Web/PWA online support',()=>{assert.match(detail,/Windows V1\.1 — Online Multiplayer/);assert.match(detail,/Web\/PWA remains local\/offline/);assert.match(js,/private online multiplayer on Windows V1\.1/);assert.match(idx,/private online multiplayer on Windows V1\.1/);});
+
+test('Web/PWA V1.1 and Windows V1.1 cross-platform online information is consistent',()=>{
+ assert.match(detail,/online multiplayer in both V1\.1 editions/);
+ assert.match(detail,/Both Web\/PWA V1\.1 and Windows V1\.1 support online multiplayer/);
+ assert.match(js,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+ assert.match(idx,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+});

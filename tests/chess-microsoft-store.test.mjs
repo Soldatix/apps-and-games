@@ -66,3 +66,18 @@ test('Windows V1.1 private online multiplayer has distinct Web/PWA wording',()=>
   assert.match(catalog,/private online multiplayer on Windows V1\.1/);
   assert.match(main,/private online multiplayer on Windows V1\.1/);
 });
+
+test('Web/PWA V1.1 and Microsoft Store V1.1 descriptions present cross-platform online play',()=>{
+  assert.match(detail,/online multiplayer in both V1\.1 editions/);
+  assert.match(detail,/Both Web\/PWA V1\.1 and Windows V1\.1 support online multiplayer/);
+  assert.match(detail,/Internet is required for online play/);
+  const start=i18n.indexOf('if (slug === "wizard-chess-3d")');
+  const stop=i18n.indexOf('if (slug === "tetris")',start);
+  const section=i18n.slice(start,stop);
+  assert.equal((section.match(/"webDescription":/g)||[]).length,5);
+  assert.equal((section.match(/"storeDescription":/g)||[]).length,5);
+  assert.match(section,/Web\/PWA V1\.1/);
+  assert.doesNotMatch(section,/Web\/PWA remains local\/offline|noch nicht in Web\/PWA/);
+  assert.match(main,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+  assert.match(catalog,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+});
