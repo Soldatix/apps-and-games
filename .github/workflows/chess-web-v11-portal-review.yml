@@ -1,0 +1,27 @@
+name: Chess Web V1.1 portal review
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'wizard-chess-3d.html'
+      - 'detail-i18n.js'
+      - 'script.js'
+      - 'index.html'
+      - 'wizardChessPortal.test.mjs'
+      - 'tests/chess-microsoft-store.test.mjs'
+      - '.github/workflows/chess-web-v11-portal-review.yml'
+  workflow_dispatch:
+jobs:
+  portal-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check script.js
+      - run: node --check detail-i18n.js
+      - run: node --test wizardChessPortal.test.mjs tests/chess-microsoft-store.test.mjs
