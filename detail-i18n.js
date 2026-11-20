@@ -294,53 +294,53 @@
           "name": "Animated 3D Chess",
           "en": {
             "title": "Animated 3D Chess — Free Chess Game | Apps & Games",
-            "description": "Free animated 3D chess versus six computer levels or a friend on one device. Offline PWA, save and load games.",
+            "description": "Free 3D chess with six AI levels and local/offline Web/PWA play. Windows V1.1 adds private online multiplayer between two PCs.",
             "badge": "GAME • 3D • STRATEGY",
-            "subtitle": "Cinematic 3D chess with six computer difficulty levels",
-            "text": "Play against six computer levels or a friend on one device. Rotate the 3D board, save your games and install the offline Web App.",
+            "subtitle": "3D chess for Web/PWA and Windows — online multiplayer in Windows V1.1",
+            "text": "Challenge six AI levels or play locally. Windows V1.1 adds private online multiplayer with a friend on another PC; Web/PWA continues to offer local and offline play.",
             "primary": "Play Animated 3D Chess →",
             "back": "Back to Games",
-            "info": "<h2>How to play</h2><p>Choose a computer level or two players on one device; select a piece and a legal destination.</p><h3>Game features</h3><ul><li>Six AI levels, including bundled local Stockfish at level 6</li><li>Two players on one device with optional camera flip</li><li>Legal chess rules, undo, save and load</li><li>Five languages, installable PWA</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline and installation</h3><p>After a complete first load, core chess modes and 3D models work offline. Stockfish level 6 also requires its engine files to be cached while online.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+            "info": "<h2>How to play</h2><p>Choose a computer level or two players on one device; select a piece and a legal destination.</p><h3>Game features</h3><ul><li>Six AI levels, including bundled local Stockfish at level 6</li><li>Two players on one device with optional camera flip</li><li>Legal chess rules, undo, save and load</li><li>Five languages, installable PWA</li></ul><h3>Windows V1.1 — Online Multiplayer</h3><p>Play with a friend on another Windows computer: White creates a private room, shares its 10-character code and Black joins. Both players need an internet connection. No Apps & Games account is required. Online multiplayer is available in the Microsoft Store Windows edition, not yet in Web/PWA.</p><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline and installation</h3><p>After a complete first load, core chess modes and 3D models work offline. Stockfish level 6 also requires its engine files to be cached while online.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
           },
           "hr": {
             "title": "Animated 3D Chess — besplatni 3D šah | Apps & Games",
-            "description": "Animirani 3D šah protiv računala sa šest razina ili prijatelja na istom uređaju, offline PWA i spremanje.",
+            "description": "Besplatni 3D šah sa šest AI razina i offline Web/PWA igrom. Windows V1.1 donosi privatni online multiplayer na dva računala.",
             "badge": "IGRA • 3D • STRATEGIJA",
-            "subtitle": "Filmski 3D šah sa šest razina težine",
-            "text": "Igrajte protiv računala ili prijatelja na jednom uređaju. Okrenite 3D ploču, spremite partiju i instalirajte offline Web App.",
+            "subtitle": "3D šah za Web/PWA i Windows — online igra u Windows V1.1",
+            "text": "Igrajte protiv šest AI razina ili lokalno s prijateljem. Windows V1.1 donosi privatni online multiplayer na dva računala; Web/PWA i dalje podržava lokalnu i offline igru.",
             "primary": "Igraj Animated 3D Chess →",
             "back": "Natrag na igre",
-            "info": "<h2>Kako igrati</h2><p>Odaberite razinu računala ili lokalna dva igrača, zatim figuru i dopušteno polje.</p><h3>Funkcije igre</h3><ul><li>Šest AI razina, uključujući lokalni Stockfish na razini 6</li><li>Dva igrača na istom uređaju uz opcionalno okretanje kamere</li><li>Šahovska pravila, poništavanje, spremanje i učitavanje</li><li>Pet jezika, instalacijska PWA</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline igranje i instalacija</h3><p>Nakon prvog potpunog učitavanja, osnovna igra i 3D modeli rade offline. Stockfish razina 6 zahtijeva prethodno učitane datoteke motora.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+            "info": "<h2>Kako igrati</h2><p>Odaberite razinu računala ili lokalna dva igrača, zatim figuru i dopušteno polje.</p><h3>Funkcije igre</h3><ul><li>Šest AI razina, uključujući lokalni Stockfish na razini 6</li><li>Dva igrača na istom uređaju uz opcionalno okretanje kamere</li><li>Šahovska pravila, poništavanje, spremanje i učitavanje</li><li>Pet jezika, instalacijska PWA</li></ul><h3>Windows V1.1 — Online Multiplayer</h3><p>Igrajte s prijateljem na drugom Windows računalu: bijeli stvara privatnu sobu i dijeli 10-znakovni kod, a crni se pridružuje. Oba igrača trebaju internetsku vezu. Nije potreban Apps & Games račun. Online multiplayer sada je dostupan u Windows izdanju iz Microsoft Storea, ali još ne u Web/PWA verziji.</p><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline igranje i instalacija</h3><p>Nakon prvog potpunog učitavanja, osnovna igra i 3D modeli rade offline. Stockfish razina 6 zahtijeva prethodno učitane datoteke motora.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
           },
           "de": {
             "title": "Animated 3D Chess — kostenloses 3D-Schach | Apps & Games",
-            "description": "Animiertes 3D-Schach gegen sechs Computerstufen oder lokal zu zweit, Offline-PWA und Spielstände.",
+            "description": "Kostenloses 3D-Schach mit sechs KI-Stufen und lokalem Offline-Web/PWA-Spiel. Windows V1.1 bietet private Online-Partien auf zwei PCs.",
             "badge": "SPIEL • 3D • STRATEGIE",
-            "subtitle": "Filmreifes 3D-Schach mit sechs Schwierigkeitsstufen",
-            "text": "Spiele gegen den Computer oder zu zweit an einem Gerät. Drehe das Brett, speichere Partien und installiere die Offline-Web-App.",
+            "subtitle": "3D-Schach für Web/PWA und Windows — Online-Partien in Windows V1.1",
+            "text": "Spiele gegen sechs KI-Stufen oder lokal zu zweit. Windows V1.1 bietet private Online-Partien auf zwei PCs; Web/PWA bleibt bei lokalem Offline-Spiel.",
             "primary": "Animated 3D Chess spielen →",
             "back": "Zurück zu den Spielen",
-            "info": "<h2>Spielanleitung</h2><p>Wähle eine Computerstufe oder zwei Spieler, dann eine Figur und ein legales Zielfeld.</p><h3>Spielfunktionen</h3><ul><li>Sechs KI-Stufen einschließlich lokaler Stockfish-Engine auf Stufe 6</li><li>Zwei Spieler an einem Gerät mit optionalem Kamerawechsel</li><li>Schachregeln, Rücknahme, Speichern und Laden</li><li>Fünf Sprachen, installierbare PWA</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline und Installation</h3><p>Nach dem vollständigen ersten Laden funktionieren das Grundspiel und die 3D-Modelle offline. Stockfish Stufe 6 benötigt zuvor geladene Engine-Dateien.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+            "info": "<h2>Spielanleitung</h2><p>Wähle eine Computerstufe oder zwei Spieler, dann eine Figur und ein legales Zielfeld.</p><h3>Spielfunktionen</h3><ul><li>Sechs KI-Stufen einschließlich lokaler Stockfish-Engine auf Stufe 6</li><li>Zwei Spieler an einem Gerät mit optionalem Kamerawechsel</li><li>Schachregeln, Rücknahme, Speichern und Laden</li><li>Fünf Sprachen, installierbare PWA</li></ul><h3>Windows V1.1 — Online-Multiplayer</h3><p>Spiele mit einem Freund auf einem anderen Windows-PC: Weiß erstellt einen privaten Raum, teilt den 10-stelligen Code und Schwarz tritt bei. Beide Spieler benötigen Internet. Ein Apps & Games-Konto ist nicht erforderlich. Online-Multiplayer gibt es derzeit in der Microsoft Store-Windows-Version, noch nicht in Web/PWA.</p><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline und Installation</h3><p>Nach dem vollständigen ersten Laden funktionieren das Grundspiel und die 3D-Modelle offline. Stockfish Stufe 6 benötigt zuvor geladene Engine-Dateien.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
           },
           "it": {
             "title": "Animated 3D Chess — scacchi 3D gratis | Apps & Games",
-            "description": "Scacchi 3D animati con sei livelli del computer o due giocatori locali, PWA offline e salvataggi.",
+            "description": "Scacchi 3D gratis con sei livelli IA e gioco Web/PWA locale offline. Windows V1.1 offre partite online private tra due PC.",
             "badge": "GIOCO • 3D • STRATEGIA",
-            "subtitle": "Scacchi 3D cinematografici con sei livelli di difficoltà",
-            "text": "Gioca contro il computer o con un amico sullo stesso dispositivo. Ruota la scacchiera, salva le partite e installa la Web App offline.",
+            "subtitle": "Scacchi 3D per Web/PWA e Windows — multiplayer online in Windows V1.1",
+            "text": "Sfida sei livelli IA o gioca in locale. Windows V1.1 aggiunge partite online private tra due PC; Web/PWA continua a offrire il gioco locale e offline.",
             "primary": "Gioca a Animated 3D Chess →",
             "back": "Torna ai giochi",
-            "info": "<h2>Come si gioca</h2><p>Scegli un livello del computer o due giocatori, quindi seleziona un pezzo e una casa legale.</p><h3>Funzioni</h3><ul><li>Sei livelli IA con Stockfish locale al livello 6</li><li>Due giocatori sullo stesso dispositivo con rotazione opzionale</li><li>Regole degli scacchi, annullamento, salvataggio e caricamento</li><li>Cinque lingue, PWA installabile</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline e installazione</h3><p>Dopo il primo caricamento completo, il gioco base e i modelli 3D funzionano offline. Stockfish livello 6 richiede prima il download dei file del motore.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+            "info": "<h2>Come si gioca</h2><p>Scegli un livello del computer o due giocatori, quindi seleziona un pezzo e una casa legale.</p><h3>Funzioni</h3><ul><li>Sei livelli IA con Stockfish locale al livello 6</li><li>Due giocatori sullo stesso dispositivo con rotazione opzionale</li><li>Regole degli scacchi, annullamento, salvataggio e caricamento</li><li>Cinque lingue, PWA installabile</li></ul><h3>Windows V1.1 — Multiplayer online</h3><p>Gioca con un amico su un altro PC Windows: il Bianco crea una stanza privata, condivide il codice di 10 caratteri e il Nero entra. Entrambi devono essere connessi a Internet. Non serve un account Apps & Games. Il multiplayer online è disponibile nell'edizione Windows del Microsoft Store, non ancora in Web/PWA.</p><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Offline e installazione</h3><p>Dopo il primo caricamento completo, il gioco base e i modelli 3D funzionano offline. Stockfish livello 6 richiede prima il download dei file del motore.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
           },
           "es": {
             "title": "Animated 3D Chess — ajedrez 3D gratis | Apps & Games",
-            "description": "Ajedrez 3D animado con seis niveles del ordenador o dos jugadores locales, PWA offline y partidas guardadas.",
+            "description": "Ajedrez 3D gratis con seis niveles de IA y juego Web/PWA local sin conexión. Windows V1.1 añade partidas online privadas entre dos PC.",
             "badge": "JUEGO • 3D • ESTRATEGIA",
-            "subtitle": "Ajedrez 3D cinematográfico con seis niveles de dificultad",
-            "text": "Juega contra el ordenador o con otra persona en el mismo dispositivo. Gira el tablero, guarda partidas e instala la Web App offline.",
+            "subtitle": "Ajedrez 3D para Web/PWA y Windows — juego online en Windows V1.1",
+            "text": "Juega contra seis niveles de IA o en modo local. Windows V1.1 añade partidas online privadas entre dos PC; Web/PWA mantiene el juego local y sin conexión.",
             "primary": "Jugar a Animated 3D Chess →",
             "back": "Volver a los juegos",
-            "info": "<h2>Cómo jugar</h2><p>Elige un nivel del ordenador o dos jugadores, después una pieza y una casilla legal.</p><h3>Funciones del juego</h3><ul><li>Seis niveles IA con Stockfish local en el nivel 6</li><li>Dos jugadores en un dispositivo con giro opcional de cámara</li><li>Reglas del ajedrez, deshacer, guardar y cargar</li><li>Cinco idiomas, PWA instalable</li></ul><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Sin conexión e instalación</h3><p>Tras una primera carga completa, las funciones básicas y los modelos 3D funcionan sin conexión. Stockfish nivel 6 requiere precargar los archivos del motor.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
+            "info": "<h2>Cómo jugar</h2><p>Elige un nivel del ordenador o dos jugadores, después una pieza y una casilla legal.</p><h3>Funciones del juego</h3><ul><li>Seis niveles IA con Stockfish local en el nivel 6</li><li>Dos jugadores en un dispositivo con giro opcional de cámara</li><li>Reglas del ajedrez, deshacer, guardar y cargar</li><li>Cinco idiomas, PWA instalable</li></ul><h3>Windows V1.1 — Multijugador online</h3><p>Juega con un amigo desde otro PC Windows: las blancas crean una sala privada, comparten el código de 10 caracteres y las negras se unen. Ambos jugadores necesitan Internet. No hace falta una cuenta de Apps & Games. El multijugador online está disponible en la edición Windows de Microsoft Store, todavía no en Web/PWA.</p><figure><img src=\"assets/images/wizard-chess-3d-cover.png\" alt=\"Animated 3D Chess board\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"><figcaption>Animated 3D Chess</figcaption></figure><figure><img src=\"assets/images/wizard-chess-3d-side.png\" alt=\"Animated 3D Chess side perspective\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:14px\"></figure><h3>Sin conexión e instalación</h3><p>Tras una primera carga completa, las funciones básicas y los modelos 3D funcionan sin conexión. Stockfish nivel 6 requiere precargar los archivos del motor.</p><p><a href=\"privacy-policy\"><u>Privacy Policy</u></a></p>"
           }
         },
 
@@ -753,35 +753,35 @@
     "webOpen": "Open / Install Web App",
     "webDescription": "After a complete first load, core chess modes and 3D models work offline. Stockfish level 6 also requires its engine files to be cached while online.",
     "storeOpen": "Open in Microsoft Store",
-    "storeDescription": "Free Windows desktop edition. Install and receive updates through Microsoft Store. This is separate from the browser-based Web/PWA edition."
+    "storeDescription": "Free Windows V1.1 edition: play online with a friend using a private 10-character room code. Internet is required for online play. Web/PWA remains local/offline; install and update through Microsoft Store."
   },
   "hr": {
     "webTitle": "Web App",
     "webOpen": "Otvori / instaliraj Web App",
     "webDescription": "Nakon prvog potpunog učitavanja, osnovna igra i 3D modeli rade offline. Stockfish razina 6 zahtijeva prethodno učitane datoteke motora.",
     "storeOpen": "Otvori u Microsoft Storeu",
-    "storeDescription": "Besplatna Windows verzija za računala. Instalacija i ažuriranja dostupni su putem Microsoft Storea. Ovo je zasebno izdanje od Web/PWA verzije."
+    "storeDescription": "Besplatna Windows V1.1 verzija donosi privatne online partije: izradite sobu i podijelite 10-znakovni kod s prijateljem na drugom računalu. Za online igru potreban je internet; Web/PWA zasad ostaje lokalna/offline verzija."
   },
   "de": {
     "webTitle": "Web App",
     "webOpen": "Web-App öffnen / installieren",
     "webDescription": "Nach dem vollständigen ersten Laden funktionieren das Grundspiel und die 3D-Modelle offline. Stockfish Stufe 6 benötigt zuvor geladene Engine-Dateien.",
     "storeOpen": "Im Microsoft Store öffnen",
-    "storeDescription": "Kostenlose Windows-Desktopversion. Installation und Updates erfolgen über den Microsoft Store. Diese Version ist unabhängig von der Web/PWA-Version."
+    "storeDescription": "Kostenlose Windows-Version V1.1 mit privatem Online-Schach: Raum erstellen, 10-stelligen Raumcode teilen und auf zwei PCs spielen. Internet erforderlich; die Web/PWA-Version bietet weiterhin nur lokale Offline-Partien."
   },
   "it": {
     "webTitle": "Web App",
     "webOpen": "Apri / installa Web App",
     "webDescription": "Dopo il primo caricamento completo, il gioco base e i modelli 3D funzionano offline. Stockfish livello 6 richiede prima il download dei file del motore.",
     "storeOpen": "Apri su Microsoft Store",
-    "storeDescription": "Versione desktop gratuita per Windows. Installazione e aggiornamenti tramite Microsoft Store. È un'edizione separata dalla versione Web/PWA."
+    "storeDescription": "Versione Windows V1.1 gratuita con multiplayer online privato: crea una stanza, condividi il codice di 10 caratteri e gioca da due PC. Serve Internet; la versione Web/PWA resta locale e offline."
   },
   "es": {
     "webTitle": "Web App",
     "webOpen": "Abrir / instalar Web App",
     "webDescription": "Tras una primera carga completa, las funciones básicas y los modelos 3D funcionan sin conexión. Stockfish nivel 6 requiere precargar los archivos del motor.",
     "storeOpen": "Abrir en Microsoft Store",
-    "storeDescription": "Versión gratuita para Windows. Instalación y actualizaciones mediante Microsoft Store. Es una edición independiente de la versión Web/PWA."
+    "storeDescription": "Versión gratuita de Windows V1.1 con partidas online privadas: crea una sala, comparte el código de 10 caracteres y juega desde dos PC. Se necesita Internet; la versión Web/PWA sigue siendo local y sin conexión."
   }
 }[language];
             const title = document.getElementById("web-platform-title");

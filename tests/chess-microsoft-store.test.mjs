@@ -53,3 +53,16 @@ test('chess JSON-LD carries Windows distribution link', () => {
   assert.equal(data.installUrl, store);
   assert.match(data.gamePlatform, /Windows 11/);
 });
+
+test('Windows V1.1 private online multiplayer has distinct Web/PWA wording',()=>{
+  assert.match(detail,/Windows 10\/11 x64 · V1\.1 · Free/);
+  assert.match(detail,/Windows V1\.1 — Online Multiplayer/);
+  assert.match(detail,/Web\/PWA remains local\/offline/);
+  const start=i18n.indexOf('if (slug === "wizard-chess-3d")');
+  const stop=i18n.indexOf('if (slug === "tetris")',start);
+  const section=i18n.slice(start,stop);
+  assert.equal((section.match(/"storeDescription":/g)||[]).length,5);
+  assert.match(section,/10-znakovni/);
+  assert.match(catalog,/private online multiplayer on Windows V1\.1/);
+  assert.match(main,/private online multiplayer on Windows V1\.1/);
+});
