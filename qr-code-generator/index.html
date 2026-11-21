@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#7254e6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="description" content="Create Wi-Fi, URL, text, email, phone, SMS, contact and location QR codes securely in your browser. No sign-up. Download as PNG or SVG.">
@@ -17,10 +20,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://appsandgames.org/qr-code-generator/assets/images/social-cover.png">
   <link rel="icon" type="image/svg+xml" href="assets/images/mark.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/images/pwa-192.png">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pwa.css">
   <title>QR Code Generator | Apps & Games</title>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Generator","url":"https://appsandgames.org/qr-code-generator/","description":"Free local Wi-Fi, URL, email, phone, SMS, contact, location and text QR generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any modern web browser","inLanguage":["en","hr","de","it","es","fr"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"CHF"},"publisher":{"@type":"Organization","name":"Apps & Games","url":"https://appsandgames.org/"}}</script>
   <script type="module" src="assets/js/app.mjs"></script>
+  <script type="module" src="assets/js/pwa.mjs"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -148,7 +155,7 @@
           <div>
             <span class="step-label" data-i18n="infoAboutLabel">ABOUT THE APP</span>
             <h2 id="info-title" data-i18n="infoTitle">About QR Code Generator</h2>
-            <div class="info-version"><span data-i18n="infoVersionLabel">Version</span> <strong>1.2.1</strong> <span aria-hidden="true">·</span> Apps &amp; Games</div>
+            <div class="info-version"><span data-i18n="infoVersionLabel">Version</span> <strong>1.3.0</strong> <span aria-hidden="true">·</span> Apps &amp; Games</div>
           </div>
         </div>
         <button type="button" class="info-close" id="info-close" data-i18n-aria-label="infoClose" aria-label="Close">×</button>
@@ -187,7 +194,7 @@
       </nav>
       <button type="button" id="info-done" class="btn btn-primary info-done" data-i18n="infoClose">Close</button>
     </dialog>
-    <footer class="footer"><span>© 2026 <a href="https://appsandgames.org/" rel="noopener noreferrer">Apps & Games</a> · QR Code Generator v1.2.1</span><span data-i18n="footerPrivate">Made for simple, private sharing.</span></footer>
+    <footer class="footer"><span>© 2026 <a href="https://appsandgames.org/" rel="noopener noreferrer">Apps & Games</a> · QR Code Generator v1.3.0</span><span data-i18n="footerPrivate">Made for simple, private sharing.</span></footer>
   </div>
 </body>
 </html>
