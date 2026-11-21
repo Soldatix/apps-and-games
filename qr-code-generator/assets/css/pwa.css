@@ -1,0 +1,21 @@
+/* Additional styles only; the proven v1.2.1 UI is not replaced. */
+.pwa-install-open{min-height:38px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--ink);font:inherit;font-size:.78rem;font-weight:750;padding:7px 11px;cursor:pointer}
+.pwa-install-open:hover{border-color:var(--purple);background:var(--control)}
+.pwa-install-open:focus-visible,.pwa-choice:focus-visible,.pwa-panel-close:focus-visible,.pwa-update-button:focus-visible{outline:3px solid #20b6d6;outline-offset:3px}
+.pwa-install-panel{margin:12px auto 17px;max-width:800px;border-radius:17px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:0 10px 28px rgba(35,18,93,.09);padding:17px 18px}
+.pwa-panel-head{display:flex;align-items:flex-start;gap:12px}
+.pwa-panel-icon{width:38px;height:38px;flex:none;border-radius:10px}
+.pwa-panel-titles{flex:1;min-width:0}.pwa-panel-title{font-size:.96rem;font-weight:850;margin:0 0 4px}.pwa-panel-text,.pwa-panel-help{font-size:.8rem;line-height:1.6;color:var(--sub);margin:0}
+.pwa-panel-close{width:36px;height:36px;border:1px solid var(--line);border-radius:9px;background:var(--control);color:var(--ink);font-size:1.3rem;cursor:pointer}
+.pwa-panel-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+.pwa-choice,.pwa-update-button{font:inherit;font-size:.8rem;min-height:41px;padding:9px 16px;border-radius:10px;border:1px solid var(--line);cursor:pointer;background:var(--control);color:var(--ink);font-weight:800}
+.pwa-choice-primary,.pwa-update-button{background:#7254e6;color:#fff;border-color:#7254e6}
+.pwa-choice-primary:hover,.pwa-update-button:hover{background:#6044d2}
+.pwa-panel-help{margin-top:12px;white-space:pre-line}
+.pwa-update-banner{margin:10px auto;padding:11px 13px;max-width:800px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink)}
+.pwa-update-banner span{font-size:.81rem;line-height:1.5}.pwa-update-button{min-height:36px;padding:7px 13px}
+.pwa-connection-note{font-size:.75rem;color:var(--sub);line-height:1.5;margin:8px 0 0}
+.pwa-info-text{margin-top:8px!important}
+[hidden].pwa-install-panel,[hidden].pwa-install-open,[hidden].pwa-update-banner,[hidden].pwa-connection-note{display:none!important}
+@media(max-width:540px){.pwa-install-open{padding:6px 8px;font-size:.75rem;min-height:38px}.pwa-install-panel{padding:15px 13px;margin-top:8px}.pwa-panel-icon{width:32px;height:32px}.pwa-panel-title{font-size:.88rem}.pwa-panel-actions{gap:7px}.pwa-choice{flex:1 1 auto}.pwa-update-banner{align-items:flex-start}.pwa-update-button{width:100%}}
+@media print{.pwa-install-open,.pwa-install-panel,.pwa-update-banner,.pwa-connection-note{display:none!important}}
