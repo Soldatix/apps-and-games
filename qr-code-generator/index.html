@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Create Wi-Fi, URL, text, email, phone, SMS, contact and location QR codes securely in your browser. No sign-up. Download as PNG or SVG.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://appsandgames.org/qr-code-generator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QR Code Generator | Apps & Games">
+  <meta property="og:description" content="Fast, free and private QR codes for Wi-Fi, contacts, locations, links and text.">
+  <meta property="og:url" content="https://appsandgames.org/qr-code-generator/">
+  <meta property="og:image" content="https://appsandgames.org/qr-code-generator/assets/images/social-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://appsandgames.org/qr-code-generator/assets/images/social-cover.png">
+  <link rel="icon" type="image/svg+xml" href="assets/images/mark.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>QR Code Generator | Apps & Games</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Generator","url":"https://appsandgames.org/qr-code-generator/","description":"Free local Wi-Fi, URL, email, phone, SMS, contact, location and text QR generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any modern web browser","inLanguage":["en","hr","de","it","es","fr"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"CHF"},"publisher":{"@type":"Organization","name":"Apps & Games","url":"https://appsandgames.org/"}}</script>
+  <script type="module" src="assets/js/app.mjs"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="https://appsandgames.org/" rel="noopener noreferrer" aria-label="Apps & Games homepage" data-i18n-aria-label="brandHome"><img width="40" height="40" src="assets/images/mark.svg" alt=""><span><strong>Apps <em>&</em> Games</strong><small data-i18n="toolsCollection">TOOLS COLLECTION</small></span></a>
+      <nav class="header-tools" aria-label="Display options" data-i18n-aria-label="displayOptions">
+        <div class="language-menu" id="language-menu">
+          <button id="language-button" class="language-button" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="language-options" aria-label="Language" data-i18n-aria-label="languageLabel">
+            <img id="current-flag" src="assets/images/flags/gb.svg" alt="" width="24" height="17"><span id="current-code" class="lang-code">EN</span><span id="current-name">English</span><span class="caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="language-options" id="language-options" role="menu" aria-label="Language" data-i18n-aria-label="languageLabel" hidden>
+            <button type="button" role="menuitemradio" aria-checked="true" data-lang="en"><img src="assets/images/flags/gb.svg" width="26" height="18" alt=""><span class="lang-code">EN</span><span>English</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="hr"><img src="assets/images/flags/hr.svg" width="26" height="18" alt=""><span class="lang-code">HR</span><span>Hrvatski</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="de"><img src="assets/images/flags/de.svg" width="26" height="18" alt=""><span class="lang-code">DE</span><span>Deutsch</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="it"><img src="assets/images/flags/it.svg" width="26" height="18" alt=""><span class="lang-code">IT</span><span>Italiano</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="es"><img src="assets/images/flags/es.svg" width="26" height="18" alt=""><span class="lang-code">ES</span><span>Español</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="fr"><img src="assets/images/flags/fr.svg" width="26" height="18" alt=""><span class="lang-code">FR</span><span>Français</span></button>
+          </div>
+          <select id="language" hidden aria-hidden="true" tabindex="-1"><option value="en">EN English</option><option value="hr">HR Hrvatski</option><option value="de">DE Deutsch</option><option value="it">IT Italiano</option><option value="es">ES Español</option><option value="fr">FR Français</option></select>
+        </div>
+        <label class="select-wrap"><span class="visually-hidden" data-i18n="themeLabel">Theme</span><span class="select-icon" aria-hidden="true">◐</span><select id="theme" aria-label="Theme"><option value="system" data-i18n="systemTheme">System</option><option value="light" data-i18n="lightTheme">Light</option><option value="dark" data-i18n="darkTheme">Dark</option></select></label>
+        <button type="button" id="info-button" class="info-button" data-i18n="infoButton" aria-haspopup="dialog">Info</button>
+      </nav>
+    </header>
+
+    <main>
+      <div class="ad-slot" role="note" aria-label="Reserved ad placement, inactive" data-i18n-aria-label="adAria"><span data-i18n="adPlaceholder">Reserved banner placement · No advertising or tracking is active</span></div>
+
+      <section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><span class="eyebrow"><span class="sparkle">✦</span> <span data-i18n="eyebrow">FREE ONLINE UTILITY</span></span><h1 id="hero-title"><span data-i18n="heroLine1">One scan.</span> <span class="gradient-word" data-i18n="heroLine2">Endless possibilities.</span></h1><p data-i18n="heroSub">Create QR codes for Wi-Fi, links, e-mail, phone numbers, SMS, contacts and locations — right in your browser.</p><div class="trust-row"><span><span class="tiny-dot"></span><span data-i18n="badgePrivate">Local & private</span></span><span><span class="tiny-dot"></span><span data-i18n="badgeNoSignup">No sign-up</span></span><span><span class="tiny-dot"></span><span data-i18n="badgeFree">100% free</span></span></div></div><div class="hero-pattern" aria-hidden="true"><span class="pattern-center">▦</span></div></section>
+
+      <div class="workbench">
+        <section class="panel editor-panel" aria-labelledby="create-title">
+          <div class="panel-heading"><div><div class="step-label" data-i18n="step1">STEP 01 — CONFIGURE</div><h2 id="create-title" data-i18n="createTitle">Create your QR code</h2></div><span class="panel-icon" aria-hidden="true">✦</span></div>
+          <div class="type-tabs" role="tablist" aria-label="QR code type" data-i18n-aria-label="typeLabel">
+            <button id="tab-wifi" role="tab" aria-selected="true" aria-controls="panel-wifi" tabindex="0" data-type="wifi" class="active" type="button"><span aria-hidden="true">◉</span> <span data-i18n="wifiTab">Wi-Fi</span></button>
+            <button id="tab-url" role="tab" aria-selected="false" aria-controls="panel-url" tabindex="-1" data-type="url" type="button"><span aria-hidden="true">↗</span> <span data-i18n="urlTab">Website URL</span></button>
+            <button id="tab-text" role="tab" aria-selected="false" aria-controls="panel-text" tabindex="-1" data-type="text" type="button"><span aria-hidden="true">☰</span> <span data-i18n="textTab">Plain text</span></button>
+            <button id="tab-email" role="tab" aria-selected="false" aria-controls="panel-email" tabindex="-1" data-type="email" type="button"><span aria-hidden="true">✉</span> <span data-i18n="emailTab">E-mail</span></button>
+            <button id="tab-phone" role="tab" aria-selected="false" aria-controls="panel-phone" tabindex="-1" data-type="phone" type="button"><span aria-hidden="true">☎</span> <span data-i18n="phoneTab">Phone</span></button>
+            <button id="tab-vcard" role="tab" aria-selected="false" aria-controls="panel-vcard" tabindex="-1" data-type="vcard" type="button"><span aria-hidden="true">♙</span> <span data-i18n="vcardTab">Contact</span></button>
+            <button id="tab-sms" role="tab" aria-selected="false" aria-controls="panel-sms" tabindex="-1" data-type="sms" type="button"><span aria-hidden="true">▤</span> <span data-i18n="smsTab">SMS</span></button>
+            <button id="tab-location" role="tab" aria-selected="false" aria-controls="panel-location" tabindex="-1" data-type="location" type="button"><span aria-hidden="true">⌖</span> <span data-i18n="locationTab">Location</span></button>
+          </div>
+          <form id="generator-form" novalidate autocomplete="off">
+            <div id="panel-wifi" role="tabpanel" aria-labelledby="tab-wifi" class="type-panel">
+              <div class="field"><label for="ssid" data-i18n="ssidLabel">Network name (SSID)</label><input id="ssid" type="text" maxlength="256" placeholder="e.g. Home Wi-Fi" data-i18n-placeholder="ssidPlaceholder" autocomplete="off" autocapitalize="off" spellcheck="false"><p class="field-hint" data-i18n="ssidHint">Enter the exact network name (max. 32 UTF-8 bytes).</p></div>
+              <div class="field"><label for="security" data-i18n="securityLabel">Security type</label><select id="security"><option value="wpa" data-i18n="securityWpa">WPA / WPA2 Personal</option><option value="mixed" data-i18n="securityMixed">WPA2 / WPA3 mixed</option><option value="wpa3" data-i18n="securityWpa3">WPA3 Personal (SAE)</option><option value="wep" data-i18n="securityWep">WEP (legacy, insecure)</option><option value="open" data-i18n="securityOpen">Open network (no password)</option></select><p class="field-hint" id="security-hint" data-i18n="wpaHint">Most home routers use WPA2 or mixed mode.</p></div>
+              <div class="field" id="password-field"><label for="wifi-password" data-i18n="passwordLabel">Wi-Fi password</label><div class="password-wrap"><input id="wifi-password" type="password" placeholder="Enter your Wi-Fi password" data-i18n-placeholder="passwordPlaceholder" autocomplete="off" autocapitalize="off" spellcheck="false"><button id="toggle-password" type="button" aria-pressed="false" data-i18n-aria-label="showPassword" aria-label="Show password"><span id="password-eye" aria-hidden="true">◉</span></button></div><p class="field-hint" data-i18n="passwordHint">Never shared with a server. Anyone with the QR code may access this network.</p></div>
+              <label class="checkline"><input type="checkbox" id="hidden"><span><strong data-i18n="hiddenLabel">Hidden network</strong><small data-i18n="hiddenHint">The Wi-Fi network does not broadcast its name.</small></span></label>
+            </div>
+            <div id="panel-url" role="tabpanel" aria-labelledby="tab-url" class="type-panel" hidden><div class="field"><label for="target-url" data-i18n="urlLabel">Website address</label><input id="target-url" type="url" inputmode="url" placeholder="https://example.com" data-i18n-placeholder="urlPlaceholder" autocomplete="off" autocapitalize="off" spellcheck="false"><p class="field-hint" data-i18n="urlHint">Only http:// and https:// links are supported.</p></div><div class="subtle-callout"><span aria-hidden="true">↗</span><span data-i18n="urlPrivacy">The full link will be visible to anyone scanning the QR code.</span></div></div>
+            <div id="panel-text" role="tabpanel" aria-labelledby="tab-text" class="type-panel" hidden><div class="field"><label for="plain-text" data-i18n="textLabel">Your text</label><textarea id="plain-text" rows="6" maxlength="12000" placeholder="Type or paste your message…" data-i18n-placeholder="textPlaceholder"></textarea><p class="field-hint" data-i18n="textHint">Supports multiple lines, accents, emoji and other languages. Very long text may not fit.</p></div></div>
+
+            <div id="panel-email" role="tabpanel" aria-labelledby="tab-email" class="type-panel" hidden>
+              <div class="field"><label for="email-address" data-i18n="emailLabel">Recipient e-mail</label><input id="email-address" type="email" inputmode="email" maxlength="254" placeholder="name@example.com" autocomplete="off" spellcheck="false"><p class="field-hint" data-i18n="emailHint">Opens an e-mail draft in a compatible mail application.</p></div>
+              <div class="field"><label for="email-subject" data-i18n="emailSubjectLabel">Subject (optional)</label><input id="email-subject" type="text" maxlength="200" autocomplete="off"></div>
+              <div class="field"><label for="email-body" data-i18n="emailBodyLabel">Message (optional)</label><textarea id="email-body" rows="4" maxlength="1800"></textarea></div>
+            </div>
+            <div id="panel-phone" role="tabpanel" aria-labelledby="tab-phone" class="type-panel" hidden>
+              <div class="field"><label for="phone-number" data-i18n="phoneLabel">Phone number</label><input id="phone-number" type="tel" inputmode="tel" maxlength="40" placeholder="+41 79 123 45 67"><p class="field-hint" data-i18n="phoneHint">Use an international number with +country code (required).</p></div>
+            </div>
+            <div id="panel-vcard" role="tabpanel" aria-labelledby="tab-vcard" class="type-panel" hidden>
+              <div class="field-row">
+                <div class="field"><label for="contact-given" data-i18n="contactGiven">First name</label><input id="contact-given" type="text" maxlength="120" autocomplete="off"></div>
+                <div class="field"><label for="contact-family" data-i18n="contactFamily">Last name</label><input id="contact-family" type="text" maxlength="120" autocomplete="off"></div>
+              </div>
+              <div class="field-row">
+                <div class="field"><label for="contact-org" data-i18n="contactOrg">Company</label><input id="contact-org" type="text" maxlength="120" autocomplete="off"></div>
+                <div class="field"><label for="contact-title" data-i18n="contactTitle">Job title</label><input id="contact-title" type="text" maxlength="120" autocomplete="off"></div>
+              </div>
+              <div class="field-row">
+                <div class="field"><label for="contact-phone" data-i18n="contactPhone">Phone</label><input id="contact-phone" type="tel" maxlength="40" autocomplete="off"></div>
+                <div class="field"><label for="contact-email" data-i18n="contactEmail">E-mail</label><input id="contact-email" type="email" maxlength="254" autocomplete="off"></div>
+              </div>
+              <div class="field"><label for="contact-website" data-i18n="contactWebsite">Website</label><input id="contact-website" type="url" maxlength="700" placeholder="https://example.com" autocomplete="off"></div>
+              <div class="field"><label for="contact-street" data-i18n="contactStreet">Street / house number</label><input id="contact-street" type="text" maxlength="150" autocomplete="off"></div>
+              <div class="field-row">
+                <div class="field"><label for="contact-city" data-i18n="contactCity">City</label><input id="contact-city" type="text" maxlength="120" autocomplete="off"></div>
+                <div class="field"><label for="contact-postal" data-i18n="contactPostal">Postal code</label><input id="contact-postal" type="text" maxlength="50" autocomplete="off"></div>
+              </div>
+              <div class="field"><label for="contact-country" data-i18n="contactCountry">Country</label><input id="contact-country" type="text" maxlength="120" autocomplete="off"><p class="field-hint" data-i18n="contactHint">Name is required; all other fields are optional. Anyone with this QR can read these details.</p></div>
+            </div>
+            <div id="panel-sms" role="tabpanel" aria-labelledby="tab-sms" class="type-panel" hidden>
+              <div class="field"><label for="sms-number" data-i18n="smsPhoneLabel">Recipient phone number</label><input id="sms-number" type="tel" inputmode="tel" maxlength="50" autocomplete="off" placeholder="+41 79 123 45 67"><p class="field-hint" data-i18n="phoneHint">Use an international number with +country code.</p></div>
+              <div class="field"><label for="sms-body" data-i18n="smsBodyLabel">SMS message (optional)</label><textarea id="sms-body" rows="4" maxlength="1000" autocomplete="off" data-i18n-placeholder="smsBodyPlaceholder" placeholder="Type your message..."></textarea></div>
+              <div class="subtle-callout"><span aria-hidden="true">✉</span><span data-i18n="smsHint">Scanning can open a prefilled SMS draft. Nothing is sent automatically; support varies by scanner.</span></div>
+            </div>
+            <div id="panel-location" role="tabpanel" aria-labelledby="tab-location" class="type-panel" hidden>
+              <div class="location-tools"><button type="button" class="btn btn-location" id="use-location"><span aria-hidden="true">⌖</span> <span data-i18n="useLocation">Use my location</span></button><span class="geo-privacy" data-i18n="geoPermissionNote">Asks for permission only after you click. Position is not stored or sent by this app.</span></div>
+              <p id="geo-feedback" class="geo-feedback" role="status" aria-live="polite"></p>
+              <div class="field-row">
+                <div class="field"><label for="location-lat" data-i18n="locationLat">Latitude</label><input id="location-lat" type="text" inputmode="decimal" placeholder="47.391" autocomplete="off"></div>
+                <div class="field"><label for="location-lon" data-i18n="locationLon">Longitude</label><input id="location-lon" type="text" inputmode="decimal" placeholder="8.068" autocomplete="off"></div>
+              </div>
+              <div class="subtle-callout"><span aria-hidden="true">⌖</span><span data-i18n="locationHint">Enter decimal coordinates using a dot. Maps support for geo: QR codes depends on the scanner.</span></div>
+              <div class="location-tools"><a id="open-map" class="btn btn-outline map-link" href="#" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">↗</span> <span data-i18n="openGoogleMaps">Open in Google Maps</span></a></div>
+              <p class="field-hint" data-i18n="mapPrivacyHint">The map opens only when you click. Google Maps will then receive the selected coordinates.</p>
+              <p class="field-hint" data-i18n="mapHelp">Tip: On Google Maps, right-click a point (or touch and hold on a phone) to find its coordinates.</p>
+            </div>
+            <p id="input-error" class="error-message" role="alert" hidden></p>
+            <div class="form-actions"><button type="submit" class="btn btn-primary" id="generate"><span aria-hidden="true">▦</span><span data-i18n="generate">Generate QR code</span><span class="button-chevron" aria-hidden="true">→</span></button><button type="button" class="btn btn-outline" id="reset" data-i18n="reset">Reset</button></div>
+          </form>
+          <div class="editor-footer"><span aria-hidden="true">♧</span> <span data-i18n="offlinePromise">No QR data is uploaded or saved by this app.</span></div>
+        </section>
+
+        <section class="panel result-panel" aria-labelledby="result-title">
+          <div class="panel-heading"><div><div class="step-label" data-i18n="step2">STEP 02 — DOWNLOAD</div><h2 id="result-title" data-i18n="resultTitle">Your QR code</h2></div><span class="ready-indicator" id="result-state" data-i18n="waiting">Waiting for input</span></div>
+          <div class="preview-area" id="preview-area"><div id="qr-preview" class="qr-preview" aria-live="off"><div class="empty-icon" aria-hidden="true">▦</div><h3 data-i18n="emptyTitle">Your QR appears here</h3><p data-i18n="emptyText">Choose a type, add your details, and click Generate.</p></div></div>
+          <div class="result-meta" id="result-meta" hidden><strong id="result-kind"></strong><span id="result-summary"></span></div>
+          <div id="action-status" class="visually-hidden" role="status" aria-live="polite"></div>
+          <div class="download-actions"><button id="download-png" class="btn btn-secondary" type="button" disabled><span aria-hidden="true">↓</span><span data-i18n="downloadPng">Download PNG</span></button><button id="download-svg" class="btn btn-outline" type="button" disabled><span aria-hidden="true">↓</span><span data-i18n="downloadSvg">Download SVG</span></button></div><button id="copy-qr" class="btn btn-outline copy-button" type="button" disabled><span aria-hidden="true">⧉</span> <span data-i18n="copyQr">Copy QR image</span></button><p id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></p><button id="print" type="button" class="print-button" disabled><span aria-hidden="true">⎙</span> <span data-i18n="print">Print QR code</span></button>
+          <p class="preview-footnote"><span aria-hidden="true">◈</span> <span data-i18n="scanTip">Test your code with your phone's camera before sharing or printing.</span></p>
+        </section>
+      </div>
+
+      <section class="insights" aria-labelledby="how-title"><div class="insight-top"><div><div class="step-label" data-i18n="learnLabel">GOOD TO KNOW</div><h2 id="how-title" data-i18n="howTitle">Simple to create. Easy to share.</h2></div></div><div class="insight-grid"><article class="insight-card"><span class="feature-icon feature-purple" aria-hidden="true">◉</span><h3 data-i18n="howWifiTitle">Instant Wi-Fi access</h3><p data-i18n="howWifiText">Create a QR code for guests to scan instead of typing a network password.</p></article><article class="insight-card"><span class="feature-icon feature-blue" aria-hidden="true">↗</span><h3 data-i18n="howUrlTitle">Share links faster</h3><p data-i18n="howUrlText">Turn any HTTP(S) link into a scannable QR code for print or screen.</p></article><article class="insight-card"><span class="feature-icon feature-teal" aria-hidden="true">◈</span><h3 data-i18n="howPrivateTitle">Privacy by design</h3><p data-i18n="howPrivateText">QR creation runs locally. We do not collect your inputs or Wi-Fi credentials.</p></article></div></section>
+      <aside class="safety-box" aria-labelledby="safety-title"><span class="safety-symbol" aria-hidden="true">!</span><div><h3 id="safety-title" data-i18n="safetyTitle">A note about Wi-Fi privacy</h3><p data-i18n="safetyText">A Wi-Fi QR code contains credentials that anyone who scans it can use. Do not publish private network QR codes publicly. WEP is outdated, and WPA3-only QR support varies by device.</p></div></aside>
+
+    </main>
+
+    <dialog id="info-dialog" class="info-dialog" aria-labelledby="info-title" aria-describedby="info-overview">
+      <div class="info-top">
+        <div class="info-heading">
+          <img class="info-brand-icon" src="assets/images/mark.svg" alt="" width="44" height="44">
+          <div>
+            <span class="step-label" data-i18n="infoAboutLabel">ABOUT THE APP</span>
+            <h2 id="info-title" data-i18n="infoTitle">About QR Code Generator</h2>
+            <div class="info-version"><span data-i18n="infoVersionLabel">Version</span> <strong>1.2.1</strong> <span aria-hidden="true">·</span> Apps &amp; Games</div>
+          </div>
+        </div>
+        <button type="button" class="info-close" id="info-close" data-i18n-aria-label="infoClose" aria-label="Close">×</button>
+      </div>
+      <p id="info-overview" class="info-lead" data-i18n="infoOverview">Generate and download QR codes for Wi-Fi, links, text, e-mail, phone, SMS, contacts and locations.</p>
+      <div class="info-badges" aria-label="App highlights" data-i18n-aria-label="infoBadgeLabel">
+        <span data-i18n="badgeFree">100% free</span>
+        <span data-i18n="badgePrivate">Local &amp; private</span>
+        <span data-i18n="badgeNoSignup">No sign-up</span>
+      </div>
+      <section class="info-section">
+        <h3 data-i18n="infoFeaturesTitle">Supported QR formats</h3>
+        <p data-i18n="infoFeaturesBody">Wi-Fi, website URL, text, e-mail, phone number, SMS, vCard contact and GPS location. Download as PNG/SVG or print.</p>
+      </section>
+      <section class="info-section">
+        <h3 data-i18n="infoFormatsTitle">Scanning and compatibility</h3>
+        <p data-i18n="infoFormatsBody">QR codes contain a standard string. The scanner decides whether to connect, call, compose mail, add contacts or open a map.</p>
+      </section>
+      <section class="info-section">
+        <h3 data-i18n="infoPrivacyTitle">Your privacy</h3>
+        <p data-i18n="infoPrivacyBody">Input is processed only in this browser. We do not send or store QR content. A saved QR image can reveal the information to anyone who sees it.</p>
+      </section>
+      <section class="info-section">
+        <h3 data-i18n="infoCompatibilityTitle">Offline and advertising</h3>
+        <p data-i18n="infoCompatibilityBody">The QR engine is bundled locally. There are no ads or analytics on this page; the banner area is a placeholder only.</p>
+      </section>
+      <section class="info-support" aria-labelledby="info-support-title">
+        <div class="info-support-heading"><span aria-hidden="true" class="info-heart">♡</span><h3 id="info-support-title" data-i18n="infoSupportTitle">Voluntary support</h3></div>
+        <p data-i18n="infoSupportText">This application is free. If you find it useful, you can voluntarily support further Apps &amp; Games development.</p>
+        <a class="info-support-link" href="https://appsandgames.org/#info" target="_blank" rel="noopener noreferrer" data-i18n="infoSupportLink">See donation options ↗</a>
+        <p class="info-support-note" data-i18n="infoSupportNote">Donations are optional. Current payment methods are maintained on the official Apps &amp; Games portal.</p>
+      </section>
+      <nav class="info-links" aria-label="Official links" data-i18n-aria-label="infoLinksLabel">
+        <a href="https://appsandgames.org/" target="_blank" rel="noopener noreferrer" data-i18n="infoPortalLink">Apps &amp; Games portal ↗</a>
+        <a href="https://appsandgames.org/privacy-policy.html" target="_blank" rel="noopener noreferrer" data-i18n="infoPolicyLink">Privacy Policy ↗</a>
+      </nav>
+      <button type="button" id="info-done" class="btn btn-primary info-done" data-i18n="infoClose">Close</button>
+    </dialog>
+    <footer class="footer"><span>© 2026 <a href="https://appsandgames.org/" rel="noopener noreferrer">Apps & Games</a> · QR Code Generator v1.2.1</span><span data-i18n="footerPrivate">Made for simple, private sharing.</span></footer>
+  </div>
+</body>
+</html>

@@ -333,6 +333,55 @@ supportedLanguages.forEach(lang => {
   cardTranslations[lang][13] = speedTestCardI18n[lang];
 });
 
+
+// QR Code Generator: product-specific card strings, existing portal labels are reused.
+const qrCodeGeneratorCardI18n = {
+  "en": [
+    "Generate eight QR types for Wi-Fi, links, text, e-mail, phone, SMS, contacts and locations — directly in your browser.",
+    [
+      "QR Code",
+      "Wi-Fi",
+      "Privacy"
+    ]
+  ],
+  "hr": [
+    "Izradite osam vrsta QR kodova za Wi-Fi, poveznice, tekst, e-poštu, telefon, SMS, kontakte i lokacije — izravno u pregledniku.",
+    [
+      "QR kod",
+      "Wi-Fi",
+      "Privatnost"
+    ]
+  ],
+  "de": [
+    "Erstelle acht QR-Code-Typen für WLAN, Links, Text, E-Mail, Telefon, SMS, Kontakte und Orte – direkt im Browser.",
+    [
+      "QR-Code",
+      "WLAN",
+      "Datenschutz"
+    ]
+  ],
+  "it": [
+    "Crea otto tipi di QR per Wi-Fi, link, testo, e-mail, telefono, SMS, contatti e luoghi, direttamente nel browser.",
+    [
+      "Codice QR",
+      "Wi-Fi",
+      "Privacy"
+    ]
+  ],
+  "es": [
+    "Crea ocho tipos de QR para Wi-Fi, enlaces, texto, correo, teléfono, SMS, contactos y ubicaciones directamente en tu navegador.",
+    [
+      "Código QR",
+      "Wi-Fi",
+      "Privacidad"
+    ]
+  ]
+};
+supportedLanguages.forEach(lang => {
+    if (!Array.isArray(cardTranslations[lang])) cardTranslations[lang] = [];
+    cardTranslations[lang][15] = qrCodeGeneratorCardI18n[lang];
+});
+
 function t(key) {
     return translations[currentLanguage]?.[key] ?? translations.en?.[key] ?? key;
 }
@@ -593,6 +642,21 @@ const apps = [
         hasDownload: false,
         platforms: ["Web"],
         tags: ["4G / 5G", "Coverage", "nPerf"],
+        status: "LIVE",
+        analyticsEvent: "open_app"
+    },
+    {
+        category: "utility",
+        badge: "APP",
+        name: "QR Code Generator",
+        description: "Generate eight QR types for Wi-Fi, links, text, e-mail, phone, SMS, contacts and locations — directly in your browser.",
+        image: "assets/images/qr-code-generator-cover.webp",
+        button: "OPEN APP →",
+        url: "/qr-code-generator/",
+        detailsUrl: "qr-code-generator.html",
+        hasDownload: false,
+        platforms: ["Web"],
+        tags: ["QR Code", "Wi-Fi", "Privacy"],
         status: "LIVE",
         analyticsEvent: "open_app"
     }
