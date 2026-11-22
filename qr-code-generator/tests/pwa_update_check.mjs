@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import {checkPwaUpdate} from '../assets/js/update-check.mjs';
+let count=0;
+const check=async (label, expected, registration, options) => {
+  const actual=await checkPwaUpdate(registration,options);
+  assert.equal(actual,expected,label);
+  ++count;console.log('PASS '+label);
+};
+let calls=0;
+await check('offline no network request','offline',{update(){calls++;}},{online:false});
+assert.equal(calls,0);
+await check('unsupported API','unsupported',null);
+await check('no new version','current',{update:async()=>{calls++;return {};} });
+await check('waiting update announced','available',{waiting:{state:'installed'},update:async()=>{throw Error('must not check again');}});
+await check('network failure','failed',{update:async()=>{throw new Error('offline proxy');}});
+const worker={state:'installing',listeners:new Set(),addEventListener(t,cb){this.listeners.add(cb);},removeEventListener(t,cb){this.listeners.delete(cb);},notify(){for(const cb of this.listeners)cb();}};
+const reg={waiting:null,installing:worker,async update(){queueMicrotask(()=>{reg.waiting=worker;worker.state='installed';worker.notify();});return this;}};
+await check('installation completes','available',reg);
+assert.equal(worker.listeners.size,0,'worker listeners cleaned');
+await check('already installed update','available',{waiting:{state:'installed'},update:async()=>{} });
+const redundant={state:'redundant'};
+await check('aborted installation','failed',{installing:redundant,update:async()=>({installing:redundant})});
+const hung={state:'installing',addEventListener(){},removeEventListener(){}};
+await check('unfinished download not falsely current','pending',{installing:hung,update:async()=>({installing:hung})},{timeoutMs:1});
+await check('first-run no controller not reported as newer','current',{installing:{state:'installed'},waiting:null,update:async()=>({installing:{state:'installed'},waiting:null})},{controlled:false});
+console.log('PWA_UPDATE_CHECK='+count+'/'+count+' PASS');
