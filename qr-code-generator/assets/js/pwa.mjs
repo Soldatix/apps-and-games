@@ -291,5 +291,7 @@ if (header && document.querySelector('.header-tools')) {
   }
   if (new URL(location.href).searchParams.get('install') === 'web') showPanel();
   sync();
+  // Also inspect the existing cache when an installed app starts fully offline.
+  checkOfflineFiles();
   enablePwa();
 }
