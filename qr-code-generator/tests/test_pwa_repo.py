@@ -20,7 +20,9 @@ class PwaTests(unittest.TestCase):
         pre=set(re.findall(r"'\./(.*?)'",s))
         resources={p for p in files if p.startswith('assets/') or p.startswith('licenses/') or p=='manifest.webmanifest'}
         self.assertFalse(resources-pre, resources-pre)
-        self.assertIn("'./index.html'",s)
+        self.assertIn("'./'",s)
+        self.assertNotIn("'./index.html'",s)
+        self.assertIn('caches.match(ROOT.href)',s)
     def test_cache_privacy(self):
         s=(ROOT/'sw.js').read_text('utf-8')
         for expected in ("request.method !== 'GET'","url.origin !== ROOT.origin","url.search || !STATIC.has(url.href)","cache: 'no-store'"):

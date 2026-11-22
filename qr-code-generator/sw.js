@@ -3,9 +3,9 @@
    contacts, navigation query parameters, third-party content or user data. */
 'use strict';
 const CACHE_PREFIX = 'ag-qr-code-generator-shell-';
-const CACHE_NAME = `${CACHE_PREFIX}1.3.0-r3`;
+const CACHE_NAME = `${CACHE_PREFIX}1.3.0-r4`;
 const SHELL = [
-  './', './index.html', './manifest.webmanifest',
+  './', './manifest.webmanifest',
   './assets/css/styles.css', './assets/css/pwa.css',
   './assets/js/app.mjs', './assets/js/export-filename.mjs', './assets/js/i18n.mjs',
   './assets/js/payload.mjs', './assets/js/renderer.mjs',
@@ -23,9 +23,11 @@ const ROOT = new URL('./', self.registration.scope);
 const ABSOLUTE = SHELL.map(name => new URL(name, ROOT).href);
 const STATIC = new Set(ABSOLUTE.filter(x => x !== ROOT.href && x !== new URL('index.html', ROOT).href));
 const ENTRY_PATHS = new Set([ROOT.pathname, new URL('index.html', ROOT).pathname]);
+// Cloudflare Workers redirects /index.html to the canonical directory root.
+// Never precache /index.html with redirect:'error'; cache the clean root instead.
 // Only core assets block offline setup; optional preview/icon assets do not.
 const REQUIRED = new Set([
-  './index.html','./assets/css/styles.css','./assets/css/pwa.css',
+  './','./assets/css/styles.css','./assets/css/pwa.css',
   './assets/js/app.mjs','./assets/js/export-filename.mjs','./assets/js/i18n.mjs',
   './assets/js/payload.mjs','./assets/js/renderer.mjs',
   './assets/js/vendor/qr-engine.mjs','./assets/js/pwa.mjs',
@@ -67,7 +69,7 @@ self.addEventListener('fetch', event => {
         const response = await fetch(request, { cache: 'no-store' });
         if (response.ok && response.headers.get('content-type')?.includes('text/html')) return response;
       } catch { /* offline: use audited cached static shell */ }
-      return (await caches.match(new URL('index.html', ROOT).href)) ||
+      return (await caches.match(ROOT.href)) ||
         Response.error();
     })());
     return;

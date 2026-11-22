@@ -6,7 +6,7 @@
 
 - Locally bundled PWA manifest and four PNG icons (192/512 regular + maskable).
 - Install help via `?install=web` in EN/HR/DE/IT/ES/FR, with native `beforeinstallprompt` when supported and manual fallbacks.
-- Versioned service worker `ag-qr-code-generator-shell-1.3.0-r2`, explicit static allow-list, network-first static read and offline fallback. No runtime caching or user QR data persistence.
+- Versioned service worker `ag-qr-code-generator-shell-1.3.0-r4`, explicit static allow-list, network-first static read and offline fallback. No runtime caching or user QR data persistence.
 - Existing QR generator HTML/CSS/modules retained; only `index.html` was augmented to load PWA assets and show v1.3.0.
 
 ## Test without extra dependencies
@@ -20,6 +20,10 @@ From `qr-code-generator/` run `python -m unittest discover -s tests -p 'test_*.p
 3. No third-party advertising or analytics inside the generator; existing inactive banner remains unchanged; existing Info/Detail page and its consent-gated ads stay unchanged.
 4. A draft PR is **not a production authorization**. Do not merge or deploy before the user's explicit go-ahead. Portal card `Web / PWA` and `?install=web` CTA should be updated only after public install/offline proof.
 
+## Cloudflare HTML redirects and offline precache
+
+Cloudflare Workers Static Assets defaults to `auto-trailing-slash`, redirecting `/qr-code-generator/index.html` to the canonical `/qr-code-generator/` (307). The PWA must therefore precache the **directory root** without query strings, not `/index.html` with `redirect:'error'`. A dedicated simulated regression verifies this behavior. Real Android offline testing is still a release gate.
+
 ## Known limits
 
 - GPS position acquisition needs device permissions and platform location availability; offline geolocation is not guaranteed. Manual coordinates and `geo:` QR generation work offline.
@@ -27,4 +31,4 @@ From `qr-code-generator/` run `python -m unittest discover -s tests -p 'test_*.p
 - Clipboard image copy and print depend on browser permissions and support.
 - Previously installed `127.0.0.1` test PWA is **distinct** from the eventual installed HTTPS product.
 
-Source baseline: `fbf663b12060e8204b6a83e4fbfc07f9475605f1`; product source v1.2.1. PWA implementation r2. Licenses and THIRD_PARTY_NOTICES remain in `licenses/`.
+Source baseline: `fbf663b12060e8204b6a83e4fbfc07f9475605f1`; product source v1.2.1. PWA implementation r4 (Cloudflare canonical-root offline fix). Licenses and THIRD_PARTY_NOTICES remain in `licenses/`.

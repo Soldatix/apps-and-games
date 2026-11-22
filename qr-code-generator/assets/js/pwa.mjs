@@ -252,8 +252,8 @@ if (header && document.querySelector('.header-tools')) {
     if (!('caches' in window)) return;
     try {
       const names = (await caches.keys()).filter(x => x.startsWith('ag-qr-code-generator-shell-'));
-      const paths = ['index.html','assets/css/styles.css','assets/css/pwa.css',
-        'assets/js/app.mjs','assets/js/i18n.mjs','assets/js/payload.mjs',
+      const paths = ['','assets/css/styles.css','assets/css/pwa.css',
+        'assets/js/app.mjs','assets/js/export-filename.mjs','assets/js/i18n.mjs','assets/js/payload.mjs',
         'assets/js/renderer.mjs','assets/js/vendor/qr-engine.mjs','assets/js/pwa.mjs'];
       const base = new URL(ROOT_PATH, location.origin);
       offlinePrepared = false;
