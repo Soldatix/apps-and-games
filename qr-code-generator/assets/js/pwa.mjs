@@ -1,8 +1,11 @@
-/* Apps & Games — QR Code Generator PWA v1.3.0.
+/* Apps & Games — QR Code Generator PWA v1.3.1.
  * Additive layer: never reads generator form fields, QR contents, network credentials
  * or contacts. Persists no user data. Only reads the current UI language. */
+import { checkPwaUpdate } from './update-check.mjs';
 const ROOT_PATH = new URL('../../', import.meta.url).pathname;
+const APP_VERSION = '1.3.1';
 const FILE_WORDS = Object.freeze({"en":["File name (optional)","Automatic unique filename","Leave blank for a unique filename. Avoid private details.","Offline content ready."],"hr":["Naziv datoteke (neobavezno)","Automatski jedinstveni naziv","Ostavi prazno za automatski naziv. Ne upisuj osobne podatke.","Spremno za rad bez interneta."],"de":["Dateiname (optional)","Automatischer eindeutiger Name","Leer lassen für einen eindeutigen Namen. Keine privaten Angaben.","Offline-Inhalte sind bereit."],"it":["Nome file (facoltativo)","Nome univoco automatico","Lascia vuoto per un nome univoco. Evita dati personali.","Contenuti offline pronti."],"es":["Nombre de archivo (opcional)","Nombre único automático","Déjalo vacío para un nombre único. Evita datos personales.","Contenido sin conexión listo."],"fr":["Nom du fichier (facultatif)","Nom unique automatique","Laisser vide pour un nom unique. Éviter les données privées.","Contenu hors ligne prêt."]});
+const UPDATE_WORDS = Object.freeze({"en":{"heading":"Application updates","version":"Current version","check":"Check for updates","checking":"Checking for updates…","current":"The application is up to date.","available":"A new version is ready. Select “Update app” to apply it.","offline":"You are offline. Connect to the internet to check for updates.","failed":"The update check failed. Please try again online.","unsupported":"Update checks are not available in this browser.","pending":"An update is still installing. Try checking again shortly."},"hr":{"heading":"Ažuriranja aplikacije","version":"Trenutačna verzija","check":"Provjeri ažuriranja","checking":"Provjeravam ažuriranja…","current":"Aplikacija je ažurna.","available":"Dostupna je nova verzija. Odaberi „Ažuriraj aplikaciju” za instalaciju.","offline":"Nema internetske veze. Poveži se na internet za provjeru ažuriranja.","failed":"Provjera ažuriranja nije uspjela. Pokušaj ponovno uz internet.","unsupported":"Provjera ažuriranja nije dostupna u ovom pregledniku.","pending":"Ažuriranje se još priprema. Pokušaj ponovno malo kasnije."},"de":{"heading":"App-Updates","version":"Aktuelle Version","check":"Nach Updates suchen","checking":"Updates werden geprüft…","current":"Die App ist aktuell.","available":"Eine neue Version ist bereit. Wähle „App aktualisieren“, um sie zu installieren.","offline":"Offline. Verbinde dich mit dem Internet, um Updates zu prüfen.","failed":"Die Updateprüfung ist fehlgeschlagen. Versuche es online erneut.","unsupported":"Die Updateprüfung wird in diesem Browser nicht unterstützt.","pending":"Ein Update wird noch installiert. Bitte versuche es später erneut."},"it":{"heading":"Aggiornamenti dell’app","version":"Versione attuale","check":"Controlla aggiornamenti","checking":"Controllo aggiornamenti…","current":"L’app è aggiornata.","available":"Una nuova versione è pronta. Seleziona “Aggiorna app” per applicarla.","offline":"Sei offline. Connettiti a Internet per cercare aggiornamenti.","failed":"Impossibile controllare gli aggiornamenti. Riprova online.","unsupported":"Controllo degli aggiornamenti non disponibile in questo browser.","pending":"Un aggiornamento è ancora in preparazione. Riprova tra poco."},"es":{"heading":"Actualizaciones de la aplicación","version":"Versión actual","check":"Buscar actualizaciones","checking":"Buscando actualizaciones…","current":"La aplicación está actualizada.","available":"Hay una nueva versión lista. Selecciona «Actualizar aplicación» para instalarla.","offline":"Sin conexión. Conéctate a Internet para buscar actualizaciones.","failed":"No se pudieron buscar actualizaciones. Vuelve a intentarlo en línea.","unsupported":"La búsqueda de actualizaciones no está disponible en este navegador.","pending":"Se está preparando una actualización. Inténtalo de nuevo en breve."},"fr":{"heading":"Mises à jour de l’application","version":"Version actuelle","check":"Rechercher les mises à jour","checking":"Recherche des mises à jour…","current":"L’application est à jour.","available":"Une nouvelle version est prête. Choisissez « Mettre à jour » pour l’installer.","offline":"Vous êtes hors ligne. Connectez-vous à Internet pour rechercher les mises à jour.","failed":"Échec de la recherche des mises à jour. Réessayez en ligne.","unsupported":"La recherche de mises à jour n’est pas disponible dans ce navigateur.","pending":"Une mise à jour est en cours de préparation. Réessayez dans un instant."}});
 const WORDS = Object.freeze({
   en: {
     open:'Install', title:'Install QR Code Generator', intro:'Add this private QR tool to your device. After the first successful visit, the generator works offline.',
@@ -17,7 +20,7 @@ const WORDS = Object.freeze({
     update:'A new version is ready. Save any QR image you need before reloading; form content is not saved.',
     reload:'Update app', offline:'Offline mode. The QR tools remain available if the initial app installation completed.',
     offlineUnready:'You are offline. Open the app online once to finish offline setup.',
-    info:'PWA v1.3.0: install from a compatible browser and use locally cached app files offline after initial loading. Clipboard, print, GPS and installing depend on browser permissions and platform support.'
+    info:'PWA v1.3.1: install from a compatible browser and use locally cached app files offline after initial loading. Clipboard, print, GPS and installing depend on browser permissions and platform support.'
   },
   hr: {
     open:'Instaliraj', title:'Instaliraj QR Code Generator', intro:'Dodaj privatni QR alat na svoj uređaj. Nakon prvog uspješnog posjeta generator radi i bez interneta.',
@@ -32,7 +35,7 @@ const WORDS = Object.freeze({
     update:'Dostupna je nova verzija. Prije osvježavanja spremi potrebne QR slike; unos u obrasce se ne sprema.',
     reload:'Ažuriraj aplikaciju', offline:'Izvanmrežni način. QR alati dostupni su ako je početna instalacija dovršena.',
     offlineUnready:'Nema interneta. Otvori aplikaciju jednom uz internet kako bi dovršio izvanmrežnu pripremu.',
-    info:'PWA v1.3.0: instaliraj iz kompatibilnog preglednika i nakon prvog učitavanja koristi lokalno predmemorirane datoteke bez interneta. Međuspremnik, ispis, GPS i instalacija ovise o dopuštenjima preglednika i platformi.'
+    info:'PWA v1.3.1: instaliraj iz kompatibilnog preglednika i nakon prvog učitavanja koristi lokalno predmemorirane datoteke bez interneta. Međuspremnik, ispis, GPS i instalacija ovise o dopuštenjima preglednika i platformi.'
   },
   de: {
     open:'Installieren', title:'QR Code Generator installieren', intro:'Füge das private QR-Tool deinem Gerät hinzu. Nach dem ersten erfolgreichen Besuch funktioniert der Generator offline.',
@@ -47,7 +50,7 @@ const WORDS = Object.freeze({
     update:'Eine neue Version ist verfügbar. Speichere benötigte QR-Bilder vor dem Neuladen; Formulareingaben werden nicht gespeichert.',
     reload:'App aktualisieren', offline:'Offline-Modus. Die QR-Funktionen bleiben nach erfolgreicher Ersteinrichtung verfügbar.',
     offlineUnready:'Keine Internetverbindung. Öffne die App einmal online, um den Offline-Modus einzurichten.',
-    info:'PWA v1.3.0: über einen kompatiblen Browser installieren und nach dem ersten Laden mit lokal zwischengespeicherten Dateien offline nutzen. Zwischenablage, Druck, GPS und Installation hängen von Berechtigungen und Plattform ab.'
+    info:'PWA v1.3.1: über einen kompatiblen Browser installieren und nach dem ersten Laden mit lokal zwischengespeicherten Dateien offline nutzen. Zwischenablage, Druck, GPS und Installation hängen von Berechtigungen und Plattform ab.'
   },
   it: {
     open:'Installa', title:'Installa QR Code Generator', intro:'Aggiungi questo strumento QR privato al dispositivo. Dopo il primo accesso riuscito, il generatore funziona offline.',
@@ -62,7 +65,7 @@ const WORDS = Object.freeze({
     update:'È disponibile una nuova versione. Salva le immagini QR necessarie prima di ricaricare; i dati del modulo non vengono salvati.',
     reload:'Aggiorna app', offline:'Modalità offline. Le funzioni QR rimangono disponibili dopo la prima configurazione.',
     offlineUnready:'Sei offline. Apri l’app una volta online per completare la configurazione offline.',
-    info:'PWA v1.3.0: installabile da browser compatibili; dopo il primo caricamento, i file dell’app sono disponibili offline. Appunti, stampa, GPS e installazione dipendono da permessi e piattaforma.'
+    info:'PWA v1.3.1: installabile da browser compatibili; dopo il primo caricamento, i file dell’app sono disponibili offline. Appunti, stampa, GPS e installazione dipendono da permessi e piattaforma.'
   },
   es: {
     open:'Instalar', title:'Instalar QR Code Generator', intro:'Añade esta herramienta QR privada a tu dispositivo. Tras la primera visita correcta, el generador funciona sin conexión.',
@@ -77,7 +80,7 @@ const WORDS = Object.freeze({
     update:'Hay una nueva versión disponible. Guarda antes las imágenes QR necesarias; los datos del formulario no se guardan.',
     reload:'Actualizar app', offline:'Modo sin conexión. Las herramientas QR siguen disponibles tras la configuración inicial.',
     offlineUnready:'No hay conexión. Abre la aplicación una vez con Internet para preparar el modo sin conexión.',
-    info:'PWA v1.3.0: instálala desde un navegador compatible y usa los archivos almacenados localmente sin conexión después de la primera carga. Portapapeles, impresión, GPS e instalación dependen de los permisos y la plataforma.'
+    info:'PWA v1.3.1: instálala desde un navegador compatible y usa los archivos almacenados localmente sin conexión después de la primera carga. Portapapeles, impresión, GPS e instalación dependen de los permisos y la plataforma.'
   },
   fr: {
     open:'Installer', title:'Installer QR Code Generator', intro:'Ajoutez cet outil QR privé à votre appareil. Après une première visite réussie, le générateur fonctionne hors ligne.',
@@ -92,7 +95,7 @@ const WORDS = Object.freeze({
     update:'Une nouvelle version est disponible. Enregistrez vos images QR avant de recharger ; les champs du formulaire ne sont pas sauvegardés.',
     reload:'Mettre à jour', offline:'Mode hors ligne. Les fonctions QR restent disponibles après la configuration initiale.',
     offlineUnready:'Vous êtes hors ligne. Ouvrez l’application une fois avec Internet pour préparer le mode hors ligne.',
-    info:'PWA v1.3.0 : installation dans un navigateur compatible et utilisation hors ligne des fichiers en cache après le premier chargement. Presse-papiers, impression, GPS et installation dépendent des autorisations et de la plateforme.'
+    info:'PWA v1.3.1 : installation dans un navigateur compatible et utilisation hors ligne des fichiers en cache après le premier chargement. Presse-papiers, impression, GPS et installation dépendent des autorisations et de la plateforme.'
   }
 });
 
@@ -108,6 +111,8 @@ let registration = null;
 let reloadOnControllerChange = false;
 let statusOverride = '';
 let offlinePrepared = false;
+let checkResult = '';
+let checkBusy = false;
 const alreadyInstalled = () => window.matchMedia?.('(display-mode: standalone)').matches || navigator.standalone === true;
 const language = () => WORDS[document.documentElement.lang] ? document.documentElement.lang : 'en';
 const words = () => WORDS[language()];
@@ -165,6 +170,20 @@ if (header && document.querySelector('.header-tools')) {
   const compatibility = document.querySelector('#info-dialog [data-i18n="infoCompatibilityBody"]');
   const infoPwa = element('p','pwa-info-text'); infoPwa.id = 'pwa-info-text';
   compatibility?.insertAdjacentElement('afterend', infoPwa);
+  // The Info dialog stays available in installed standalone mode (unlike the install button).
+  const manualUpdates = element('section','pwa-manual-updates');
+  manualUpdates.id = 'pwa-manual-updates';
+  const checkTitle = element('h3','pwa-manual-heading'); checkTitle.id = 'pwa-manual-heading';
+  manualUpdates.setAttribute('aria-labelledby', checkTitle.id);
+  const currentVersion = element('p','pwa-current-version'); currentVersion.id = 'pwa-current-version';
+  const checkButton = element('button','pwa-choice'); checkButton.id = 'pwa-check-updates'; checkButton.type = 'button';
+  const applyButton = element('button','pwa-update-button'); applyButton.id = 'pwa-install-update'; applyButton.type = 'button'; applyButton.hidden = true;
+  const updateControls = element('div','pwa-manual-actions');
+  updateControls.append(checkButton, applyButton);
+  const checkStatus = element('p','pwa-check-status'); checkStatus.id = 'pwa-check-status';
+  checkStatus.setAttribute('role','status'); checkStatus.setAttribute('aria-live','polite');
+  manualUpdates.append(checkTitle,currentVersion,updateControls,checkStatus);
+  infoPwa.insertAdjacentElement('afterend',manualUpdates);
 
   const isShowing = () => !panel.hidden;
   function removeInstallParameter() {
@@ -200,6 +219,13 @@ if (header && document.querySelector('.header-tools')) {
     updateMessage.textContent = w.update;
     updateButton.textContent = w.reload;
     infoPwa.textContent = w.info;
+    const uw = UPDATE_WORDS[language()];
+    checkTitle.textContent = uw.heading;
+    currentVersion.textContent = uw.version + ': ' + APP_VERSION;
+    checkButton.textContent = checkBusy ? uw.checking : uw.check;
+    checkButton.disabled = checkBusy;
+    checkStatus.textContent = checkResult ? uw[checkResult] : '';
+    applyButton.textContent = w.reload;
     const [label,placeholder,hint,readyText] = FILE_WORDS[language()];
     document.getElementById('export-filename-label').textContent = label;
     document.getElementById('export-filename').placeholder = placeholder;
@@ -240,20 +266,37 @@ if (header && document.querySelector('.header-tools')) {
     if (mutations.some(m => m.attributeName === 'lang')) {statusOverride = ''; sync();}
   }).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 
-  updateButton.addEventListener('click', () => {
-    if (!registration?.waiting) return;
+  function applyAvailableUpdate() {
+    if (!registration?.waiting || !navigator.serviceWorker?.controller) return;
     reloadOnControllerChange = true;
     registration.waiting.postMessage({type:'SKIP_WAITING'});
-  });
-  function showUpdateWhenWaiting() {
-    banner.hidden = !(registration?.waiting && navigator.serviceWorker?.controller);
   }
+  updateButton.addEventListener('click', applyAvailableUpdate);
+  applyButton.addEventListener('click', applyAvailableUpdate);
+  function showUpdateWhenWaiting() {
+    const ready = !!(registration?.waiting && navigator.serviceWorker?.controller);
+    banner.hidden = !ready;
+    applyButton.hidden = !ready;
+    if (ready && !checkBusy) {checkResult='available';sync();}
+    else if (!ready && checkResult === 'available') {checkResult='';sync();}
+  }
+  checkButton.addEventListener('click',async () => {
+    if (checkBusy) return;
+    checkBusy = true; checkResult = 'checking'; sync();
+    try {
+      checkResult = await checkPwaUpdate(registration, {
+        online: navigator.onLine, controlled: !!navigator.serviceWorker?.controller
+      });
+      showUpdateWhenWaiting();
+    } catch {checkResult = 'failed';}
+    finally {checkBusy = false;sync();}
+  });
   async function checkOfflineFiles() {
     if (!('caches' in window)) return;
     try {
       const names = (await caches.keys()).filter(x => x.startsWith('ag-qr-code-generator-shell-'));
       const paths = ['','assets/css/styles.css','assets/css/pwa.css',
-        'assets/js/app.mjs','assets/js/export-filename.mjs','assets/js/i18n.mjs','assets/js/payload.mjs',
+        'assets/js/app.mjs','assets/js/export-filename.mjs','assets/js/update-check.mjs','assets/js/i18n.mjs','assets/js/payload.mjs',
         'assets/js/renderer.mjs','assets/js/vendor/qr-engine.mjs','assets/js/pwa.mjs'];
       const base = new URL(ROOT_PATH, location.origin);
       offlinePrepared = false;
@@ -283,7 +326,7 @@ if (header && document.querySelector('.header-tools')) {
       });
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (reloadOnControllerChange) window.location.reload();
-        else {sync();checkOfflineFiles();}
+        else {showUpdateWhenWaiting();sync();checkOfflineFiles();}
       });
       // update() is intentionally limited to normal page loads; no periodic polling.
       registration.update().catch(() => {});

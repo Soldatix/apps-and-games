@@ -1,13 +1,13 @@
-/* Apps & Games — QR Code Generator, PWA v1.3.0
+/* Apps & Games — QR Code Generator, PWA v1.3.1
    Public, immutable application shell only. Never cache inputs, QR content, passwords,
    contacts, navigation query parameters, third-party content or user data. */
 'use strict';
 const CACHE_PREFIX = 'ag-qr-code-generator-shell-';
-const CACHE_NAME = `${CACHE_PREFIX}1.3.0-r4`;
+const CACHE_NAME = `${CACHE_PREFIX}1.3.1-r1`;
 const SHELL = [
   './', './manifest.webmanifest',
   './assets/css/styles.css', './assets/css/pwa.css',
-  './assets/js/app.mjs', './assets/js/export-filename.mjs', './assets/js/i18n.mjs',
+  './assets/js/app.mjs', './assets/js/export-filename.mjs', './assets/js/update-check.mjs', './assets/js/i18n.mjs',
   './assets/js/payload.mjs', './assets/js/renderer.mjs',
   './assets/js/vendor/qr-engine.mjs', './assets/js/pwa.mjs',
   './assets/images/mark.svg', './assets/images/social-cover.png',
@@ -28,7 +28,7 @@ const ENTRY_PATHS = new Set([ROOT.pathname, new URL('index.html', ROOT).pathname
 // Only core assets block offline setup; optional preview/icon assets do not.
 const REQUIRED = new Set([
   './','./assets/css/styles.css','./assets/css/pwa.css',
-  './assets/js/app.mjs','./assets/js/export-filename.mjs','./assets/js/i18n.mjs',
+  './assets/js/app.mjs','./assets/js/export-filename.mjs','./assets/js/update-check.mjs','./assets/js/i18n.mjs',
   './assets/js/payload.mjs','./assets/js/renderer.mjs',
   './assets/js/vendor/qr-engine.mjs','./assets/js/pwa.mjs',
   './assets/images/mark.svg',

@@ -16,6 +16,13 @@
 .pwa-update-banner span{font-size:.81rem;line-height:1.5}.pwa-update-button{min-height:36px;padding:7px 13px}
 .pwa-connection-note{font-size:.75rem;color:var(--sub);line-height:1.5;margin:8px 0 0}
 .pwa-info-text{margin-top:8px!important}
+.pwa-manual-updates{margin:16px 0 5px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--control);color:var(--ink)}
+.pwa-manual-heading{font-size:.9rem;margin:0 0 7px;font-weight:850}
+.pwa-current-version{font-size:.8rem;color:var(--sub);margin:0 0 12px}
+.pwa-manual-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pwa-check-status{font-size:.8rem;color:var(--sub);line-height:1.5;min-height:1.2em;margin:10px 0 0}
+.pwa-manual-actions .pwa-choice,.pwa-manual-actions .pwa-update-button{min-height:40px}
+.pwa-manual-actions button:disabled{opacity:.6;cursor:wait}
 [hidden].pwa-install-panel,[hidden].pwa-install-open,[hidden].pwa-update-banner,[hidden].pwa-connection-note{display:none!important}
 @media(max-width:540px){.pwa-install-open{padding:6px 8px;font-size:.75rem;min-height:38px}.pwa-install-panel{padding:15px 13px;margin-top:8px}.pwa-panel-icon{width:32px;height:32px}.pwa-panel-title{font-size:.88rem}.pwa-panel-actions{gap:7px}.pwa-choice{flex:1 1 auto}.pwa-update-banner{align-items:flex-start}.pwa-update-button{width:100%}}
 .export-filename-wrap{display:flex;flex-direction:column;gap:5px;margin:15px 0 12px;text-align:left}
@@ -23,4 +30,4 @@
 .export-filename-wrap input{width:100%;min-height:43px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--control);color:var(--ink)}
 .export-filename-wrap input::placeholder{color:var(--sub)}
 .export-filename-wrap p{font-size:.72rem;color:var(--sub);margin:0;line-height:1.45}
-@media print{.export-filename-wrap{display:none!important}.pwa-install-open,.pwa-install-panel,.pwa-update-banner,.pwa-connection-note{display:none!important}}
+@media print{.export-filename-wrap,.pwa-manual-updates{display:none!important}.pwa-install-open,.pwa-install-panel,.pwa-update-banner,.pwa-connection-note{display:none!important}}

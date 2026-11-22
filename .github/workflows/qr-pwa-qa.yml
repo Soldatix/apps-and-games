@@ -1,0 +1,42 @@
+name: QR Code Generator PWA QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'qr-code-generator/**'
+      - '.github/workflows/qr-pwa-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qr-pwa-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: JavaScript syntax
+        run: |
+          node --check qr-code-generator/assets/js/app.mjs
+          node --check qr-code-generator/assets/js/pwa.mjs
+          node --check qr-code-generator/assets/js/update-check.mjs
+          node --check qr-code-generator/sw.js
+      - name: QR format regression
+        run: node qr-code-generator/tests/qr_regression.mjs
+      - name: Export filename regression
+        run: node qr-code-generator/tests/export_filename.mjs
+      - name: Manual PWA update regression
+        run: node qr-code-generator/tests/pwa_update_check.mjs
+      - name: Service worker lifecycle and offline
+        run: node qr-code-generator/tests/sw_simulated.mjs
+      - name: Cloudflare canonical-root regression
+        run: node qr-code-generator/tests/sw_cloudflare_redirect.mjs
+      - name: Manifest, icons, privacy and repository checks
+        run: python -m unittest discover -s qr-code-generator/tests -p 'test_*.py' -v

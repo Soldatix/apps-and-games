@@ -40,7 +40,7 @@ async function fire(type,request){
 }
 await fire('install');
 assert.equal(redirectCount,0,'SW install must not ask for a noncanonical /index.html');
-assert.deepEqual(await caches.keys(),['ag-qr-code-generator-shell-1.3.0-r4']);
+assert.deepEqual(await caches.keys(),['ag-qr-code-generator-shell-1.3.1-r1']);
 assert.ok(await caches.match(base),'canonical root must be precached');
 assert.equal(await caches.match(base+'index.html'),undefined);
 console.log('PASS Cloudflare redirect-simulated install caches canonical HTML root');
