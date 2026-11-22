@@ -1,6 +1,7 @@
 import { createQR } from './vendor/qr-engine.mjs';
 import { makeWifi, makeUrl, makeText, makeEmail, makePhone, makeVcard, makeLocation, makeSms, makeMapUrl, InputError } from './payload.mjs';
 import { toSvg, toCanvas, saveBlob } from './renderer.mjs';
+import { exportFileName } from './export-filename.mjs';
 import { translate as t, messages } from './i18n.mjs';
 
 const $ = id => document.getElementById(id);
@@ -234,6 +235,7 @@ function resetAll() {
   $('wifi-password').type = 'password';
   activateType('wifi');
   updateSecurityHint(); updatePasswordButton(); clearError(); $('input-error').dataset.errorKey = '';
+  $('export-filename').value = '';
   invalidate(); setStatus('statusReset');updateMapLink(); $('ssid').focus();
 }
 
@@ -307,14 +309,15 @@ function setup() {
   $('reset').addEventListener('click',resetAll);
   $('download-svg').addEventListener('click',() => {
     if (!qr) return;
-    saveBlob(new Blob([toSvg(qr)],{type:'image/svg+xml;charset=utf-8'}),'apps-games-qr-code.svg');
+    saveBlob(new Blob([toSvg(qr)],{type:'image/svg+xml;charset=utf-8'}),exportFileName($('export-filename').value,activeType,'svg'));
     setStatus('statusDownloaded');
   });
   $('download-png').addEventListener('click',() => {
     if (!qr) return;
     try {
+      const fileName = exportFileName($('export-filename').value,activeType,'png');
       toCanvas(qr).toBlob(blob => {
-        if (blob) {saveBlob(blob,'apps-games-qr-code.png');setStatus('statusDownloaded');}
+        if (blob) {saveBlob(blob,fileName);setStatus('statusDownloaded');}
         else { $('input-error').dataset.errorKey = 'errorPng';showError('errorPng'); }
       },'image/png');
     } catch { $('input-error').dataset.errorKey = 'errorPng';showError('errorPng'); }
