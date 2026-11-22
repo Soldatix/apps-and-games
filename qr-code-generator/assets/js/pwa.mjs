@@ -259,7 +259,7 @@ if (header && document.querySelector('.header-tools')) {
       offlinePrepared = false;
       for (const name of names) {
         const cache = await caches.open(name);
-        if ((await Promise.all(paths.map(path => cache.match(new URL(path,base))))).every(Boolean)) {offlinePrepared=true;break;}
+        if ((await Promise.all(paths.map(path => cache.match(new URL(path,base).href)))).every(Boolean)) {offlinePrepared=true;break;}
       }
       sync();
     } catch { /* Cache API unavailable or disabled. */ }
