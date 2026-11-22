@@ -2,9 +2,9 @@
  * The browser fetches only the already registered service-worker script.
  */
 export async function checkPwaUpdate(registration, { online = true, controlled = true, timeoutMs = 15000 } = {}) {
+  if (registration?.waiting && controlled) return 'available';
   if (!online) return 'offline';
   if (!registration || typeof registration.update !== 'function') return 'unsupported';
-  if (registration.waiting && controlled) return 'available';
 
   let checked;
   try { checked = await registration.update(); }

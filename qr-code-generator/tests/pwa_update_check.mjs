@@ -11,6 +11,7 @@ await check('offline no network request','offline',{update(){calls++;}},{online:
 assert.equal(calls,0);
 await check('unsupported API','unsupported',null);
 await check('no new version','current',{update:async()=>{calls++;return {};} });
+await check('ready update can be applied offline','available',{waiting:{state:'installed'},update:async()=>{throw Error('must not check again');}},{online:false});
 await check('waiting update announced','available',{waiting:{state:'installed'},update:async()=>{throw Error('must not check again');}});
 await check('network failure','failed',{update:async()=>{throw new Error('offline proxy');}});
 const worker={state:'installing',listeners:new Set(),addEventListener(t,cb){this.listeners.add(cb);},removeEventListener(t,cb){this.listeners.delete(cb);},notify(){for(const cb of this.listeners)cb();}};
