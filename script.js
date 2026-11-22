@@ -655,7 +655,7 @@ const apps = [
         url: "/qr-code-generator/",
         detailsUrl: "qr-code-generator.html",
         hasDownload: false,
-        platforms: ["Web"],
+        platforms: ["Web / PWA"],
         tags: ["QR Code", "Wi-Fi", "Privacy"],
         status: "LIVE",
         analyticsEvent: "open_app"
