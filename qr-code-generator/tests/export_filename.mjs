@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {exportFileName} from '../assets/js/export-filename.mjs';
+const now=new Date(2026,10,22,10,20,31,423);
+assert.equal(exportFileName('Moj QR kod','wifi','png',now),'Moj QR kod.png');
+assert.equal(exportFileName('..\\../čudan:QR|naziv','phone','svg',now),'čudan-QR-naziv.svg');
+assert.equal(exportFileName('CON','phone','png',now),'qr-CON.png');
+assert.equal(exportFileName('', 'phone','png',now),'apps-games-qr-phone-20261122-102031423.png');
+assert.equal(exportFileName('', 'url','svg',now),'apps-games-qr-url-20261122-102031423.svg');
+assert.equal(exportFileName('📱', 'phone','png',now),'apps-games-qr-phone-20261122-102031423.png');
+assert.equal(exportFileName('A'.repeat(100),'url','png',now),'A'.repeat(64)+'.png');
+assert.throws(()=>exportFileName('name','url','exe'),RangeError);
+console.log('EXPORT_NAME=8/8 PASS');

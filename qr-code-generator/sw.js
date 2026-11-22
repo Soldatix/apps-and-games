@@ -3,11 +3,11 @@
    contacts, navigation query parameters, third-party content or user data. */
 'use strict';
 const CACHE_PREFIX = 'ag-qr-code-generator-shell-';
-const CACHE_NAME = `${CACHE_PREFIX}1.3.0-r2`;
+const CACHE_NAME = `${CACHE_PREFIX}1.3.0-r3`;
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
   './assets/css/styles.css', './assets/css/pwa.css',
-  './assets/js/app.mjs', './assets/js/i18n.mjs',
+  './assets/js/app.mjs', './assets/js/export-filename.mjs', './assets/js/i18n.mjs',
   './assets/js/payload.mjs', './assets/js/renderer.mjs',
   './assets/js/vendor/qr-engine.mjs', './assets/js/pwa.mjs',
   './assets/images/mark.svg', './assets/images/social-cover.png',
@@ -23,13 +23,24 @@ const ROOT = new URL('./', self.registration.scope);
 const ABSOLUTE = SHELL.map(name => new URL(name, ROOT).href);
 const STATIC = new Set(ABSOLUTE.filter(x => x !== ROOT.href && x !== new URL('index.html', ROOT).href));
 const ENTRY_PATHS = new Set([ROOT.pathname, new URL('index.html', ROOT).pathname]);
+// Only core assets block offline setup; optional preview/icon assets do not.
+const REQUIRED = new Set([
+  './index.html','./assets/css/styles.css','./assets/css/pwa.css',
+  './assets/js/app.mjs','./assets/js/export-filename.mjs','./assets/js/i18n.mjs',
+  './assets/js/payload.mjs','./assets/js/renderer.mjs',
+  './assets/js/vendor/qr-engine.mjs','./assets/js/pwa.mjs',
+  './assets/images/mark.svg',
+  './assets/images/flags/gb.svg','./assets/images/flags/hr.svg',
+  './assets/images/flags/de.svg','./assets/images/flags/it.svg',
+  './assets/images/flags/es.svg','./assets/images/flags/fr.svg'
+].map(name => new URL(name, ROOT).href));
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
-    // A failed/partial precache cannot activate the new worker; the old worker stays usable.
-    await cache.addAll(ABSOLUTE.map(url => new Request(url, {
-      credentials: 'same-origin', cache: 'reload', redirect: 'error'
-    })));
+    const toRequest = url => new Request(url, {credentials:'same-origin',cache:'reload',redirect:'error'});
+    await cache.addAll(ABSOLUTE.filter(url => REQUIRED.has(url)).map(toRequest));
+    try { await cache.addAll(ABSOLUTE.filter(url => !REQUIRED.has(url)).map(toRequest)); }
+    catch { /* A nonessential static asset failed; core app remains available. */ }
   })());
 });
 self.addEventListener('message', event => {

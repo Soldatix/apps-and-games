@@ -2,6 +2,7 @@
  * Additive layer: never reads generator form fields, QR contents, network credentials
  * or contacts. Persists no user data. Only reads the current UI language. */
 const ROOT_PATH = new URL('../../', import.meta.url).pathname;
+const FILE_WORDS = Object.freeze({"en":["File name (optional)","Automatic unique filename","Leave blank for a unique filename. Avoid private details.","Offline content ready."],"hr":["Naziv datoteke (neobavezno)","Automatski jedinstveni naziv","Ostavi prazno za automatski naziv. Ne upisuj osobne podatke.","Spremno za rad bez interneta."],"de":["Dateiname (optional)","Automatischer eindeutiger Name","Leer lassen für einen eindeutigen Namen. Keine privaten Angaben.","Offline-Inhalte sind bereit."],"it":["Nome file (facoltativo)","Nome univoco automatico","Lascia vuoto per un nome univoco. Evita dati personali.","Contenuti offline pronti."],"es":["Nombre de archivo (opcional)","Nombre único automático","Déjalo vacío para un nombre único. Evita datos personales.","Contenido sin conexión listo."],"fr":["Nom du fichier (facultatif)","Nom unique automatique","Laisser vide pour un nom unique. Éviter les données privées.","Contenu hors ligne prêt."]});
 const WORDS = Object.freeze({
   en: {
     open:'Install', title:'Install QR Code Generator', intro:'Add this private QR tool to your device. After the first successful visit, the generator works offline.',
@@ -106,6 +107,7 @@ let deferredPrompt = null;
 let registration = null;
 let reloadOnControllerChange = false;
 let statusOverride = '';
+let offlinePrepared = false;
 const alreadyInstalled = () => window.matchMedia?.('(display-mode: standalone)').matches || navigator.standalone === true;
 const language = () => WORDS[document.documentElement.lang] ? document.documentElement.lang : 'en';
 const words = () => WORDS[language()];
@@ -198,10 +200,14 @@ if (header && document.querySelector('.header-tools')) {
     updateMessage.textContent = w.update;
     updateButton.textContent = w.reload;
     infoPwa.textContent = w.info;
+    const [label,placeholder,hint,readyText] = FILE_WORDS[language()];
+    document.getElementById('export-filename-label').textContent = label;
+    document.getElementById('export-filename').placeholder = placeholder;
+    document.getElementById('export-filename-hint').textContent = hint;
     const disconnected = !navigator.onLine;
-    connection.hidden = !disconnected;
+    connection.hidden = !disconnected && !offlinePrepared;
     connection.textContent = disconnected ?
-      (navigator.serviceWorker?.controller ? w.offline : w.offlineUnready) : '';
+      (offlinePrepared ? w.offline : w.offlineUnready) : (offlinePrepared ? readyText : '');
   }
   openButton.addEventListener('click', () => { isShowing() ? closePanel() : showPanel(); });
   close.addEventListener('click',closePanel);
@@ -242,6 +248,22 @@ if (header && document.querySelector('.header-tools')) {
   function showUpdateWhenWaiting() {
     banner.hidden = !(registration?.waiting && navigator.serviceWorker?.controller);
   }
+  async function checkOfflineFiles() {
+    if (!('caches' in window)) return;
+    try {
+      const names = (await caches.keys()).filter(x => x.startsWith('ag-qr-code-generator-shell-'));
+      const paths = ['index.html','assets/css/styles.css','assets/css/pwa.css',
+        'assets/js/app.mjs','assets/js/i18n.mjs','assets/js/payload.mjs',
+        'assets/js/renderer.mjs','assets/js/vendor/qr-engine.mjs','assets/js/pwa.mjs'];
+      const base = new URL(ROOT_PATH, location.origin);
+      offlinePrepared = false;
+      for (const name of names) {
+        const cache = await caches.open(name);
+        if ((await Promise.all(paths.map(path => cache.match(new URL(path,base))))).every(Boolean)) {offlinePrepared=true;break;}
+      }
+      sync();
+    } catch { /* Cache API unavailable or disabled. */ }
+  }
   async function enablePwa() {
     if (!window.isSecureContext || !('serviceWorker' in navigator) ||
         !window.location.pathname.startsWith(ROOT_PATH)) return;
@@ -251,15 +273,17 @@ if (header && document.querySelector('.header-tools')) {
         scope:ROOT_PATH,updateViaCache:'none'
       });
       showUpdateWhenWaiting();
+      navigator.serviceWorker.ready.then(checkOfflineFiles).catch(() => {});
+      checkOfflineFiles();
       registration.addEventListener('updatefound',() => {
         const worker = registration.installing;
         worker?.addEventListener('statechange',() => {
-          if (worker.state === 'installed') showUpdateWhenWaiting();
+          if (worker.state === 'installed') {showUpdateWhenWaiting();checkOfflineFiles();}
         });
       });
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (reloadOnControllerChange) window.location.reload();
-        else sync();
+        else {sync();checkOfflineFiles();}
       });
       // update() is intentionally limited to normal page loads; no periodic polling.
       registration.update().catch(() => {});

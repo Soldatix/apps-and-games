@@ -18,4 +18,9 @@
 .pwa-info-text{margin-top:8px!important}
 [hidden].pwa-install-panel,[hidden].pwa-install-open,[hidden].pwa-update-banner,[hidden].pwa-connection-note{display:none!important}
 @media(max-width:540px){.pwa-install-open{padding:6px 8px;font-size:.75rem;min-height:38px}.pwa-install-panel{padding:15px 13px;margin-top:8px}.pwa-panel-icon{width:32px;height:32px}.pwa-panel-title{font-size:.88rem}.pwa-panel-actions{gap:7px}.pwa-choice{flex:1 1 auto}.pwa-update-banner{align-items:flex-start}.pwa-update-button{width:100%}}
-@media print{.pwa-install-open,.pwa-install-panel,.pwa-update-banner,.pwa-connection-note{display:none!important}}
+.export-filename-wrap{display:flex;flex-direction:column;gap:5px;margin:15px 0 12px;text-align:left}
+.export-filename-wrap label{font-size:.78rem;font-weight:780;color:var(--ink)}
+.export-filename-wrap input{width:100%;min-height:43px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--control);color:var(--ink)}
+.export-filename-wrap input::placeholder{color:var(--sub)}
+.export-filename-wrap p{font-size:.72rem;color:var(--sub);margin:0;line-height:1.45}
+@media print{.export-filename-wrap{display:none!important}.pwa-install-open,.pwa-install-panel,.pwa-update-banner,.pwa-connection-note{display:none!important}}
