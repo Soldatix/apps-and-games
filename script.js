@@ -259,7 +259,7 @@ supportedLanguages.forEach(language => {
 const wizardChessPortalI18n = {
   "en": {
     "card": [
-      "Animated 3D chess: six AI levels, offline play and private online multiplayer on Web/PWA V1.1 and Windows V1.1.",
+      "Animated 3D chess: six AI levels, offline play and private online multiplayer on Web/PWA V1.2.0 and Windows V1.1.",
       [
         "Chess",
         "3D",
@@ -270,7 +270,7 @@ const wizardChessPortalI18n = {
   },
   "hr": {
     "card": [
-      "3D šah sa šest AI razina, offline igranjem i privatnim online multiplayerom za Web/PWA V1.1 i Windows V1.1.",
+      "3D šah sa šest AI razina, offline igranjem i privatnim online multiplayerom za Web/PWA V1.2.0 i Windows V1.1.",
       [
         "Šah",
         "3D",
@@ -281,7 +281,7 @@ const wizardChessPortalI18n = {
   },
   "de": {
     "card": [
-      "3D-Schach mit sechs KI-Stufen, Offline-Spiel und privaten Online-Partien auf Web/PWA V1.1 und Windows V1.1.",
+      "3D-Schach mit sechs KI-Stufen, Offline-Spiel und privaten Online-Partien auf Web/PWA V1.2.0 und Windows V1.1.",
       [
         "Schach",
         "3D",
@@ -292,7 +292,7 @@ const wizardChessPortalI18n = {
   },
   "it": {
     "card": [
-      "Scacchi 3D con sei livelli IA, gioco offline e partite online private su Web/PWA V1.1 e Windows V1.1.",
+      "Scacchi 3D con sei livelli IA, gioco offline e partite online private su Web/PWA V1.2.0 e Windows V1.1.",
       [
         "Scacchi",
         "3D",
@@ -303,7 +303,7 @@ const wizardChessPortalI18n = {
   },
   "es": {
     "card": [
-      "Ajedrez 3D con seis niveles de IA, juego sin conexión y partidas online privadas en Web/PWA V1.1 y Windows V1.1.",
+      "Ajedrez 3D con seis niveles de IA, juego sin conexión y partidas online privadas en Web/PWA V1.2.0 y Windows V1.1.",
       [
         "Ajedrez",
         "3D",
@@ -604,7 +604,7 @@ const apps = [
         category: "game",
         badge: "GAME",
         name: "Animated 3D Chess",
-        description: "Animated 3D chess: six AI levels, offline play and private online multiplayer on Web/PWA V1.1 and Windows V1.1.",
+        description: "Animated 3D chess: six AI levels, offline play and private online multiplayer on Web/PWA V1.2.0 and Windows V1.1.",
         image: "assets/images/wizard-chess-3d-side.png",
         button: "PLAY GAME →",
         url: "https://chess.appsandgames.org/",
