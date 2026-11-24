@@ -337,7 +337,7 @@ supportedLanguages.forEach(lang => {
 // QR Code Generator: product-specific card strings, existing portal labels are reused.
 const qrCodeGeneratorCardI18n = {
   "en": [
-    "Generate eight QR types for Wi-Fi, links, text, e-mail, phone, SMS, contacts and locations — directly in your browser.",
+    "Generate eight QR types for Wi-Fi, links, text, e-mail, phone, SMS, contacts and locations — in your browser or on Windows.",
     [
       "QR Code",
       "Wi-Fi",
@@ -345,7 +345,7 @@ const qrCodeGeneratorCardI18n = {
     ]
   ],
   "hr": [
-    "Izradite osam vrsta QR kodova za Wi-Fi, poveznice, tekst, e-poštu, telefon, SMS, kontakte i lokacije — izravno u pregledniku.",
+    "Izradite osam vrsta QR kodova za Wi-Fi, poveznice, tekst, e-poštu, telefon, SMS, kontakte i lokacije — u pregledniku ili na Windowsu.",
     [
       "QR kod",
       "Wi-Fi",
@@ -353,7 +353,7 @@ const qrCodeGeneratorCardI18n = {
     ]
   ],
   "de": [
-    "Erstelle acht QR-Code-Typen für WLAN, Links, Text, E-Mail, Telefon, SMS, Kontakte und Orte – direkt im Browser.",
+    "Erstelle acht QR-Code-Typen für WLAN, Links, Text, E-Mail, Telefon, SMS, Kontakte und Orte – im Browser oder unter Windows.",
     [
       "QR-Code",
       "WLAN",
@@ -361,7 +361,7 @@ const qrCodeGeneratorCardI18n = {
     ]
   ],
   "it": [
-    "Crea otto tipi di QR per Wi-Fi, link, testo, e-mail, telefono, SMS, contatti e luoghi, direttamente nel browser.",
+    "Crea otto tipi di QR per Wi-Fi, link, testo, e-mail, telefono, SMS, contatti e luoghi, nel browser o su Windows.",
     [
       "Codice QR",
       "Wi-Fi",
@@ -369,7 +369,7 @@ const qrCodeGeneratorCardI18n = {
     ]
   ],
   "es": [
-    "Crea ocho tipos de QR para Wi-Fi, enlaces, texto, correo, teléfono, SMS, contactos y ubicaciones directamente en tu navegador.",
+    "Crea ocho tipos de QR para Wi-Fi, enlaces, texto, correo, teléfono, SMS, contactos y ubicaciones en tu navegador o en Windows.",
     [
       "Código QR",
       "Wi-Fi",
@@ -649,13 +649,13 @@ const apps = [
         category: "utility",
         badge: "APP",
         name: "QR Code Generator",
-        description: "Generate eight QR types for Wi-Fi, links, text, e-mail, phone, SMS, contacts and locations — directly in your browser.",
+        description: "Generate eight QR types for Wi-Fi, links, text, e-mail, phone, SMS, contacts and locations — in your browser or on Windows.",
         image: "assets/images/qr-code-generator-cover.webp",
         button: "OPEN APP →",
         url: "/qr-code-generator/",
         detailsUrl: "qr-code-generator.html",
-        hasDownload: false,
-        platforms: ["Web / PWA"],
+        hasDownload: true,
+        platforms: ["Web / PWA", "Windows (Microsoft Store)"],
         tags: ["QR Code", "Wi-Fi", "Privacy"],
         status: "LIVE",
         analyticsEvent: "open_app"

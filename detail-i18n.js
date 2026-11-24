@@ -792,6 +792,19 @@
             if (title) title.textContent = extra.webtitle;
             if (description) description.textContent = extra.webtext;
             if (installLink) installLink.textContent = extra.webinstall;
+            const storeCopy = {
+                en: ["Windows (Microsoft Store)", "Free Windows 11 x64 app from Microsoft Store. Create QR codes offline, with no ads or registration. Check for updates in About.", "Get from Microsoft Store"],
+                hr: ["Windows (Microsoft Store)", "Besplatna aplikacija za Windows 11 x64 iz Microsoft Storea. Izrada QR kodova bez interneta, oglasa i registracije. Provjera ažuriranja u odjeljku O aplikaciji.", "Preuzmi iz Microsoft Storea"],
+                de: ["Windows (Microsoft Store)", "Kostenlose App für Windows 11 x64 aus dem Microsoft Store. QR-Codes offline erstellen, ohne Werbung oder Registrierung. Updates im Info-Bereich prüfen.", "Aus dem Microsoft Store beziehen"],
+                it: ["Windows (Microsoft Store)", "App gratuita per Windows 11 x64 dal Microsoft Store. Crea QR offline, senza pubblicità né registrazione. Verifica gli aggiornamenti nella sezione Informazioni.", "Scarica dal Microsoft Store"],
+                es: ["Windows (Microsoft Store)", "App gratuita para Windows 11 x64 desde Microsoft Store. Crea QR sin conexión, sin anuncios ni registro. Busca actualizaciones en la sección Acerca de.", "Obtener en Microsoft Store"]
+            }[language] || ["Windows (Microsoft Store)", "Free Windows 11 x64 app from Microsoft Store. Create QR codes offline, with no ads or registration. Check for updates in About.", "Get from Microsoft Store"];
+            const storeTitle = document.getElementById("qr-store-title");
+            const storeDescription = document.getElementById("qr-store-description");
+            const storeLink = document.getElementById("qr-store-link");
+            if (storeTitle) storeTitle.textContent = storeCopy[0];
+            if (storeDescription) storeDescription.textContent = storeCopy[1];
+            if (storeLink) storeLink.textContent = storeCopy[2];
             if (ad) ad.textContent = extra.ad;
         }
 
