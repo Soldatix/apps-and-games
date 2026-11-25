@@ -15,19 +15,29 @@ test('Stockfish cache limitation disclosed',()=>{assert.match(detail,/Stockfish 
 test('Microsoft Store chess distribution card and desktop platform metadata',()=>{assert.match(detail,/id="windows-store-card"/);assert.match(detail,/https:\/\/apps\.microsoft\.com\/detail\/9MWQ5CZNLSBD/);assert.match(detail,/platform-download-grid--two/);assert.match(idx,/Web \/ PWA · Windows \(Microsoft Store\)/);assert.match(js,/platforms: \["Web \/ PWA", "Windows \(Microsoft Store\)"\]/);assert.match(read("style.css"),/\.platform-download-grid--two/);});
 test('Store card is translated in all supported site languages',()=>{for(const k of ["en","hr","de","it","es"])assert.match(i18n,new RegExp('"' + k + '":\\s*\\{[\\s\\S]*?"storeOpen"'));assert.match(i18n,/windows-store-open/);assert.match(i18n,/windows-store-description/);});
 
-test('Windows V1.1 and Web/PWA V1.2.0 are both advertised as online capable',()=>{assert.match(detail,/Online Multiplayer — Web\/PWA V1\.2\.0 and Windows V1\.1/);assert.match(detail,/Internet is required for online play/);assert.match(js,/private online multiplayer on Web\/PWA V1\.2\.0 and Windows V1\.1/);assert.match(idx,/private online multiplayer on Web\/PWA V1\.2\.0 and Windows V1\.1/);});
-
-test('Web/PWA V1.2.0 and Windows V1.1 cross-platform online information is consistent',()=>{
- assert.match(detail,/online multiplayer in Web\/PWA V1\.2\.0 and Windows V1\.1/);
- assert.match(detail,/Both Web\/PWA V1\.2\.0 and Windows V1\.1 support online multiplayer/);
- assert.match(js,/private online multiplayer on Web\/PWA V1\.2\.0 and Windows V1\.1/);
- assert.match(idx,/private online multiplayer on Web\/PWA V1\.2\.0 and Windows V1\.1/);
+test('Windows and Web/PWA V1.2.0 are both advertised as online capable',()=>{
+ assert.match(detail,/Online Multiplayer — Web\/PWA and Windows V1\.2\.0/);
+ assert.match(detail,/Internet is required for online play/);
+ assert.match(js,/private online multiplayer and rematches with automatic color swaps on Web\/PWA and Windows V1\.2\.0/);
+ assert.match(idx,/private online multiplayer and rematches with automatic color swaps on Web\/PWA and Windows V1\.2\.0/);
 });
-
-test('Web/PWA V1.2.0 and Windows V1.1 versions stay distinct with rematch disclosure',()=>{
+test('all chess translations and dynamic cards agree with the released version',()=>{
+ const catalog=JSON.parse(js.match(/const wizardChessPortalI18n = (\{[\s\S]*?\n\});/)[1]);
+ const detailTranslations=JSON.parse(i18n.match(/"wizard-chess-3d": (\{[\s\S]*?\n        \}),/)[1]);
+ const platformTranslations=JSON.parse(i18n.match(/if \(slug === "wizard-chess-3d"\) \{\s*const w = (\{[\s\S]*?\n\})\[language\];/)[1]);
+ for(const lang of ['en','hr','de','it','es']){
+  assert.match(catalog[lang].card[0],/Windows V1\.2\.0/);
+  for(const key of ['description','subtitle','text','info']) assert.match(detailTranslations[lang][key],/V1\.2\.0/);
+  assert.match(detailTranslations[lang].info,/privacy-policy#animated-3d-chess/);
+  assert.match(platformTranslations[lang].webDescription,/Windows V1\.2\.0/);
+  assert.match(platformTranslations[lang].storeDescription,/1\.2\.0\.0/);
+  assert.doesNotMatch(JSON.stringify([catalog[lang],detailTranslations[lang],platformTranslations[lang]]),/V1\.1/);
+ }
+});
+test('both platform version labels and rematch disclosure',()=>{
  assert.match(detail,/Web \/ PWA · V1\.2\.0/);
- assert.match(detail,/Windows 10\/11 x64 · V1\.1/);
+ assert.match(detail,/Windows 10\/11 x64 · V1\.2\.0/);
  assert.match(detail,/Rematches with automatic color swaps require both players/);
  assert.match(i18n,/Revanš uz automatsku zamjenu boja/);
- assert.doesNotMatch(detail,/Web\/PWA V1\.1/);
+ assert.doesNotMatch(detail,/Windows V1\.1|Web\/PWA V1\.1/);
 });
