@@ -523,6 +523,7 @@
         .ag-phone-body p, .ag-phone-link { color: var(--text-secondary); font-size: .8rem; margin: 0; overflow-wrap: anywhere; max-width: 100%; }
         .ag-phone-link { text-decoration: underline; }
     </style>
+<link rel="stylesheet" href="assets/css/ag-portal-share.css">
 </head>
 
 <body>
@@ -536,6 +537,7 @@
             <a href="#apps">📱 <span data-i18n="navApps">Apps</span></a>
             <a href="#games">🎮 <span data-i18n="navGames">Games</span></a>
             <a href="#info">ℹ <span data-i18n="navInfo">Info</span></a>
+            <a id="ag-share-open" href="assets/images/apps-and-games-qr.svg" aria-label="Share Apps &amp; Games"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg> <span data-ag-share="nav">Share</span></a>
         </nav>
 
         <div class="header-actions">
@@ -1339,5 +1341,21 @@
 
 <script src="assets/js/ag-language-menu.js"></script>
 <script src="script.js?v=chess-120-portable"></script>
+<dialog id="ag-share-dialog" aria-labelledby="ag-share-title">
+  <div class="ag-share-heading"><h2 id="ag-share-title" data-ag-share="title">Share Apps &amp; Games</h2><button type="button" id="ag-share-close" aria-label="Close">×</button></div>
+  <p data-ag-share="intro">Share free apps and games with your friends.</p>
+  <img id="ag-share-qr" src="assets/images/apps-and-games-qr.svg" alt="QR code for Apps &amp; Games" width="198" height="198">
+  <label class="sr-only" for="ag-share-url" data-ag-share="urlLabel">Website link</label>
+  <input id="ag-share-url" type="url" value="https://appsandgames.org/" readonly spellcheck="false">
+  <div class="ag-share-actions">
+    <button type="button" id="ag-share-copy" data-ag-share="copy">Copy link</button>
+    <button type="button" id="ag-share-native" data-ag-share="share">Share link</button>
+    <button type="button" id="ag-share-png" data-ag-share="png">Download PNG</button>
+    <a href="assets/images/apps-and-games-qr.svg" download="Apps-and-Games-QR.svg" data-ag-share="svg">Download SVG</a>
+    <button type="button" id="ag-share-print" data-ag-share="print">Print QR</button>
+  </div>
+  <p id="ag-share-status" role="status" aria-live="polite"></p>
+</dialog>
+<script src="assets/js/ag-portal-share.js"></script>
 </body>
 </html>

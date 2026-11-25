@@ -1,0 +1,26 @@
+/* Portal sharing: scoped controls, native dialog, responsive header. */
+#ag-share-open svg { flex: 0 0 18px; }
+#ag-share-open:focus-visible, #ag-share-dialog :is(button,a,input):focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+#ag-share-dialog { box-sizing: border-box; width: min(440px, calc(100% - 24px)); max-height: calc(100% - 24px); overflow: auto; padding: 22px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); color: var(--text); text-align: center; margin: auto; }
+#ag-share-dialog::backdrop { background: rgba(0,0,0,.65); }
+#ag-share-dialog .ag-share-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:left; }
+#ag-share-dialog h2 { margin:0; font-size:1.25rem; }
+#ag-share-dialog p { color:var(--text-secondary); margin:12px 0; font-size:.92rem; }
+#ag-share-qr { display:block; width:198px; height:198px; max-width:100%; object-fit:contain; margin:16px auto; background:white; image-rendering:pixelated; }
+#ag-share-url { box-sizing:border-box; width:100%; background:var(--surface-2); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:10px; font:inherit; text-align:center; }
+#ag-share-dialog .ag-share-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:14px; }
+#ag-share-dialog button, #ag-share-dialog .ag-share-actions a { box-sizing:border-box; display:flex; align-items:center; justify-content:center; min-height:44px; padding:8px; border:1px solid var(--border); border-radius:10px; background:var(--surface-2); color:var(--text); font:inherit; font-size:.87rem; font-weight:700; cursor:pointer; text-decoration:none; overflow-wrap:anywhere; }
+#ag-share-dialog button:hover, #ag-share-dialog .ag-share-actions a:hover { background:var(--surface-3); }
+#ag-share-close { flex:0 0 44px; font-size:1.5rem !important; }
+#ag-share-print { grid-column:1/-1; }
+#ag-share-status { min-height:1.3em; }
+@media(max-width:760px){ .site-header .header-content { flex-wrap:wrap; } }
+@media(max-width:480px){ .site-header .main-nav { order:3; flex:1 0 100%; margin-left:0; justify-content:space-around; } .site-header .main-nav a { min-height:38px; } .site-header #ag-share-open { min-width:38px; justify-content:center; } }
+@media print {
+ body.ag-share-print > :not(#ag-share-dialog) { display:none !important; }
+ body.ag-share-print { background:#fff !important; }
+ body.ag-share-print #ag-share-dialog[open] { position:static; display:block; width:100%; max-width:none; max-height:none; overflow:visible; margin:0; border:0; background:#fff; color:#000; box-shadow:none; }
+ body.ag-share-print #ag-share-dialog::backdrop { display:none; }
+ body.ag-share-print #ag-share-dialog :is(.ag-share-actions,#ag-share-close,#ag-share-status) { display:none !important; }
+ body.ag-share-print #ag-share-dialog p, body.ag-share-print #ag-share-url { color:#000; background:#fff; border:0; }
+}
