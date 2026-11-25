@@ -8,3 +8,8 @@
   Content-Type: application/json; charset=utf-8
   Access-Control-Allow-Origin: *
   Cache-Control: no-cache, no-store, must-revalidate
+/config/ads-config.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Content-Type-Options: nosniff
