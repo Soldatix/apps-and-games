@@ -610,7 +610,7 @@ const apps = [
         url: "https://chess.appsandgames.org/",
         detailsUrl: "wizard-chess-3d",
         hasDownload: true,
-        platforms: ["Web / PWA", "Windows (Microsoft Store)"],
+        platforms: ["Web / PWA", "Windows (Microsoft Store)", "Windows Portable"],
         tags: ["Chess", "3D", "Strategy"],
         status: "LIVE",
         analyticsEvent: "play_game"

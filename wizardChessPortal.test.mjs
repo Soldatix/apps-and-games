@@ -12,7 +12,7 @@ test('SEO sitemap and canonical route',()=>{assert.match(read('sitemap.xml'),/ap
 test('existing catalog and website consent remain available',()=>{assert.match(idx,/href="tetris"/);assert.match(js,/detailsUrl: "tetris"/);assert.match(detail,/privacy-choice\.js/);});
 test('Stockfish cache limitation disclosed',()=>{assert.match(detail,/Stockfish level 6 needs its engine files cached/);});
 
-test('Microsoft Store chess distribution card and desktop platform metadata',()=>{assert.match(detail,/id="windows-store-card"/);assert.match(detail,/https:\/\/apps\.microsoft\.com\/detail\/9MWQ5CZNLSBD/);assert.match(detail,/platform-download-grid--two/);assert.match(idx,/Web \/ PWA · Windows \(Microsoft Store\)/);assert.match(js,/platforms: \["Web \/ PWA", "Windows \(Microsoft Store\)"\]/);assert.match(read("style.css"),/\.platform-download-grid--two/);});
+test('Microsoft Store chess distribution card and desktop platform metadata',()=>{assert.match(detail,/id="windows-store-card"/);assert.match(detail,/https:\/\/apps\.microsoft\.com\/detail\/9MWQ5CZNLSBD/);assert.match(detail,/id="chess-portable-card"/);assert.match(idx,/Web \/ PWA · Windows \(Microsoft Store\)/);assert.match(js,/platforms: \["Web \/ PWA", "Windows \(Microsoft Store\)", "Windows Portable"\]/);assert.match(read("style.css"),/\.platform-download-grid--two/);});
 test('Store card is translated in all supported site languages',()=>{for(const k of ["en","hr","de","it","es"])assert.match(i18n,new RegExp('"' + k + '":\\s*\\{[\\s\\S]*?"storeOpen"'));assert.match(i18n,/windows-store-open/);assert.match(i18n,/windows-store-description/);});
 
 test('Windows and Web/PWA V1.2.0 are both advertised as online capable',()=>{
@@ -40,4 +40,16 @@ test('both platform version labels and rematch disclosure',()=>{
  assert.match(detail,/Rematches with automatic color swaps require both players/);
  assert.match(i18n,/Revanš uz automatsku zamjenu boja/);
  assert.doesNotMatch(detail,/Windows V1\.1|Web\/PWA V1\.1/);
+});
+
+test('Portable download, matching source, checksum, and five localized security messages',()=>{
+ const p=JSON.parse(read('downloads/animated-3d-chess/versions.json'));
+ assert.equal(p.productId,'apps-games-animated-3d-chess');
+ assert.equal(p.platforms.windowsPortable.published,true);
+ assert.equal(p.platforms.windowsPortable.downloadUrl,'https://appsandgames.org/wizard-chess-3d');
+ for(const s of ["https://github.com/Soldatix/Animated3DChess-Windows-Source/releases/download/animated-3d-chess-portable-v1.2.0/Animated3DChess-Portable-v1.2.0-x64.zip","https://github.com/Soldatix/Animated3DChess-Windows-Source/releases/download/animated-3d-chess-portable-v1.2.0/Animated3DChess-Portable-v1.2.0-Corresponding-Source.zip","https://github.com/Soldatix/Animated3DChess-Windows-Source/releases/tag/animated-3d-chess-portable-v1.2.0","c40f2f0f2184f5ab61eb169e675394b062cca1d576f8f55a9385120d2fee7f4f","Animated3DChess-Portable-v1.2.0-x64.zip"]) assert.ok(detail.includes(s),s);
+ const translations=JSON.parse(i18n.match(/const chessPortable = (\{[\s\S]*?\n\});/)[1]);
+ for(const k of ['en','hr','de','it','es']) assert.equal(translations[k].length,8);
+ assert.match(read('privacy-policy.html'),/id="chess-portable-privacy"/);
+ assert.match(detail,/Never bypass malware detections or disable SmartScreen/);
 });

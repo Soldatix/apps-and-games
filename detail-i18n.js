@@ -970,6 +970,63 @@
             const storeDescription = document.getElementById("windows-store-description");
             if (storeOpen) storeOpen.textContent = w.storeOpen;
             if (storeDescription) storeDescription.textContent = w.storeDescription;
+            const chessPortable = {
+  "en": [
+    "Free Windows x64 game. No game installation required; Microsoft Edge WebView2 Evergreen Runtime is required. Extract the entire ZIP into a writable folder and run Animated3DChess.exe. Offline AI and local play work without internet; online multiplayer requires internet. Check for updates in Info; updates are installed manually.",
+    "Download Portable ZIP",
+    "Corresponding source code",
+    "Windows SmartScreen",
+    "This EXE is not digitally signed. If Windows protected your PC reports an unrecognized app, verify that the ZIP came from our official GitHub Release, compare its SHA-256 with the value below and scan the extracted files. Only if these checks pass and you trust the source may you choose More info → Run anyway, if available and allowed by your device policy. Otherwise choose Don't run. Never bypass malware detections or disable SmartScreen.",
+    "Official GitHub Release",
+    "SHA-256 of the ZIP",
+    "In PowerShell, open the folder containing the downloaded ZIP and run:"
+  ],
+  "hr": [
+    "Besplatna Windows x64 igra. Instalacija igre nije potrebna; potreban je Microsoft Edge WebView2 Evergreen Runtime. Raspakirajte cijeli ZIP u zapisivu mapu i pokrenite Animated3DChess.exe. AI i lokalna igra rade offline; online multiplayer zahtijeva internet. Provjerite ažuriranja u Info kartici; instaliraju se ručno.",
+    "Preuzmi Portable ZIP",
+    "Odgovarajući izvorni kod",
+    "Windows SmartScreen",
+    "Ovaj EXE nije digitalno potpisan. Ako Windows protected your PC upozori na neprepoznatu aplikaciju, provjerite da ZIP potječe iz našeg službenog GitHub Releasea, usporedite SHA-256 s vrijednošću ispod i skenirajte raspakirane datoteke. Samo ako provjere prođu i vjerujete izvoru, možete odabrati More info → Run anyway, ako je dostupno i dopušteno pravilima uređaja. U suprotnom odaberite Don't run. Ne zaobilazite detekcije zlonamjernog softvera i ne isključujte SmartScreen.",
+    "Službeni GitHub Release",
+    "SHA-256 ZIP-a",
+    "U PowerShellu otvorite mapu s preuzetim ZIP-om i pokrenite:"
+  ],
+  "de": [
+    "Kostenloses Windows-x64-Spiel. Keine Spielinstallation erforderlich; Microsoft Edge WebView2 Evergreen Runtime wird benötigt. Entpacken Sie die gesamte ZIP-Datei in einen beschreibbaren Ordner und starten Sie Animated3DChess.exe. KI und lokale Partien funktionieren offline; Online-Partien benötigen Internet. Updates unter Info prüfen und manuell installieren.",
+    "Portable-ZIP herunterladen",
+    "Zugehöriger Quellcode",
+    "Windows SmartScreen",
+    "Diese EXE ist nicht digital signiert. Wenn Windows protected your PC vor einer unbekannten App warnt, prüfen Sie, ob die ZIP-Datei aus unserem offiziellen GitHub Release stammt, vergleichen Sie den SHA-256-Wert unten und scannen Sie die entpackten Dateien. Nur wenn alle Prüfungen erfolgreich sind und Sie der Quelle vertrauen, können Sie Weitere Informationen → Trotzdem ausführen wählen, sofern verfügbar und durch die Geräterichtlinien erlaubt. Andernfalls Nicht ausführen wählen. Keine Malware-Erkennung umgehen oder SmartScreen deaktivieren.",
+    "Offizielles GitHub Release",
+    "SHA-256 der ZIP-Datei",
+    "Öffnen Sie in PowerShell den Ordner mit der heruntergeladenen ZIP-Datei und führen Sie Folgendes aus:"
+  ],
+  "it": [
+    "Gioco gratuito per Windows x64. Nessuna installazione del gioco; è richiesto Microsoft Edge WebView2 Evergreen Runtime. Estrai tutto lo ZIP in una cartella scrivibile e avvia Animated3DChess.exe. IA e gioco locale funzionano offline; il multiplayer online richiede Internet. Controlla gli aggiornamenti in Info e installali manualmente.",
+    "Scarica ZIP portatile",
+    "Codice sorgente corrispondente",
+    "Windows SmartScreen",
+    "Questo EXE non è firmato digitalmente. Se Windows protected your PC segnala un'app non riconosciuta, verifica che lo ZIP provenga dal nostro GitHub Release ufficiale, confronta il suo SHA-256 con il valore qui sotto e analizza i file estratti. Solo se le verifiche hanno esito positivo e ritieni attendibile la fonte, puoi scegliere Ulteriori informazioni → Esegui comunque, se disponibile e consentito dai criteri del dispositivo. Altrimenti scegli Non eseguire. Non aggirare il rilevamento di malware e non disattivare SmartScreen.",
+    "GitHub Release ufficiale",
+    "SHA-256 dello ZIP",
+    "In PowerShell, apri la cartella contenente lo ZIP scaricato ed esegui:"
+  ],
+  "es": [
+    "Juego gratuito para Windows x64. No requiere instalar el juego; se necesita Microsoft Edge WebView2 Evergreen Runtime. Extrae todo el ZIP en una carpeta con permisos de escritura y ejecuta Animated3DChess.exe. La IA y las partidas locales funcionan sin conexión; el multijugador online requiere Internet. Consulta las actualizaciones en Info e instálalas manualmente.",
+    "Descargar ZIP portátil",
+    "Código fuente correspondiente",
+    "Windows SmartScreen",
+    "Este EXE no tiene firma digital. Si Windows protected your PC advierte de una aplicación desconocida, comprueba que el ZIP proviene de nuestro GitHub Release oficial, compara su SHA-256 con el valor de abajo y analiza los archivos extraídos. Solo si las comprobaciones son satisfactorias y confías en el origen, puedes elegir Más información → Ejecutar de todas formas, si está disponible y permitido por las directivas del dispositivo. De lo contrario, selecciona No ejecutar. No eludas detecciones de malware ni desactives SmartScreen.",
+    "GitHub Release oficial",
+    "SHA-256 del ZIP",
+    "En PowerShell, abre la carpeta que contiene el ZIP descargado y ejecuta:"
+  ]
+};
+            const chessPortableLabels = chessPortable[language] || chessPortable.en;
+            ["chess-portable-description","chess-portable-download","chess-portable-source","chess-portable-security-title","chess-portable-security-text","chess-portable-release-link","chess-portable-sha-label","chess-portable-hash-instruction"].forEach((id, i) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = chessPortableLabels[i];
+            });
         }
 
         if (slug === "tetris") {
