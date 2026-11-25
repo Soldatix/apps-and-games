@@ -60,6 +60,7 @@
     }
     </script>
 <link rel="stylesheet" href="assets/css/ag-phone-qr.css">
+<script defer src="assets/js/ag-portable-security.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -143,7 +144,9 @@
                     </div>
                     <p id="windows-portable-description" class="hero-text">Windows 10/11 (x64) · No installer. Extract the ZIP and run the EXE. Requires Microsoft Edge WebView2 Runtime. Updates are manual; saved data may reside in your Windows user profile.</p>
                     <p class="download-checksum-link"><a id="windows-portable-checksum" href="https://github.com/Soldatix/lotto-date-generator/releases/download/v1.0.2-portable/Date-Lotto-Generator-Windows-Portable-1.0.2-x64.zip.sha256" target="_blank" rel="noopener noreferrer">SHA-256 checksum</a></p>
-                </article>
+                
+<details data-ag-portable-security style="margin-top:12px;text-align:left;min-width:0"><summary id="ag-portable-security-title">Windows SmartScreen</summary><p class="hero-text" id="ag-portable-security-text">This EXE is not digitally signed. If Windows protected your PC reports an unrecognized app, verify that the ZIP came from our official GitHub Release, compare its SHA-256 with the value below and scan the extracted files. Only if these checks pass and you trust the source may you choose More info → Run anyway, if available and allowed by your device policy. Otherwise choose Don't run. Never bypass malware detections or disable SmartScreen.</p><p><a id="ag-portable-release-link" href="https://github.com/Soldatix/lotto-date-generator/releases/tag/v1.0.2-portable" target="_blank" rel="noopener noreferrer">Official GitHub Release</a></p><p><strong id="ag-portable-sha-label">SHA-256 of the ZIP</strong><br><code style="overflow-wrap:anywhere;word-break:break-word;user-select:all">90036379b4e245ab6f9b8a2affa31cdbd9a79bfb1ee07d4ddd0dd91216728225</code></p><p class="hero-text" id="ag-portable-hash-instruction">In PowerShell, open the folder containing the downloaded ZIP and run:</p><code style="display:block;overflow-wrap:anywhere;word-break:break-word;user-select:all">Get-FileHash -Algorithm SHA256 -LiteralPath &quot;Date-Lotto-Generator-Windows-Portable-1.0.2-x64.zip&quot;</code></details>
+</article>
             </div>
         </div>
     </section>
