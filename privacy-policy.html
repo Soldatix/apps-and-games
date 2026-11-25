@@ -37,7 +37,7 @@
     <div class="info-card">
         <span class="section-label">PRIVACY</span>
         <h1>Privacy Policy</h1>
-        <p>Last updated: November 8, 2026</p>
+        <p>Last updated: November 25, 2026</p>
 
         <h2>1. Introduction</h2>
         <p>Apps & Games is a website providing free online apps and browser-based games.</p>
@@ -205,8 +205,8 @@
         <h2>12. Apps &amp; Games Applications and Local Data</h2>
         <p>
             Apps &amp; Games publishes applications for the web, Windows and Android.
-            The following information explains how Digital Clock and Date Lotto Generator
-            handle data used by their application features. When you visit their web
+            The following information explains how Digital Clock, Date Lotto Generator and
+            Animated 3D Chess handle data used by their application features. When you visit their web
             versions or the Apps &amp; Games website, the website-related disclosures
             in this policy also apply where the relevant services are present.
         </p>
@@ -307,6 +307,84 @@
             local storage, depending on the operating system and installation
             method. Operating-system backup and synchronization services
             are governed by the settings and policies of their providers.
+        </p>
+
+        <h3 id="animated-3d-chess">12.5. Animated 3D Chess — Windows and Online Multiplayer</h3>
+        <p>
+            Animated 3D Chess does not require an Apps &amp; Games account. Local play,
+            including play against the computer or two players on one device, does not
+            require the multiplayer service. Game preferences and locally saved games
+            are stored on your device. In the Windows edition, the online session
+            credential is stored in Windows Credential Manager to support reconnection.
+            Microsoft Store installation and update checks are handled by Microsoft
+            under its own privacy practices.
+        </p>
+        <p>
+            When you choose online multiplayer, the game communicates with a service
+            hosted on Cloudflare Workers and Durable Objects. The service uses randomly
+            generated room codes and session credentials, player colour, moves, game
+            state and results, draw and rematch requests, activity timestamps and
+            connection information to establish, authenticate, synchronise and restore
+            games. It stores SHA-256 hashes of the player credentials in the room
+            record rather than the original credentials. The opposing authorised player
+            receives the room and game state needed for play. The multiplayer service
+            does not require names, email addresses or a player account.
+        </p>
+        <p>
+            The service also uses an IP-derived SHA-256 identifier and temporary request
+            counters to prevent abuse. The current counter window is 60 seconds, with
+            automated cleanup scheduled approximately one second after the window ends.
+            Hashed identifiers are not necessarily anonymous. Cloudflare processes
+            connection and other technical data as required to operate and protect its
+            services. Workers Observability, persistent Workers Logs and Traces are
+            disabled for this multiplayer Worker. This does not mean that Cloudflare
+            processes no technical or security data of its own.
+        </p>
+        <p>Online room records are configured to expire after the following periods
+            measured from the last recorded change to the room:</p>
+        <ul>
+            <li>Waiting for the second player: 1 hour.</li>
+            <li>Game in progress: 48 hours.</li>
+            <li>Finished game: 6 hours.</li>
+        </ul>
+        <p>
+            Moves and other accepted state changes, including a rematch, update the
+            room's timestamp; merely viewing the room does not extend the timer.
+            At expiry, the server is designed to close the room connections and
+            automatically delete the room's active stored data. Actual cleanup may
+            be delayed by service operation or failures. Cloudflare's SQLite Durable
+            Objects provide a point-in-time recovery window of up to 30 days, so
+            recently deleted data may remain recoverable during that window.
+        </p>
+        <p>
+            You may choose local play instead of using the multiplayer service. Leaving
+            an online room in the Windows app clears the locally stored session access
+            (with cleanup retried if required); it does not immediately delete the shared
+            server-side room. Locally stored preferences and saved games are separate
+            from server room records. See Section 12.4 for control of local data.
+        </p>
+        <p>
+            For privacy questions or requests concerning access, correction or deletion
+            of personal data, contact <a href="mailto:info@appsandgames.org">info@appsandgames.org</a>.
+            Include only information reasonably needed to identify the request, such as
+            the approximate date and the room code if relevant; never send a password
+            or session token. We may need to verify that a request relates to your data,
+            respect the rights of the other player, and explain any applicable technical
+            or legal limitations. Requests are assessed in accordance with applicable
+            privacy law. Because rooms expire automatically, a record may no longer exist.
+            Support emails are forwarded via Cloudflare Email Routing to our business
+            Gmail inbox and replies may come from
+            <a href="mailto:appsandgames.support@gmail.com">appsandgames.support@gmail.com</a>.
+            Information you provide in a support request is used to handle that request.
+        </p>
+        <p>
+            Related provider information:
+            <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer" target="_blank">Cloudflare Privacy Policy</a>,
+            <a href="https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/" rel="noopener noreferrer" target="_blank">Cloudflare storage and recovery documentation</a>,
+            <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a>
+            and <a href="https://privacy.microsoft.com/privacystatement" rel="noopener noreferrer" target="_blank">Microsoft Privacy Statement</a>.
+            Website-related disclosures elsewhere in this policy apply when the web
+            edition or external websites are used, where the relevant services are present.
         </p>
 
         <h2>13. Changes to This Privacy Policy</h2>
