@@ -1,0 +1,8 @@
+.ag-phone-qr { margin-top: 10px; width: 100%; min-width: 0; }
+.ag-phone-qr summary { box-sizing: border-box; width: 100%; cursor: pointer; text-align: center; padding: 8px 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-3); color: var(--text); font-size: .85rem; font-weight: 700; }
+.ag-phone-qr summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.ag-phone-qr:not([open]) .ag-phone-hide, .ag-phone-qr[open] .ag-phone-show { display: none; }
+.ag-phone-body { display: grid; justify-items: center; gap: 8px; text-align: center; margin-top: 10px; min-width: 0; }
+.ag-phone-body svg { display: block; width: 164px; max-width: 100%; height: auto; background: #fff; }
+.ag-phone-body p, .ag-phone-link { color: var(--text-secondary); font-size: .8rem; margin: 0; overflow-wrap: anywhere; max-width: 100%; }
+.ag-phone-link { text-decoration: underline; }
