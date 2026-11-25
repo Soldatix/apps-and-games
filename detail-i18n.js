@@ -805,6 +805,40 @@
             if (storeTitle) storeTitle.textContent = storeCopy[0];
             if (storeDescription) storeDescription.textContent = storeCopy[1];
             if (storeLink) storeLink.textContent = storeCopy[2];
+            const portableCopy = {
+                "en": [
+                    "Windows Portable",
+                    "Free Windows 11 x64 app. No installation required; Microsoft Edge WebView2 Runtime is required. Extract the entire ZIP into a writable folder and run the EXE. Core QR tools work offline.",
+                    "Download Portable ZIP"
+                ],
+                "hr": [
+                    "Windows Portable",
+                    "Besplatna aplikacija za Windows 11 x64. Instalacija aplikacije nije potrebna; potreban je Microsoft Edge WebView2 Runtime. Raspakirajte cijeli ZIP u mapu s pravom pisanja i pokrenite EXE. Osnovni QR alati rade bez interneta.",
+                    "Preuzmi Portable ZIP"
+                ],
+                "de": [
+                    "Windows Portable",
+                    "Kostenlose App für Windows 11 x64. Keine Installation der App nötig; Microsoft Edge WebView2 Runtime ist erforderlich. Entpacke die gesamte ZIP-Datei in einen beschreibbaren Ordner und starte die EXE. Die QR-Grundfunktionen sind offline verfügbar.",
+                    "Portable-ZIP herunterladen"
+                ],
+                "it": [
+                    "Windows Portable",
+                    "App gratuita per Windows 11 x64. Non richiede installazione; è necessario Microsoft Edge WebView2 Runtime. Estrai l'intero ZIP in una cartella scrivibile ed esegui il file EXE. Le funzioni QR principali funzionano offline.",
+                    "Scarica ZIP Portable"
+                ],
+                "es": [
+                    "Windows Portable",
+                    "App gratuita para Windows 11 x64. No requiere instalación; necesita Microsoft Edge WebView2 Runtime. Extrae todo el ZIP en una carpeta con permisos de escritura y ejecuta el EXE. Las funciones QR básicas funcionan sin conexión.",
+                    "Descargar ZIP Portable"
+                ]
+            };
+            const portable = portableCopy[language] || portableCopy.en;
+            const portableTitle = document.getElementById("qr-portable-title");
+            const portableDescription = document.getElementById("qr-portable-description");
+            const portableLink = document.getElementById("qr-portable-link");
+            if (portableTitle) portableTitle.textContent = portable[0];
+            if (portableDescription) portableDescription.textContent = portable[1];
+            if (portableLink) portableLink.textContent = portable[2];
             if (ad) ad.textContent = extra.ad;
         }
 
