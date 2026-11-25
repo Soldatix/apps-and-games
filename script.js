@@ -850,12 +850,40 @@ function trackEvent(eventName, parameters = {}) {
    RENDER APPS & GAMES
 ===================================================== */
 
+// Reuse locally generated SVGs from the static catalog, including the no-JS fallback.
+// Match the canonical production destination, never the localhost preview URL.
+const agPhoneQrTemplates = new Map(
+    Array.from(document.querySelectorAll("[data-static-catalog] .ag-phone-qr"), node => [node.dataset.agPhoneUrl, node.cloneNode(true)])
+);
+const agPhoneQrCopy = {
+    en: ["Open on phone", "Hide QR", "Scan with your phone camera to open the web version.", "QR code"],
+    hr: ["Otvori na mobitelu", "Sakrij QR", "Skenirajte kamerom mobitela za otvaranje web-verzije.", "QR kod"],
+    de: ["Auf dem Handy öffnen", "QR ausblenden", "Mit der Handykamera scannen, um die Webversion zu öffnen.", "QR-Code"],
+    it: ["Apri sul telefono", "Nascondi QR", "Scansiona con la fotocamera del telefono per aprire la versione web.", "Codice QR"],
+    es: ["Abrir en el móvil", "Ocultar QR", "Escanea con la cámara del móvil para abrir la versión web.", "Código QR"]
+};
+function agPhoneQrFor(app, language, wasOpen) {
+    if (app.status !== "LIVE" || !app.platforms?.some(platform => platform.startsWith("Web"))) return null;
+    const url = new URL(app.url, "https://appsandgames.org/").href;
+    const template = agPhoneQrTemplates.get(url);
+    if (!template) return null;
+    const node = template.cloneNode(true);
+    const copy = agPhoneQrCopy[language] || agPhoneQrCopy.en;
+    node.querySelector(".ag-phone-show").textContent = "📱 " + copy[0];
+    node.querySelector(".ag-phone-hide").textContent = copy[1];
+    node.querySelector(".ag-phone-hint").textContent = copy[2];
+    node.querySelector("svg").setAttribute("aria-label", copy[3] + " — " + app.name);
+    node.open = wasOpen.has(url);
+    return node;
+}
+
 function renderApps() {
     const appsGrid = document.getElementById("utilitiesGrid");
     const gamesGrid = document.getElementById("gamesGrid");
 
     if (!appsGrid || !gamesGrid) return;
 
+    const openPhoneUrls = new Set(Array.from(document.querySelectorAll(".ag-phone-qr[open]"), node => node.dataset.agPhoneUrl));
     appsGrid.innerHTML = "";
     gamesGrid.innerHTML = "";
 
@@ -908,6 +936,9 @@ function renderApps() {
                 >${t(isGame ? "playGame" : "openApp")}</a>
             </div>
         `;
+
+        const phoneQr = agPhoneQrFor(app, currentLanguage, openPhoneUrls);
+        if (phoneQr) card.querySelector(".app-content").appendChild(phoneQr);
 
         if (app.category === "utility") {
             appsGrid.appendChild(card);
