@@ -51,7 +51,7 @@ test("all catalog entries are in the HTML response, without running JavaScript",
 });
 
 test("existing JavaScript language enhancement stays intact while analytics requires opt-in", () => {
-    assert.match(html, /<script src="script\.js"><\/script>/);
+    assert.match(html, /<script src="script\.js(?:\?v=[A-Za-z0-9._-]+)?"><\/script>/);
     assert.match(script, /function renderApps\(\)/);
     assert.match(script, /cardTranslations\[currentLanguage\]/);
     assert.match(script, /setupAppTracking\(\)/);
