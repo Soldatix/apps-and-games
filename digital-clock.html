@@ -43,6 +43,7 @@
     }
     </script>
 <link rel="stylesheet" href="assets/css/ag-phone-qr.css">
+<script defer src="assets/js/ag-portable-security.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -119,7 +120,9 @@
                         <a id="windows-portable-help" class="secondary-button" href="/downloads/digital-clock/Installation.html?platform=windows#en-windows-portable">Portable instructions</a>
                     </div>
                     <p id="windows-portable-description" class="hero-text">Windows 10/11 x64 · v0.3.8 · No installation or WebView2 required. Extract all files and run digital-clock-rust-portable.exe. Keep vcruntime140.dll and NOTICES together with the app. Settings and backups are kept in Data. The built-in screensaver runs inside the application, not as a Windows .scr.</p>
-                </article>
+                
+<details data-ag-portable-security data-ag-signature-unconfirmed style="margin-top:12px;text-align:left;min-width:0"><summary id="ag-portable-security-title">Windows SmartScreen</summary><p class="hero-text" id="ag-portable-security-text">If Windows protected your PC reports an unrecognized app, verify that the ZIP came from our official GitHub Release, compare its SHA-256 with the value below and scan the extracted files. Only if these checks pass and you trust the source may you choose More info → Run anyway, if available and allowed by your device policy. Otherwise choose Don't run. Never bypass malware detections or disable SmartScreen.</p><p><a id="ag-portable-release-link" href="https://github.com/Soldatix/Digital-Clock-Rust/releases/tag/v0.3.8" target="_blank" rel="noopener noreferrer">Official GitHub Release</a></p><p><strong id="ag-portable-sha-label">SHA-256 of the ZIP</strong><br><code style="overflow-wrap:anywhere;word-break:break-word;user-select:all">19fe1c5d5e68c1648708701f8e3d95dfbf49b2f4e84716e94b413e07bbcc6893</code></p><p class="hero-text" id="ag-portable-hash-instruction">In PowerShell, open the folder containing the downloaded ZIP and run:</p><code style="display:block;overflow-wrap:anywhere;word-break:break-word;user-select:all">Get-FileHash -Algorithm SHA256 -LiteralPath &quot;Digital-Clock-Windows-Portable-v0.3.8.zip&quot;</code></details>
+</article>
 
                 <article class="platform-download-card" id="windows-store-card">
                     <div class="platform-download-heading">
