@@ -1,0 +1,14 @@
+/* Scoped share actions inside the existing phone QR disclosure. */
+.ag-phone-share-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; width:100%; min-width:0; }
+.ag-phone-share-actions button { box-sizing:border-box; min-width:0; min-height:40px; padding:8px 5px; border:1px solid var(--border); border-radius:8px; background:var(--surface-3); color:var(--text); font:inherit; font-size:.78rem; font-weight:700; cursor:pointer; overflow-wrap:anywhere; }
+.ag-phone-share-actions button:hover { background:var(--surface-2); }
+.ag-phone-share-actions button:focus-visible { outline:2px solid var(--primary); outline-offset:2px; }
+.ag-phone-share-actions button[data-ag-phone-action="print"] { grid-column:1/-1; }
+.ag-phone-body .ag-phone-share-status:empty { display:none; }
+.ag-phone-print-page { display:none; }
+@media print {
+ body.ag-phone-print > :not(.ag-phone-print-page) { display:none !important; }
+ html:has(body.ag-phone-print), body.ag-phone-print { background:#fff !important; color:#000 !important; }
+ body.ag-phone-print .ag-phone-print-page { display:block; text-align:center; color:#000; padding:20px; overflow-wrap:anywhere; }
+ body.ag-phone-print .ag-phone-print-page svg { display:block; width:70mm; max-width:100%; height:auto; margin:12mm auto; }
+}
