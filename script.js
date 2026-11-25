@@ -655,7 +655,7 @@ const apps = [
         url: "/qr-code-generator/",
         detailsUrl: "qr-code-generator.html",
         hasDownload: true,
-        platforms: ["Web / PWA", "Windows (Microsoft Store)"],
+        platforms: ["Web / PWA", "Windows (Microsoft Store)", "Windows Portable"],
         tags: ["QR Code", "Wi-Fi", "Privacy"],
         status: "LIVE",
         analyticsEvent: "open_app"

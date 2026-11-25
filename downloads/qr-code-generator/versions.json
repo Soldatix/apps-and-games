@@ -13,8 +13,8 @@
     },
     "windowsPortable": {
       "version": "1.0.0",
-      "published": false,
-      "downloadUrl": null
+      "published": true,
+      "downloadUrl": "https://github.com/Soldatix/apps-and-games/releases/download/qr-code-generator-portable-v1.0.0/AppsGames_QR_Code_Generator_Portable_v1.0.0_x64.zip"
     }
   }
 }
