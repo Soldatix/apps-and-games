@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "productId": "apps-games-animated-3d-chess",
+  "platforms": {
+    "webPwa": {
+      "version": "1.2.0",
+      "published": true,
+      "pageUrl": "https://chess.appsandgames.org/"
+    },
+    "windowsStore": {
+      "version": "1.2.0",
+      "published": true
+    },
+    "windowsPortable": {
+      "version": "1.2.0",
+      "published": true,
+      "downloadUrl": "https://appsandgames.org/wizard-chess-3d"
+    }
+  }
+}

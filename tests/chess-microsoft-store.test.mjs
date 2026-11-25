@@ -15,7 +15,7 @@ test('chess detail links to published Microsoft Store edition alongside original
   assert.equal(detail.split('id="web-app-open"').length - 1, 1);
   assert.match(detail, /href="https:\/\/chess\.appsandgames\.org\/\?install=web"/);
   assert.ok(detail.includes('href="' + store + '"'));
-  assert.match(detail, /platform-download-grid--two/);
+  assert.match(detail, /id="chess-portable-card"/);
   assert.match(style, /\.platform-download-grid--two\s*\{/);
   assert.match(style, /@media \(max-width: 760px\)/);
 });
@@ -39,7 +39,7 @@ test('catalog advertises Windows while preserving existing chess play link', () 
   const next = catalog.indexOf('name:', pos+10);
   assert.ok(pos >= 0);
   const entry = catalog.slice(pos, next);
-  assert.match(entry, /platforms: \["Web \/ PWA", "Windows \(Microsoft Store\)"\]/);
+  assert.match(entry, /platforms: \["Web \/ PWA", "Windows \(Microsoft Store\)", "Windows Portable"\]/);
   assert.match(entry, /https:\/\/chess\.appsandgames\.org\//);
   assert.match(main, /Web \/ PWA · Windows \(Microsoft Store\)/);
   assert.match(main, /href="wizard-chess-3d"/);
@@ -54,30 +54,30 @@ test('chess JSON-LD carries Windows distribution link', () => {
   assert.match(data.gamePlatform, /Windows 11/);
 });
 
-test('Windows V1.1 store card remains correct alongside Web/PWA V1.1 online support',()=>{
-  assert.match(detail,/Windows 10\/11 x64 · V1\.1 · Free/);
-  assert.match(detail,/Online Multiplayer — Web\/PWA and Windows V1\.1/);
+test('Windows V1.2.0 store card remains correct alongside Web/PWA V1.2.0 online support',()=>{
+  assert.match(detail,/Windows 10\/11 x64 · V1\.2\.0 · Free/);
+  assert.match(detail,/Online Multiplayer — Web\/PWA and Windows V1\.2\.0/);
   assert.match(detail,/Internet is required for online play/);
   const start=i18n.indexOf('if (slug === "wizard-chess-3d")');
   const stop=i18n.indexOf('if (slug === "tetris")',start);
   const section=i18n.slice(start,stop);
   assert.equal((section.match(/"storeDescription":/g)||[]).length,5);
   assert.match(section,/10-znakovni/);
-  assert.match(catalog,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
-  assert.match(main,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+  assert.match(catalog,/private online multiplayer and rematches with automatic color swaps on Web\/PWA and Windows V1\.2\.0/);
+  assert.match(main,/private online multiplayer and rematches with automatic color swaps on Web\/PWA and Windows V1\.2\.0/);
 });
 
-test('Web/PWA V1.1 and Microsoft Store V1.1 descriptions present cross-platform online play',()=>{
-  assert.match(detail,/online multiplayer in both V1\.1 editions/);
-  assert.match(detail,/Both Web\/PWA V1\.1 and Windows V1\.1 support online multiplayer/);
+test('Web/PWA V1.2.0 and Microsoft Store V1.2.0 descriptions present cross-platform online play',()=>{
+  assert.match(detail,/online multiplayer and rematches in V1\.2\.0/);
+  assert.match(detail,/Both V1\.2\.0 clients support online multiplayer/);
   assert.match(detail,/Internet is required for online play/);
   const start=i18n.indexOf('if (slug === "wizard-chess-3d")');
   const stop=i18n.indexOf('if (slug === "tetris")',start);
   const section=i18n.slice(start,stop);
   assert.equal((section.match(/"webDescription":/g)||[]).length,5);
   assert.equal((section.match(/"storeDescription":/g)||[]).length,5);
-  assert.match(section,/Web\/PWA V1\.1/);
+  assert.match(section,/Web\/PWA V1\.2\.0/);
   assert.doesNotMatch(section,/Web\/PWA remains local\/offline|noch nicht in Web\/PWA/);
-  assert.match(main,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
-  assert.match(catalog,/private online multiplayer on Web\/PWA V1\.1 and Windows V1\.1/);
+  assert.match(main,/private online multiplayer and rematches with automatic color swaps on Web\/PWA and Windows V1\.2\.0/);
+  assert.match(catalog,/private online multiplayer and rematches with automatic color swaps on Web\/PWA and Windows V1\.2\.0/);
 });

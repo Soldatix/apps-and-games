@@ -13,3 +13,9 @@
   Access-Control-Allow-Origin: *
   Cache-Control: no-cache, no-store, must-revalidate
   X-Content-Type-Options: nosniff
+
+/downloads/animated-3d-chess/versions.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: no-cache, no-store, must-revalidate
+  X-Content-Type-Options: nosniff
