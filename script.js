@@ -653,7 +653,7 @@ const apps = [
         image: "assets/images/qr-code-generator-cover.webp",
         button: "OPEN APP →",
         url: "/qr-code-generator/",
-        detailsUrl: "qr-code-generator.html",
+        detailsUrl: "qr-code-generator",
         hasDownload: true,
         platforms: ["Web / PWA", "Windows (Microsoft Store)", "Windows Portable"],
         tags: ["QR Code", "Wi-Fi", "Privacy"],
