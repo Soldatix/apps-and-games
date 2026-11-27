@@ -1,0 +1,30 @@
+/* Scoped section styles. Portal tokens take precedence; fallback enables isolated QA. */
+.ht-page{margin:0;min-height:100vh;background:var(--bg,#050c1f);color:var(--text,#f4f7ff);font:16px/1.65 system-ui,sans-serif}
+.ht-page [hidden]{display:none!important}.ht-page a{color:inherit}.ht-page a:focus-visible,.ht-page input:focus-visible,.ht-page select:focus-visible{outline:3px solid #cf9a12;outline-offset:3px}.ht-page .ht-skip{position:absolute;left:1rem;top:-100px;background:var(--surface,#112045);padding:.6rem;z-index:100}.ht-page .ht-skip:focus{top:1rem}.ht-header{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;padding:.7rem 1rem;max-width:1200px;margin:auto}.ht-header img{max-width:140px;height:auto}.ht-nav,.ht-controls,.ht-language-links,.ht-actions{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}.ht-nav a,.ht-language-links a{padding:.35rem}.ht-main{max-width:1120px;margin:auto;padding:1.2rem clamp(14px,3vw,32px) 2rem}.ht-main h1{font-size:clamp(1.8rem,4vw,3.1rem);line-height:1.16;margin:.6rem 0 1rem;overflow-wrap:anywhere}.ht-main h2{line-height:1.3;font-size:1.2rem;margin:.6rem 0}.ht-intro{text-align:center;padding:1rem 0 1.6rem}.ht-intro p,.ht-lead{font-size:1.08rem;color:var(--text-secondary,#bac9e6)}.ht-filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem}.ht-filters label{min-width:0;display:grid;gap:.3rem;font-weight:600}.ht-page input,.ht-page select{max-width:100%;min-width:0;color:var(--text,#f4f7ff);background:var(--surface-2,#112045);border:1px solid var(--border,#7786a3);border-radius:.5rem;padding:.65rem;font:inherit}.ht-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem}.ht-card,.ht-article,.ht-related{background:var(--surface,#0b1730);border:1px solid var(--border,#475675);border-radius:1rem;padding:1.15rem;overflow-wrap:anywhere}.ht-card{display:flex;flex-direction:column}.ht-card h2 a{text-decoration:underline;text-underline-offset:3px}.ht-tag{font-size:.85rem;font-weight:700;color:var(--text-secondary,#bac9e6);margin:0}.ht-app{font-size:.86rem;margin-top:auto;padding-top:.5rem;font-weight:600}.ht-article,.ht-related{max-width:790px;margin:1rem auto}.ht-article ol{padding-inline-start:1.6rem}.ht-article li{margin:.8rem 0}.ht-tip{border-inline-start:4px solid #d9a400;padding:.5rem 1rem;background:var(--surface-2,#112045);border-radius:.4rem}.ht-actions{margin-top:1.5rem}.ht-cta{display:inline-block;max-width:100%;padding:.7rem 1rem;border:1px solid currentColor;border-radius:.6rem;text-decoration:none;font-weight:700}.ht-footer{text-align:center;padding:1rem}.ht-ad-slot{max-width:728px;min-height:90px;margin:auto}.hero-buttons .how-to-tips-button{color:#2c2100;background:#f7cf58;border-color:#b08209}.hero-buttons .how-to-tips-button:hover{background:#ffdf80;color:#2c2100}.ht-page [aria-current="page"]{font-weight:700;text-decoration:underline}.ht-page .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(max-width:760px){.ht-filters{grid-template-columns:1fr}.ht-header .ht-nav{order:3;flex-basis:100%;justify-content:center}.ht-page .ht-nav a{font-size:.92rem}.ht-ad-slot{max-width:320px;min-height:50px}.ht-actions{align-items:stretch;flex-direction:column}.ht-cta{text-align:center}}
+/* Local fallback when portal stylesheet is not present; existing portal token overrides remain compatible. */
+:root[data-theme="light"] .ht-page{--bg:#eff5ff;--surface:#fff;--surface-2:#eef4ff;--text:#09162c;--text-secondary:#516684;--border:#c7d5ea}
+/* Extra homepage link: allow nav to wrap rather than compress the language menu. */
+@media(max-width:1100px){.header-content:has([data-ht-home]){flex-wrap:wrap}.header-content:has([data-ht-home]) .main-nav{flex-wrap:wrap}}
+@media(max-width:760px){.header-content:has([data-ht-home]) .main-nav{order:3;flex-basis:100%;justify-content:center}}
+
+/* Keep surfaces and foregrounds in the same resolved theme, including on the first paint.
+   Do not inherit the portal's body color/background transitions on guide pages. */
+.ht-page{transition:none;color-scheme:dark;--bg:#050c1f;--surface:#0b1730;--surface-2:#112045;--text:#f4f7ff;--text-secondary:#b2c5e8;--border:#475675;--header-bg:#0b1730}
+:root[data-theme="light"] .ht-page{color-scheme:light;--header-bg:#ffffff}
+.ht-page .site-header{background:var(--header-bg)}
+.ht-page .ht-nav a,.ht-page .ht-nav a:hover,.ht-page .ht-nav a:focus-visible{color:var(--text-secondary);transition:none}
+.ht-page .ht-card,.ht-page .ht-article,.ht-page .ht-related,.ht-page .ht-tip{color:var(--text)}
+.ht-page .ht-cta{transition:none}
+.ht-page .ht-cta.primary-button{background:#1748b2;color:#fff;border-color:#1748b2}
+.ht-page .ht-cta.primary-button:hover{background:#123c98;color:#fff}
+.ht-page .ht-cta.secondary-button{background:var(--surface-2);color:var(--text);border-color:var(--border)}
+.ht-page .ht-cta.secondary-button:hover{background:var(--surface);color:var(--text)}
+
+/* Astra final review: visible keyboard skip link and non-text control contrast. */
+.ht-page{--ht-control-border:#92a5c8;--ht-focus:#ffcf58}
+:root[data-theme="light"] .ht-page{--ht-control-border:#526786;--ht-focus:#1748b2}
+.ht-page .ht-skip{position:fixed;z-index:1100;color:var(--text);border:2px solid var(--ht-control-border);border-radius:.4rem}
+.ht-page .ht-skip:focus{top:1rem}
+.ht-page #ht-search{border-color:var(--ht-control-border)}
+.ht-page a:focus-visible,.ht-page input:focus-visible,.ht-page select:focus-visible,.ht-page button:focus-visible{outline:3px solid var(--ht-focus);outline-offset:3px}
