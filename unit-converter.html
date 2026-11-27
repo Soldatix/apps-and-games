@@ -44,6 +44,13 @@
     </script>
 <link rel="stylesheet" href="assets/css/ag-phone-qr.css">
 <link rel="stylesheet" href="assets/css/ag-phone-share.css">
+<style id="ag-content-phase2-style">
+.ag-content-phase2{box-sizing:border-box;width:100%;max-width:1080px;margin:2rem auto;padding:clamp(16px,3vw,32px);overflow-wrap:anywhere;color:inherit}
+.ag-content-phase2 h2{font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3;margin:0 0 .8rem}
+.ag-content-phase2 p{line-height:1.65;margin:.7rem 0;max-width:85ch}
+.ag-content-phase2 a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+.ag-content-phase2 select{font:inherit;max-width:100%;margin:.4rem}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -121,6 +128,12 @@
             <p>Apps & Games does not require an account to open Unit Converter. Conversion calculations run directly in the browser. Availability and appearance can vary slightly depending on the device, browser version and screen size. For information about analytics, advertising and privacy choices on this website, see the <a href="privacy-policy"><u>Privacy Policy</u></a>.</p>
         </div>
     </section>
+<section class="ag-content-phase2" id="ag-content-phase2" lang="en" aria-labelledby="ag-content-phase2-title">
+    <h2 id="ag-content-phase2-title" data-ag-content="0">Check units before comparing numbers</h2>
+    <p data-ag-content="1">A 5 km walk is approximately 3.11 miles, while 2 kg is approximately 4.41 pounds. Select the category and both units before entering the value. Round only the final result to the precision you need.</p>
+    <p data-ag-content="2">For digital transfers, 80 megabits per second corresponds to a theoretical 10 megabytes per second in decimal units (8 bits per byte). Actual downloads may be slower. Do not confuse decimal MB with binary MiB or US gallons with imperial gallons; check the unit label in the converter.</p>
+    <p><a href="https://appsandgames.org/speed-test/" data-ag-content="3">Measure your internet speed</a></p>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -138,5 +151,23 @@
 <script src="assets/js/ag-phone-qr-detail.js"></script>
 <script src="assets/js/ag-web-card.js"></script>
 <script src="assets/js/ag-phone-share.js"></script>
+<script id="ag-content-phase2-script">
+(()=>{"use strict";
+const data={"en":["Check units before comparing numbers","A 5 km walk is approximately 3.11 miles, while 2 kg is approximately 4.41 pounds. Select the category and both units before entering the value. Round only the final result to the precision you need.","For digital transfers, 80 megabits per second corresponds to a theoretical 10 megabytes per second in decimal units (8 bits per byte). Actual downloads may be slower. Do not confuse decimal MB with binary MiB or US gallons with imperial gallons; check the unit label in the converter.","Measure your internet speed"],"hr":["Provjerite jedinice prije usporedbe brojeva","Šetnja od 5 km iznosi približno 3,11 milja, a 2 kg približno 4,41 funti. Prije unosa vrijednosti odaberite kategoriju i obje jedinice. Zaokružite tek konačni rezultat na potrebnu preciznost.","Kod digitalnog prijenosa 80 megabita u sekundi teoretski odgovara brzini od 10 megabajta u sekundi u decimalnim jedinicama (8 bitova po bajtu). Stvarno preuzimanje može biti sporije. Ne miješajte decimalne MB s binarnim MiB niti američke s britanskim galonima; provjerite oznaku jedinice.","Izmjerite brzinu interneta"],"de":["Einheiten vor dem Zahlenvergleich prüfen","Eine Strecke von 5 km entspricht etwa 3,11 Meilen, 2 kg entsprechen etwa 4,41 Pfund. Wähle vor der Eingabe die Kategorie und beide Einheiten. Runde erst das Endergebnis auf die benötigte Genauigkeit.","Bei digitalen Übertragungen entsprechen 80 Megabit pro Sekunde theoretisch 10 Megabyte pro Sekunde in Dezimaleinheiten (8 Bit pro Byte). Downloads können langsamer sein. Verwechsle dezimale MB nicht mit binären MiB oder US-Gallonen mit imperialen Gallonen; prüfe die Einheitenbezeichnung.","Internetgeschwindigkeit messen"],"it":["Controlla le unità prima di confrontare i numeri","Una camminata di 5 km equivale a circa 3,11 miglia, mentre 2 kg equivalgono a circa 4,41 libbre. Scegli la categoria e le due unità prima di inserire il valore. Arrotonda soltanto il risultato finale alla precisione necessaria.","Nei trasferimenti digitali, 80 megabit al secondo corrispondono teoricamente a 10 megabyte al secondo in unità decimali (8 bit per byte). I download reali possono essere più lenti. Non confondere MB decimali con MiB binari o galloni USA con galloni imperiali; controlla l'unità.","Misura la velocità Internet"],"es":["Comprueba las unidades antes de comparar cifras","Un paseo de 5 km equivale aproximadamente a 3,11 millas, mientras que 2 kg equivalen a unas 4,41 libras. Selecciona la categoría y ambas unidades antes de introducir el valor. Redondea solo el resultado final a la precisión necesaria.","En transferencias digitales, 80 megabits por segundo equivalen teóricamente a 10 megabytes por segundo en unidades decimales (8 bits por byte). Las descargas reales pueden ser más lentas. No confundas MB decimales con MiB binarios ni galones estadounidenses con imperiales; comprueba la etiqueta.","Mide tu velocidad de Internet"]};
+const section=document.getElementById("ag-content-phase2");
+const fields=section.querySelectorAll("[data-ag-content]");
+const own=section.querySelector("#ag-content-language");
+const apply=()=>{
+ const requested=(own?own.value:document.documentElement.lang||"en").toLowerCase().split("-")[0];
+ const language=Object.prototype.hasOwnProperty.call(data,requested)?requested:"en";
+ const text=data[language];
+ fields.forEach(el=>{el.textContent=text[Number(el.dataset.agContent)];});
+ section.lang=language;
+};
+if(own){own.hidden=false;own.parentElement.hidden=false;own.addEventListener("change",apply);}
+else {new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});}
+apply();
+})();
+</script>
 </body>
 </html>
