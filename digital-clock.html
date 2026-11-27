@@ -45,6 +45,13 @@
 <link rel="stylesheet" href="assets/css/ag-phone-qr.css">
 <script defer src="assets/js/ag-portable-security.js"></script>
 <link rel="stylesheet" href="assets/css/ag-phone-share.css">
+<style id="ag-content-phase2-style">
+.ag-content-phase2{box-sizing:border-box;width:100%;max-width:1080px;margin:2rem auto;padding:clamp(16px,3vw,32px);overflow-wrap:anywhere;color:inherit}
+.ag-content-phase2 h2{font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3;margin:0 0 .8rem}
+.ag-content-phase2 p{line-height:1.65;margin:.7rem 0;max-width:85ch}
+.ag-content-phase2 a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+.ag-content-phase2 select{font:inherit;max-width:100%;margin:.4rem}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -192,6 +199,12 @@
             <p>No Apps &amp; Games account is required. Settings are stored locally where supported. Read the <a href="privacy-policy"><u>Privacy Policy</u></a> for website analytics and privacy information.</p>
         </div>
     </section>
+<section class="ag-content-phase2" id="ag-content-phase2" lang="en" aria-labelledby="ag-content-phase2-title">
+    <h2 id="ag-content-phase2-title" data-ag-content="0">Which Digital Clock edition should you choose?</h2>
+    <p data-ag-content="1">For occasional use on a supported browser, start with the web edition. For a Windows system screen saver, choose the standard Windows Installer; Portable offers a screen saver inside the app instead. Choose Portable if you want to keep its files together without a traditional installation. Microsoft Store provides a separate installed edition.</p>
+    <p data-ag-content="2">Check the platform and version notes above before downloading. For bedside use, reduce brightness and avoid leaving a fixed bright image on an OLED display. A moving clock does not eliminate burn-in risk. Back up your settings before replacing or moving an installed edition.</p>
+    <p><a href="https://appsandgames.org/habit-tracker" data-ag-content="3">Plan routines with Habit Tracker</a></p>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -210,5 +223,23 @@
 <script src="assets/js/ag-phone-qr-detail.js"></script>
 <script src="assets/js/ag-web-card.js"></script>
 <script src="assets/js/ag-phone-share.js"></script>
+<script id="ag-content-phase2-script">
+(()=>{"use strict";
+const data={"en":["Which Digital Clock edition should you choose?","For occasional use on a supported browser, start with the web edition. For a Windows system screen saver, choose the standard Windows Installer; Portable offers a screen saver inside the app instead. Choose Portable if you want to keep its files together without a traditional installation. Microsoft Store provides a separate installed edition.","Check the platform and version notes above before downloading. For bedside use, reduce brightness and avoid leaving a fixed bright image on an OLED display. A moving clock does not eliminate burn-in risk. Back up your settings before replacing or moving an installed edition.","Plan routines with Habit Tracker"],"hr":["Koje izdanje Digital Clocka odabrati?","Za povremenu upotrebu u podržanom pregledniku krenite s web izdanjem. Za Windows sistemski čuvar zaslona odaberite standardni Installer; Portable nudi čuvar zaslona unutar aplikacije. Portable je prikladan ako želite držati datoteke zajedno bez klasične instalacije. Microsoft Store nudi zasebno instalirano izdanje.","Prije preuzimanja provjerite gornje napomene o platformi i verziji. Za korištenje uz krevet smanjite svjetlinu i izbjegavajte stalnu svijetlu sliku na OLED zaslonu. Pomicanje sata ne uklanja rizik trajnog otiska. Napravite kopiju postavki prije zamjene ili preseljenja izdanja.","Planirajte rutine uz Habit Tracker"],"de":["Welche Digital-Clock-Version passt zu dir?","Für gelegentliche Nutzung im unterstützten Browser eignet sich die Webversion. Für einen Windows-Systembildschirmschoner wähle den Standard-Installer; Portable bietet stattdessen einen Bildschirmschoner innerhalb der App. Portable hält die Dateien ohne klassische Installation zusammen. Der Microsoft Store bietet eine separate installierte Version.","Prüfe vor dem Download die Plattform- und Versionshinweise oben. Reduziere am Bett die Helligkeit und vermeide dauerhaft helle Standbilder auf OLED. Eine bewegte Uhr beseitigt das Einbrennrisiko nicht. Sichere die Einstellungen vor dem Austausch oder Umzug einer Version.","Routinen mit Habit Tracker planen"],"it":["Quale edizione di Digital Clock scegliere?","Per un uso occasionale in un browser supportato, prova l'edizione web. Per uno screensaver di sistema Windows scegli l'Installer standard; Portable offre invece uno screensaver interno all'app. Portable mantiene i file insieme senza installazione tradizionale. Microsoft Store offre un'edizione installata separata.","Controlla sopra le note su piattaforma e versione prima del download. Per l'uso sul comodino riduci la luminosità ed evita immagini fisse luminose su OLED. Un orologio in movimento non elimina il rischio di burn-in. Salva le impostazioni prima di sostituire o spostare un'edizione.","Pianifica le routine con Habit Tracker"],"es":["¿Qué edición de Digital Clock elegir?","Para uso ocasional en un navegador compatible, prueba la edición web. Para un salvapantallas del sistema Windows, elige el Installer estándar; Portable ofrece un salvapantallas dentro de la aplicación. Portable mantiene los archivos juntos sin instalación tradicional. Microsoft Store ofrece una edición instalada independiente.","Consulta las notas de plataforma y versión antes de descargar. Para usarlo junto a la cama, reduce el brillo y evita imágenes fijas luminosas en OLED. Un reloj en movimiento no elimina el riesgo de quemado. Guarda una copia de los ajustes antes de sustituir o trasladar una edición.","Planifica rutinas con Habit Tracker"]};
+const section=document.getElementById("ag-content-phase2");
+const fields=section.querySelectorAll("[data-ag-content]");
+const own=section.querySelector("#ag-content-language");
+const apply=()=>{
+ const requested=(own?own.value:document.documentElement.lang||"en").toLowerCase().split("-")[0];
+ const language=Object.prototype.hasOwnProperty.call(data,requested)?requested:"en";
+ const text=data[language];
+ fields.forEach(el=>{el.textContent=text[Number(el.dataset.agContent)];});
+ section.lang=language;
+};
+if(own){own.hidden=false;own.parentElement.hidden=false;own.addEventListener("change",apply);}
+else {new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});}
+apply();
+})();
+</script>
 </body>
 </html>

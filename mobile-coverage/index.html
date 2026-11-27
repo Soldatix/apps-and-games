@@ -32,6 +32,13 @@
     catch (_) {}
   </script>
   <script defer src="https://appsandgames.org/privacy-choice.js"></script>
+<style id="ag-content-phase2-style">
+.ag-content-phase2{box-sizing:border-box;width:100%;max-width:1080px;margin:2rem auto;padding:clamp(16px,3vw,32px);overflow-wrap:anywhere;color:inherit}
+.ag-content-phase2 h2{font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3;margin:0 0 .8rem}
+.ag-content-phase2 p{line-height:1.65;margin:.7rem 0;max-width:85ch}
+.ag-content-phase2 a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+.ag-content-phase2 select{font:inherit;max-width:100%;margin:.4rem}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -111,6 +118,12 @@
     <p data-i18n="aboutBody">This page embeds nPerf's official consultation maps. nPerf reports that these maps update every four hours and do not collect visitor data. The coverage and speed shown are informational and may not reflect your exact location indoors or at a given time.</p>
     <p><a href="https://www.nperf.com/" rel="noopener noreferrer" target="_blank" data-i18n="nperfLink">Learn more about nPerf</a> · <a href="https://appsandgames.org/privacy-policy.html" data-i18n="privacy">Privacy Policy</a></p>
   </section>
+<section class="ag-content-phase2" id="ag-content-phase2" lang="en" aria-labelledby="ag-content-phase2-title">
+    <h2 id="ag-content-phase2-title" data-ag-content="0">Compare coverage before choosing a mobile plan</h2>
+    <p data-ag-content="1">Choose the same country, location and technology for each available operator. Compare coverage around your home, workplace and usual routes, not just the city centre. Reported outdoor coverage does not guarantee indoor reception.</p>
+    <p data-ag-content="2">Use the speed layer to look for measured results near those locations. Sparse measurements do not necessarily mean poor service. If possible, test a SIM at the times and places where you actually use it. A speed test measures your current connection; the map provides context.</p>
+    <p><a href="https://appsandgames.org/speed-test/" data-ag-content="3">Test your current connection</a></p>
+</section>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
@@ -120,5 +133,23 @@
 </footer>
 <script src="./app.js"></script>
 <script src="https://appsandgames.org/assets/js/ag-language-menu.js"></script>
+<script id="ag-content-phase2-script">
+(()=>{"use strict";
+const data={"en":["Compare coverage before choosing a mobile plan","Choose the same country, location and technology for each available operator. Compare coverage around your home, workplace and usual routes, not just the city centre. Reported outdoor coverage does not guarantee indoor reception.","Use the speed layer to look for measured results near those locations. Sparse measurements do not necessarily mean poor service. If possible, test a SIM at the times and places where you actually use it. A speed test measures your current connection; the map provides context.","Test your current connection"],"hr":["Usporedite pokrivenost prije odabira mobilne tarife","Za svakog dostupnog operatera odaberite istu državu, lokaciju i tehnologiju. Usporedite pokrivenost oko doma, radnog mjesta i uobičajenih ruta, a ne samo u središtu grada. Prikazana vanjska pokrivenost ne jamči signal u zatvorenom.","Na sloju brzina potražite mjerenja blizu tih lokacija. Malo mjerenja ne znači nužno lošu uslugu. Ako možete, isprobajte SIM karticu na mjestima i u vrijeme kada je doista koristite. Test brzine mjeri trenutačnu vezu, a karta daje kontekst.","Testirajte trenutačnu vezu"],"de":["Netzabdeckung vor der Tarifwahl vergleichen","Wähle für jeden verfügbaren Anbieter dasselbe Land, denselben Ort und dieselbe Technologie. Vergleiche die Abdeckung zu Hause, am Arbeitsplatz und auf üblichen Wegen, nicht nur im Stadtzentrum. Angezeigte Außenabdeckung garantiert keinen Empfang in Gebäuden.","Suche in der Geschwindigkeitskarte nach Messungen in der Nähe. Wenige Messungen bedeuten nicht zwangsläufig schlechten Empfang. Teste möglichst eine SIM-Karte zu deinen üblichen Nutzungszeiten und an den relevanten Orten. Ein Speedtest misst die aktuelle Verbindung; die Karte liefert Kontext.","Aktuelle Verbindung testen"],"it":["Confronta la copertura prima di scegliere un piano mobile","Seleziona lo stesso paese, luogo e tecnologia per ogni operatore disponibile. Confronta la copertura presso casa, lavoro e tragitti abituali, non solo in centro. La copertura esterna indicata non garantisce la ricezione negli edifici.","Cerca misurazioni vicine a quei luoghi sulla mappa delle velocità. Poche misurazioni non indicano necessariamente un servizio scarso. Se possibile, prova una SIM nei luoghi e negli orari in cui la usi davvero. Il test misura la connessione attuale; la mappa offre il contesto.","Verifica la connessione attuale"],"es":["Compara la cobertura antes de elegir una tarifa móvil","Selecciona el mismo país, lugar y tecnología para cada operador disponible. Compara la cobertura en casa, en el trabajo y en tus rutas habituales, no solo en el centro. La cobertura exterior indicada no garantiza recepción dentro de edificios.","Busca mediciones próximas en la capa de velocidades. La falta de mediciones no implica necesariamente un servicio deficiente. Si puedes, prueba una SIM en los lugares y horarios en que la utilizas. Una prueba de velocidad mide la conexión actual; el mapa aporta contexto.","Comprueba tu conexión actual"]};
+const section=document.getElementById("ag-content-phase2");
+const fields=section.querySelectorAll("[data-ag-content]");
+const own=section.querySelector("#ag-content-language");
+const apply=()=>{
+ const requested=(own?own.value:document.documentElement.lang||"en").toLowerCase().split("-")[0];
+ const language=Object.prototype.hasOwnProperty.call(data,requested)?requested:"en";
+ const text=data[language];
+ fields.forEach(el=>{el.textContent=text[Number(el.dataset.agContent)];});
+ section.lang=language;
+};
+if(own){own.hidden=false;own.parentElement.hidden=false;own.addEventListener("change",apply);}
+else {new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});}
+apply();
+})();
+</script>
 </body>
 </html>

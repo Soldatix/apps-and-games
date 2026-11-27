@@ -33,6 +33,13 @@
   </style>
 <link rel="stylesheet" href="assets/css/ag-phone-qr.css">
 <link rel="stylesheet" href="assets/css/ag-phone-share.css">
+<style id="ag-content-phase2-style">
+.ag-content-phase2{box-sizing:border-box;width:100%;max-width:1080px;margin:2rem auto;padding:clamp(16px,3vw,32px);overflow-wrap:anywhere;color:inherit}
+.ag-content-phase2 h2{font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.3;margin:0 0 .8rem}
+.ag-content-phase2 p{line-height:1.65;margin:.7rem 0;max-width:85ch}
+.ag-content-phase2 a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+.ag-content-phase2 select{font:inherit;max-width:100%;margin:.4rem}
+</style>
 </head>
 <body>
 <header class="site-header"><div class="header-content">
@@ -70,11 +77,35 @@
     <h2>About this app</h2><p>Create scannable QR codes for Wi-Fi access, website links, text, e-mail, international telephone numbers, SMS drafts, vCard contacts and GPS locations.</p><h3>What you can do</h3><ul><li>Eight QR types</li><li>PNG and SVG downloads, printing and image copying where supported</li><li>Six interface languages: English, Croatian, German, Italian, Spanish and French</li><li>Light, dark and system themes; responsive mobile layout</li></ul><h3>How to use it</h3><p>Choose a QR type, enter the details and click Generate. Scan the result with your phone before sharing or printing. For locations, you can enter coordinates or request your device location with permission.</p><h3>Privacy and security</h3><p>QR payloads are generated in your browser; the generator has no advertising, analytics or external scripts. Only language and theme preferences are saved. Location access requires your permission; Google Maps receives coordinates only if you open its link.</p><h3>Web / PWA</h3><p>Use in your browser or install the PWA on supported devices. Core QR generation works offline after the first successful setup.</p><h3>See donation options</h3><p>The app is free. You can optionally support further Apps &amp; Games development through the official portal.</p><p><a href="https://appsandgames.org/#info" target="_blank" rel="noopener noreferrer"><u>See donation options ↗</u></a></p><h3>Official links</h3><p><a href="/">Apps &amp; Games</a> · <a href="/privacy-policy.html">Privacy Policy</a></p><figure><img class="qr-detail-cover" src="assets/social/qr-code-generator.jpg" width="1200" height="630" alt="QR Code Generator Apps &amp; Games cover" loading="lazy"></figure>
   </div></section>
 
+<section class="ag-content-phase2" id="ag-content-phase2" lang="en" aria-labelledby="ag-content-phase2-title">
+    <h2 id="ag-content-phase2-title" data-ag-content="0">Choose the right QR format</h2>
+    <p data-ag-content="1">Use Wi-Fi for a guest network, URL for a web page, text for a short message, email or SMS for a prepared draft, phone for a dialable number, vCard for contact details and GPS for a meeting location. A scanner may ask for confirmation before opening or acting on the content.</p>
+    <p data-ag-content="2">For a guest network use a separate password if possible: anyone with the QR image can read the credentials. Keep a clear border around printed codes, avoid stretching them and scan the final print with a phone. Export SVG for scalable artwork or PNG for ordinary sharing.</p>
+    <p><a href="https://appsandgames.org/qr-code-generator/" data-ag-content="3">Open QR Code Generator</a></p>
+</section>
 </main>
 <footer class="site-footer"><div class="footer-content"><div>© <span id="currentYear"></span> Apps &amp; Games</div><div class="footer-links"><a href="/">Home</a><a href="/#apps">Apps</a><a href="/#games">Games</a><a href="privacy-policy">Privacy Policy</a></div></div></footer>
 <script src="detail-i18n.js"></script>
 <script src="assets/js/ag-phone-qr-detail.js"></script>
 <script src="assets/js/ag-web-card.js"></script>
 <script src="assets/js/ag-phone-share.js"></script>
+<script id="ag-content-phase2-script">
+(()=>{"use strict";
+const data={"en":["Choose the right QR format","Use Wi-Fi for a guest network, URL for a web page, text for a short message, email or SMS for a prepared draft, phone for a dialable number, vCard for contact details and GPS for a meeting location. A scanner may ask for confirmation before opening or acting on the content.","For a guest network use a separate password if possible: anyone with the QR image can read the credentials. Keep a clear border around printed codes, avoid stretching them and scan the final print with a phone. Export SVG for scalable artwork or PNG for ordinary sharing.","Open QR Code Generator"],"hr":["Odaberite odgovarajuću vrstu QR koda","Koristite Wi-Fi za mrežu za goste, URL za web-stranicu, tekst za kratku poruku, e-poštu ili SMS za pripremljeni nacrt, telefon za broj, vCard za kontakt i GPS za mjesto susreta. Skener može zatražiti potvrdu prije otvaranja ili izvršavanja radnje.","Za mrežu za goste po mogućnosti koristite zasebnu lozinku: svatko tko ima sliku QR koda može pročitati pristupne podatke. Ostavite prazan rub pri ispisu, ne rastežite kod i skenirajte završni otisak telefonom. SVG je prikladan za skaliranje, a PNG za obično dijeljenje.","Otvori QR Code Generator"],"de":["Das passende QR-Format wählen","Nutze WLAN für ein Gastnetz, URL für eine Webseite, Text für eine kurze Nachricht, E-Mail oder SMS für einen Entwurf, Telefon für eine Rufnummer, vCard für Kontakte und GPS für einen Treffpunkt. Der Scanner kann vor dem Öffnen oder Ausführen eine Bestätigung verlangen.","Nutze für Gäste möglichst ein separates Passwort: Jeder mit dem QR-Bild kann die Zugangsdaten lesen. Lass beim Druck einen freien Rand, verzerr den Code nicht und scanne den fertigen Ausdruck mit dem Handy. SVG eignet sich zum Skalieren, PNG zum üblichen Teilen.","QR Code Generator öffnen"],"it":["Scegli il formato QR adatto","Usa Wi-Fi per una rete ospiti, URL per una pagina web, testo per un breve messaggio, email o SMS per una bozza, telefono per un numero, vCard per un contatto e GPS per un luogo di incontro. Lo scanner può chiedere conferma prima di aprire o eseguire un'azione.","Per gli ospiti usa una password separata, se possibile: chiunque abbia l'immagine QR può leggere le credenziali. Lascia un bordo libero in stampa, non deformare il codice e scansiona la stampa finale con il telefono. SVG è adatto alla grafica scalabile, PNG alla condivisione comune.","Apri QR Code Generator"],"es":["Elige el formato QR adecuado","Usa Wi-Fi para una red de invitados, URL para una página web, texto para un mensaje breve, correo o SMS para un borrador, teléfono para un número, vCard para un contacto y GPS para un punto de encuentro. El escáner puede pedir confirmación antes de abrir o ejecutar una acción.","Usa una contraseña independiente para invitados si es posible: cualquiera con la imagen QR puede leer las credenciales. Deja un margen libre al imprimir, no deformes el código y escanea la impresión final con el teléfono. SVG sirve para gráficos escalables y PNG para compartir normalmente.","Abrir QR Code Generator"]};
+const section=document.getElementById("ag-content-phase2");
+const fields=section.querySelectorAll("[data-ag-content]");
+const own=section.querySelector("#ag-content-language");
+const apply=()=>{
+ const requested=(own?own.value:document.documentElement.lang||"en").toLowerCase().split("-")[0];
+ const language=Object.prototype.hasOwnProperty.call(data,requested)?requested:"en";
+ const text=data[language];
+ fields.forEach(el=>{el.textContent=text[Number(el.dataset.agContent)];});
+ section.lang=language;
+};
+if(own){own.hidden=false;own.parentElement.hidden=false;own.addEventListener("change",apply);}
+else {new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});}
+apply();
+})();
+</script>
 </body>
 </html>
