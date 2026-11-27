@@ -2,7 +2,7 @@ window.APP_I18N = {
     en: {
         pageTitle: "Apps & Games — Free Apps and Games",
         pageDescription: "Discover free apps and games for web, Windows and Android, including Digital Clock, practical tools and browser games.",
-        homeLabel: "Apps & Games Home", navLabel: "Main navigation", navApps: "Apps", navGames: "Games", navInfo: "Info",
+        homeLabel: "Apps & Games Home", navLabel: "Main navigation", navApps: "Apps", navGames: "Games", navHowTo: "How-To & Tips", heroHowTo: "💡 How-To & Tips", navInfo: "Info",
         languageLabel: "Language", selectLanguage: "Select language", themeLabel: "Toggle theme",
         heroSubtitle: "Free Apps and Games",
         heroText: "Discover practical apps and fun games in one place. Use many instantly in your browser, and download Windows or Android versions where available. No Apps & Games account is required.",
@@ -26,7 +26,7 @@ window.APP_I18N = {
     hr: {
         pageTitle: "Apps & Games — besplatne aplikacije i igre",
         pageDescription: "Otkrijte besplatne aplikacije i igre za web, Windows i Android, uključujući Digital Clock, praktične alate i igre za preglednik.",
-        homeLabel: "Početna stranica Apps & Games", navLabel: "Glavna navigacija", navApps: "Aplikacije", navGames: "Igre", navInfo: "Info",
+        homeLabel: "Početna stranica Apps & Games", navLabel: "Glavna navigacija", navApps: "Aplikacije", navGames: "Igre", navHowTo: "Upute i savjeti", heroHowTo: "💡 Upute i savjeti", navInfo: "Info",
         languageLabel: "Jezik", selectLanguage: "Odaberi jezik", themeLabel: "Promijeni temu",
         heroSubtitle: "Besplatne aplikacije i igre",
         heroText: "Otkrijte praktične aplikacije i zabavne igre na jednom mjestu. Mnoge možete koristiti odmah u pregledniku, a gdje je dostupno možete preuzeti Windows ili Android verziju. Apps & Games račun nije potreban.",
@@ -50,7 +50,7 @@ window.APP_I18N = {
     de: {
         pageTitle: "Apps & Games — kostenlose Apps und Spiele",
         pageDescription: "Entdecke kostenlose Apps und Spiele für Web, Windows und Android, darunter Digital Clock, praktische Tools und Browserspiele.",
-        homeLabel: "Apps & Games Startseite", navLabel: "Hauptnavigation", navApps: "Apps", navGames: "Spiele", navInfo: "Info",
+        homeLabel: "Apps & Games Startseite", navLabel: "Hauptnavigation", navApps: "Apps", navGames: "Spiele", navHowTo: "Anleitungen & Tipps", heroHowTo: "💡 Anleitungen & Tipps", navInfo: "Info",
         languageLabel: "Sprache", selectLanguage: "Sprache auswählen", themeLabel: "Design wechseln",
         heroSubtitle: "Kostenlose Apps und Spiele",
         heroText: "Entdecke praktische Apps und unterhaltsame Spiele an einem Ort. Viele kannst du sofort im Browser nutzen; verfügbare Windows- oder Android-Versionen kannst du herunterladen. Ein Apps-&-Games-Konto ist nicht nötig.",
@@ -66,7 +66,7 @@ window.APP_I18N = {
     it: {
         pageTitle: "Apps & Games — app e giochi gratuiti",
         pageDescription: "Scopri app e giochi gratuiti per web, Windows e Android, tra cui Digital Clock, strumenti pratici e giochi per browser.",
-        homeLabel: "Pagina iniziale di Apps & Games", navLabel: "Navigazione principale", navApps: "App", navGames: "Giochi", navInfo: "Info", languageLabel: "Lingua", selectLanguage: "Seleziona la lingua", themeLabel: "Cambia tema",
+        homeLabel: "Pagina iniziale di Apps & Games", navLabel: "Navigazione principale", navApps: "App", navGames: "Giochi", navHowTo: "Guide e consigli", heroHowTo: "💡 Guide e consigli", navInfo: "Info", languageLabel: "Lingua", selectLanguage: "Seleziona la lingua", themeLabel: "Cambia tema",
         heroSubtitle: "App e giochi gratuiti", heroText: "Scopri app pratiche e giochi divertenti in un unico posto. Molti funzionano subito nel browser; dove disponibile puoi scaricare la versione Windows o Android. Non serve un account Apps & Games.", exploreApps: "Scopri le app", playGames: "Gioca", speedTest: "⚡ Speed Test",
         appsLabel: "📱 APP", appsHeading: "App utili", appsText: "Scopri app pratiche per l'uso quotidiano. La maggior parte è disponibile sul web, mentre alcuni progetti offrono anche versioni Windows e Android.", gamesLabel: "🎮 GIOCHI", gamesHeading: "Giochi per browser da avviare subito", gamesText: "Scegli tra rompicapi e giochi arcade e gioca direttamente nel browser. La raccolta attuale include Tetris, UFO Invaders: Neon Defense, Phoenix Arcade e Neon Pac-Man.",
         aboutLabel: "INFORMAZIONI SU APPS & GAMES", aboutHeading: "App e giochi gratuiti in un unico posto", aboutText1: "Apps & Games è una raccolta indipendente di app pratiche e giochi divertenti pubblicati con il nome Soldatix. L'obiettivo è semplice: rendere i progetti utili facili da trovare, capire e usare.", aboutText2: "Molti progetti funzionano direttamente nel browser, mentre alcune app sono disponibili anche come versioni Windows e Android da scaricare. La raccolta unisce app pratiche come Digital Clock, Date Lotto Generator, Emoji Copy & Paste e Unit Converter a giochi per browser come Tetris, UFO Invaders: Neon Defense, Phoenix Arcade e Neon Pac-Man.", aboutText3: "Ogni progetto è sviluppato come esperienza indipendente, con comandi chiari, layout adattabili e navigazione semplice. Nel tempo potranno essere aggiunti nuove app, giochi e miglioramenti, mentre i progetti esistenti continueranno a ricevere correzioni e aggiornamenti di usabilità.",
@@ -78,7 +78,7 @@ window.APP_I18N = {
     es: {
         pageTitle: "Apps & Games — aplicaciones y juegos gratis",
         pageDescription: "Descubre aplicaciones y juegos gratuitos para web, Windows y Android, incluido Digital Clock, herramientas prácticas y juegos de navegador.",
-        homeLabel: "Inicio de Apps & Games", navLabel: "Navegación principal", navApps: "Apps", navGames: "Juegos", navInfo: "Info", languageLabel: "Idioma", selectLanguage: "Seleccionar idioma", themeLabel: "Cambiar tema",
+        homeLabel: "Inicio de Apps & Games", navLabel: "Navegación principal", navApps: "Apps", navGames: "Juegos", navHowTo: "Guías y consejos", heroHowTo: "💡 Guías y consejos", navInfo: "Info", languageLabel: "Idioma", selectLanguage: "Seleccionar idioma", themeLabel: "Cambiar tema",
         heroSubtitle: "Aplicaciones y juegos gratis", heroText: "Descubre aplicaciones prácticas y juegos divertidos en un solo lugar. Muchos funcionan directamente en el navegador; cuando esté disponible puedes descargar la versión para Windows o Android. No necesitas una cuenta de Apps & Games.", exploreApps: "Explorar apps", playGames: "Jugar", speedTest: "⚡ Test de velocidad",
         appsLabel: "📱 APPS", appsHeading: "Aplicaciones útiles", appsText: "Explora aplicaciones prácticas para el uso diario. La mayoría está disponible en la web y algunos proyectos también ofrecen versiones para Windows y Android.", gamesLabel: "🎮 JUEGOS", gamesHeading: "Juegos de navegador para jugar al instante", gamesText: "Elige entre puzles y juegos arcade y empieza a jugar directamente en el navegador. La colección actual incluye Tetris, UFO Invaders: Neon Defense, Phoenix Arcade y Neon Pac-Man.",
         aboutLabel: "ACERCA DE APPS & GAMES", aboutHeading: "Aplicaciones y juegos gratis en un solo lugar", aboutText1: "Apps & Games es una colección independiente de aplicaciones prácticas y juegos entretenidos publicados con el nombre Soldatix. El objetivo es sencillo: hacer que los proyectos útiles sean fáciles de encontrar, entender y usar.", aboutText2: "Muchos proyectos funcionan directamente en el navegador, mientras que algunas apps también están disponibles como versiones descargables para Windows y Android. La colección combina apps prácticas como Digital Clock, Date Lotto Generator, Emoji Copy & Paste y Unit Converter con juegos de navegador como Tetris, UFO Invaders: Neon Defense, Phoenix Arcade y Neon Pac-Man.", aboutText3: "Cada proyecto se desarrolla como una experiencia independiente centrada en controles claros, diseños adaptables y navegación sencilla. Con el tiempo se podrán añadir nuevas apps, juegos y mejoras, mientras que los proyectos existentes seguirán recibiendo correcciones y mejoras de uso.",

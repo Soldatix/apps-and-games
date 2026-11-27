@@ -407,6 +407,9 @@ function applyLanguage(language, shouldTrack = false) {
     const descriptionMeta = document.querySelector('meta[name="description"]');
     if (descriptionMeta) descriptionMeta.setAttribute("content", t("pageDescription"));
 
+    document.querySelectorAll("[data-ht-home]").forEach(link => {
+        link.href = "/how-to-tips/" + (currentLanguage === "en" ? "" : currentLanguage + "/");
+    });
     localStorage.setItem("appsGamesLanguage", currentLanguage);
     renderApps();
 
@@ -1000,7 +1003,12 @@ function applyTheme(theme) {
 }
 
 const savedTheme = localStorage.getItem("theme");
-applyTheme(savedTheme === "light" ? "light" : "dark");
+const htSystemTheme = window.matchMedia("(prefers-color-scheme: light)");
+function htApplySystemTheme() {
+    if (localStorage.getItem("theme") === "system") applyTheme(htSystemTheme.matches ? "light" : "dark");
+}
+applyTheme(savedTheme === "system" ? (htSystemTheme.matches ? "light" : "dark") : savedTheme === "light" ? "light" : "dark");
+htSystemTheme.addEventListener("change", htApplySystemTheme);
 
 if (themeToggle) {
     themeToggle.addEventListener("click", () => {
